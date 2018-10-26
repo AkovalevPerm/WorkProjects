@@ -1,0 +1,29 @@
+<ToMSRfromReestrMSPCatalogDataChanges xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://eais.com/kmsz.xsd">
+  <RequestInfo>test</RequestInfo>
+  <Items>
+    <Item>
+      <state>created</state>
+      <Timestamp>2018-01-01T12:05:35.185</Timestamp>
+      <Classifier>
+        <guid>6e758c67-8264-4b6a-85d2-45df998c516d</guid>
+        <code>1234</code>
+        <Social>
+          <guid>6e758c67-8264-4b6a-85d2-45df998c517d</guid>
+          <code>123</code>
+          <name>TestSocName</name>
+        </Social>
+        <Category>
+          <guid>6e858c67-8264-4b6a-85d2-45df998c517d</guid>
+          <code>1</code>
+          <name>Category 1</name>
+          <note>Category 1 Note</note>
+        </Category>
+        <Provision>
+          <guid>7e858c67-8264-4b6a-85d2-45df998c517d</guid>
+          <code>1</code>
+          <name>ProvisionDefinition 1</name>
+        </Provision>
+      </Classifier>
+    </Item>
+  </Items>
+</ToMSRfromReestrMSPCatalogDataChanges>

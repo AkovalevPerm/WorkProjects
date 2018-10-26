@@ -1,0 +1,1697 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://eais.com/tomsrfromtu.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://eais.com/tomsrfromtu.xsd"
+    xmlns:tns="http://eais.com/tomsrfromtu.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ToMSRfromTU" type="tns:ToMSRfromTUType"/>
+  <xs:complexType name="ToMSRfromTUType">
+    <xs:sequence>
+      <xs:element name="RequestInfo" minOccurs='0' type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Заполняется, если сообщение является ответом на запрос, и в запросе был заполнен данный параметр, или если сообщение является запросом</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Items" minOccurs='0' type="tns:ItemsType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name ="ItemsType">
+    <xs:sequence maxOccurs="unbounded" minOccurs='0'>
+      <xs:element name="Item" type="tns:ItemType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='ItemType'>
+    <xs:sequence>
+      <xs:element name='state' type='tns:stateType'>
+        <xs:annotation>
+          <xs:documentation>Тип изменения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='Timestamp' type='xs:dateTime'>
+        <xs:annotation>
+          <xs:documentation>Дата и время изменения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='changedAttributes' minOccurs='0' type='tns:changedAttributesType' />
+      <xs:choice minOccurs="1">
+        <xs:element name='beneficiary' minOccurs='0' type='tns:beneficiaryType'/>
+        <xs:element name='movement' minOccurs='0' type='tns:movementType'/>
+        <xs:element name='document' minOccurs='0' type='tns:documentType'/>
+        <xs:element name='changeName' minOccurs='0' type='tns:changeNameType'/>
+        <xs:element name='beneficiaryPreferentialCategory' minOccurs='0' type='tns:beneficiaryPreferentialCategoryType'/>
+        <xs:element name='disability' minOccurs='0' type='tns:disabilityType'/>
+        <xs:element name='registrationBeneficiary' minOccurs='0' type='tns:registrationBeneficiaryType'/>
+        <xs:element name='paymentAppointment' minOccurs='0' type='tns:paymentAppointmentType'/>
+        <xs:element name='changeAppointmentPayment' minOccurs='0' type='tns:changeAppointmentPaymentType'/>
+        <xs:element name='factBenefits' minOccurs='0' type='tns:factBenefitsType'/>
+        <xs:element name='location' minOccurs='0' type='tns:locationType'/>
+        <xs:element name='structure' minOccurs='0' type='tns:structureType'/>
+        <xs:element name='zaiavlenieNaGosUslugu' minOccurs='0' type='tns:zaiavlenieNaGosUsluguType'/>
+        <xs:element name='сhlenSemi' minOccurs='0' type='tns:сhlenSemiType'/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name ="changedAttributesType">
+    <xs:sequence maxOccurs="unbounded" minOccurs='0'>
+      <xs:element name="Attribute" type="tns:AttributeType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='AttributeType'>
+    <xs:sequence>
+      <xs:element name='name' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Наименование изменяемого атрибута</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='beneficiaryType'>
+    <xs:annotation>
+      <xs:documentation>Льготополучатель</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор получателя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="familyName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Фамилия льгополучателя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="firstName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Имя льгополучателя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="patronymic" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Отчество льготополучателя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gender" type="tns:genderType">
+        <xs:annotation>
+          <xs:documentation>Пол</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="birthDate" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата рождения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="snils" minOccurs="0" type="tns:snilsType">
+        <xs:annotation>
+          <xs:documentation>СНИЛС</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="INN" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>ИНН</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="email" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Адрес электронной почты</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="phone" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Номер телефона</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="education" minOccurs="0" type="tns:educationType">
+        <xs:annotation>
+          <xs:documentation>Образование</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="birthCountry" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Страна рождения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="birthRegion" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Область рождения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="birthTown" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Город рождения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="birthDistrict" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Район рождения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="totalExperience" minOccurs="0" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Общий стаж</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="additionalInformation" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Дополнительные сведения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="location" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Проживание</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор проживания</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="number" minOccurs="0" type="xs:integer">
+              <xs:annotation>
+                <xs:documentation>Номер дома</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="houseNumber" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Номер строения</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="appartment" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Квартира</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="territory">
+              <xs:annotation>
+                <xs:documentation>Территория</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="guid" type="tns:guid">
+                    <xs:annotation>
+                      <xs:documentation>Уникальный идентификатор территории</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="street" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Улица</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="guid" type="tns:guid">
+                    <xs:annotation>
+                      <xs:documentation>Уникальный идентификатор улицы</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="registration" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Прописка</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор прописки</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="number" minOccurs="0" type="xs:integer">
+              <xs:annotation>
+                <xs:documentation>Номер дома</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="houseNumber" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Номер строения</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="appartment" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Квартира</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="territory">
+              <xs:annotation>
+                <xs:documentation>Территория</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="guid" type="tns:guid">
+                    <xs:annotation>
+                      <xs:documentation>Уникальный идентификатор территории</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="street" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Улица</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="guid" type="tns:guid">
+                    <xs:annotation>
+                      <xs:documentation>Уникальный идентификатор улицы</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="citizenship" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Гражданство</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор страны</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время создания объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Creator" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Создатель</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EditTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время последнего редактирования объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Editor" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Последний редактор объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='movementType'>
+    <xs:annotation>
+      <xs:documentation>Перемещение</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор получателя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="depatureDate" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата убытия</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="addressType" minOccurs="0" type="tns:addressTypeType">
+        <xs:annotation>
+          <xs:documentation>Тип адреса</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="depatureAddress">
+        <xs:annotation>
+          <xs:documentation>Прописка</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор проживания</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="number" minOccurs="0" type="xs:integer">
+              <xs:annotation>
+                <xs:documentation>Номер дома</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="houseNumber" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Номер строения</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="appartment" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Квартира</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="territory">
+              <xs:annotation>
+                <xs:documentation>Территория</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="guid" type="tns:guid">
+                    <xs:annotation>
+                      <xs:documentation>Уникальный идентификатор территории</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="street" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Улица</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="guid" type="tns:guid">
+                    <xs:annotation>
+                      <xs:documentation>Уникальный идентификатор улицы</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="beneficiary">
+        <xs:annotation>
+          <xs:documentation>Личность</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор личности</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="movementCause" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Причина перемещения</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор причины перемещения</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время создания объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Creator" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Создатель</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EditTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время последнего редактирования объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Editor" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Последний редактор объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='documentType'>
+    <xs:annotation>
+      <xs:documentation>Удостоверяющий документ</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор удоствоеряющего документа</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="series" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Серия</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="number" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Номер</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="issueDate" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата выдачи документа</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="endDate" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата прекращения действительности документа</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="orgName" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Орган, выдавший документ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="note" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Примечание</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kindDocument">
+        <xs:annotation>
+          <xs:documentation>Вид удостоверяющего документа</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор вида удостоверяющего документа</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="beneficiary">
+        <xs:annotation>
+          <xs:documentation>Личность</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор личности</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="issuedBy" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Орган, выдавший документ</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор органа, выдавшего документ</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время создания объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Creator" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Создатель</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EditTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время последнего редактирования объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Editor" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Последний редактор объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='changeNameType'>
+    <xs:annotation>
+      <xs:documentation>Изменение ФИО</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор изменения ФИО</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="familyName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Фамилия</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="firstName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Имя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="patronymic" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Отчество</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="changeDate" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата изменения ФИО</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="beneficiary">
+        <xs:annotation>
+          <xs:documentation>Личность</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор личности</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время создания объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Creator" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Создатель</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EditTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время последнего редактирования объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Editor" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Последний редактор объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='beneficiaryPreferentialCategoryType'>
+    <xs:annotation>
+      <xs:documentation>Льготная категория личности</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор льготной категории личности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="appointmentDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата назначения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="cancellationDate" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата отмены</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="note" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Примечание</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="document" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Удостоверяющий документ</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор удостоверяющего документа</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="preferentialCategory">
+        <xs:annotation>
+          <xs:documentation>Льготная категория</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор льготной категории</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="actDisability" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Акт инвалидности</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор инвалидности</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="beneficiary">
+        <xs:annotation>
+          <xs:documentation>Личность</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор личности</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время создания объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Creator" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Создатель</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EditTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время последнего редактирования объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Editor" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Последний редактор объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='disabilityType'>
+    <xs:annotation>
+      <xs:documentation>Инвалидность</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор инвалидности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="group" minOccurs="0" type="tns:groupType">
+        <xs:annotation>
+          <xs:documentation>Группа инвалидности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="referenceNumberVTEK" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Номер справки ВТЭК</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="issueDateVTEK" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата выдачи справки ВТЭК</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="orgName" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Орган, выдавший справку ВТЭК</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="disabilityDegree" minOccurs="0" type="tns:groupType">
+        <xs:annotation>
+          <xs:documentation>Степень ограничения трудоспособности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="referenceIssuedBy" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Орган, выдавший документ</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор органа, выдавшего документ</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="beneficiaryPreferentialCategory">
+        <xs:annotation>
+          <xs:documentation>Льготная категория личности</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор льготной категории личности</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время создания объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Creator" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Создатель</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EditTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время последнего редактирования объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Editor" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Последний редактор объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='registrationBeneficiaryType'>
+    <xs:annotation>
+      <xs:documentation>Учет личности</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор учета личности</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="registrationDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата постановки на учет</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="deregistrationDate" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата снятия с учета</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="socialProtectionAuthority">
+        <xs:annotation>
+          <xs:documentation>Орган СЗ</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор органа СЗ</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="beneficiary">
+        <xs:annotation>
+          <xs:documentation>Личность</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор личности</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deregestrationReason" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Причина снятия с учета</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор причины снятия с учета</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время создания объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Creator" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Создатель</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EditTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время последнего редактирования объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Editor" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Последний редактор объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='paymentAppointmentType'>
+    <xs:annotation>
+      <xs:documentation>Назначение выплаты</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор назначения выплаты</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="confirmed" type="tns:boolType">
+        <xs:annotation>
+          <xs:documentation>Подтверждено</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="benefit">
+        <xs:annotation>
+          <xs:documentation>Льгота</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор льготы</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="medium">
+        <xs:annotation>
+          <xs:documentation>Носитель</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор личности</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="dependent" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Иждивенец</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор личности</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время создания объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Creator" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Создатель</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EditTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время последнего редактирования объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Editor" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Последний редактор объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='changeAppointmentPaymentType'>
+    <xs:annotation>
+      <xs:documentation>Изменение назначения выплаты</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор изменения назначения выплаты</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="appointmentDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата назначения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="cancellationDate" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата отмены</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="paymentType" type="tns:paymentTypeType">
+        <xs:annotation>
+          <xs:documentation>Дата отмены</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="period" minOccurs="0" type="tns:periodTypeType">
+        <xs:annotation>
+          <xs:documentation>Дата отмены</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="amount" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Сумма</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="note" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Примечание</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="socialProtectionAuthority">
+        <xs:annotation>
+          <xs:documentation>Орган социальной защиты</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор органа СЗ</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="beneficiaryPreferentialCategory">
+        <xs:annotation>
+          <xs:documentation>Льготная категория личности</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор льготной категории личности</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="recipient">
+        <xs:annotation>
+          <xs:documentation>Получатель</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор личности</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="paymentAppointment">
+        <xs:annotation>
+          <xs:documentation>Назначение выплаты</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор назначения выплаты</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время создания объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Creator" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Создатель</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EditTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время последнего редактирования объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Editor" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Последний редактор объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='factBenefitsType'>
+    <xs:annotation>
+      <xs:documentation>Факт льгот</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор факта льгот</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="accrualDate" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата начисления</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="receiveDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата получения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="amount" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Сумма</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="amountSocialPackage" minOccurs="0" type="xs:decimal">
+        <xs:annotation>
+          <xs:documentation>Сумма социального пакета</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="comments" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Комментарии</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="paymentMethod" minOccurs="0" type="tns:paymentMethodType">
+        <xs:annotation>
+          <xs:documentation>Способ оплаты</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="overpaymentDateFrom" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата переплаты с</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="overpaymentDateTo" minOccurs="0" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Дата переплаты по</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="mediumBenefit">
+        <xs:annotation>
+          <xs:documentation>Носитель льготы</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор льготной категории личности</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="dependent" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Иждивенец</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор личности</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="recipient" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Получатель</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор личности</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="benefit">
+        <xs:annotation>
+          <xs:documentation>Льгота</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор льготы</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="socialProtectionAuthority">
+        <xs:annotation>
+          <xs:documentation>Орган социальной защиты</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор органа СЗ</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="period" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Период</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор периода</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время создания объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Creator" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Создатель</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EditTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время последнего редактирования объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Editor" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Последний редактор объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='locationType'>
+    <xs:annotation>
+      <xs:documentation>Проживание</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор проживания</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="structure" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Строение</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор строения</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="territory">
+        <xs:annotation>
+          <xs:documentation>Территория</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор территории</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="street" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Улица</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор улицы</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="number" minOccurs="0" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Номер дома</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="houseNumber" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Номер строения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="index" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Почтовый индекс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="appartment" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Квартира</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="phone" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Телефон</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="area" minOccurs="0" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Площадь</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="numberRooms" minOccurs="0" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Количество комнат</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="deterioration" minOccurs="0" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Износ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="numberResidents" minOccurs="0" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Количество проживающих</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="otherCharacteristics" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Прочие характеристики</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="CreateTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время создания объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Creator" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Создатель</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EditTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время последнего редактирования объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Editor" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Последний редактор объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='structureType'>
+    <xs:annotation>
+      <xs:documentation>Строение</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор строения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FIAS" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Код ФИАС</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="type" minOccurs="0" type="tns:typeType">
+        <xs:annotation>
+          <xs:documentation>Вид строения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="number" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Номер</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="postIndex" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Почтовый индекс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="additional" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Дополнительное строение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="verificationCode" minOccurs="0" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Код подтверждения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="area">
+        <xs:annotation>
+          <xs:documentation>Район</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор территории</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="street" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Улица</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор улицы</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время создания объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Creator" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Создатель</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EditTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время последнего редактирования объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Editor" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Последний редактор объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='zaiavlenieNaGosUsluguType'>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid"/>
+      <xs:element name="DataVremia" type="xs:dateTime"/>
+      <xs:element name="ZaprosPortalaGosUsl" minOccurs="0" type="xs:string"/>
+      <xs:element name="OtvetNaZapros" minOccurs="0" type="xs:string"/>
+      <xs:element name="SoobshchenieObOshibke" minOccurs="0" type="xs:string"/>
+      <xs:element name="SoobshchenieObOshibkeShiny" minOccurs="0" type="xs:string"/>
+      <xs:element name="DataVremiaZaprosa" minOccurs="0" type="xs:dateTime"/>
+      <xs:element name="NomerZaprosa" minOccurs="0" type="xs:string"/>
+      <xs:element name="IdentifikDannyeLeechnosti" minOccurs="0" type="xs:string"/>
+      <xs:element name="OtvetVSvobodnoiForme" minOccurs="0" type="xs:string"/>
+      <xs:element name="DataIspolneniia" minOccurs="0" type="xs:dateTime"/>
+      <xs:element name="OriginalyDokPolucheny" type="tns:boolType"/>
+      <xs:element name="ZaprosPortalaGosUslParsed" minOccurs="0" type="xs:string"/>
+      <xs:element name="GosUsluga">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="StatusZaprosa" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Zaiavitel" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Opekaemyi" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Ispolnitel" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="OrganSZ" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="PrichinaOtkaza" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Rezultat" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время создания объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Creator" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Создатель</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EditTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время последнего редактирования объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Editor" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Последний редактор объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='сhlenSemiType'>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid"/>
+      <xs:element name="IdentifikDannyeLeechnosti" minOccurs="0" type="xs:string"/>
+      <xs:element name="Shkolnik" minOccurs="0" type="tns:shkolnikType"/>
+      <xs:element name="Zaiavlenie">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Leechnost" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RodstvOtn" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время создания объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Creator" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Создатель</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EditTime" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Время последнего редактирования объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Editor" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Последний редактор объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="stateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="updated" />
+      <xs:enumeration value="created" />
+      <xs:enumeration value="deleted" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="boolType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Да" />
+      <xs:enumeration value="Нет" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="periodTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Месяц" />
+      <xs:enumeration value="Квартал" />
+      <xs:enumeration value="Полугодие" />
+      <xs:enumeration value="Год" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="paymentTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Периодическая" />
+      <xs:enumeration value="Разовая" />
+      <xs:enumeration value="Сторнировка" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="genderType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Мужской" />
+      <xs:enumeration value="Женский" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="educationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Общее" />
+      <xs:enumeration value="Среднее профессиональное" />
+      <xs:enumeration value="Высшее" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="addressTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Прописка" />
+      <xs:enumeration value="Проживание" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="groupType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Первая" />
+      <xs:enumeration value="Вторая" />
+      <xs:enumeration value="Третья" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="paymentMethodType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="на счет в сбербанк" />
+      <xs:enumeration value="ведом. для предпр. связи с доставкой" />
+      <xs:enumeration value="ведом. для предпр. связи без доставки" />
+      <xs:enumeration value="переводом через предпр. связи" />
+      <xs:enumeration value="разовым поруч. через предпр. связи" />
+      <xs:enumeration value="ведомостью через кассу органа СЗН" />
+      <xs:enumeration value="на счет в альтерн. банк" />
+      <xs:enumeration value="ведом. для альтерн. предпр. с доставкой" />
+      <xs:enumeration value="ведом. для альтерн. предпр. без доставки" />
+      <xs:enumeration value="раз. поруч. через альтерн. предпр. связи" />
+      <xs:enumeration value="перечисление на счет организации" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="typeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Аварийное" />
+      <xs:enumeration value="Непригодное для проживания" />
+      <xs:enumeration value="Общежитие" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="snilsType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="^\d{3}-\d{3}-\d{3}-\d{2}$" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="shkolnikType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Дошкольник" />
+      <xs:enumeration value="Учащийся" />
+      <xs:enumeration value="Работает" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

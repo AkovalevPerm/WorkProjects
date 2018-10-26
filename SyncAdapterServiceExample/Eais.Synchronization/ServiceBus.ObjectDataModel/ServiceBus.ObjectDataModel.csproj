@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{569FA297-1733-4E65-810F-3A19549DF609}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceBus.ObjectDataModel</RootNamespace>
+    <AssemblyName>ServiceBus.ObjectDataModel</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ChangesToSqlBTMonitor, Version=1.0.0.1, Culture=neutral, PublicKeyToken=e5ad39f116a43e0b, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.1-alpha02\lib\net45\ChangesToSqlBTMonitor.dll</HintPath>
+    </Reference>
+    <Reference Include="ExternalLangDef, Version=1.0.0.0, Culture=neutral, PublicKeyToken=50dc27591ed591e6, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.1-alpha02\lib\net45\ExternalLangDef.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSSoft.Services.CurrentUserService, Version=1.0.0.1, Culture=neutral, PublicKeyToken=087bc7ccdc1b0bb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.1-alpha02\lib\net45\ICSSoft.Services.CurrentUserService.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSSoft.Services.UnityFactory, Version=1.0.0.1, Culture=neutral, PublicKeyToken=6389c2e26f4059bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.1-alpha02\lib\net45\ICSSoft.Services.UnityFactory.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business, Version=1.0.0.1, Culture=neutral, PublicKeyToken=c17bb360f7843f45, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.1-alpha02\lib\net45\ICSSoft.STORMNET.Business.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.DRDataService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cef244157a7f77f7, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.1-alpha02\lib\net45\ICSSoft.STORMNET.Business.DRDataService.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.LINQProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=68e48bb6f6293778, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.1-alpha02\lib\net45\ICSSoft.STORMNET.Business.LINQProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.LockService, Version=1.0.0.1, Culture=neutral, PublicKeyToken=68ac0e47b5ef94d8, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.1-alpha02\lib\net45\ICSSoft.STORMNET.Business.LockService.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.MSSQLDataService, Version=1.0.0.1, Culture=neutral, PublicKeyToken=49b42003269a4a66, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.1-alpha02\lib\net45\ICSSoft.STORMNET.Business.MSSQLDataService.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.ODBCDataService, Version=1.0.0.1, Culture=neutral, PublicKeyToken=4c6916a347bdf8b1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.1-alpha02\lib\net45\ICSSoft.STORMNET.Business.ODBCDataService.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.OracleDataService, Version=1.0.0.1, Culture=neutral, PublicKeyToken=b24b342e1d86de22, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.1-alpha02\lib\net45\ICSSoft.STORMNET.Business.OracleDataService.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.PostgresDataService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c1da4b21bda90afe, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.1-alpha02\lib\net45\ICSSoft.STORMNET.Business.PostgresDataService.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Collections, Version=1.0.0.1, Culture=neutral, PublicKeyToken=898f36b7a907d804, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.1-alpha02\lib\net45\ICSSoft.STORMNET.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.DataObject, Version=1.0.0.1, Culture=neutral, PublicKeyToken=023a90c13b0ca8dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.1-alpha02\lib\net45\ICSSoft.STORMNET.DataObject.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.FunctionalLanguage, Version=1.0.0.1, Culture=neutral, PublicKeyToken=88efc6f76e5cd161, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.1-alpha02\lib\net45\ICSSoft.STORMNET.FunctionalLanguage.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Tools, Version=1.0.0.1, Culture=neutral, PublicKeyToken=c824f5305b237be9, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.1-alpha02\lib\net45\ICSSoft.STORMNET.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.UserDataTypes, Version=1.0.0.1, Culture=neutral, PublicKeyToken=bc478021255def29, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.1-alpha02\lib\net45\ICSSoft.STORMNET.UserDataTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="IIS.Synchronizer, Version=1.0.0.1, Culture=neutral, PublicKeyToken=43d8c14c50b44c97, processorArchitecture=MSIL">
+      <HintPath>..\packages\IIS.Synchronizer.2.0.1\lib\net40\IIS.Synchronizer.dll</HintPath>
+    </Reference>
+    <Reference Include="IIS.University.FunctionBuilder, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e3b6ba329c8abe3b, processorArchitecture=MSIL">
+      <HintPath>..\packages\IIS.University.FunctionBuilder.1.1.2\lib\net40\IIS.University.FunctionBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="IIS.University.PKHelper, Version=1.4.0.0, Culture=neutral, PublicKeyToken=d8a331e0b60b65c9, processorArchitecture=MSIL">
+      <HintPath>..\packages\IIS.University.PKHelper.1.5.1\lib\net40\IIS.University.PKHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="LogService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1237387dc1b896f5, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.LogService.1.1.0\lib\net45\LogService.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=6.15.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Spatial.6.15.0\lib\portable-net45+win+wpa81\Microsoft.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=3.0.8.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.3.0.8\lib\net45\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.022\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=1.13.183.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.1.13.183.0\lib\net35\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.4.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BeneficiaryData\Location.cs" />
+    <Compile Include="BeneficiaryData\Registration.cs" />
+    <Compile Include="BeneficiaryData\tEducation.cs" />
+    <Compile Include="BeneficiaryData\tGender.cs" />
+    <Compile Include="CatalogData\Social.cs" />
+    <Compile Include="Common\AttributeDefinition.cs" />
+    <Compile Include="Common\Attribute\AliesType.cs" />
+    <Compile Include="Common\Attribute\XMLDataFieldType.cs" />
+    <Compile Include="Common\CatalogDataDefinition.cs" />
+    <Compile Include="Common\CatalogItemDefinition.cs" />
+    <Compile Include="Common\ConditionDefinition.cs" />
+    <Compile Include="Common\CriteriaDefinition.cs" />
+    <Compile Include="Common\DataChangesDefinition.cs" />
+    <Compile Include="Common\Interfaces\IChangedItem.cs" />
+    <Compile Include="Common\Interfaces\IChangeObject.cs" />
+    <Compile Include="Common\Interfaces\IChangeObjectItem.cs" />
+    <Compile Include="Common\Interfaces\IType.cs" />
+    <Compile Include="BeneficiaryData\Beneficiary.cs" />
+    <Compile Include="BeneficiaryData\Document.cs" />
+    <Compile Include="BeneficiaryData\KindDocument.cs" />
+    <Compile Include="Common\MergeItemDefinition.cs" />
+    <Compile Include="Common\SyncXMLDataObject.cs" />
+    <Compile Include="Common\SortingDefinition.cs" />
+    <Compile Include="Common\SourceKeyDefinition.cs" />
+    <Compile Include="FromTU\ChlenSemi.cs" />
+    <Compile Include="FromTU\tSchoolChild.cs" />
+    <Compile Include="FromTU\ZaiavlenieNaGosUslugu.cs" />
+    <Compile Include="ToTU\Act.cs" />
+    <Compile Include="ToTU\AuthorityIssuedDocument.cs" />
+    <Compile Include="ToTU\Benefit.cs" />
+    <Compile Include="ToTU\BenefitForCategory.cs" />
+    <Compile Include="ToTU\Country.cs" />
+    <Compile Include="ToTU\DeregestrationReason.cs" />
+    <Compile Include="ToTU\DisplacementReason.cs" />
+    <Compile Include="ToTU\FamilyRelation.cs" />
+    <Compile Include="ToTU\FundingSource.cs" />
+    <Compile Include="ToTU\GovernmentLevel.cs" />
+    <Compile Include="ToTU\KindDocument.cs" />
+    <Compile Include="ToTU\LegalAct.cs" />
+    <Compile Include="ToTU\Period.cs" />
+    <Compile Include="ToTU\PreferentialCategory.cs" />
+    <Compile Include="ToTU\SocialProtectionAuthority.cs" />
+    <Compile Include="ToTU\Specialist.cs" />
+    <Compile Include="ToTU\Street.cs" />
+    <Compile Include="ToTU\Territory.cs" />
+    <Compile Include="ToTU\ToTUChangeItem.cs" />
+    <Compile Include="Common\tState.cs" />
+    <Compile Include="Common\TypeDefinition.cs" />
+    <Compile Include="BeneficiaryData\Street.cs" />
+    <Compile Include="BeneficiaryData\Territory .cs" />
+    <Compile Include="BeneficiaryData\TypeDocument.cs" />
+    <Compile Include="CatalogData\Category.cs" />
+    <Compile Include="CatalogData\Classifier.cs" />
+    <Compile Include="CatalogData\FinSource.cs" />
+    <Compile Include="CatalogData\LegalLevel.cs" />
+    <Compile Include="CatalogData\Provision.cs" />
+    <Compile Include="CatalogData\Section.cs" />
+    <Compile Include="FIAS\FiasAddressObjects.cs" />
+    <Compile Include="FIAS\FiasDataDefinition.cs" />
+    <Compile Include="FIAS\FiasItemsDataDefinition.cs" />
+    <Compile Include="FIAS\FiasHousesStructures.cs" />
+    <Compile Include="FromTU\Address.cs" />
+    <Compile Include="FromTU\Beneficiary.cs" />
+    <Compile Include="FromTU\BeneficiaryPreferentialCategory.cs" />
+    <Compile Include="FromTU\ChangeAppointmentPayment.cs" />
+    <Compile Include="FromTU\ChangedItem.cs" />
+    <Compile Include="FromTU\ChangeName.cs" />
+    <Compile Include="FromTU\Disability.cs" />
+    <Compile Include="FromTU\Document.cs" />
+    <Compile Include="FromTU\FactBenefits.cs" />
+    <Compile Include="FromTU\Location.cs" />
+    <Compile Include="FromTU\Movement.cs" />
+    <Compile Include="FromTU\PaymentAppointment.cs" />
+    <Compile Include="FromTU\RegistrationBeneficiary.cs" />
+    <Compile Include="FromTU\Structure.cs" />
+    <Compile Include="FromTU\tAddressType.cs" />
+    <Compile Include="FromTU\tBool.cs" />
+    <Compile Include="FromTU\tEducation.cs" />
+    <Compile Include="FromTU\tGender.cs" />
+    <Compile Include="FromTU\tGroupDisability.cs" />
+    <Compile Include="FromTU\tPaymentMethod.cs" />
+    <Compile Include="FromTU\tPaymentType.cs" />
+    <Compile Include="FromTU\tPeriodType.cs" />
+    <Compile Include="FromTU\tTypeStructure.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToTU\TypeBenefit.cs" />
+    <Compile Include="ToTU\TypeDocument.cs" />
+    <Compile Include="ToTU\TypeLegalAct.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NuGetReferenceHintPathRewrite.targets" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Eais.Catalogs\Objects\Eais.Catalogs.Objects.csproj">
+      <Project>{0dcf622b-41cf-4f2d-9f96-d24ace419f64}</Project>
+      <Name>Eais.Catalogs.Objects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eais.GosUslugi\Objects\Eais.GosUslugi.Objects.csproj">
+      <Project>{4afa3ee4-d125-4cf8-9056-a45af44d9560}</Project>
+      <Name>Eais.GosUslugi.Objects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Eais.Leechnost\Objects\Eais.Leechnost.Objects.csproj">
+      <Project>{c6f5995f-c0f1-4a82-b331-d63b46d9199d}</Project>
+      <Name>Eais.Leechnost.Objects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="NuGetReferenceHintPathRewrite.targets" />
+</Project>

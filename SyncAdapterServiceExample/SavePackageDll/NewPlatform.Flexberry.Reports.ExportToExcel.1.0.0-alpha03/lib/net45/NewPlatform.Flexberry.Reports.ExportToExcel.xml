@@ -1,0 +1,869 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NewPlatform.Flexberry.Reports.ExportToExcel</name>
+    </assembly>
+    <members>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.CustomExcelFormatData">
+            <summary>
+            Вспомогательный класс для добавления в excel пользовательских стилей.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomExcelFormatData.PropertyIndex">
+            <summary>
+            Номер элемента (используется, чтобы была возможность правильно вернуть номер созданного пользовательского стиля).
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomExcelFormatData.CustomFormat">
+            <summary>
+            Пользовательский формат, для которого создаётся стиль.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomExcelFormatData.CellStyleId">
+            <summary>
+            Номер созданного пользовательского стиля.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomExcelFormatData.NumberFormatId">
+            <summary>
+            Номер созданного формата, который используется в стиле.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.CustomExcelFormatData.#ctor(System.Int32,System.String)">
+            <summary>
+            Конструктор вспомогательного класса для добавления в excel пользовательских стилей.
+            </summary>
+            <param name="propertyIndex">Номер элемента (используется, чтобы была возможность правильно вернуть номер созданного пользовательского стиля).</param>
+            <param name="customFormat">Пользовательский формат, для которого создаётся стиль.</param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.DataExport">
+            <summary>
+            Экспортируемые данные.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.DataExport.Records">
+            <summary>
+            Список экспортируемых записей.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.DataExport.ExportColumnDefinitions">
+            <summary>
+            Список выгружаемых столбцов.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportLimitedService">
+            <summary>
+            Класс для экспорта данных. Обрабатывает только детейлы 1 уровня.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportLimitedService.#ctor(NewPlatform.Flexberry.IExportParams,ICSSoft.STORMNET.Business.IDataService)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="exportParams">Параметры для экспорта.</param>
+            <param name="dataService">Сервис данных для загрузки объектов данных.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportLimitedService.FillRecordDetail(ICSSoft.STORMNET.DetailArray,NewPlatform.Flexberry.Reports.ExportToExcel.RecordExport@,System.Collections.Generic.List{NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition},NewPlatform.Flexberry.IHeaderCaption)">
+            <summary>
+            Заполнить запись детейла, с возможностью экспорта детейла в одну строку.
+            </summary>
+            <param name="propValue">Контейнер (массив) детейловых объектов.</param>
+            <param name="record">Экспортируемая запись.</param>
+            <param name="exportColumnDefinitions">Список стоблцов для выгрузки.</param>
+            <param name="detail">Заголовок столбца.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportLimitedService.GetStringedDetails(ICSSoft.STORMNET.DetailArray,ICSSoft.STORMNET.View)">
+            <summary>
+            Получить строковое представление детейлового массива (значения приводятся к строке с помощью ToString()).
+            </summary>
+            <param name="details">Детейловый массив.</param>
+            <param name="detailView">Представление детейла.</param>
+            <returns>Строка следующего вида: свойства детейла разделены запятой, детейлы разделены точкой с запятой.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportLimitedService.GetStringedDetails(ICSSoft.STORMNET.DetailArray,ICSSoft.STORMNET.View,System.String)">
+            <summary>
+            Получить строковое представление детейлового массива (значения приводятся к строке  с помощью ToString()).
+            </summary>
+            <param name="details">Детейловый массив.</param>
+            <param name="detailView">Представление детейла.</param>
+            <param name="propertyName">Имя свойства, выводимое для каждого элемента набора детейлов.</param>
+            <returns>Строка следующего вида: свойства детейла разделены запятой, детейлы разделены точкой с запятой.</returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService">
+            <summary>
+            Класс для экспорта данных. Обрабатывает детейлы детейлов.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.DateFormat">
+            <summary>
+            Формат даты при преобразование в строку.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService._dataService">
+            <summary>
+            Сервис данных, использующийся для загрузки объектов данных.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.#ctor(NewPlatform.Flexberry.IExportParams,ICSSoft.STORMNET.Business.IDataService)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="exportParams">Параметры для экспорта.</param>
+            <param name="dataService">Сервис данных для загрузки объектов данных.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.CreateDataExport">
+            <summary>
+            Метод создания данных для экспорта.
+            </summary>
+            <returns>Данные для экспорта.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.LoadObjects(NewPlatform.Flexberry.IExportParams,ICSSoft.STORMNET.Business.IDataService)">
+            <summary>
+            Загрузка объектов данных из БД.
+            </summary>
+            <param name="exportParams">Параметры выгрузки в Excel.</param>
+            <param name="dataService">Сервис данных для загрузки объектов данных.</param>
+            <returns>Массив объектов данных.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.GetDataExport(ICSSoft.STORMNET.DataObject[])">
+            <summary>
+            Получить данные для экспорта.
+            </summary>
+            <param name="objects">Объекты данных.</param>
+            <returns>Данные для экспорта.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.GetColumnsForExport">
+            <summary>
+            Получить колонки для экспорта.
+            </summary>
+            <returns>Список колонок для экспорта.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.GetDetailInViewWithPropName(ICSSoft.STORMNET.View,System.String)">
+            <summary>
+            Получить представление детейла (любой вложенности) из представления по названию свойства.
+            </summary>
+            <param name="view">Представление.</param>
+            <param name="propertyName">Название детейла.</param>
+            <returns>Представление детейла.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.GetExportColumnDefinitionFromDetail(ICSSoft.STORMNET.DetailInView,System.String)">
+            <summary>
+            Получить колонки для экспорта из детейла.
+            </summary>
+            <param name="detail">Представление детейла.</param>
+            <param name="propertyName">Имя детейла.</param>
+            <returns>Список колонок для экспорта.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.GetColumnHeaderCaption(System.String,System.String,NewPlatform.Flexberry.IExportParams)">
+            <summary>
+            Получение строки заголовка столбца.
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="defaultValue">Заголовок столбца по умолчанию.</param>
+            <param name="exportParams">Параметры для экспорта.</param>
+            <returns>Заголовок столбца.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.FillRecordExport(ICSSoft.STORMNET.DataObject,NewPlatform.Flexberry.Reports.ExportToExcel.RecordExport,System.Collections.Generic.List{NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition},System.String)">
+            <summary>
+            Заполнить запись для экспорта.
+            </summary>
+            <param name="obj">Объект данных.</param>
+            <param name="record">Запись для экспорта.</param>
+            <param name="exportColumnDefinitions">Список выгружаемых столбцов.</param>
+            <param name="viewName">Название используемого View.</param>
+            <returns>Запись для экспорта.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.GetDetailPropertyName(ICSSoft.STORMNET.PropertyInView)">
+            <summary>
+            Получение заголовка атрибута в представлении.
+            При пустом заголовке возвращается имя.
+            </summary>
+            <param name="detailProperty"> Свойство в представлении. </param>
+            <returns> Заголовок атрибута в представлении. </returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.FillRecordDetail(ICSSoft.STORMNET.DetailArray,NewPlatform.Flexberry.Reports.ExportToExcel.RecordExport@,System.Collections.Generic.List{NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition},NewPlatform.Flexberry.IHeaderCaption)">
+            <summary>
+            Заполнить запись детейла.
+            </summary>
+            <param name="propValue">Контейнер (массив) детейловых объектов.</param>
+            <param name="record">Экспортируемая запись.</param>
+            <param name="exportColumnDefinitions">Список стоблцов для выгрузки.</param>
+            <param name="detail">Заголовок столбца.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.ProcessedDataExport(NewPlatform.Flexberry.Reports.ExportToExcel.DataExport)">
+            <summary>
+            Обработка данных для экспорта.
+            </summary>
+            <param name="dataExport">Данные для экспорта.</param>
+            <returns>Данные для экспорта.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.CalculateLcmInRecordExport(NewPlatform.Flexberry.Reports.ExportToExcel.RecordExport,System.Int32,System.Boolean@)">
+            <summary>
+            Определение числа строк занимемой ячейкой.
+            </summary>
+            <param name="recordExport">Запись для экспорта.</param>
+            <param name="currentLcm">Наименьшее общее кратное.</param>
+            <param name="reqCalculate">Требуется пересчитать строки.</param>
+            <returns>Запись для экспорта.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.CalculateLeastCommonMultiple(System.Int32,System.Int32)">
+            <summary>
+            Вычисление наименьшего общего кратного.
+            </summary>
+            <param name="num1">Число 1.</param>
+            <param name="num2">Число 2.</param>
+            <returns>Наименьшее общее кратное.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.GetStringedValue(System.Object,System.Boolean)">
+            <summary>
+            Получает строковое представление объекта в зависимости от типа.
+            </summary>
+            <param name="propValue">Значение, для которого нужно получить строковое представление.</param>
+            <param name="convertToText">
+            Флаг, задающий, что значение будет использовано в 
+            соединении с другим текстом (например, при выводе детейла), и нужно выдать
+            текстовое значение. По умолчанию <c>false</c>.
+            </param>
+            <returns>Строковое представление объекта.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.DateTimeToStringedValue(System.DateTime,System.Boolean)">
+            <summary>
+            Получает строковое представление даты.
+            </summary>
+            <param name="value">Дата, для которой нужно получить строковое представление.</param>
+            <param name="convertToText">
+            Флаг, задающий, что значение будет использовано в 
+            соединении с другим текстом (например, при выводе детейла), и нужно выдать
+            текстовое значение. По умолчанию <c>false</c>.
+            </param>
+            <returns>Строковое представление даты.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.DataExportService.GetSimpleDecodedText(System.String)">
+            <summary>
+            Убирает все тэги (то что в меньше-больше написано) не енкодит! для вывода в сторонние программы.
+            Будьте осторожны используя эту функцию! 
+            Бетаверсия!
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelCellEventArgs">
+            <summary>
+            Аргументы делегата <see cref="T:NewPlatform.Flexberry.Reports.ExportToExcel.InitExcelCellDelegate"/> пользовательского преобразования значения ячейки в 
+            строковое представление при выгрузке в Excel.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelCellEventArgs.Value">
+            <summary>
+            Преобразуемое значение.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelCellEventArgs.StringedValue">
+            <summary>
+            Результирующее строковое представление значения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelCellEventArgs.CellStyleId">
+            <summary>
+            Стиль, применяемый к ячейки.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelCellEventArgs.Handled">
+            <summary>
+            Флаг, обозначающий, что значение было обработано и может быть занесено в ячейку.
+            По умолчанию <c>false</c>.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelCellEventArgs.#ctor(System.Object)">
+            <summary>
+            Конструктор класса для задания значения, которые нужно преобразовать в строковое представление.
+            </summary>
+            <param name="value">Значение ячейки, которое нужно преобразовать в строкове представление.</param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelCellFormatEventArgs">
+            <summary>
+            Аргументы делегата <see cref="T:NewPlatform.Flexberry.Reports.ExportToExcel.InitExcelCellFormatDelegate"/> пользовательского получения формата ячеек при выгрузке в Excel.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelCellFormatEventArgs.ObjectType">
+            <summary>
+            Тип объекта.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelCellFormatEventArgs.PropertyType">
+            <summary>
+            Тип свойства.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelCellFormatEventArgs.PropertyName">
+            <summary>
+            Имя свойства.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelCellFormatEventArgs.Format">
+            <summary>
+            Результирующий пользовательский формат.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelCellFormatEventArgs.Handled">
+            <summary>
+            Флаг, обозначающий, что значение было обработано.
+            По умолчанию <c>false</c>.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelCellFormatEventArgs.#ctor(System.Type,System.Type,System.String)">
+            <summary>
+            Конструктор класса для пользовательского получения формата ячеек при выгрузке в Excel.
+            </summary>
+            <param name="objectType">Тип объекта.</param>
+            <param name="propertyType">Тип свойства.</param>
+            <param name="propertyName">Имя свойства.</param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportDataService">
+            <summary>
+            Класс для получения сервиса данных для выгрузки данных в Excel.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportDataService.DataServiceUnityName">
+            <summary>
+            Наименование конфигурации сервиса данных в Unity.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportDataService._unityContainer">
+            <summary>
+            Текущий экземпляр контейнера Unity.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportDataService._dataService">
+            <summary>
+            Текущий кэшированный экземпляр севриса.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportDataService.GetDataService">
+            <summary>
+            Получить сервис данных для выгрузки данных в Excel.
+            </summary>
+            <returns>
+            Сервис данных, зарегистрированный в Unity под именем <see cref="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportDataService.DataServiceUnityName"/>.
+            Если такой сервис не найден, то метод возвратит <see cref="P:ICSSoft.STORMNET.Business.DataServiceProvider.DataService"/>.
+            </returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportService">
+            <summary>
+            Класс сервиса для экспорта данных в Excel.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportService.EXCELLMAXLEN">
+            <summary>
+            Максимальная ширина колонки.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportService.ExcelColumnsChars">
+            <summary>
+            Символы для формирования имени столбца Excel.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportService.#ctor(NewPlatform.Flexberry.IExportParams)">
+            <summary>
+            Конструктор сервиса для экспорта в Excel.
+            </summary>
+            <param name="exportParams">Параметры для экспорта.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportService.GetExportStream(NewPlatform.Flexberry.Reports.ExportToExcel.IDataExport)">
+            <summary>
+            Получить экспортируемый поток данных.
+            </summary>
+            <param name="dataExport">Данные для экспорта.</param>
+            <returns>Экспортируемый поток данных</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportService.AddMerge(DocumentFormat.OpenXml.Spreadsheet.MergeCells,NewPlatform.Flexberry.Reports.ExportToExcel.RecordExport,System.Int32,System.Int32,DocumentFormat.OpenXml.Spreadsheet.Worksheet)">
+            <summary>
+            Добавить объединение ячеек.
+            </summary>
+            <param name="mergeCells">MergeCells - класс OpenXml, для хранения списка ячеек для объединения.</param>
+            <param name="rowExport">Экспортируемая строка.</param>
+            <param name="indexColumn">Номер колонки.</param>
+            <param name="totalRowCount">Общее количество заполненных строк.</param>
+            <param name="worksheet">Worksheet класс OpenXml.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportService.FillRowDetail(System.Int32,DocumentFormat.OpenXml.Spreadsheet.Row@,NewPlatform.Flexberry.Reports.ExportToExcel.RecordExport,System.Collections.Generic.List{NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition},DocumentFormat.OpenXml.Spreadsheet.MergeCells,System.Int32,DocumentFormat.OpenXml.Spreadsheet.Worksheet)">
+            <summary>
+            Заполнить строку детейла.
+            </summary>
+            <param name="indexRow">Номер строки.</param>
+            <param name="row">Заполняемая строка.</param>
+            <param name="record">Запись с данными.</param>
+            <param name="exportColumns">Список столбцов для экспорта.</param>
+            <param name="mergeCells">MergeCells - класс OpenXml, для хранения списка ячеек для объединения.</param>
+            <param name="totalRowCount">Общее количество заполненных строк.</param>
+            <param name="worksheet">Worksheet класс OpenXml.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportService.CreateCell(System.String,NewPlatform.Flexberry.Reports.ExportToExcel.ExcelTypeDefinition)">
+            <summary>
+            Создание объекта ячейки Excel с указанным значение и форматом.
+            </summary>
+            <param name="value">Значение ячейки.</param>
+            <param name="excelDataType">Формат ячейки.</param>
+            <returns>Объект Cell.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportService.SendFileToClient(NewPlatform.Flexberry.Reports.ExportToExcel.IDataExport,System.String)">
+            <summary>
+            Отправка сгенерированного файла клиенту.
+            </summary>
+            <param name="dataExport">Экспортируемые данные.</param>
+            <param name="fileExtension">Расширение, приписываемое файлу.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportService.GetMergeCells(DocumentFormat.OpenXml.Spreadsheet.Worksheet)">
+            <summary>
+            Включение раздела, содержащего информацию об объединении ячеек в структуру документа.
+            </summary>
+            <param name="worksheet">Рабочий лист, на который добавляется раздел объединения ячеек.</param>
+            <returns>Раздел объединения ячеек.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportService.ColumnName(System.Int32)">
+            <summary>
+            Получение адреса столбца буквами по его индексу.
+            </summary>
+            <param name="index">Индекс столбца (1-based).</param>
+            <returns>Адреса столбца буквами.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportService.GetDataType(System.Type,DocumentFormat.OpenXml.UInt32Value)">
+            <summary>
+            Получение формата ячейки по типу свойства.
+            </summary>
+            <param name="propType">Тип свойства.</param>
+            <param name="styleIndex">Индекс стиля (передается при необходимости нестандартного форматирования).</param>
+            <returns>Объект формата ячейки.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelExportService.CheckGenericUnderlyingType(System.Type,System.Type)">
+            <summary>
+            Проверка внутреннего типа для обобщения Nullable-тип.
+            </summary>
+            <param name="type">Проверяемый Nullable-тип.</param>
+            <param name="underlyingType">Внутренний тип, на равенство которому мы тестируем.</param>
+            <returns>True, если нижележащий тип обобщения равен underlyingType, false в противном случае.</returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet">
+            <summary>
+            Класс для согдания элементов форматирвания книги (форматы ячеек, форматы значений, границы и т.д.).
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet._numberFormatIdDateTime">
+            <summary>
+            Индекс формата числа, соответствующего дате и времени.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet._numberFormatId4Decimal">
+            <summary>
+            Индекс формата числа, соответствующего числу с четыремя знаками после десятичного разделителя.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet._numberFormatId2Decimal">
+            <summary>
+            Индекс формата числа, соответствующего числу с двумя знаками после десятичного разделителя.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet._numberFormatIdForcedText">
+            <summary>
+            Индекс формата числа, соответствующего числу, которое должно принудительно отображаться как текст.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet._numberFormatInteger">
+            <summary>
+            Индекс формата числа, соответствующего целому числу.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.StyleIndexCommon">
+            <summary>
+            Индекс стандартного формата ячейки.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.StyleIndexDateAllBorders">
+            <summary>
+            Индекс формата ячейки с датой и границами со всех сторон.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.StyleIndex2DecimalPlacesAllBorders">
+            <summary>
+            Индекс формата ячейки с числом до двух знаков после десятичного разделителя и границами со всех сторон.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.StyleIndexDateTimeAllBorders">
+            <summary>
+            Индекс формата ячейки с датой и временем и границами со всех сторон.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.StyleIndex4DecimalPlaces">
+            <summary>
+            Индекс формата ячейки с числом до четырех знаков после десятичного разделителя.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.StyleIndex2DecimalPlaces">
+            <summary>
+            Индекс формата ячейки с числом до двух знаков после десятичного разделителя.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.StyleIndexText">
+            <summary>
+            Индекс формата ячейки с текстом.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.StyleIndexTextBold">
+            <summary>
+            Индекс формата ячейки с жирным текстом.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.StyleIndexTextAllBorders">
+            <summary>
+            Индекс формата ячейки с текстом и границами со всех сторон.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.StyleIndex2DecimalPlacesTopBottomBorder">
+            <summary>
+            Индекс формата ячейки с числом до двух знаков после десятичного разделителя и границами только сверху и снизу.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.StyleIndexTextTopBottomBorder">
+            <summary>
+            Индекс формата ячейки с текстом и границами только сверху и снизу.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.StyleIndexTextBoldTopBottomBorder">
+            <summary>
+            Индекс формата ячейки с жирным текстом и границами только сверху и снизу.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.StyleIndexTextAllBordersWrapAlignment">
+            <summary>
+            Индекс формата ячейки с текстом, с переносом содержимого по словам и границами только сверху и снизу.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.StyleIndexIntegerAllBorders">
+            <summary>
+            Индекс формата ячейки с целым числом и с границами со всех сторон.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.#ctor">
+            <summary>
+            Конструктор, выполняющий основную логику по созданию объектов форматирования. 
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.#ctor(System.Collections.Generic.List{NewPlatform.Flexberry.Reports.ExportToExcel.CustomExcelFormatData})">
+            <summary>
+            Конструктор, выполняющий основную логику по созданию объектов форматирования. 
+            </summary>
+            <param name="customFormatList"> Список, на основе которого формируются пользовательские стили в документе, куда производится экспорт. </param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.GetCellFormats(System.Collections.Generic.List{NewPlatform.Flexberry.Reports.ExportToExcel.CustomExcelFormatData})">
+            <summary>
+            Производит получение описаний форматов ячеек (их непосредственного форматирования). 
+            </summary>
+            <param name="customFormatList"> Список, на основе которого формируются пользовательские стили в документе, куда производится экспорт. </param>
+            <returns>Описания форматов ячеек.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.GetNumberingFormats(System.Collections.Generic.List{NewPlatform.Flexberry.Reports.ExportToExcel.CustomExcelFormatData})">
+            <summary>
+            Производит получение описаний форматов для числовых значений ячеек.
+            </summary>
+            <param name="customFormatList"> Список, на основе которого формируются пользовательские стили в документе, куда производится экспорт. </param>
+            <returns>Описания форматов для числовых значений ячеек.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.GetCellStyleFormats">
+            <summary>
+            Производит получение описаний форматов стиля ячеек.
+            </summary>
+            <returns>Описания форматов стиля ячеек.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.GetBorders">
+            <summary>
+            Производит получение описаний форматов границ ячейки.
+            </summary>
+            <returns>Описание форматов границ ячейки.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.CustomStylesheet.GetFonts">
+            <summary>
+            Производит получение описаний шрифтов, с помощью которых данные будут отображатьсяф в ячейках.
+            </summary>
+            <returns>Описания шрифтов.</returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXMLExport">
+            <summary>
+            Класс для совместимости с предыдущими версиями экспорта в Excel.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXMLExport.InitExcelCell">
+            <summary>
+            Инициализация типа и строкового представления ячейки Excel.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXMLExport.InitExcelFormat">
+            <summary>
+            Инициализация формата ячейки Excel.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXmlExportParams">
+            <summary>
+            Параметры экспорта в Excel.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXmlExportParams.View">
+            <summary>
+            Представление для загрузки экспортируемых данных.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXmlExportParams.DataObjectTypes">
+            <summary>
+            Типы объектов для загрузки.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXmlExportParams.LimitFunction">
+            <summary>
+            Ограничение для загрузки экспортируемых данных.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXmlExportParams.Ics">
+            <summary>
+            Сортировка колонок.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXmlExportParams.SelectedPrimaryKeys">
+            <summary>
+            Выделенные на WOLV объекты - будут выгружены только они, если не null или Count == 0.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXmlExportParams.ExcelNameProp">
+            <summary>
+            Свойство во ViewColumnProvider, которое отвечает за видимость свойства при экспорте.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXmlExportParams.ConfigPathSetting">
+            <summary>
+            Имя настройки в web.config в которой храниться путь для хранения xls файлов.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXmlExportParams.FileExtension">
+            <summary>
+            Расширение файла.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXmlExportParams.PropertiesOrder">
+            <summary>
+            Коллекция имен свойств и детейлов, задающая порядок отображения колонок.
+            Применяется, когда в представлении есть детейлы, и их нужно поставить не в конец.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXmlExportParams.HeaderCaptions">
+            <summary>
+            Заголовки столбцов.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXmlExportParams.DetailsInSeparateRows">
+            <summary>
+            Экспортировать детейлы в отдельные строки.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXmlExportParams.DetailsInSeparateColumns">
+            <summary>
+            Экспортировать детейлы в отдельные столбцы.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXmlExportParams.MaxObjectsCount">
+            <summary>
+            Максимальное количество экспортируемых объектов.
+            </summary>
+            <remarks>Отрицательные значения и 0 отключают ограничение.</remarks>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExcelXmlExportParams.WorkSheetTitle">
+            <summary>
+            Название страницы Excel.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.ExportBuilder">
+            <summary>
+            Абстрактный класс для экспорта данных.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExportBuilder._dataExport">
+            <summary>
+            Данные для экспорта.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExportBuilder._exportParams">
+            <summary>
+            Параметры для экспорта.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExportBuilder.#ctor(NewPlatform.Flexberry.IExportParams)">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="exportParams">Параметры для экспорта.</param>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExportBuilder.DataExport">
+            <summary>
+            Экспортируемые данные.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExportBuilder.CreateDataExport">
+            <summary>
+            Абстрактный метод создания данных для экспорта.
+            </summary>
+            <returns>Данные для экспорта.</returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition">
+            <summary>
+            Описание столбца при выгрузке.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition.#ctor(System.String,System.Type,System.Int32)">
+            <summary>
+            Конструктор для добавления столбца выгрузки собственного атрибута объекта.
+            </summary>
+            <param name="propertyName">Имя выгружаемого свойства. При выгрузке атрибута детейла – имя детейла.</param>
+            <param name="type">Тип ячейки стобца.</param>
+            <param name="maxSymbolCount">Максимальное количество символов в ячейках столбца  (изменяется при выгрузке каждого нового значения столбца, используется при настройке ширины столбца).</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition.#ctor(System.String,System.Type,System.String,System.Int32)">
+            <summary>
+            Конструктор для добавления столбца выгрузки атрибута детейла.
+            </summary>
+            <param name="propertyName">Имя выгружаемого свойства. При выгрузке атрибута детейла – имя детейла.</param>
+            <param name="type">Тип ячейки стобца.</param>
+            <param name="detailPropertyName">Имя выгружаемого атрибута детейла.</param>
+            <param name="maxSymbolCount">Максимальное количество символов в ячейках столбца (изменяется при выгрузке каждого нового значения столбца, используется при настройке ширины столбца).</param>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition.PropertyName">
+            <summary>
+            Имя выгружаемого свойства. При выгрузке атрибута детейла – имя детейла.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition.MaxSymbolCount">
+            <summary>
+            Максимальное количество символов в ячейках столбца.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition.DetailPropertyName">
+            <summary>
+            Имя выгружаемого атрибута детейла.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition.TestAndSetMaxSymbolCount(System.Int32)">
+            <summary>
+            Установка максимального столбца. Проверяется предыдущее значение, если новое значение больше, оно становится текущим.
+            </summary>
+            <param name="value">Проверяемое значение.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition.TestAndSetMaxSymbolCount(System.String)">
+            <summary>
+            Установка максимального столбца. Проверяется предыдущее значение, если новое значение больше, оно становится текущим.
+            </summary>
+            <param name="value">Проверяемое значение.</param>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition.IsDetailColumn">
+            <summary>
+            Является ли столбец столбцом для вывода атрибутов детейла.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition.Type">
+            <summary>
+            Тип ячейки стобца.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition.DetailProperties">
+            <summary>
+            Список свойств детейла.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition.Caption">
+            <summary>
+            Название столбца детейла, если требуется чтоб заголовок отличался от названия свойства.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition.ObjectType">
+            <summary>
+            Тип объекта, который экспортируется.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.Reports.ExportToExcel.ExportColumnDefinition.CellStyleId">
+            <summary>
+            Номер стиля отображения значения элемента в формируемом документе.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.ExportService">
+            <summary>
+            Абстрактный класс сервиса для экспорта данных.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExportService.#ctor(NewPlatform.Flexberry.IExportParams)">
+            <summary>
+            Конструктор сервиса для экспорта.
+            </summary>
+            <param name="exportParams">Параметры для экспорта.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ExportService.GetExportStream(NewPlatform.Flexberry.Reports.ExportToExcel.IDataExport)">
+            <summary>
+            Получить экспортируемый поток данных.
+            </summary>
+            <returns>Экспортируемый поток данных.</returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.IDataExport">
+            <summary>
+            Интерфейс данных для экспорта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.IDataExport.Records">
+            <summary>
+            Список экспортируемых записей.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.Reports.ExportToExcel.IDataExport.ExportColumnDefinitions">
+            <summary>
+            Список выгружаемых столбцов.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.InitExcelCellDelegate">
+            <summary>
+            Делегат для пользовательского преобразования значения ячейки в строковое представление
+            при выгрузке в Excel.
+            </summary>
+            <param name="args">Параметры ячейки.</param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.InitExcelCellFormatDelegate">
+            <summary>
+            Делегат для пользовательского преобразования формата ячейки при выгрузке в Excel.
+            </summary>
+            <param name="args">Параметры ячейки.</param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.ISpreadsheetCustomizer">
+            <summary>
+            Интерфейс для обработки документа Excel.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.ISpreadsheetCustomizer.Process(DocumentFormat.OpenXml.Packaging.SpreadsheetDocument@)">
+            <summary>
+            Обработка документа Excel.
+            </summary>
+            <param name="document">Документ Excel.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.RecordExport">
+            <summary>
+            Экспортируемая запись.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.Reports.ExportToExcel.Maybe">
+            <summary>
+            TODO: Update summary.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.Reports.ExportToExcel.Maybe.Return``2(``0,System.Func{``0,``1},``1)">
+            <summary>
+            Если не null, то eval, иначе failureValue
+            </summary>
+            <typeparam name="TInput">Тип входного значения</typeparam>
+            <typeparam name="TResult">Тип выходного значения</typeparam>
+            <param name="o">Операнд</param>
+            <param name="evaluator">Evaluator</param>
+            <param name="failureValue">Значение, возвращаемое на null</param>
+            <returns>Результат</returns>
+        </member>
+    </members>
+</doc>

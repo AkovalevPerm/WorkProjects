@@ -1,0 +1,24 @@
+<ToReestrMSPfromMSRCatalogItemsRequest xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://eais.com/requestitems.xsd">
+  <RequestInfo>1234decd-e5c7-4ce2-8fec-3f19c0a432b1</RequestInfo>
+  <Criteria>
+    <Type>and</Type>
+    <Conditions>
+      <Condition>
+        <Attribute>FORMALNAME</Attribute>
+        <Operator>equals</Operator>
+        <Value>Аналитика Афанасьевой</Value>
+      </Condition>
+      <Condition>
+        <Attribute>SHORTNAME</Attribute>
+        <Operator>equals</Operator>
+        <Value>ул</Value>
+      </Condition>
+      <Condition>
+        <Attribute>SyncXMLDataObject</Attribute>
+        <Operator>equals</Operator>
+        <Value>95a2d110-4322-4076-bcc9-6fb7f560eaaf</Value>
+      </Condition>
+    </Conditions>
+  </Criteria>
+  <RequestType>fiasAddressObject</RequestType>
+</ToReestrMSPfromMSRCatalogItemsRequest>

@@ -1,0 +1,2 @@
+UPDATE public.ics_synctype SET owner = '6c3724f1-e7ce-41ae-b2a7-9197e76501dd' WHERE primarykey = '4bac4a8c-364a-44c7-8ccb-e84c0d5eaecc';
+UPDATE public.ics_synctype SET owner = '6c3724f1-e7ce-41ae-b2a7-9197e76501dd' WHERE primarykey = 'b85e9b85-cfc1-41ae-be78-b55e9417a34c';

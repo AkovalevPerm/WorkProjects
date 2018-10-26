@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://eais.com/requestitems.xsd"
+           elementFormDefault="qualified"
+           xmlns="http://eais.com/requestitems.xsd"
+           xmlns:tns="http://eais.com/requestitems.xsd"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ToReestrMSPfromMSRCatalogItemsRequest" type="tns:ToReestrMSPfromMSRCatalogItemsRequestType" />
+  <xs:complexType name="ToReestrMSPfromMSRCatalogItemsRequestType">
+    <xs:sequence>
+      <xs:element name="RequestInfo" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Заполняется, если сообщение является ответом на запрос, и в запросе был заполнен данный параметр</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Criteria" type="tns:CriteriaType" minOccurs="0" />
+      <xs:element name="Sorting" type="tns:SortingType" minOccurs="0" />
+      <xs:element name="RequestType" type="tns:RequestTypeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='SortingType'>
+    <xs:sequence>
+      <xs:element name='Sort' type='tns:SortType' minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Сортировка</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='CriteriaType'>
+    <xs:sequence>
+      <xs:element name='Type' type='tns:TypeCriteriaType' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Тип условия</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='Conditions' type='tns:ConditionsType'>
+        <xs:annotation>
+          <xs:documentation>Условия</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='Criteria' type='tns:CriteriaType' minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Условие фильтрации выборки объектов</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='SortType'>
+    <xs:sequence>
+      <xs:element name='Attribute' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Наименование атрибута, по которому осуществляется фильтрация</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='SortOrder' type='xs:integer'>
+        <xs:annotation>
+          <xs:documentation>Порядок сортировки</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='SortType' type='tns:SortTypeType'>
+        <xs:annotation>
+          <xs:documentation>Метод сортировки</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConditionsType">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="Condition" type="tns:ConditionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='ConditionType'>
+    <xs:sequence>
+      <xs:element name='Attribute' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Наименование атрибута, по которому осуществляется фильтрация</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='Operator' type='tns:OperatorType' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Оператор сравнения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='Value' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Значение</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="RequestTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="fiasAddressObject" />
+      <xs:enumeration value="fiasHouseStructure" />
+      <xs:enumeration value="kmsz" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SortTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Asc" />
+      <xs:enumeration value="Desc" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OperatorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="greater" />
+      <xs:enumeration value="less" />
+      <xs:enumeration value="like" />
+      <xs:enumeration value="equals" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TypeCriteriaType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="and" />
+      <xs:enumeration value="or" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

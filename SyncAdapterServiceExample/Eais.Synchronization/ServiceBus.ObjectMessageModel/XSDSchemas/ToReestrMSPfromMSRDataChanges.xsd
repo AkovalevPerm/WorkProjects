@@ -1,0 +1,716 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema targetNamespace="http://eais.com/beneficiary.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://eais.com/beneficiary.xsd"
+    xmlns:tns="http://eais.com/beneficiary.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ToReestrMSPfromMSRDataChanges" type="tns:ToReestrMSPfromMSRDataChangesType"/>
+  <xs:complexType name="ToReestrMSPfromMSRDataChangesType">
+    <xs:sequence>
+      <xs:element name="RequestInfo" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Служебная информация, заполняемая отправителем запроса</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Items" type="tns:ItemsType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ItemsType">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="Item" type="tns:ItemType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='ItemType'>
+    <xs:sequence>
+      <xs:element name='state' type='tns:StateType'>
+        <xs:annotation>
+          <xs:documentation>Тип изменения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='Timestamp' type='xs:dateTime'>
+        <xs:annotation>
+          <xs:documentation>Дата и время изменения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:choice maxOccurs="1">
+        <xs:element name='Beneficiary' type='tns:BeneficiaryType'>
+          <xs:annotation>
+            <xs:documentation>Льготополучатели</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name='KindDocument' type='tns:KindDocumentType'>
+          <xs:annotation>
+            <xs:documentation>Вид документа</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name='TypeDocument' type='tns:TypeDocumentType'>
+          <xs:annotation>
+            <xs:documentation>Тип документа</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name='Territory' type='tns:TerritoryType'>
+          <xs:annotation>
+            <xs:documentation>Территория</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name='Street' type='tns:StreetType'>
+          <xs:annotation>
+            <xs:documentation>Улица</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='BeneficiaryType'>
+    <xs:annotation>
+      <xs:documentation>Льготополучатели</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор получателя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="familyName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Фамилия льгополучателя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="firstName" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Имя льгополучателя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="patronymic" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Отчество льготополучателя</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="gender" minOccurs="0" type="tns:GenderType">
+        <xs:annotation>
+          <xs:documentation>Пол</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="birthDate" minOccurs="0" type="xs:dateTime">
+        <xs:annotation>
+          <xs:documentation>Дата рождения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="snils" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>СНИЛС</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="INN" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>ИНН</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="email" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Адрес электронной почты</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="phone" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Номер телефона</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="education" minOccurs="0" type="tns:EducationType">
+        <xs:annotation>
+          <xs:documentation>Образование</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="birthCountry" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Страна рождения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="birthRegion" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Область рождения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="birthTown" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Город рождения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="birthDistrict" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Район рождения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="location" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Проживание</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор проживания</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="territory" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Территория</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="guid" type="tns:guid">
+                    <xs:annotation>
+                      <xs:documentation>Уникальный идентификатор территории</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="FIAS" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Код ФИАС</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="objectType" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Вид объекта</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="name" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Наименование</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="postIndex" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Почтовый индекс</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="parent" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Родительская территория</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="guid" type="tns:guid">
+                          <xs:annotation>
+                            <xs:documentation>Уникальный идентификатор территории</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="street" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Улица</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="guid" type="tns:guid">
+                    <xs:annotation>
+                      <xs:documentation>Уникальный идентификатор улицы</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="FIAS" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Код ФИАС</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="objectType" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Вид объекта</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="name" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Наименование</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="postIndex" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Почтовый индекс</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="territory">
+                    <xs:annotation>
+                      <xs:documentation>Территория</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="guid" type="tns:guid">
+                          <xs:annotation>
+                            <xs:documentation>Уникальный идентификатор территории</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="number" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Номер</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="houseNumber" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Номер строения</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="index" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Почтовый индекс</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="appartment" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Квартира</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="phone" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Номер телефона по месту жительства</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="registration" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Прописка</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор прописки</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="territory" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Территория</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="guid" type="tns:guid">
+                    <xs:annotation>
+                      <xs:documentation>Уникальный идентификатор территории</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="FIAS" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Код ФИАС</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="objectType" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Вид объекта</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="name" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Наименование</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="postIndex" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Почтовый индекс</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="parent" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Родительская территория</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="guid" type="tns:guid">
+                          <xs:annotation>
+                            <xs:documentation>Уникальный идентификатор территории</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="street" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Улица</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="guid" type="tns:guid">
+                    <xs:annotation>
+                      <xs:documentation>Уникальный идентификатор улицы</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="FIAS" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Код ФИАС</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="objectType" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Вид объекта</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="name" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Наименование</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="postIndex" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Почтовый индекс</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="territory" minOccurs="0">
+                    <xs:annotation>
+                      <xs:documentation>Территория</xs:documentation>
+                    </xs:annotation>
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="guid" type="tns:guid">
+                          <xs:annotation>
+                            <xs:documentation>Уникальный идентификатор территории</xs:documentation>
+                          </xs:annotation>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="number" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Номер</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="houseNumber" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Номер строения</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="index" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Почтовый индекс</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="appartment" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Квартира</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="phone" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Номер телефона по месту прописки</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="died" minOccurs="0" type="xs:boolean" />
+      <xs:element name="dieDate" minOccurs="0" type="xs:dateTime" />
+      <xs:element name="documents" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Документы</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="document" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Документ</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="guid" type="tns:guid">
+                    <xs:annotation>
+                      <xs:documentation>Уникальный идентификатор документа</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="docSeries" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Серия</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="docNumber" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Номер</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="docIssueDate" minOccurs="0" type="xs:dateTime">
+                    <xs:annotation>
+                      <xs:documentation>Дата выдачи документа</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="docEndDate" minOccurs="0" type="xs:dateTime">
+                    <xs:annotation>
+                      <xs:documentation>Дата прекращения действительности документа</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="orgName" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Орган, выдавший документ</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="docKind" minOccurs="0" type="tns:guid">
+                    <xs:annotation>
+                      <xs:documentation>Вид документа</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="KindDocumentType">
+    <xs:annotation>
+      <xs:documentation>Вид документа</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор вида документа</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="kindDocName" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Наименование вида удостоверяющего документа</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="typeDoc" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Тип документа</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор типа документа</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="typeDocName" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Наименование типа удостоверяющего документа</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TypeDocumentType">
+    <xs:annotation>
+      <xs:documentation>Тип документа</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор типа документа</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="typeDocName" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Наименование типа удостоверяющего документа</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TerritoryType">
+    <xs:annotation>
+      <xs:documentation>Территория</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор территории</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FIAS" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Код ФИАС</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="objectType" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Вид объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="name" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Наименование</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="postIndex" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Почтовый индекс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="parent" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Родительская территория</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор территории</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="FIAS" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Код ФИАС</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="objectType" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Вид объекта</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="name" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Наименование</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="postIndex" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Почтовый индекс</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StreetType">
+    <xs:annotation>
+      <xs:documentation>Улица</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="guid" type="tns:guid">
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор улицы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FIAS" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Код ФИАС</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="objectType" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Вид объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="name" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Наименование</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="postIndex" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Почтовый индекс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="territory" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Территория</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="guid" type="tns:guid">
+              <xs:annotation>
+                <xs:documentation>Уникальный идентификатор территории</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="FIAS" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Код ФИАС</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="objectType" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Вид объекта</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="name" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Наименование</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="postIndex" minOccurs="0" type="xs:string">
+              <xs:annotation>
+                <xs:documentation>Почтовый индекс</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="parent" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Родительская территория</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="guid" type="tns:guid">
+                    <xs:annotation>
+                      <xs:documentation>Уникальный идентификатор территории</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="FIAS" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Код ФИАС</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="objectType" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Вид объекта</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="name" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Наименование</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="postIndex" minOccurs="0" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Почтовый индекс</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="StateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="updated" />
+      <xs:enumeration value="created" />
+      <xs:enumeration value="deleted" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="GenderType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="муж." />
+      <xs:enumeration value="жен." />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EducationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Общее" />
+      <xs:enumeration value="Среднее профессиональное" />
+      <xs:enumeration value="Высшее" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

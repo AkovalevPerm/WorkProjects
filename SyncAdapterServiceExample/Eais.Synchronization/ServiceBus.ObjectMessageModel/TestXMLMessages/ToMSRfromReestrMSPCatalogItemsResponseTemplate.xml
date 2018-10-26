@@ -1,0 +1,42 @@
+﻿<ToMSRfromReestrMSPCatalogItemsResponse xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://eais.com/kmszitems.xsd">
+  <RequestInfo>test</RequestInfo>
+  <Items>
+    <Item>
+      <Classifier>
+        <guid>380140bd-399e-40b1-b641-19e39485679a</guid>
+        <code>1</code>
+        <Social>
+          <guid>664f364c-54a8-4193-b584-1d274be030fb</guid>
+          <code>1</code>
+          <name>Пенсия по государственному пенсионному обеспечению по старости</name>
+        </Social>
+        <Category>
+          <guid>6e758c67-8264-4b6a-85d2-45df998c516d</guid>
+          <code>1</code>
+          <name>Граждане из подразделений особого риска из числа военнослужащих и вольнонаемного состава Вооруженных Сил СССР, войск и органов Комитета государственной безопасности СССР, внутренних войск, железнодорожных войск и других воинских формирований, лиц начальствующего и рядового состава органов внутренних дел личный состав отдельных подразделений по сборке ядерных зарядов из числа военнослужащих</name>
+          <note>Category 1 Note</note>
+        </Category>
+        <LegalLevel>
+          <guid>6282decd-e5c7-4ce2-8fec-3f19c0a432b1</guid>
+          <code>01</code>
+          <name>Федеральный уровень</name>
+        </LegalLevel>
+        <FinSource>
+          <guid>cd9beee7-bad6-437f-93bc-d852d45684f7</guid>
+          <code>0010</code>
+          <name>финансирование только за счет средств федерального бюджета</name>
+        </FinSource>
+        <Provision>
+          <guid>dfe7f294-0d8e-46ec-b46a-664be201bff3</guid>
+          <code>01</code>
+          <name>Денежная</name>
+        </Provision>
+        <Section>
+          <guid>106fe774-3cca-4326-8420-5a71178bf6ed</guid>
+          <code>010101</code>
+          <name>Пенсии по государственному пенсионному обеспечению (государственные пенсии)</name>
+        </Section>
+      </Classifier>
+    </Item>
+  </Items>
+</ToMSRfromReestrMSPCatalogItemsResponse>

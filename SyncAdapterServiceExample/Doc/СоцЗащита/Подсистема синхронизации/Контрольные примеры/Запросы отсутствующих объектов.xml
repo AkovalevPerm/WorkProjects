@@ -1,0 +1,43 @@
+<FAKE>
+
+	<!-- Пришел запрос на добавление ДокументСПорталаГосУсл с отсутствующей ЗаписьЖурнала -->
+	<SyncLogRequest xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Eais.ServiceBusListener.ObjectModel.Syncronization">
+		<PrimaryKey>d112f7df-7461-46f4-90c0-6c42493b15d2</PrimaryKey>
+		<TU i:nil="true" />
+		<Items>
+			<SyncLogRequestItem>
+				<ChangeType>Добавление</ChangeType>
+				<Fields i:nil="true" />
+				<Id>12b2736e-8272-4e54-b639-0a4c643d3f5c</Id>
+				<Type>ЖурналЗапросовПорталаГосУсл</Type>
+			</SyncLogRequestItem>
+			<SyncLogRequestItem>
+				<ChangeType>Добавление</ChangeType>
+				<Fields i:nil="true" />
+				<Id>e294ff99-3d64-4b9a-ac0f-1ec09a4199c0</Id>
+				<Type>ДокументСПорталаГосУсл</Type>
+			</SyncLogRequestItem>
+		</Items>
+	</SyncLogRequest>
+
+	<!-- Пришел запрос на изменение ЖурналЗапросовПорталаГосУсл, но в нем оказалась отсутствующая ссылка на ОрганСЗ -->
+	<SyncLogRequest xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Eais.ServiceBusListener.ObjectModel.Syncronization">
+		<PrimaryKey>0418e931-8675-439a-9bc0-369e54dc67bf</PrimaryKey>
+		<TU i:nil="true" />
+		<Items>
+			<SyncLogRequestItem>
+				<ChangeType>Добавление</ChangeType>
+				<Fields i:nil="true" />
+				<Id>c6bce6c0-58c7-4aba-b3fd-ab46df670599</Id>
+				<Type>ОрганСЗ</Type>
+			</SyncLogRequestItem>
+			<SyncLogRequestItem>
+				<ChangeType>Изменение</ChangeType>
+				<Fields>rowguid,НомерЗапроса,ОрганСЗ,ИдентификДанныеЛичности</Fields>
+				<Id>12b2736e-8272-4e54-b639-0a4c643d3f4c</Id>
+				<Type>ЖурналЗапросовПорталаГосУсл</Type>
+			</SyncLogRequestItem>
+		</Items>
+	</SyncLogRequest>
+
+</FAKE>

@@ -1,0 +1,968 @@
+Message-ID: <1661930212.252.1508315625560.JavaMail.confluence1@confluence2.proitr.ru>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_251_824812355.1508315625554"
+
+------=_Part_251_824812355.1508315625554
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>=D0=9F=D0=BE=D0=BB=D1=83=D1=87=D0=B5=D0=BD=D0=B8=D0=B5 =D1=81=D0=
+=BF=D0=B5=D1=86=D0=B8=D1=84=D0=B8=D0=BA=D0=B0=D1=86=D0=B8=D0=B8 =D0=BA=D0=
+=B0=D1=82=D0=B0=D0=BB=D0=BE=D0=B3=D0=B0 (getCatalogSpec)</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font-family: Arial, Helvetica, FreeSans, sans-serif;
+        font-size: 10pt;
+        line-height: 1.2;
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: #fff !important;
+        color: #000 !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: #000;
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        font-family: Arial, Helvetica, FreeSans, sans-serif;
+        page-break-after: avoid;
+    }
+
+    pre {
+        font-family: Monaco, "Courier New", monospace;
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>=D0=9F=D0=BE=D0=BB=D1=83=D1=87=D0=B5=D0=BD=D0=B8=D0=B5 =D1=81=D0=BF=
+=D0=B5=D1=86=D0=B8=D1=84=D0=B8=D0=BA=D0=B0=D1=86=D0=B8=D0=B8 =D0=BA=D0=B0=
+=D1=82=D0=B0=D0=BB=D0=BE=D0=B3=D0=B0 (getCatalogSpec)</h1>
+    <div class=3D"Section1">
+        <p><span>=D0=94=D0=BB=D1=8F =D0=BF=D0=BE=D0=BB=D1=83=D1=87=D0=B5=D0=
+=BD=D0=B8=D0=B5 =D1=81=D0=BF=D0=B5=D1=86=D0=B8=D1=84=D0=B8=D0=BA=D0=B0=D1=
+=86=D0=B8=D0=B8 =D0=BA=D0=B0=D1=82=D0=B0=D0=BB=D0=BE=D0=B3=D0=B0, =D0=BD=D0=
+=B5=D0=BE=D0=B1=D1=85=D0=BE=D0=B4=D0=B8=D0=BC=D0=BE =D0=B8=D1=81=D0=BF=D0=
+=BE=D0=BB=D1=8C=D0=B7=D0=BE=D0=B2=D0=B0=D1=82=D1=8C =D0=BC=D0=B5=D1=82=D0=
+=BE=D0=B4 getCatalogSpec. =D0=9F=D1=80=D0=B8 =D0=B2=D1=8B=D0=B7=D0=BE=D0=B2=
+=D0=B5 =D0=BC=D0=B5=D1=82=D0=BE=D0=B4=D0=B0 =D0=BD=D0=B5=D0=BE=D0=B1=D1=85=
+=D0=BE=D0=B4=D0=B8=D0=BC=D0=BE =D0=B7=D0=B0=D0=BF=D0=BE=D0=BB=D0=BD=D0=B8=
+=D1=82=D1=8C =D0=B8=D0=B4=D0=B5=D0=BD=D1=82=D0=B8=D1=84=D0=B8=D0=BA=D0=B0=
+=D1=82=D0=BE=D1=80 =D0=B7=D0=B0=D0=BF=D1=80=D0=B0=D1=88=D0=B8=D0=B2=D0=B0=
+=D0=B5=D0=BC=D0=BE=D0=B3=D0=BE =D0=BA=D0=B0=D1=82=D0=B0=D0=BB=D0=BE=D0=B3=
+=D0=B0 idCatalog</span>.&nbsp;</p>
+<p>=D0=9F=D1=80=D0=B8 =D0=B2=D1=8B=D0=B7=D0=BE=D0=B2=D0=B5 =D0=BC=D0=B5=D1=
+=82=D0=BE=D0=B4=D0=B0 =D0=B5=D1=81=D1=82=D1=8C =D0=B2=D0=BE=D0=B7=D0=BC=D0=
+=BE=D0=B6=D0=BD=D0=BE=D1=81=D1=82=D1=8C =D0=B2=D0=B2=D0=B5=D1=81=D1=82=D0=
+=B8 =D0=BD=D0=B5=D0=BE=D0=B1=D1=8F=D0=B7=D0=B0=D1=82=D0=B5=D0=BB=D1=8C=D0=
+=BD=D1=8B=D0=B9 =D0=BF=D0=B0=D1=80=D0=B0=D0=BC=D0=B5=D1=82=D1=80 "=D0=B2=D0=
+=B5=D1=80=D1=81=D0=B8=D1=8F", =D0=BA=D0=BE=D1=82=D0=BE=D1=80=D0=B0=D1=8F =
+=D0=BE=D0=BF=D1=80=D0=B5=D0=B4=D0=B5=D0=BB=D1=8F=D0=B5=D1=82 =D0=BD=D0=B0=
+=D0=B1=D0=BE=D1=80 =D0=BF=D0=BE=D0=BB=D1=83=D1=87=D0=B0=D0=B5=D0=BC=D1=8B=
+=D1=85 =D0=BF=D0=BE=D0=BB=D0=B5=D0=B9 =D1=81=D0=BF=D0=B5=D1=86=D0=B8=D1=84=
+=D0=B8=D0=BA=D0=B0=D1=86=D0=B8=D0=B8. =D0=9F=D0=BE =D1=83=D0=BC=D0=BE=D0=BB=
+=D1=87=D0=B0=D0=BD=D0=B8=D1=8E =D0=B8=D1=81=D0=BF=D0=BE=D0=BB=D1=8C=D0=B7=
+=D1=83=D0=B5=D1=82=D1=81=D1=8F =D0=BF=D0=B5=D1=80=D0=B2=D0=B0=D1=8F =D0=B2=
+=D0=B5=D1=80=D1=81=D0=B8=D1=8F.</p>
+<p>=D0=A1=D1=82=D1=80=D1=83=D0=BA=D1=82=D1=83=D1=80=D0=B0 =D0=BE=D1=82=D0=
+=B2=D0=B5=D1=82=D0=B0 =D0=BE=D0=BF=D0=B8=D1=81=D0=B0=D0=BD=D0=B0 =D1=81=D0=
+=BB=D0=B5=D0=B4=D1=83=D1=8E=D1=89=D0=B8=D0=BC XSD =D0=B4=D0=BE=D0=BA=D1=83=
+=D0=BC=D0=B5=D0=BD=D1=82=D0=BE=D0=BC: <a href=3D"/download/attachments/6819=
+232/xsd.xsd?version=3D2&amp;modificationDate=3D1504090589996&amp;api=3Dv2" =
+data-linked-resource-id=3D"9473656" data-linked-resource-version=3D"2" data=
+-linked-resource-type=3D"attachment" data-linked-resource-default-alias=3D"=
+xsd.xsd" data-linked-resource-content-type=3D"application/octet-stream" dat=
+a-linked-resource-container-id=3D"6819232" data-linked-resource-container-v=
+ersion=3D"15">xsd.xsd</a></p>
+<h1 id=3D"id-=D0=9F=D0=BE=D0=BB=D1=83=D1=87=D0=B5=D0=BD=D0=B8=D0=B5=D1=81=
+=D0=BF=D0=B5=D1=86=D0=B8=D1=84=D0=B8=D0=BA=D0=B0=D1=86=D0=B8=D0=B8=D0=BA=D0=
+=B0=D1=82=D0=B0=D0=BB=D0=BE=D0=B3=D0=B0(getCatalogSpec)-=D0=9E=D0=BF=D0=B8=
+=D1=81=D0=B0=D0=BD=D0=B8=D0=B5=D0=B2=D0=BE=D0=B7=D0=B2=D1=80=D0=B0=D1=89=D0=
+=B0=D0=B5=D0=BC=D1=8B=D1=85=D0=BF=D0=BE=D0=BB=D0=B5=D0=B9">=D0=9E=D0=BF=D0=
+=B8=D1=81=D0=B0=D0=BD=D0=B8=D0=B5 =D0=B2=D0=BE=D0=B7=D0=B2=D1=80=D0=B0=D1=
+=89=D0=B0=D0=B5=D0=BC=D1=8B=D1=85 =D0=BF=D0=BE=D0=BB=D0=B5=D0=B9</h1>
+<div class=3D"table-wrap">
+<table class=3D"relative-table wrapped confluenceTable" style=3D"width: 73.=
+6149%;">
+<colgroup>
+<col style=3D"width: 11.484%;">
+<col style=3D"width: 60.179%;">
+<col style=3D"width: 28.3371%;">
+</colgroup>
+<tbody>
+<tr>
+<th colspan=3D"1" class=3D"confluenceTh">=D0=9F=D0=B0=D1=80=D0=B0=D0=BC=D0=
+=B5=D1=82=D1=80</th>
+<th colspan=3D"1" class=3D"confluenceTh">=D0=9E=D0=BF=D0=B8=D1=81=D0=B0=D0=
+=BD=D0=B8=D0=B5</th>
+<th colspan=3D"1" class=3D"confluenceTh">=D0=94=D0=BE=D1=81=D1=82=D1=83=D0=
+=BF=D0=BD=D0=BE=D1=81=D1=82=D1=8C</th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">id</td>
+<td class=3D"confluenceTd">
+<div class=3D"content-wrapper">
+<p>=D0=98=D0=B4=D0=B5=D0=BD=D1=82=D0=B8=D1=84=D0=B8=D0=BA=D0=B0=D1=82=D0=BE=
+=D1=80 =D0=B0=D1=82=D1=80=D0=B8=D0=B1=D1=83=D1=82=D0=B0</p>
+</div></td>
+<td colspan=3D"1" class=3D"confluenceTd">=D0=92=D1=81=D0=B5</td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">refCatalog</td>
+<td class=3D"confluenceTd">=D0=98=D0=B4=D0=B5=D0=BD=D1=82=D0=B8=D1=84=D0=B8=
+=D0=BA=D0=B0=D1=82=D0=BE=D1=80 =D0=BA=D0=B0=D1=82=D0=B0=D0=BB=D0=BE=D0=B3=
+=D0=B0 =D0=BD=D0=B0 =D0=BA=D0=BE=D1=82=D0=BE=D1=80=D1=8B=D0=B9 =D1=81=D1=81=
+=D1=8B=D0=BB=D0=B0=D0=B5=D1=82=D1=81=D1=8F =D0=B4=D0=B0=D0=BD=D0=BD=D1=8B=
+=D0=B9 =D0=B0=D1=82=D1=80=D0=B8=D0=B1=D1=83=D1=82 (=D0=B4=D0=BB=D1=8F =D0=
+=B0=D1=82=D1=80=D0=B8=D0=B1=D1=83=D1=82=D0=BE=D0=B2 =D1=82=D0=B8=D0=BF=D0=
+=B0 TABLE =D0=B8 LINK)</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=92=D1=81=D0=B5</span></t=
+d>
+</tr>
+<tr>
+<td class=3D"confluenceTd">dictId</td>
+<td class=3D"confluenceTd">=D0=98=D0=B4=D0=B5=D0=BD=D1=82=D0=B8=D1=84=D0=B8=
+=D0=BA=D0=B0=D1=82=D0=BE=D1=80 =D1=81=D0=BF=D1=80=D0=B0=D0=B2=D0=BE=D1=87=
+=D0=BD=D0=B8=D0=BA=D0=B0, =D0=BA=D0=BE=D1=82=D0=BE=D1=80=D1=8B=D0=B9 =D0=B8=
+=D1=81=D0=BF=D0=BE=D0=BB=D1=8C=D0=B7=D1=83=D0=B5=D1=82=D1=81=D1=8F =D0=B4=
+=D0=BB=D1=8F =D0=B7=D0=B0=D0=BF=D0=BE=D0=BB=D0=BD=D0=B5=D0=BD=D0=B8=D1=8F =
+=D0=B0=D1=82=D1=80=D0=B8=D0=B1=D1=83=D1=82=D0=B0 =D1=81 =D1=82=D0=B8=D0=BF=
+=D0=BE=D0=BC DICT</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=92=D1=81=D0=B5</span></t=
+d>
+</tr>
+<tr>
+<td class=3D"confluenceTd">typeId</td>
+<td class=3D"confluenceTd">=D0=98=D0=B4=D0=B5=D0=BD=D1=82=D0=B8=D1=84=D0=B8=
+=D0=BA=D0=B0=D1=82=D0=BE=D1=80 =D1=82=D0=B8=D0=BF=D0=B0 =D0=B0=D1=82=D1=80=
+=D0=B8=D0=B1=D1=83=D1=82=D0=B0</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=92=D1=81=D0=B5</span></t=
+d>
+</tr>
+<tr>
+<td class=3D"confluenceTd">count</td>
+<td class=3D"confluenceTd">=D0=9A=D0=BE=D0=BB=D0=B8=D1=87=D0=B5=D1=81=D1=82=
+=D0=B2=D0=BE =D1=81=D1=82=D1=80=D0=BE=D0=BA =D0=B2 =D0=BA=D0=B0=D1=82=D0=B0=
+=D0=BB=D0=BE=D0=B3=D0=B5</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=92=D1=81=D0=B5</span></t=
+d>
+</tr>
+<tr>
+<td class=3D"confluenceTd">maxLength</td>
+<td class=3D"confluenceTd">=D0=9C=D0=B0=D0=BA=D1=81=D0=B8=D0=BC=D0=B0=D0=BB=
+=D1=8C=D0=BD=D0=B0=D1=8F =D0=B4=D0=BB=D0=B8=D0=BD=D0=B0 =D0=B7=D0=BD=D0=B0=
+=D1=87=D0=B5=D0=BD=D0=B8=D1=8F =D0=B0=D1=82=D1=80=D0=B8=D0=B1=D1=83=D1=82=
+=D0=B0</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=92=D1=81=D0=B5</span></t=
+d>
+</tr>
+<tr>
+<td colspan=3D"1" class=3D"confluenceTd"><p>maxLengthDecimal</p></td>
+<td colspan=3D"1" class=3D"confluenceTd">=D0=9C=D0=B0=D0=BA=D1=81=D0=B8=D0=
+=BC=D0=B0=D0=BB=D1=8C=D0=BD=D0=B0=D1=8F =D0=B4=D0=BB=D0=B8=D0=BD=D0=B0 =D0=
+=B4=D1=80=D0=BE=D0=B1=D0=BD=D0=BE=D0=B9 =D1=87=D0=B0=D1=81=D1=82=D0=B8 =D0=
+=B7=D0=BD=D0=B0=D1=87=D0=B5=D0=BD=D0=B8=D1=8F =D0=B0=D1=82=D1=80=D0=B8=D0=
+=B1=D1=83=D1=82=D0=B0</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=92=D1=81=D0=B5</span></t=
+d>
+</tr>
+<tr>
+<td class=3D"confluenceTd">fieldMask</td>
+<td class=3D"confluenceTd">=D0=9C=D0=B0=D1=81=D0=BA=D0=B0 =D0=B0=D1=82=D1=
+=80=D0=B8=D0=B1=D1=83=D1=82=D0=B0, =D0=BA=D0=BE=D1=82=D0=BE=D1=80=D0=B0=D1=
+=8F =D0=BF=D1=80=D0=BE=D0=B2=D0=B5=D1=80=D1=8F=D0=B5=D1=82=D1=81=D1=8F =D0=
+=BF=D1=80=D0=B8 =D0=B7=D0=B0=D0=BF=D0=BE=D0=BB=D0=BD=D0=B5=D0=BD=D0=B8=D0=
+=B8</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=92=D1=81=D0=B5</span></t=
+d>
+</tr>
+<tr>
+<td class=3D"confluenceTd">name</td>
+<td class=3D"confluenceTd">=D0=9D=D0=B0=D0=B7=D0=B2=D0=B0=D0=BD=D0=B8=D0=B5=
+ =D0=B0=D1=82=D1=80=D0=B8=D0=B1=D1=83=D1=82=D0=B0</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=92=D1=81=D0=B5</span></t=
+d>
+</tr>
+<tr>
+<td class=3D"confluenceTd">colname</td>
+<td class=3D"confluenceTd">=D0=9D=D0=B0=D0=B8=D0=BC=D0=B5=D0=BD=D0=BE=D0=B2=
+=D0=B0=D0=BD=D0=B8=D1=8F =D0=BF=D0=BE=D0=BB=D1=8F =D1=81=D0=BE =D0=B7=D0=BD=
+=D0=B0=D1=87=D0=B5=D0=BD=D0=B8=D0=B5=D0=BC =D0=B0=D1=82=D1=80=D0=B8=D0=B1=
+=D1=83=D1=82=D0=B0</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=BD=D0=B0=D1=87=D0=B8=D0=
+=BD=D0=B0=D1=8F =D1=81=D0=BE 2-=D0=BE=D0=B9 =D0=B2=D0=B5=D1=80=D1=81=D0=B8=
+=D0=B8</span></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">ehdCommonAttribute</td>
+<td class=3D"confluenceTd">=D0=9D=D0=B0=D1=87=D0=B0=D0=BB=D0=BE =D0=BE=D0=
+=BF=D0=B8=D1=81=D0=B0=D0=BD=D0=B8=D1=8F =D0=B0=D1=82=D1=80=D0=B8=D0=B1=D1=
+=83=D1=82=D0=B0</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=92=D1=81=D0=B5</span></t=
+d>
+</tr>
+<tr>
+<td class=3D"confluenceTd">isEdit</td>
+<td class=3D"confluenceTd">=D0=9F=D1=80=D0=B8=D0=B7=D0=BD=D0=B0=D0=BA =D0=
+=B2=D0=BE=D0=B7=D0=BC=D0=BE=D0=B6=D0=BD=D0=BE=D1=81=D1=82=D0=B8 =D1=80=D0=
+=B5=D0=B4=D0=B0=D0=BA=D1=82=D0=B8=D1=80=D0=BE=D0=B2=D0=B0=D0=BD=D0=B8=D1=8F=
+</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=92=D1=81=D0=B5</span></t=
+d>
+</tr>
+<tr>
+<td class=3D"confluenceTd">isReq</td>
+<td class=3D"confluenceTd">=D0=9F=D1=80=D0=B8=D0=B7=D0=BD=D0=B0=D0=BA =D1=
+=82=D0=BE=D0=B3=D0=BE, =D1=87=D1=82=D0=BE =D0=B0=D1=82=D1=80=D0=B8=D0=B1=D1=
+=83=D1=82 =D1=8F=D0=B2=D0=BB=D1=8F=D0=B5=D1=82=D1=81=D1=8F =D0=BE=D0=B1=D1=
+=8F=D0=B7=D0=B0=D1=82=D0=B5=D0=BB=D1=8C=D0=BD=D1=8B=D0=BC =D0=B4=D0=BB=D1=
+=8F =D0=B7=D0=B0=D0=BF=D0=BE=D0=BB=D0=BD=D0=B5=D0=BD=D0=B8=D1=8F</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=92=D1=81=D0=B5</span></t=
+d>
+</tr>
+<tr>
+<td class=3D"confluenceTd">isPrimaryKey</td>
+<td class=3D"confluenceTd">=D0=9F=D1=80=D0=B8=D0=B7=D0=BD=D0=B0=D0=BA =D1=
+=82=D0=BE=D0=B3=D0=BE, =D1=87=D1=82=D0=BE =D0=B0=D1=82=D1=80=D0=B8=D0=B1=D1=
+=83=D1=82 =D1=8F=D0=B2=D0=BB=D1=8F=D0=B5=D1=82=D1=81=D1=8F =D0=BF=D0=B5=D1=
+=80=D0=B2=D0=B8=D1=87=D0=BD=D1=8B=D0=BC =D0=BA=D0=BB=D1=8E=D1=87=D0=BE=D0=
+=BC. =D0=9F=D1=80=D0=B8 =D0=BE=D0=B1=D0=BC=D0=B5=D0=BD=D0=B5 =D0=BF=D0=B5=
+=D1=80=D0=B2=D0=B8=D1=87=D0=BD=D1=8B=D0=BC =D0=BA=D0=BB=D1=8E=D1=87=D0=BE=
+=D0=BC =D0=BD=D0=B0=D0=B7=D1=8B=D0=B2=D0=B0=D0=B5=D1=82=D1=81=D1=8F =D0=B8=
+=D0=B4=D0=B5=D0=BD=D1=82=D0=B8=D1=84=D0=B8=D0=BA=D0=B0=D1=82=D0=BE=D1=80 =
+=D0=B2=D0=BD=D0=B5=D1=88=D0=BD=D0=B5=D0=B9 =D1=81=D0=B8=D1=81=D1=82=D0=B5=
+=D0=BC=D1=8B</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=92=D1=81=D0=B5</span></t=
+d>
+</tr>
+<tr>
+<td class=3D"confluenceTd">tehName</td>
+<td class=3D"confluenceTd">=D0=A1=D0=BB=D1=83=D0=B6=D0=B5=D0=B1=D0=BD=D0=BE=
+=D0=B5 =D0=BD=D0=B0=D0=B7=D0=B2=D0=B0=D0=BD=D0=B8=D0=B5 =D0=B0=D1=82=D1=80=
+=D0=B8=D0=B1=D1=83=D1=82=D0=B0</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=92=D1=81=D0=B5</span></t=
+d>
+</tr>
+<tr>
+<td colspan=3D"1" class=3D"confluenceTd">isMulti</td>
+<td colspan=3D"1" class=3D"confluenceTd">=D0=9F=D1=80=D0=B8=D0=B7=D0=BD=D0=
+=B0=D0=BA =D1=82=D0=BE=D0=B3=D0=BE, =D1=87=D1=82=D0=BE =D0=B0=D1=82=D1=80=
+=D0=B8=D0=B1=D1=83=D1=82 =D0=BC=D0=BE=D0=B6=D0=B5=D1=82 =D1=81=D0=BE=D0=B4=
+=D0=B5=D1=80=D0=B6=D0=B0=D1=82=D1=8C =D0=BC=D0=BD=D0=BE=D0=B6=D0=B5=D1=81=
+=D1=82=D0=B2=D0=B5=D0=BD=D0=BD=D1=8B=D0=B5 =D0=B7=D0=BD=D0=B0=D1=87=D0=B5=
+=D0=BD=D0=B8=D1=8F</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=92=D1=81=D0=B5</span></t=
+d>
+</tr>
+<tr>
+<td colspan=3D"1" class=3D"confluenceTd">type</td>
+<td colspan=3D"1" class=3D"confluenceTd"><p>=D0=A2=D0=B8=D0=BF =D0=B0=D1=82=
+=D1=80=D0=B8=D0=B1=D1=83=D1=82=D0=B0:</p>
+<ul>
+<li>INTEGER - =D1=86=D0=B5=D0=BB=D0=BE=D0=B5 =D0=B8=D0=BB=D0=B8 =D0=B4=D1=
+=80=D0=BE=D0=B1=D0=BD=D0=BE=D0=B5 =D1=87=D0=B8=D1=81=D0=BB=D0=BE</li>
+<li>INT - =D1=86=D0=B5=D0=BB=D0=BE=D0=B5 =D1=87=D0=B8=D1=81=D0=BB=D0=BE</li=
+>
+</ul>
+<ul>
+<li>STRING - =D1=82=D0=B5=D0=BA=D1=81=D1=82</li>
+</ul>
+<ul>
+<li>DATE =E2=80=93 =D0=B4=D0=B0=D1=82=D0=B0. =D0=92=D0=BE=D0=B7=D0=BC=D0=BE=
+=D0=B6=D0=BD=D1=8B=D0=B5 =D1=84=D0=BE=D1=80=D0=BC=D0=B0=D1=82=D1=8B =D0=BF=
+=D0=B5=D1=80=D0=B5=D0=B4=D0=B0=D1=8E=D1=82=D1=81=D1=8F =D0=B2 =D0=BF=D0=BE=
+=D0=BB=D0=B5 =D0=BC=D0=B0=D1=81=D0=BA=D0=B8</li>
+</ul>
+<ul>
+<li>DICT - =D1=81=D0=BF=D1=80=D0=B0=D0=B2=D0=BE=D1=87=D0=BD=D0=B8=D0=BA</li=
+>
+</ul>
+<ul>
+<li>TABLE =E2=80=93 =D1=82=D0=B0=D0=B1=D0=BB=D0=B8=D1=86=D0=B0</li>
+</ul>
+<ul>
+<li>FILE - =D1=84=D0=B0=D0=B9=D0=BB</li>
+<li>LINK - =D1=81=D1=81=D1=8B=D0=BB=D0=BA=D0=B0 =D0=BD=D0=B0 =D0=BE=D0=B1=
+=D1=8A=D0=B5=D0=BA=D1=82 =D0=BA=D0=B0=D1=82=D0=B0=D0=BB=D0=BE=D0=B3=D0=B0</=
+li>
+<li>BOOLEAN - =D0=BB=D0=BE=D0=B3=D0=B8=D1=87=D0=B5=D1=81=D0=BA=D0=B8=D0=B9 =
+=D1=82=D0=B8=D0=BF</li>
+</ul></td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=92=D1=81=D0=B5</span></t=
+d>
+</tr>
+<tr>
+<td colspan=3D"1" class=3D"confluenceTd">isAutocomplete</td>
+<td colspan=3D"1" class=3D"confluenceTd">=D0=9F=D1=80=D0=B8=D0=B7=D0=BD=D0=
+=B0=D0=BA =D0=B0=D0=B2=D1=82=D0=BE=D0=B7=D0=B0=D0=BF=D0=BE=D0=BB=D0=BD=D0=
+=B5=D0=BD=D0=B8=D1=8F</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=BD=D0=B0=D1=87=D0=B8=D0=
+=BD=D0=B0=D1=8F =D1=81 3-=D0=B9 =D0=B2=D0=B5=D1=80=D1=81=D0=B8=D0=B8</span>=
+</td>
+</tr>
+<tr>
+<td colspan=3D"1" class=3D"confluenceTd">isManualInput</td>
+<td colspan=3D"1" class=3D"confluenceTd">=D0=9F=D1=80=D0=B8=D0=B7=D0=BD=D0=
+=B0=D0=BA =D1=80=D1=83=D1=87=D0=BD=D0=BE=D0=B3=D0=BE =D0=B2=D0=B2=D0=BE=D0=
+=B4=D0=B0</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=BD=D0=B0=D1=87=D0=B8=D0=
+=BD=D0=B0=D1=8F =D1=81 3-=D0=B9 =D0=B2=D0=B5=D1=80=D1=81=D0=B8=D0=B8</span>=
+</td>
+</tr>
+<tr>
+<td colspan=3D"1" class=3D"confluenceTd">isManualInputGeo</td>
+<td colspan=3D"1" class=3D"confluenceTd">=D0=9F=D1=80=D0=B8=D0=B7=D0=BD=D0=
+=B0=D0=BA =D1=80=D1=83=D1=87=D0=BD=D0=BE=D0=B3=D0=BE =D0=B2=D0=B2=D0=BE=D0=
+=B4=D0=B0 =D0=B3=D0=B5=D0=BE=D0=BC=D0=B5=D1=82=D1=80=D0=B8=D0=B8</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=BD=D0=B0=D1=87=D0=B8=D0=
+=BD=D0=B0=D1=8F =D1=81 3-=D0=B9 =D0=B2=D0=B5=D1=80=D1=81=D0=B8=D0=B8</span>=
+</td>
+</tr>
+<tr>
+<td colspan=3D"1" class=3D"confluenceTd">fillFor</td>
+<td colspan=3D"1" class=3D"confluenceTd"><span style=3D"color: rgb(21,27,38=
+);"><span>=D0=9F=D1=80=D0=B8=D0=B7=D0=BD=D0=B0=D0=BA =D0=B4</span>=D0=B5=D0=
+=B9=D1=81=D1=82=D0=B2=D0=B8=D1=8F =D1=81 =D0=BE=D0=B1=D1=8A=D0=B5=D0=BA=D1=
+=82=D0=BE=D0=BC =D0=BA=D0=B0=D1=82=D0=B0=D0=BB=D0=BE=D0=B3=D0=B0 =D0=BF=D1=
+=80=D0=B8 =D0=BA=D0=BE=D1=82=D0=BE=D1=80=D0=BE=D0=BC =D0=B8=D1=81=D0=BF=D0=
+=BE=D0=BB=D1=8C=D0=B7=D1=83=D0=B5=D1=82=D1=81=D1=8F =D0=B0=D1=82=D1=80=D0=
+=B8=D0=B1=D1=83=D1=82 (=D0=B4=D0=BE=D0=B1=D0=B0=D0=B2=D0=BB=D0=B5=D0=BD=D0=
+=B8=D0=B5, =D1=80=D0=B5=D0=B4=D0=B0=D0=BA=D1=82=D0=B8=D1=80=D0=BE=D0=B2=D0=
+=B0=D0=BD=D0=B8=D0=B5, =D1=83=D0=B4=D0=B0=D0=BB=D0=B5=D0=BD=D0=B8=D0=B5)<br=
+></span></td>
+<td colspan=3D"1" class=3D"confluenceTd"><span>=D0=BD=D0=B0=D1=87=D0=B8=D0=
+=BD=D0=B0=D1=8F =D1=81 3-=D0=B9 =D0=B2=D0=B5=D1=80=D1=81=D0=B8=D0=B8</span>=
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>=D0=9F=D1=80=D0=B8=D0=BC=D0=B5=D1=80 =D0=B2=D1=8B=D0=B7=D0=BE=D0=B2=D0=
+=B0 =D0=BC=D0=B5=D1=82=D0=BE=D0=B4=D0=B0</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">
+<div class=3D"codeContent panelContent pdl">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: xml; gutter: false; theme: Confluence" data-theme=3D"Confluence">&lt;soap=
+env:Envelope xmlns:soapenv=3D"http://schemas.xmlsoap.org/soap/envelope/" xm=
+lns:ehd=3D"http://ehd.mos.com/"&gt;
+   &lt;soapenv:Header/&gt;
+   &lt;soapenv:Body&gt;
+      &lt;ehd:getCatalogSpec&gt;
+         &lt;idCatalog&gt;6045&lt;/idCatalog&gt;
+=09=09 &lt;!--Optional:--&gt;
+=09=09 &lt;version&gt;1&lt;/version&gt;
+      &lt;/ehd:getCatalogSpec&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</pre>=20
+</div>
+</div>
+<p>&nbsp;</p>
+<p>=D0=9F=D1=80=D0=B8=D0=BC=D0=B5=D1=80 =D0=BE=D1=82=D0=B2=D0=B5=D1=82=D0=
+=B0 =D0=BC=D0=B5=D1=82=D0=BE=D0=B4=D0=B0</p>
+<div class=3D"code panel pdl" style=3D"border-width: 1px;">=20
+<div class=3D"codeHeader panelHeader pdl hide-border-bottom">=20
+<b class=3D"code-title"></b>=20
+<span class=3D"collapse-source expand-control" style=3D"display:none;"><spa=
+n class=3D"expand-control-icon icon">&nbsp;</span><span class=3D"expand-con=
+trol-text">=D0=A0=D0=B0=D0=B7=D0=B2=D0=B5=D1=80=D0=BD=D1=83=D1=82=D1=8C =D0=
+=B8=D1=81=D1=85=D0=BE=D0=B4=D0=BD=D1=8B=D0=B9 =D0=BA=D0=BE=D0=B4</span></sp=
+an>=20
+<span class=3D"collapse-spinner-wrapper"></span>=20
+</div>=20
+<div class=3D"codeContent panelContent pdl hide-toolbar">=20
+<pre class=3D"syntaxhighlighter-pre" data-syntaxhighlighter-params=3D"brush=
+: xml; gutter: false; theme: Confluence; collapse: true" data-theme=3D"Conf=
+luence">&lt;S:Envelope xmlns:S=3D"http://schemas.xmlsoap.org/soap/envelope/=
+" xmlns:SOAP-ENV=3D"http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsse=
+=3D"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-sece=
+xt-1.0.xsd"&gt;
+   &lt;S:Body&gt;
+      &lt;ns2:getCatalogSpecResponse xmlns:ns2=3D"http://ehd.mos.com/"&gt;
+         &lt;ns2:ehdAttrSpec&gt;
+            &lt;ns2:count&gt;36&lt;/ns2:count&gt;
+            &lt;ns2:ehdCommonAttribute&gt;
+               &lt;ns2:id&gt;-1&lt;/ns2:id&gt;
+               &lt;ns2:typeId&gt;2&lt;/ns2:typeId&gt;
+               &lt;ns2:name&gt;global_id&lt;/ns2:name&gt;
+               &lt;ns2:type&gt;INTEGER&lt;/ns2:type&gt;
+               &lt;ns2:isPrimaryKey&gt;true&lt;/ns2:isPrimaryKey&gt;
+               &lt;ns2:isEdit&gt;false&lt;/ns2:isEdit&gt;
+               &lt;ns2:isReq&gt;true&lt;/ns2:isReq&gt;
+               &lt;ns2:fieldMask xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:tehName&gt;global_id&lt;/ns2:tehName&gt;
+               &lt;ns2:maxLength&gt;100&lt;/ns2:maxLength&gt;
+               &lt;ns2:maxLengthDecimal xsi:nil=3D"true" xmlns:xsi=3D"http:=
+//www.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:dictId xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.o=
+rg/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:refCatalog xsi:nil=3D"true" xmlns:xsi=3D"http://www.=
+w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeleted xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeletedTmp xsi:nil=3D"true" xmlns:xsi=3D"http://ww=
+w.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isMulti&gt;false&lt;/ns2:isMulti&gt;
+            &lt;/ns2:ehdCommonAttribute&gt;
+            &lt;ns2:ehdCommonAttribute&gt;
+               &lt;ns2:id&gt;-2&lt;/ns2:id&gt;
+               &lt;ns2:typeId&gt;1&lt;/ns2:typeId&gt;
+               &lt;ns2:name&gt;system_object_id&lt;/ns2:name&gt;
+               &lt;ns2:type&gt;STRING&lt;/ns2:type&gt;
+               &lt;ns2:isPrimaryKey&gt;false&lt;/ns2:isPrimaryKey&gt;
+               &lt;ns2:isEdit xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.o=
+rg/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isReq&gt;false&lt;/ns2:isReq&gt;
+               &lt;ns2:fieldMask xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:tehName&gt;system_object_id&lt;/ns2:tehName&gt;
+               &lt;ns2:maxLength&gt;100&lt;/ns2:maxLength&gt;
+               &lt;ns2:maxLengthDecimal xsi:nil=3D"true" xmlns:xsi=3D"http:=
+//www.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:dictId xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.o=
+rg/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:refCatalog xsi:nil=3D"true" xmlns:xsi=3D"http://www.=
+w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeleted xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeletedTmp xsi:nil=3D"true" xmlns:xsi=3D"http://ww=
+w.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isMulti&gt;false&lt;/ns2:isMulti&gt;
+            &lt;/ns2:ehdCommonAttribute&gt;
+            &lt;ns2:ehdCommonAttribute&gt;
+               &lt;ns2:id&gt;52310&lt;/ns2:id&gt;
+               &lt;ns2:typeId&gt;9&lt;/ns2:typeId&gt;
+               &lt;ns2:name&gt;=D0=9A=D0=BE=D0=B4&lt;/ns2:name&gt;
+               &lt;ns2:type&gt;INT&lt;/ns2:type&gt;
+               &lt;ns2:isPrimaryKey&gt;false&lt;/ns2:isPrimaryKey&gt;
+               &lt;ns2:isEdit&gt;true&lt;/ns2:isEdit&gt;
+               &lt;ns2:isReq&gt;true&lt;/ns2:isReq&gt;
+               &lt;ns2:fieldMask xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:tehName&gt;ID&lt;/ns2:tehName&gt;
+               &lt;ns2:maxLength&gt;4000&lt;/ns2:maxLength&gt;
+               &lt;ns2:maxLengthDecimal xsi:nil=3D"true" xmlns:xsi=3D"http:=
+//www.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:dictId xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.o=
+rg/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:refCatalog xsi:nil=3D"true" xmlns:xsi=3D"http://www.=
+w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeleted xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeletedTmp xsi:nil=3D"true" xmlns:xsi=3D"http://ww=
+w.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isMulti&gt;false&lt;/ns2:isMulti&gt;
+            &lt;/ns2:ehdCommonAttribute&gt;
+            &lt;ns2:ehdCommonAttribute&gt;
+               &lt;ns2:id&gt;52311&lt;/ns2:id&gt;
+               &lt;ns2:typeId&gt;1&lt;/ns2:typeId&gt;
+               &lt;ns2:name&gt;=D0=9D=D0=B0=D0=B8=D0=BC=D0=B5=D0=BD=D0=BE=
+=D0=B2=D0=B0=D0=BD=D0=B8=D0=B5&lt;/ns2:name&gt;
+               &lt;ns2:type&gt;STRING&lt;/ns2:type&gt;
+               &lt;ns2:isPrimaryKey&gt;false&lt;/ns2:isPrimaryKey&gt;
+               &lt;ns2:isEdit&gt;true&lt;/ns2:isEdit&gt;
+               &lt;ns2:isReq xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.or=
+g/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:fieldMask xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:tehName&gt;Name&lt;/ns2:tehName&gt;
+               &lt;ns2:maxLength&gt;4000&lt;/ns2:maxLength&gt;
+               &lt;ns2:maxLengthDecimal xsi:nil=3D"true" xmlns:xsi=3D"http:=
+//www.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:dictId xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.o=
+rg/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:refCatalog xsi:nil=3D"true" xmlns:xsi=3D"http://www.=
+w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeleted xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeletedTmp xsi:nil=3D"true" xmlns:xsi=3D"http://ww=
+w.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isMulti&gt;false&lt;/ns2:isMulti&gt;
+            &lt;/ns2:ehdCommonAttribute&gt;
+            &lt;ns2:ehdCommonAttribute&gt;
+               &lt;ns2:id&gt;52312&lt;/ns2:id&gt;
+               &lt;ns2:typeId&gt;8&lt;/ns2:typeId&gt;
+               &lt;ns2:name&gt;=D0=A2=D0=BE=D0=BD=D0=BD=D0=B5=D0=BB=D1=8C&l=
+t;/ns2:name&gt;
+               &lt;ns2:type&gt;LINK&lt;/ns2:type&gt;
+               &lt;ns2:isPrimaryKey&gt;false&lt;/ns2:isPrimaryKey&gt;
+               &lt;ns2:isEdit&gt;true&lt;/ns2:isEdit&gt;
+               &lt;ns2:isReq xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.or=
+g/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:fieldMask xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:tehName&gt;Tunnel&lt;/ns2:tehName&gt;
+               &lt;ns2:maxLength&gt;4000&lt;/ns2:maxLength&gt;
+               &lt;ns2:maxLengthDecimal xsi:nil=3D"true" xmlns:xsi=3D"http:=
+//www.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:dictId xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.o=
+rg/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:refCatalog&gt;1222&lt;/ns2:refCatalog&gt;
+               &lt;ns2:isDeleted xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeletedTmp xsi:nil=3D"true" xmlns:xsi=3D"http://ww=
+w.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isMulti&gt;false&lt;/ns2:isMulti&gt;
+            &lt;/ns2:ehdCommonAttribute&gt;
+            &lt;ns2:ehdCommonAttribute&gt;
+               &lt;ns2:id&gt;52313&lt;/ns2:id&gt;
+               &lt;ns2:typeId&gt;4&lt;/ns2:typeId&gt;
+               &lt;ns2:name&gt;=D0=90=D0=B4=D0=BC=D0=B8=D0=BD=D0=B8=D1=81=
+=D1=82=D1=80=D0=B0=D1=82=D0=B8=D0=B2=D0=BD=D1=8B=D0=B9 =D0=BE=D0=BA=D1=80=
+=D1=83=D0=B3&lt;/ns2:name&gt;
+               &lt;ns2:type&gt;DICT&lt;/ns2:type&gt;
+               &lt;ns2:isPrimaryKey&gt;false&lt;/ns2:isPrimaryKey&gt;
+               &lt;ns2:isEdit&gt;true&lt;/ns2:isEdit&gt;
+               &lt;ns2:isReq xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.or=
+g/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:fieldMask xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:tehName&gt;AdmArea&lt;/ns2:tehName&gt;
+               &lt;ns2:maxLength&gt;4000&lt;/ns2:maxLength&gt;
+               &lt;ns2:maxLengthDecimal xsi:nil=3D"true" xmlns:xsi=3D"http:=
+//www.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:dictId&gt;60&lt;/ns2:dictId&gt;
+               &lt;ns2:refCatalog xsi:nil=3D"true" xmlns:xsi=3D"http://www.=
+w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeleted xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeletedTmp xsi:nil=3D"true" xmlns:xsi=3D"http://ww=
+w.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isMulti&gt;true&lt;/ns2:isMulti&gt;
+            &lt;/ns2:ehdCommonAttribute&gt;
+            &lt;ns2:ehdCommonAttribute&gt;
+               &lt;ns2:id&gt;52314&lt;/ns2:id&gt;
+               &lt;ns2:typeId&gt;4&lt;/ns2:typeId&gt;
+               &lt;ns2:name&gt;=D0=A0=D0=B0=D0=B9=D0=BE=D0=BD&lt;/ns2:name&=
+gt;
+               &lt;ns2:type&gt;DICT&lt;/ns2:type&gt;
+               &lt;ns2:isPrimaryKey&gt;false&lt;/ns2:isPrimaryKey&gt;
+               &lt;ns2:isEdit&gt;true&lt;/ns2:isEdit&gt;
+               &lt;ns2:isReq xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.or=
+g/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:fieldMask xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:tehName&gt;District&lt;/ns2:tehName&gt;
+               &lt;ns2:maxLength&gt;4000&lt;/ns2:maxLength&gt;
+               &lt;ns2:maxLengthDecimal xsi:nil=3D"true" xmlns:xsi=3D"http:=
+//www.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:dictId&gt;61&lt;/ns2:dictId&gt;
+               &lt;ns2:refCatalog xsi:nil=3D"true" xmlns:xsi=3D"http://www.=
+w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeleted xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeletedTmp xsi:nil=3D"true" xmlns:xsi=3D"http://ww=
+w.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isMulti&gt;false&lt;/ns2:isMulti&gt;
+            &lt;/ns2:ehdCommonAttribute&gt;
+            &lt;ns2:ehdCommonAttribute&gt;
+               &lt;ns2:id&gt;52315&lt;/ns2:id&gt;
+               &lt;ns2:typeId&gt;1&lt;/ns2:typeId&gt;
+               &lt;ns2:name&gt;=D0=94=D0=BE=D0=BB=D0=B3=D0=BE=D1=82=D0=B0 =
+=D0=B2 WGS-84&lt;/ns2:name&gt;
+               &lt;ns2:type&gt;STRING&lt;/ns2:type&gt;
+               &lt;ns2:isPrimaryKey&gt;false&lt;/ns2:isPrimaryKey&gt;
+               &lt;ns2:isEdit&gt;true&lt;/ns2:isEdit&gt;
+               &lt;ns2:isReq xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.or=
+g/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:fieldMask xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:tehName&gt;Longitude_WGS84&lt;/ns2:tehName&gt;
+               &lt;ns2:maxLength&gt;4000&lt;/ns2:maxLength&gt;
+               &lt;ns2:maxLengthDecimal xsi:nil=3D"true" xmlns:xsi=3D"http:=
+//www.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:dictId xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.o=
+rg/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:refCatalog xsi:nil=3D"true" xmlns:xsi=3D"http://www.=
+w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeleted xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeletedTmp xsi:nil=3D"true" xmlns:xsi=3D"http://ww=
+w.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isMulti&gt;false&lt;/ns2:isMulti&gt;
+            &lt;/ns2:ehdCommonAttribute&gt;
+            &lt;ns2:ehdCommonAttribute&gt;
+               &lt;ns2:id&gt;52316&lt;/ns2:id&gt;
+               &lt;ns2:typeId&gt;1&lt;/ns2:typeId&gt;
+               &lt;ns2:name&gt;=D0=A8=D0=B8=D1=80=D0=BE=D1=82=D0=B0 =D0=B2 =
+WGS-84&lt;/ns2:name&gt;
+               &lt;ns2:type&gt;STRING&lt;/ns2:type&gt;
+               &lt;ns2:isPrimaryKey&gt;false&lt;/ns2:isPrimaryKey&gt;
+               &lt;ns2:isEdit&gt;true&lt;/ns2:isEdit&gt;
+               &lt;ns2:isReq xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.or=
+g/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:fieldMask xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:tehName&gt;Latitude_WGS84&lt;/ns2:tehName&gt;
+               &lt;ns2:maxLength&gt;4000&lt;/ns2:maxLength&gt;
+               &lt;ns2:maxLengthDecimal xsi:nil=3D"true" xmlns:xsi=3D"http:=
+//www.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:dictId xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.o=
+rg/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:refCatalog xsi:nil=3D"true" xmlns:xsi=3D"http://www.=
+w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeleted xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeletedTmp xsi:nil=3D"true" xmlns:xsi=3D"http://ww=
+w.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isMulti&gt;false&lt;/ns2:isMulti&gt;
+            &lt;/ns2:ehdCommonAttribute&gt;
+            &lt;ns2:ehdCommonAttribute&gt;
+               &lt;ns2:id&gt;52547&lt;/ns2:id&gt;
+               &lt;ns2:typeId&gt;5&lt;/ns2:typeId&gt;
+               &lt;ns2:name&gt;=D0=93=D1=80=D0=B0=D1=84=D0=B8=D0=BA =D1=80=
+=D0=B0=D0=B1=D0=BE=D1=82=D1=8B&lt;/ns2:name&gt;
+               &lt;ns2:type&gt;TABLE&lt;/ns2:type&gt;
+               &lt;ns2:isPrimaryKey&gt;false&lt;/ns2:isPrimaryKey&gt;
+               &lt;ns2:isEdit&gt;true&lt;/ns2:isEdit&gt;
+               &lt;ns2:isReq xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.or=
+g/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:fieldMask xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:tehName&gt;Grafik&lt;/ns2:tehName&gt;
+               &lt;ns2:maxLength&gt;4000&lt;/ns2:maxLength&gt;
+               &lt;ns2:maxLengthDecimal xsi:nil=3D"true" xmlns:xsi=3D"http:=
+//www.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:dictId xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.o=
+rg/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:refCatalog&gt;6293&lt;/ns2:refCatalog&gt;
+               &lt;ns2:isDeleted xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeletedTmp xsi:nil=3D"true" xmlns:xsi=3D"http://ww=
+w.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isMulti&gt;false&lt;/ns2:isMulti&gt;
+            &lt;/ns2:ehdCommonAttribute&gt;
+            &lt;ns2:ehdCommonAttribute&gt;
+               &lt;ns2:id&gt;54338&lt;/ns2:id&gt;
+               &lt;ns2:typeId&gt;1&lt;/ns2:typeId&gt;
+               &lt;ns2:name&gt;=D0=9A=D0=B0=D1=82=D0=B5=D0=B3=D0=BE=D1=80=
+=D0=B8=D1=8F&lt;/ns2:name&gt;
+               &lt;ns2:type&gt;STRING&lt;/ns2:type&gt;
+               &lt;ns2:isPrimaryKey&gt;false&lt;/ns2:isPrimaryKey&gt;
+               &lt;ns2:isEdit&gt;true&lt;/ns2:isEdit&gt;
+               &lt;ns2:isReq xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.or=
+g/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:fieldMask xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:tehName&gt;Kategoriya&lt;/ns2:tehName&gt;
+               &lt;ns2:maxLength&gt;4000&lt;/ns2:maxLength&gt;
+               &lt;ns2:maxLengthDecimal xsi:nil=3D"true" xmlns:xsi=3D"http:=
+//www.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:dictId xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.o=
+rg/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:refCatalog xsi:nil=3D"true" xmlns:xsi=3D"http://www.=
+w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeleted xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeletedTmp xsi:nil=3D"true" xmlns:xsi=3D"http://ww=
+w.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isMulti&gt;false&lt;/ns2:isMulti&gt;
+            &lt;/ns2:ehdCommonAttribute&gt;
+            &lt;ns2:ehdCommonAttribute&gt;
+               &lt;ns2:id&gt;58362&lt;/ns2:id&gt;
+               &lt;ns2:typeId&gt;1&lt;/ns2:typeId&gt;
+               &lt;ns2:name&gt;=D0=90=D0=B4=D1=80=D0=B5=D1=81=D0=BD=D1=8B=
+=D0=B9 =D0=BE=D1=80=D0=B8=D0=B5=D0=BD=D1=82=D0=B8=D1=80&lt;/ns2:name&gt;
+               &lt;ns2:type&gt;STRING&lt;/ns2:type&gt;
+               &lt;ns2:isPrimaryKey&gt;false&lt;/ns2:isPrimaryKey&gt;
+               &lt;ns2:isEdit&gt;true&lt;/ns2:isEdit&gt;
+               &lt;ns2:isReq xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.or=
+g/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:fieldMask xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:tehName&gt;Address&lt;/ns2:tehName&gt;
+               &lt;ns2:maxLength&gt;4000&lt;/ns2:maxLength&gt;
+               &lt;ns2:maxLengthDecimal xsi:nil=3D"true" xmlns:xsi=3D"http:=
+//www.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:dictId xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.o=
+rg/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:refCatalog xsi:nil=3D"true" xmlns:xsi=3D"http://www.=
+w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeleted xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeletedTmp xsi:nil=3D"true" xmlns:xsi=3D"http://ww=
+w.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isMulti&gt;false&lt;/ns2:isMulti&gt;
+            &lt;/ns2:ehdCommonAttribute&gt;
+            &lt;ns2:ehdCommonAttribute&gt;
+               &lt;ns2:id&gt;392110&lt;/ns2:id&gt;
+               &lt;ns2:typeId&gt;4&lt;/ns2:typeId&gt;
+               &lt;ns2:name&gt;=D0=9F=D0=BE=D0=BB&lt;/ns2:name&gt;
+               &lt;ns2:type&gt;DICT&lt;/ns2:type&gt;
+               &lt;ns2:isPrimaryKey&gt;false&lt;/ns2:isPrimaryKey&gt;
+               &lt;ns2:isEdit&gt;true&lt;/ns2:isEdit&gt;
+               &lt;ns2:isReq xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.or=
+g/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:fieldMask xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:tehName&gt;Pol&lt;/ns2:tehName&gt;
+               &lt;ns2:maxLength&gt;4000&lt;/ns2:maxLength&gt;
+               &lt;ns2:maxLengthDecimal xsi:nil=3D"true" xmlns:xsi=3D"http:=
+//www.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:dictId&gt;111&lt;/ns2:dictId&gt;
+               &lt;ns2:refCatalog xsi:nil=3D"true" xmlns:xsi=3D"http://www.=
+w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeleted xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeletedTmp xsi:nil=3D"true" xmlns:xsi=3D"http://ww=
+w.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isMulti&gt;false&lt;/ns2:isMulti&gt;
+            &lt;/ns2:ehdCommonAttribute&gt;
+            &lt;ns2:ehdCommonAttribute&gt;
+               &lt;ns2:id&gt;392111&lt;/ns2:id&gt;
+               &lt;ns2:typeId&gt;4&lt;/ns2:typeId&gt;
+               &lt;ns2:name&gt;=D0=90=D0=B4=D1=80=D0=B5=D1=81&lt;/ns2:name&=
+gt;
+               &lt;ns2:type&gt;DICT&lt;/ns2:type&gt;
+               &lt;ns2:isPrimaryKey&gt;false&lt;/ns2:isPrimaryKey&gt;
+               &lt;ns2:isEdit&gt;true&lt;/ns2:isEdit&gt;
+               &lt;ns2:isReq xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.or=
+g/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:fieldMask xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:tehName&gt;Address&lt;/ns2:tehName&gt;
+               &lt;ns2:maxLength&gt;4000&lt;/ns2:maxLength&gt;
+               &lt;ns2:maxLengthDecimal xsi:nil=3D"true" xmlns:xsi=3D"http:=
+//www.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:dictId&gt;58&lt;/ns2:dictId&gt;
+               &lt;ns2:refCatalog xsi:nil=3D"true" xmlns:xsi=3D"http://www.=
+w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeleted xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeletedTmp xsi:nil=3D"true" xmlns:xsi=3D"http://ww=
+w.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isMulti&gt;false&lt;/ns2:isMulti&gt;
+            &lt;/ns2:ehdCommonAttribute&gt;
+            &lt;ns2:ehdCommonAttribute&gt;
+               &lt;ns2:id&gt;-4&lt;/ns2:id&gt;
+               &lt;ns2:typeId&gt;1&lt;/ns2:typeId&gt;
+               &lt;ns2:name&gt;=D0=A1=D0=BE=D1=81=D1=82=D0=BE=D1=8F=D0=BD=
+=D0=B8=D0=B5 =D0=BF=D0=BE=D0=B4=D0=BF=D0=B8=D1=81=D0=B8&lt;/ns2:name&gt;
+               &lt;ns2:type&gt;STRING&lt;/ns2:type&gt;
+               &lt;ns2:isPrimaryKey&gt;false&lt;/ns2:isPrimaryKey&gt;
+               &lt;ns2:isEdit&gt;false&lt;/ns2:isEdit&gt;
+               &lt;ns2:isReq&gt;false&lt;/ns2:isReq&gt;
+               &lt;ns2:fieldMask xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:tehName&gt;signature&lt;/ns2:tehName&gt;
+               &lt;ns2:maxLength&gt;4000&lt;/ns2:maxLength&gt;
+               &lt;ns2:maxLengthDecimal xsi:nil=3D"true" xmlns:xsi=3D"http:=
+//www.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:dictId xsi:nil=3D"true" xmlns:xsi=3D"http://www.w3.o=
+rg/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:refCatalog xsi:nil=3D"true" xmlns:xsi=3D"http://www.=
+w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeleted xsi:nil=3D"true" xmlns:xsi=3D"http://www.w=
+3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isDeletedTmp xsi:nil=3D"true" xmlns:xsi=3D"http://ww=
+w.w3.org/2001/XMLSchema-instance"/&gt;
+               &lt;ns2:isMulti&gt;false&lt;/ns2:isMulti&gt;
+            &lt;/ns2:ehdCommonAttribute&gt;
+         &lt;/ns2:ehdAttrSpec&gt;
+      &lt;/ns2:getCatalogSpecResponse&gt;
+   &lt;/S:Body&gt;
+&lt;/S:Envelope&gt;</pre>=20
+</div>=20
+</div>
+<p><br></p>
+    </div>
+</body>
+</html>
+------=_Part_251_824812355.1508315625554--

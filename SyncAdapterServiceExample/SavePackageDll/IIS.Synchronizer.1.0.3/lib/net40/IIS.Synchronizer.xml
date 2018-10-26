@@ -1,0 +1,1079 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IIS.Synchronizer</name>
+    </assembly>
+    <members>
+        <member name="T:IIS.Synchronizer.Helpers.DataServiceHelper">
+            <summary>
+            DataService helper.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Helpers.DataServiceHelper.GetDataService(System.String,ICSSoft.STORMNET.Security.ISecurityManager)">
+            <summary>
+            Gets the value associated with the specified <paramref name="connectionStringName"/> from the <see cref="F:IIS.Synchronizer.Helpers.DataServiceHelper.DataServices"/>.
+            </summary>
+            <param name="connectionStringName">Connection string name.</param>
+            <param name="sm">Instance of <see cref="T:ICSSoft.STORMNET.Security.ISecurityManager"/>.</param>
+            <returns>Constructed DataService.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Helpers.DataServiceHelper.BatchUpdateObjects(ICSSoft.STORMNET.Business.IDataService,ICSSoft.STORMNET.DataObject[]@)">
+            <summary>
+            UpdateObjects as batch.
+            </summary>
+            <param name="ds">The instance of <see cref="T:ICSSoft.STORMNET.Business.IDataService"/> to update objects.</param>
+            <param name="objects">Objects for update.</param>
+        </member>
+        <member name="M:IIS.Synchronizer.Helpers.DataServiceHelper.BatchLoadObjects(ICSSoft.STORMNET.Business.IDataService,ICSSoft.STORMNET.View)">
+            <summary>
+            LoadObjects as batch.
+            </summary>
+            <param name="ds">The instance of <see cref="T:ICSSoft.STORMNET.Business.IDataService"/> to load objects from.</param>
+            <param name="view">Loading <see cref="T:ICSSoft.STORMNET.View"/>.</param>
+            <returns>An array that represents the instances loaded using <see cref="T:ICSSoft.STORMNET.Business.IDataService"/>.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Helpers.DataServiceHelper.BatchLoadObjects(ICSSoft.STORMNET.Business.IDataService,ICSSoft.STORMNET.Business.LoadingCustomizationStruct)">
+            <summary>
+            LoadObjects as batch.
+            </summary>
+            <param name="ds">The instance of <see cref="T:ICSSoft.STORMNET.Business.IDataService"/> to load objects from.</param>
+            <param name="lcs">The instance of <see cref="T:ICSSoft.STORMNET.Business.LoadingCustomizationStruct"/> to configure loading.</param>
+            <returns>An array that represents the instances loaded using <see cref="T:ICSSoft.STORMNET.Business.IDataService"/>.</returns>
+        </member>
+        <member name="T:IIS.Synchronizer.Helpers.SyncContext">
+            <summary>
+            Current app context.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.Helpers.SyncContext.AppSettings">
+            <summary>
+            .config-settings section.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Helpers.SyncContext.AppSettings.BatchSizeUpdate">
+            <summary>
+            Update objects batch size.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Helpers.SyncContext.AppSettings.BatchSizeLoad">
+            <summary>
+            Load objects batch size.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Helpers.SyncContext.AppSettings.BatchSizeProceed">
+            <summary>
+            Proceed entities batch size.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.Interfaces.ISettingTuple">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Interfaces.ISettingTuple.SourceType">
+            <summary>
+            Type of the source object.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Interfaces.ISettingTuple.DestinationType">
+            <summary>
+            Type of the destination object.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Interfaces.ISettingTuple.MapperType">
+            <summary>
+            Mapper type.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Interfaces.ISettingTuple.ObserverType">
+            <summary>
+            Observer type.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Interfaces.ISettingTuple.SourcePropertyName">
+            <summary>
+            Property path of the source object.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Interfaces.ISettingTuple.DestinationPropertyName">
+            <summary>
+            Property path of the destination object.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.ISync">
+            <summary>
+            ISync.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.ISync.ObjectPK">
+            <summary>
+            Aggregating property.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.ISyncBS">
+            <summary>
+            ISyncBS.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.ISyncBS.OnUpdateISync(IIS.Synchronizer.ISync)">
+            <summary>
+            Method for processing ISync object.
+            </summary>
+            <param name="UpdatedObject">ISync.</param>
+            <returns>DataObject[].</returns>
+        </member>
+        <member name="T:IIS.Synchronizer.ISyncEntity">
+            <summary>
+            ISyncEntity.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.ISyncEntity.ObjectPK">
+            <summary>
+            ObjectPK.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.ISyncEntity.Date">
+            <summary>
+            Date.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.ISyncEntity.Setting">
+            <summary>
+            ISyncEntity.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.ISyncExtension">
+            <summary>
+                Extensions for ISync-objects.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.ISyncExtension.Synced">
+            <summary>
+            ISynced flag name.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.ISyncExtension.RenewObjectPK``1(``0)">
+            <summary>
+            Renew ObjectPK.
+            </summary>
+            <param name="value">Extended-object.</param>
+            <typeparam name="T">ISync.</typeparam>
+        </member>
+        <member name="M:IIS.Synchronizer.ISyncExtension.SetSyncedFlag``1(``0)">
+            <summary>
+            Set ISynced flag.
+            </summary>
+            <param name="value">Extended-object.</param>
+            <typeparam name="T">ISync.</typeparam>
+        </member>
+        <member name="M:IIS.Synchronizer.ISyncExtension.ResetSyncedFlag``1(``0)">
+            <summary>
+            Reset ISynced flag.
+            </summary>
+            <param name="value">Extended-object.</param>
+            <typeparam name="T">ISync.</typeparam>
+        </member>
+        <member name="M:IIS.Synchronizer.ISyncExtension.IsSynced``1(``0)">
+            <summary>
+            Check ISynced flag.
+            </summary>
+            <param name="value">Extended-object.</param>
+            <typeparam name="T">ISync.</typeparam>
+            <returns>True - is ISynced, false - otherwise.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.ISyncExtension.GetObjectPKSafe``1(``0,ICSSoft.STORMNET.Business.IDataService)">
+            <summary>
+            Retrieve ObjectPK safely.
+            </summary>
+            <param name="value">Extended-object.</param>
+            <param name="ds">IDataService.</param>
+            <typeparam name="T">ISync.</typeparam>
+        </member>
+        <member name="T:IIS.Synchronizer.Mappers.Generic.BaseMapper`3">
+            <summary>
+            Abstract object mapper.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.Generic.BaseMapper`3.GetSourceObjects">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.Generic.BaseMapper`3.Map(IIS.Synchronizer.ISyncEntity)">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.Generic.BaseMapper`3.Map(`0)">
+            <inheritdoc />
+        </member>
+        <member name="T:IIS.Synchronizer.Mappers.Generic.BasePropertyMapper`2">
+            <summary>
+            Abstract property mapper.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Mappers.Generic.BasePropertyMapper`2.Setting">
+            <inheritdoc cref="P:IIS.Synchronizer.Mappers.IPropertyMapper.Setting" />
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.Generic.BasePropertyMapper`2.Map(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.Generic.BasePropertyMapper`2.Map(`0)">
+            <inheritdoc />
+        </member>
+        <member name="T:IIS.Synchronizer.Mappers.Generic.IPropertyMapper`2">
+            <summary>
+            IPropertyMapper.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Mappers.Generic.IPropertyMapper`2.Setting">
+            <summary>
+            Synchronization setting.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.Generic.IPropertyMapper`2.Map(`0)">
+            <summary>
+            Map object from Source to Destination types.
+            </summary>
+            <param name="source">Object from Source system.</param>
+            <returns>An object that represents the Destination type.</returns>
+        </member>
+        <member name="T:IIS.Synchronizer.Mappers.Generic.ISyncMapper`3">
+            <summary>
+            ISyncMapper.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.Generic.ISyncMapper`3.Map(`0)">
+            <summary>
+            Map ISync object from Source to Destination types.
+            </summary>
+            <param name="entity">ISyncEntity meta-information.</param>
+        </member>
+        <member name="T:IIS.Synchronizer.Mappers.DataObjectMapper`2">
+            <summary>
+            Abstract DataObject mapper.
+            </summary>
+            <typeparam name="TIn">DataObject, ISync.</typeparam>
+            <typeparam name="TOut">DataObject, ISync.</typeparam>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.Proceed(IIS.Synchronizer.SyncDOEntity,`0,`1)">
+            <summary>
+            Proceed source system object into destination system object.
+            </summary>
+            <param name="entity">SyncDOEntity.</param>
+            <param name="source">ISync object from Source system.</param>
+            <param name="dest">ISync object from Destination system.</param>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.ExtractUpdated(ICSSoft.STORMNET.DataObject,IIS.Synchronizer.SyncSetting)">
+            <summary>
+            Extract created or altered masters.
+            </summary>
+            <param name="val">Sync object.</param>
+            <param name="setting">Current setting.</param>
+            <returns>An array that represents the instances extracted object that has been created or altered during mapping process.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.Put(`1)">
+            <summary>
+            Proceed mapped ISync object to Desctination system.
+            </summary>
+            <param name="dest">Mapped object.</param>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.GetSourceObjects">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.Map(IIS.Synchronizer.SyncDOEntity)">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.Map(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.Map(`0,`1)">
+            <summary>
+            Map ISync object from Source to Destination types.
+            </summary>
+            <param name="source">ISync object from Source system.</param>
+            <param name="dest">ISync object from Destination system.</param>
+        </member>
+        <member name="P:IIS.Synchronizer.Mappers.DataObjectMapper`2.DestinationDataService">
+            <inheritdoc />
+        </member>
+        <member name="P:IIS.Synchronizer.Mappers.DataObjectMapper`2.DestinationView">
+            <inheritdoc />
+        </member>
+        <member name="P:IIS.Synchronizer.Mappers.DataObjectMapper`2.DestinationTypes">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.GetDestinationView">
+            <summary>
+            Get destination object view.
+            </summary>
+            <returns>View.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.GetDestinationTypes">
+            <summary>
+            Get destination object loading types.
+            </summary>
+            <returns>View.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.GetDestinationFunction(IIS.Synchronizer.SyncDOEntity)">
+            <summary>
+            Get limit function.
+            </summary>
+            <param name="entity">SyncDOEntity.</param>
+            <returns>Limit for object loading.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.GetDestinationLcs(IIS.Synchronizer.SyncDOEntity)">
+            <summary>
+            Get LCS for receiving destination object.
+            </summary>
+            <param name="entity">SyncDOEntity meta-info.</param>
+            <returns>Configurated lcs.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.GetDestinationObject(IIS.Synchronizer.SyncDOEntity)">
+            <summary>
+            Receive ISync object by ISyncEntity from Destination system.
+            </summary>
+            <param name="entity">ISyncEntity meta-information.</param>
+            <returns>Destination object.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.LoadDestinationObjects(ICSSoft.STORMNET.Business.LoadingCustomizationStruct)">
+            <summary>
+            Load objects from Destination system.
+            </summary>
+            <param name="lcs">LoadingCustomizationStruct.</param>
+            <returns>Typed source objects.</returns>
+        </member>
+        <member name="P:IIS.Synchronizer.Mappers.DataObjectMapper`2.SourceDataService">
+            <inheritdoc />
+        </member>
+        <member name="P:IIS.Synchronizer.Mappers.DataObjectMapper`2.SourceView">
+            <inheritdoc />
+        </member>
+        <member name="P:IIS.Synchronizer.Mappers.DataObjectMapper`2.SourceTypes">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.GetSourceView">
+            <summary>
+            Get source object view.
+            </summary>
+            <returns>View.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.GetSourceTypes">
+            <summary>
+            Get source object loading types.
+            </summary>
+            <returns>View.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.GetSourceFunction(IIS.Synchronizer.SyncDOEntity)">
+            <summary>
+            Get limit function.
+            </summary>
+            <param name="entity">SyncDOEntity.</param>
+            <returns>Limit for object loading.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.GetSourceLcs(IIS.Synchronizer.SyncDOEntity)">
+            <summary>
+            Get LCS for receiving source object.
+            </summary>
+            <param name="entity">SyncDOEntity meta-info.</param>
+            <returns>Configurated lcs.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.GetSourceObject(IIS.Synchronizer.SyncDOEntity)">
+            <summary>
+            Receive ISync object by ISyncEntity from Source system.
+            </summary>
+            <param name="entity">ISyncEntity meta-information.</param>
+            <returns>Source object.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.DataObjectMapper`2.LoadSourceObjects(ICSSoft.STORMNET.Business.LoadingCustomizationStruct)">
+            <summary>
+            Load objects from Source system.
+            </summary>
+            <param name="lcs">LoadingCustomizationStruct.</param>
+            <returns>Typed source objects.</returns>
+        </member>
+        <member name="P:IIS.Synchronizer.Mappers.IDestinationDataObject.DestinationDataService">
+            <summary>
+            DataService of Destination system.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Mappers.IDestinationDataObject.DestinationView">
+            <summary>
+            Destination object view.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Mappers.IDestinationDataObject.DestinationTypes">
+            <summary>
+            Destination object loading types.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.Mappers.IPropertyMapper">
+            <summary>
+            IPropertyMapper.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Mappers.IPropertyMapper.Setting">
+            <summary>
+            Synchronization setting.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.IPropertyMapper.Map(System.Object)">
+            <summary>
+            Map object from Source to Destination types.
+            </summary>
+            <param name="source">Object from Source system.</param>
+            <returns>An object that represents the Destination type.</returns>
+        </member>
+        <member name="P:IIS.Synchronizer.Mappers.ISourceDataObject.SourceDataService">
+            <summary>
+            DataService of source system.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Mappers.ISourceDataObject.SourceView">
+            <summary>
+            Source object view.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Mappers.ISourceDataObject.SourceTypes">
+            <summary>
+            Source object loading types.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.Mappers.ISyncMapper">
+            <summary>
+            ISyncMapper.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.ISyncMapper.GetSourceObjects">
+            <summary>
+            Receive all ISync objects from Source system.
+            </summary>
+            <returns>An array that represents the instances stored in source system.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Mappers.ISyncMapper.Map(IIS.Synchronizer.ISyncEntity)">
+            <summary>
+            Map ISync object from Source system to Destination system.
+            </summary>
+            <param name="entity">ISyncEntity meta-information.</param>
+        </member>
+        <member name="T:IIS.Synchronizer.Observers.BaseObserver`2">
+            <summary>
+            Abstract object mapper.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Observers.BaseObserver`2.Setting">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.BaseObserver`2.Check(IIS.Synchronizer.ISync)">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.BaseObserver`2.GetDate(IIS.Synchronizer.ISync)">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.BaseObserver`2.GetSyncEntity(IIS.Synchronizer.ISync,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.BaseObserver`2.Check(`1)">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.BaseObserver`2.GetDate(`1)">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.BaseObserver`2.GetSyncEntity(`1,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:IIS.Synchronizer.Observers.DataObjectObserver`1">
+            <summary>
+            Abstract DataObject observer.
+            </summary>
+            <typeparam name="TIn">DataObject, ISync.</typeparam>
+        </member>
+        <member name="P:IIS.Synchronizer.Observers.DataObjectObserver`1.SourceView">
+            <summary>
+            Source object view.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.DataObjectObserver`1.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.DataObjectObserver`1.GetPrimaryKey(`0)">
+            <summary>
+            Get object identification key.
+            </summary>
+            <param name="val">Source object.</param>
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.DataObjectObserver`1.GetSourceView">
+            <summary>
+            Get source object view.
+            </summary>
+            <returns>View.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.DataObjectObserver`1.Check(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.DataObjectObserver`1.GetDate(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.DataObjectObserver`1.GetSyncEntity(`0,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:IIS.Synchronizer.Observers.EmptyObserver`1">
+            <summary>
+            Empty observer for incompatible classes.
+            </summary>
+            <typeparam name="TIn"></typeparam>
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.EmptyObserver`1.Check(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.EmptyObserver`1.GetDate(`0)">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.EmptyObserver`1.GetSyncEntity(`0,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:IIS.Synchronizer.Observers.Generic.ISyncObserver`2">
+            <summary>
+            ISyncMapper.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Observers.Generic.ISyncObserver`2.Setting">
+            <summary>
+            Synchronization setting.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.Generic.ISyncObserver`2.Check(`1)">
+            <summary>
+            Validate ISync object.
+            </summary>
+            <param name="val">Source object.</param>
+            <returns><c>true</c> if the <paramref name="val" /> parameter's synchronization is required; otherwise, false.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.Generic.ISyncObserver`2.GetDate(`1)">
+            <summary>
+            Get object timestamp.
+            </summary>
+            <param name="val">Source object.</param>
+            <returns>An timestamp whose value is the date and time of synchronization.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.Generic.ISyncObserver`2.GetSyncEntity(`1,System.Boolean)">
+            <summary>
+            Get ISyncEntity meta information.
+            </summary>
+            <param name="val">Source object.</param>
+            <param name="forced">Forced synchronization.</param>
+            <returns>The metainformation of synchronization event.</returns>
+        </member>
+        <member name="T:IIS.Synchronizer.Observers.ISyncObserver">
+            <summary>
+            ISyncObserver.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Observers.ISyncObserver.Setting">
+            <summary>
+            Synchronization setting.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.ISyncObserver.Check(IIS.Synchronizer.ISync)">
+            <summary>
+            Validate ISync object.
+            </summary>
+            <param name="val">Source object.</param>
+            <returns><c>true</c> if the <paramref name="val" /> parameter's synchronization is required; otherwise, false.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.ISyncObserver.GetDate(IIS.Synchronizer.ISync)">
+            <summary>
+            Get object timestamp.
+            </summary>
+            <param name="val">Source object.</param>
+            <returns>An timestamp whose value is the date and time of synchronization.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Observers.ISyncObserver.GetSyncEntity(IIS.Synchronizer.ISync,System.Boolean)">
+            <summary>
+            Get ISyncEntity meta information.
+            </summary>
+            <param name="val">Source object.</param>
+            <param name="forced">Forced synchronization.</param>
+            <returns>The metainformation of synchronization event.</returns>
+        </member>
+        <member name="T:IIS.Synchronizer.Services.DefaultSettingService">
+            <summary>
+            Default SettingService implementation.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSettingService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:IIS.Synchronizer.Services.DefaultSettingService"/>.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSettingService.InitCache">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSettingService.SaveCache">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSettingService.CreateSetting(IIS.Synchronizer.Interfaces.ISettingTuple,IIS.Synchronizer.Interfaces.ISettingTuple[])">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSettingService.GetSettings``1">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSettingService.GetSettings(IIS.Synchronizer.ISync)">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSettingService.GetSetting(IIS.Synchronizer.ISyncEntity)">
+            <inheritdoc />
+        </member>
+        <member name="T:IIS.Synchronizer.Services.DefaultSyncService">
+            <summary>
+            Default ISyncService implementation.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Services.DefaultSyncService.Enabled">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSyncService.#ctor">
+            <summary>
+            Public constructor.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSyncService.#ctor(System.Boolean)">
+            <summary>
+            Public constructor.
+            </summary>
+            <param name="enabled">Полномочия будут проверяться, если <c>true</c>.</param>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSyncService.GetSyncEntities">
+            <summary>
+            Get SyncDOEntity for processing into mapping action.
+            </summary>
+            <returns>List of the SyncDOEntity.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSyncService.PushEntity(IIS.Synchronizer.ISyncEntity)">
+            <summary>
+            Push entity into Entity queue.
+            </summary>
+            <param name="entity">ISyncEntity.</param>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSyncService.ProceedEntity(IIS.Synchronizer.SyncDOEntity,System.Boolean)">
+            <summary>
+            Proceed single entity into mapping action.
+            </summary>
+            <param name="entity">ISyncEntity.</param>
+            <param name="throwException">Throw exception on error.</param>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSyncService.ProceedEntities(System.Collections.Generic.List{IIS.Synchronizer.SyncDOEntity},System.Boolean)">
+            <summary>
+            ProceedEntities.
+            </summary>
+            <param name="entities">List of the SyncDOEntity.</param>
+            <param name="throwException">Throw exception on error.</param>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSyncService.BatchProceedEntities(System.Collections.Generic.List{IIS.Synchronizer.SyncDOEntity},System.Boolean)">
+            <summary>
+            ProceedEntities as batch.
+            </summary>
+            <param name="entities">List of the SyncDOEntity.</param>
+            <param name="throwException">Throw exception on error.</param>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSyncService.SyncObject(IIS.Synchronizer.ISync,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSyncService.PopEntities">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSyncService.ProceedEntities(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.Services.DefaultSyncService.SyncType``1(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:IIS.Synchronizer.Services.ISettingService">
+            <summary>
+            ISettingService.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.ISettingService.InitCache">
+            <summary>
+            Initialize setting cache from storage.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.ISettingService.SaveCache">
+            <summary>
+            Save setting cache to storage.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.ISettingService.CreateSetting(IIS.Synchronizer.Interfaces.ISettingTuple,IIS.Synchronizer.Interfaces.ISettingTuple[])">
+            <summary>
+            Create new setting with subsettings.
+            </summary>
+            <param name="tuple">Main setting.</param>
+            <param name="subtuples">Sub settings.</param>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.ISettingService.GetSettings``1">
+            <summary>
+            Get SyncSetting for processing ISync type.
+            </summary>
+            <typeparam name="T">Source type.</typeparam>
+            <returns>List of the SyncSetting.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.ISettingService.GetSettings(IIS.Synchronizer.ISync)">
+            <summary>
+            Get SyncSetting for processing ISync object.
+            </summary>
+            <param name="value">ISync.</param>
+            <returns>List of the SyncSetting.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.ISettingService.GetSetting(IIS.Synchronizer.ISyncEntity)">
+            <summary>
+            Get SyncSetting for processing ISyncEntity.
+            </summary>
+            <param name="entity">ISyncEntity.</param>
+            <returns>SyncSetting.</returns>
+        </member>
+        <member name="T:IIS.Synchronizer.Services.ISyncService">
+            <summary>
+            ISyncService.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Services.ISyncService.Enabled">
+            <summary>
+            Gets a value indicating whether the ISyncService is enabled.
+            </summary>
+            <returns>true if ISyncService is enabled; otherwise, false. The default is true.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.ISyncService.SyncObject(IIS.Synchronizer.ISync,System.Boolean)">
+            <summary>
+            Handle synchonization object.
+            </summary>
+            <param name="value">ISync object.</param>
+            <param name="forced">Forced synchronization.</param>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.ISyncService.PopEntities">
+            <summary>
+            Pop entities into sync service database.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.ISyncService.ProceedEntities(System.Boolean)">
+            <summary>
+            Proceed entities into mapping action.
+            </summary>
+            <param name="throwException">Throw exception on error.</param>
+        </member>
+        <member name="M:IIS.Synchronizer.Services.ISyncService.SyncType``1(System.Boolean)">
+            <summary>
+            Proceed initialization synchonization type.
+            </summary>
+            <param name="forced">Forced synchronization.</param>
+        </member>
+        <member name="T:IIS.Synchronizer.Services.SettingService">
+            <summary>
+            Settings service entry point.
+            </summary>
+        </member>
+        <member name="F:IIS.Synchronizer.Services.SettingService.Default">
+            <summary>
+            Default settings service.
+            </summary>
+        </member>
+        <member name="F:IIS.Synchronizer.Services.SettingService.Decorable">
+            <summary>
+            Current settings service.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Services.SettingService.Current">
+            <summary>
+            Gets current settings service.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.Services.SyncService">
+            <summary>
+            Sync service entry point.
+            </summary>
+        </member>
+        <member name="F:IIS.Synchronizer.Services.SyncService.Default">
+            <summary>
+            Default sync service.
+            </summary>
+        </member>
+        <member name="F:IIS.Synchronizer.Services.SyncService.Decorable">
+            <summary>
+            Current sync service.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.Services.SyncService.Current">
+            <summary>
+            Gets current session service.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.SettingTuple`4">
+            <summary>
+            Base DataObject ISettingTuple implementation.
+            </summary>
+            <typeparam name="TIn">Source type.</typeparam>
+            <typeparam name="TOut">Destination type</typeparam>
+            <typeparam name="TM">Mapper type.</typeparam>
+            <typeparam name="TO">Observer type.</typeparam>
+        </member>
+        <member name="P:IIS.Synchronizer.SettingTuple`4.SourceType">
+            <inheritdoc />
+        </member>
+        <member name="P:IIS.Synchronizer.SettingTuple`4.DestinationType">
+            <inheritdoc />
+        </member>
+        <member name="P:IIS.Synchronizer.SettingTuple`4.MapperType">
+            <inheritdoc />
+        </member>
+        <member name="P:IIS.Synchronizer.SettingTuple`4.ObserverType">
+            <inheritdoc />
+        </member>
+        <member name="P:IIS.Synchronizer.SettingTuple`4.SourcePropertyName">
+            <inheritdoc />
+        </member>
+        <member name="P:IIS.Synchronizer.SettingTuple`4.DestinationPropertyName">
+            <inheritdoc />
+        </member>
+        <member name="M:IIS.Synchronizer.SettingTuple`4.#ctor(System.String,System.String)">
+            <summary>
+            Public constructor.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.SyncDOEntity">
+            <summary>
+            SyncDOEntity.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncDOEntity.ObjectPK">
+            <summary>
+            ObjectPK.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncDOEntity.Date">
+            <summary>
+            Date.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncDOEntity.ObjectPrimaryKey">
+            <summary>
+            ObjectPrimaryKey.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncDOEntity.ObjectStatus">
+            <summary>
+            ObjectStatus.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncDOEntity.Setting">
+            <summary>
+            SyncDOEntity.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.SyncDOEntity.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncDOEntity.Views.E">
+            <summary>
+            "E" view.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncDOEntity.Views.L">
+            <summary>
+            "L" view.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.SyncSubsetting">
+            <summary>
+            SyncSubsetting.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncSubsetting.Order">
+            <summary>
+            Order.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncSubsetting.SourcePropertyName">
+            <summary>
+            SourcePropertyName.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncSubsetting.DestinationPropertyName">
+            <summary>
+            DestinationPropertyName.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncSubsetting.Subsetting">
+            <summary>
+            SyncSubsetting.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncSubsetting.Setting">
+            <summary>
+            мастеровая ссылка на шапку IIS.Synchronizer.SyncSetting.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.SyncSubsetting.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncSubsetting.Views.D">
+            <summary>
+            "D" view.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.DetailArrayOfSyncSubsetting">
+            <summary>
+            Detail array of SyncSubsetting.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.DetailArrayOfSyncSubsetting.#ctor(IIS.Synchronizer.SyncSetting)">
+            <summary>
+            Construct detail array.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.DetailArrayOfSyncSubsetting.Item(System.Int32)">
+            <summary>
+            Returns object with type SyncSubsetting by index.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.DetailArrayOfSyncSubsetting.Add(IIS.Synchronizer.SyncSubsetting)">
+            <summary>
+            Adds object with type SyncSubsetting.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.SyncSystem">
+            <summary>
+            SyncSystem.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncSystem.Name">
+            <summary>
+            Name.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncSystem.Assembly">
+            <summary>
+            Assembly.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.SyncSystem.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncSystem.Views.E">
+            <summary>
+            "E" view.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncSystem.Views.L">
+            <summary>
+            "L" view.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.SyncType">
+            <summary>
+            SyncType.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.SyncType.ExtractType">
+            <summary>
+            Extract Type from SyncType by reflection.
+            </summary>
+            <returns>Type.</returns>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncType.Name">
+            <summary>
+            Name.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncType.Owner">
+            <summary>
+            SyncType.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.SyncType.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncType.Views.E">
+            <summary>
+            "E" view.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncType.Views.L">
+            <summary>
+            "L" view.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.SyncSetting">
+            <summary>
+            SyncSetting.
+            </summary>
+        </member>
+        <member name="M:IIS.Synchronizer.SyncSetting.ExtractMapper``1">
+            <summary>
+            Extract ISyncMapper from SyncSetting by reflection.
+            </summary>
+            <returns>ISyncMapper.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.SyncSetting.ExtractObserver">
+            <summary>
+            Extract ISyncObserver from SyncSetting by reflection.
+            </summary>
+            <returns>ISyncMapper.</returns>
+        </member>
+        <member name="M:IIS.Synchronizer.SyncSetting.GetSubsettings">
+            <summary>
+            Get subsettings.
+            </summary>
+            <returns>List of <see cref="T:IIS.Synchronizer.SyncSubsetting"/>.</returns>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncSetting.MapperName">
+            <summary>
+            MapperName.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncSetting.ObserverName">
+            <summary>
+            ObserverName.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncSetting.Source">
+            <summary>
+            SyncSetting.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncSetting.Destination">
+            <summary>
+            SyncSetting.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncSetting.SyncSubsetting">
+            <summary>
+            SyncSetting.
+            </summary>
+        </member>
+        <member name="T:IIS.Synchronizer.SyncSetting.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncSetting.Views.E">
+            <summary>
+            "E" view.
+            </summary>
+        </member>
+        <member name="P:IIS.Synchronizer.SyncSetting.Views.L">
+            <summary>
+            "L" view.
+            </summary>
+        </member>
+    </members>
+</doc>

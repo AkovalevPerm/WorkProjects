@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://eais.com/fias.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://eais.com/fias.xsd"
+    xmlns:tns="http://eais.com/fias.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ToMSRfromReestrMSPFiasDataChanges" type="tns:ToMSRfromReestrMSPFiasDataChangesType"/>
+  <xs:complexType name="ToMSRfromReestrMSPFiasDataChangesType">
+    <xs:sequence>
+      <xs:element name="RequestInfo" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Заполняется, если сообщение является ответом на запрос, и в запросе был заполнен данный параметр</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Items" type="tns:ItemsType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name ="ItemsType">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="Item" type="tns:ItemType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='ItemType'>
+    <xs:sequence>
+      <xs:element name='state' type='tns:StateType'>
+        <xs:annotation>
+          <xs:documentation>Тип изменения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='Timestamp' type='xs:dateTime'>
+        <xs:annotation>
+          <xs:documentation>Дата и время изменения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:choice minOccurs="1">
+        <xs:element name='fiasAddressObjects' type='tns:fiasAddressObjectsType'>
+          <xs:annotation>
+            <xs:documentation>Реестр образующих элементов</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name='fiasHousesStructures' type='tns:fiasHousesStructuresType'>
+          <xs:annotation>
+            <xs:documentation>Сведения по отдельным зданиям, сооружениям</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='fiasAddressObjectsType'>
+    <xs:annotation>
+      <xs:documentation>Реестр образующих элементов</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name='AOGUID' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Глобальный уникальный идентификатор адресного объекта </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='FORMALNAME' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Формализованное наименование</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='REGIONCODE' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Код региона</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='AUTOCODE' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Код автономии</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='AREACODE' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Код района</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='CITYCODE' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Код города</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='CTARCODE' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Код внутригородского района</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='PLACECODE' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Код населенного пункта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='PLANCODE' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Код элемента планировочной структуры</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='STREETCODE' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Код улицы</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='EXTRCODE' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Код дополнительного адресообразующего элемента</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='SEXTCODE' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Код подчиненного дополнительного адресообразующего элемента</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='OFFNAME' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Официальное наименование</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='POSTALCODE' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Почтовый индекс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='IFNSFL' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Код ИФНС ФЛ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='TERRIFNSFL' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Код территориального участка ИФНС ФЛ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='IFNSUL' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Код ИФНС ЮЛ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='TERRIFNSUL' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Код территориального участка ИФНС ЮЛ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='OKATO' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>ОКАТО</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='OKTMO' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>ОКТМО</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='UPDATEDATE' type='xs:date'>
+        <xs:annotation>
+          <xs:documentation>Дата  внесения (обновления) записи</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='SHORTNAME' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Краткое наименование типа объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='AOLEVEL' type='xs:integer'>
+        <xs:annotation>
+          <xs:documentation>Уровень адресного объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='PARENTGUID' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Идентификатор объекта родительского объекта</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='AOID' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор записи. Ключевое поле.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='PREVID' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Идентификатор записи связывания с предыдушей исторической записью</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='NEXTID' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Идентификатор записи  связывания с последующей исторической записью</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='CODE' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Код адресного элемента одной строкой с признаком актуальности из классификационного кода</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='PLAINCODE' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Код адресного элемента одной строкой без признака актуальности (последних двух цифр)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='ACTSTATUS' type='xs:integer'>
+        <xs:annotation>
+          <xs:documentation>
+            Статус последней исторической записи в жизненном цикле адресного объекта:0 – Не последняя;1 - Последняя
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='LIVESTATUS' type='xs:integer'>
+        <xs:annotation>
+          <xs:documentation>
+            Статус актуальности адресного объекта ФИАС на текущую дату:0 – Не актуальный;1 - Актуальный
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='CENTSTATUS' type='xs:integer'>
+        <xs:annotation>
+          <xs:documentation>Статус центра</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='OPERSTATUS' type='xs:integer'>
+        <xs:annotation>
+          <xs:documentation>Статус действия над записью – причина появления записи (см. OperationStatuses )</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='CURRSTATUS' type='xs:integer'>
+        <xs:annotation>
+          <xs:documentation>Статус актуальности КЛАДР 4 (последние две цифры в коде)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='STARTDATE' type='xs:date'>
+        <xs:annotation>
+          <xs:documentation>Начало действия записи</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='ENDDATE' type='xs:date'>
+        <xs:annotation>
+          <xs:documentation>Окончание действия записи</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='NORMDOC' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Внешний ключ на нормативный документ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='CADNUM' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Кадастровый номер</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='DIVTYPE' type='xs:integer'>
+        <xs:annotation>
+          <xs:documentation>Тип деления: 0 – не определено;1 – муниципальное;2 – административное</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='fiasHousesStructuresType'>
+    <xs:annotation>
+      <xs:documentation>Реестр образующих элементов</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name='POSTALCODE' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Почтовый индекс</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='REGIONCODE' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Код региона</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='IFNSFL' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Код ИФНС ФЛ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='TERRIFNSFL' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Код территориального участка ИФНС ФЛ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='IFNSUL' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Код ИФНС ЮЛ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='TERRIFNSUL' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Код территориального участка ИФНС ЮЛ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+	  <xs:element name='OKATO' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>ОКАТО</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='OKTMO' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>ОКТМО</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='UPDATEDATE' type='xs:date'>
+        <xs:annotation>
+          <xs:documentation>Дата  внесения (обновления) записи</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='HOUSENUM' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Номер дома</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='ESTSTATUS' type='xs:integer'>
+        <xs:annotation>
+          <xs:documentation>Признак владения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='BUILDNUM' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Номер корпуса</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='STRUCNUM' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Номер строения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='STRSTATUS' type='xs:integer' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Признак строения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='HOUSEID' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Уникальный идентификатор записи дома</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='HOUSEGUID' type='tns:guid'>
+        <xs:annotation>
+          <xs:documentation>Глобальный уникальный идентификатор дома</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='AOGUID' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Guid записи родительского объекта (улицы, города, населенного пункта и т.п.)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='STARTDATE' type='xs:date'>
+        <xs:annotation>
+          <xs:documentation>Начало действия записи</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='ENDDATE' type='xs:date'>
+        <xs:annotation>
+          <xs:documentation>Окончание действия записи</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='STATSTATUS' type='xs:integer'>
+        <xs:annotation>
+          <xs:documentation>Состояние дома</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='NORMDOC' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Внешний ключ на нормативный документ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='COUNTER' type='xs:integer'>
+        <xs:annotation>
+          <xs:documentation>Счетчик записей зданий, сооружений для формирования классификационного кода</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='CADNUM' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Кадастровый номер</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='DIVTYPE' type='xs:integer'>
+        <xs:annotation>
+          <xs:documentation>Тип деления: 0 – не определено;1 – муниципальное;2 – административное</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="StateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="updated" />
+      <xs:enumeration value="created" />
+      <xs:enumeration value="deleted" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,780 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IIS.Аудит(Objects)</name>
+    </assembly>
+    <members>
+        <member name="T:IIS.Аудит.Helpers.Tools">
+            <summary>
+            Методы дернутые из IIS.Business.
+            </summary>
+        </member>
+        <member name="M:IIS.Аудит.Helpers.Tools.GetCommandTimeOut">
+            <summary>
+            Возвращает значение системной настройки	SqlCommandTimeout или 10000 если ее нет
+            </summary>
+            <returns>Значение настройки</returns>
+        </member>
+        <member name="M:IIS.Аудит.Helpers.Tools.GetValueFromDb(System.String,ICSSoft.STORMNET.Business.IDataService,System.Boolean)">
+            <summary>
+            Получить значение из базы
+            </summary>
+            <param name="sql">Запрос возвращающий единственное значение</param>
+            <param name="dataservice"> IDataService </param>
+            <param name="notIgnoreException">false, если нужно игнорировать исключение</param>
+            <returns></returns>
+        </member>
+        <member name="M:IIS.Аудит.Helpers.Tools.IsNull(System.Object,System.Object)">
+            <summary>
+            если объект == null, возвращает значение по умолчанию
+            </summary>
+            <param name="obj">Анализируемый объект</param>
+            <param name="def">Значение по умолчанию</param>
+            <returns></returns>
+        </member>
+        <member name="M:IIS.Аудит.Helpers.Tools.GetServerDate(ICSSoft.STORMNET.Business.IDataService)">
+            <summary>
+            Получить дату серверного времени
+            </summary>
+            <returns>Серверная дата, если DataService - MSSQL или Oracle. Иначе - System.DateTime.Now</returns>
+        </member>
+        <member name="T:IIS.Аудит.tСпособПолученияОписания">
+            <summary>
+            tСпособПолученияОписания.
+            </summary>
+        </member>
+        <member name="F:IIS.Аудит.tСпособПолученияОписания.КлючевыеПоля">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:IIS.Аудит.tСпособПолученияОписания.МетодОбъекта">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.tТипДоступа">
+            <summary>
+            tТипДоступа.
+            </summary>
+        </member>
+        <member name="F:IIS.Аудит.tТипДоступа.Windows">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:IIS.Аудит.tТипДоступа.Web">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.tТипХраненияИзменений">
+            <summary>
+            tТипХраненияИзменений.
+            </summary>
+        </member>
+        <member name="F:IIS.Аудит.tТипХраненияИзменений.ОтдельнаяТаблица">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:IIS.Аудит.tТипХраненияИзменений.ФорматProtobuf">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.Аудит_НастройкаОбъекта">
+            <summary>
+            Аудит_НастройкаОбъекта.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_НастройкаОбъекта.Наименование">
+            <summary>
+            Наименование.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_НастройкаОбъекта.ТипОбъекта">
+            <summary>
+            ТипОбъекта.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_НастройкаОбъекта.ТипФормыРедактирования">
+            <summary>
+            ТипФормыРедактирования.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_НастройкаОбъекта.ВключенАудит">
+            <summary>
+            ВключенАудит.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_НастройкаОбъекта.Представление">
+            <summary>
+            Представление.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_НастройкаОбъекта.СпособПолученияОписания">
+            <summary>
+            СпособПолученияОписания.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_НастройкаОбъекта.ТипХраненияИзменений">
+            <summary>
+            ТипХраненияИзменений.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_НастройкаОбъекта.СборкаФормы">
+            <summary>
+            Аудит_НастройкаОбъекта.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_НастройкаОбъекта.СборкаОбъекта">
+            <summary>
+            Аудит_НастройкаОбъекта.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_НастройкаОбъекта.Поля">
+            <summary>
+            Аудит_НастройкаОбъекта.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_НастройкаОбъекта.Операции">
+            <summary>
+            Аудит_НастройкаОбъекта.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.Аудит_НастройкаОбъекта.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_НастройкаОбъекта.Views.Аудит_НастройкаОбъектаE">
+            <summary>
+            "Аудит_НастройкаОбъектаE" view.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_НастройкаОбъекта.Views.Аудит_НастройкаОбъектаL">
+            <summary>
+            "Аудит_НастройкаОбъектаL" view.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.tТипОперацииАудита">
+            <summary>
+            tТипОперацииАудита.
+            </summary>
+        </member>
+        <member name="F:IIS.Аудит.tТипОперацииАудита.Создание">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:IIS.Аудит.tТипОперацииАудита.Изменение">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:IIS.Аудит.tТипОперацииАудита.Удаление">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:IIS.Аудит.tТипОперацииАудита.Чтение">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:IIS.Аудит.tТипОперацииАудита.Выполнение">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.Аудит_Сессия">
+            <summary>
+            Аудит_Сессия.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_Сессия.ВремяНачала">
+            <summary>
+            ВремяНачала.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_Сессия.ВремяКонца">
+            <summary>
+            ВремяКонца.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_Сессия.ВремяПоследнегоДействия">
+            <summary>
+            ВремяПоследнегоДействия.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_Сессия.Источник">
+            <summary>
+            Источник.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_Сессия.Активна">
+            <summary>
+            Активна.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_Сессия.ТипДоступа">
+            <summary>
+            ТипДоступа.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_Сессия.Продолжительность">
+            <summary>
+            Продолжительность.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_Сессия.Пользователь">
+            <summary>
+            Аудит_Сессия.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.Аудит_Сессия.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_Сессия.Views.Аудит_СессияL">
+            <summary>
+            "Аудит_СессияL" view.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.АудитОперации">
+            <summary>
+            АудитОперации.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитОперации.Наименование">
+            <summary>
+            Наименование.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитОперации.ТипОперации">
+            <summary>
+            ТипОперации.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитОперации.Время">
+            <summary>
+            Время.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитОперации.ИдОбъекта">
+            <summary>
+            ИдОбъекта.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитОперации.Выполнено">
+            <summary>
+            Выполнено.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитОперации.Источник">
+            <summary>
+            Источник.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитОперации.ИзмененияТекст">
+            <summary>
+            ИзмененияТекст.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитОперации.НастройкаОбъекта">
+            <summary>
+            АудитОперации.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитОперации.Пользователь">
+            <summary>
+            АудитОперации.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитОперации.Изменения">
+            <summary>
+            АудитОперации.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.АудитОперации.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитОперации.Views.АудитОперацииE">
+            <summary>
+            "АудитОперацииE" view.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитОперации.Views.АудитОперацииL">
+            <summary>
+            "АудитОперацииL" view.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитОперации.Views.АудитОперацииT">
+            <summary>
+            "АудитОперацииT" view.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитОперации.Views.АудитОперацииWebE">
+            <summary>
+            "АудитОперацииWebE" view.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитОперации.Views.АудитОперацииWebL">
+            <summary>
+            "АудитОперацииWebL" view.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.АудитИзменения">
+            <summary>
+            АудитИзменения.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитИзменения.Элемент">
+            <summary>
+            Элемент.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитИзменения.Наименование">
+            <summary>
+            Наименование.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитИзменения.СтароеЗначение">
+            <summary>
+            СтароеЗначение.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитИзменения.НовоеЗначение">
+            <summary>
+            НовоеЗначение.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитИзменения.Иерархия">
+            <summary>
+            АудитИзменения.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитИзменения.Операция">
+            <summary>
+            мастеровая ссылка на шапку IIS.Аудит.АудитОперации.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.АудитИзменения.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитИзменения.Views.АудитИзмененияD">
+            <summary>
+            "АудитИзмененияD" view.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитИзменения.Views.АудитИзмененияL">
+            <summary>
+            "АудитИзмененияL" view.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АудитИзменения.Views.АудитИзмененияWebD">
+            <summary>
+            "АудитИзмененияWebD" view.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.DetailArrayOfАудитИзменения">
+            <summary>
+            Detail array of АудитИзменения.
+            </summary>
+        </member>
+        <member name="M:IIS.Аудит.DetailArrayOfАудитИзменения.#ctor(IIS.Аудит.АудитОперации)">
+            <summary>
+            Construct detail array.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.DetailArrayOfАудитИзменения.Item(System.Int32)">
+            <summary>
+            Returns object with type АудитИзменения by index.
+            </summary>
+        </member>
+        <member name="M:IIS.Аудит.DetailArrayOfАудитИзменения.Add(IIS.Аудит.АудитИзменения)">
+            <summary>
+            Adds object with type АудитИзменения.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.Аудит_Сборка">
+            <summary>
+            Аудит_Сборка.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_Сборка.Наименование">
+            <summary>
+            Наименование.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_Сборка.Путь">
+            <summary>
+            Путь.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_Сборка.Актуально">
+            <summary>
+            Актуально.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.Аудит_Сборка.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_Сборка.Views.Аудит_СборкаE">
+            <summary>
+            "Аудит_СборкаE" view.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_Сборка.Views.Аудит_СборкаL">
+            <summary>
+            "Аудит_СборкаL" view.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.Аудит">
+            <summary>
+            Аудит.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит.ДатаСоздания">
+            <summary>
+            ДатаСоздания.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит.ДатаИзменения">
+            <summary>
+            ДатаИзменения.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит.Создатель">
+            <summary>
+            Аудит.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит.Редактор">
+            <summary>
+            Аудит.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.Аудит.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит.Views.АудитE">
+            <summary>
+            "АудитE" view.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.Аудит_ПолеОбъекта">
+            <summary>
+            Аудит_ПолеОбъекта.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_ПолеОбъекта.Поле">
+            <summary>
+            Поле.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_ПолеОбъекта.Наименование">
+            <summary>
+            Наименование.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_ПолеОбъекта.Ключевое">
+            <summary>
+            Ключевое.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_ПолеОбъекта.ВключенАудит">
+            <summary>
+            ВключенАудит.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_ПолеОбъекта.Порядок">
+            <summary>
+            Порядок.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_ПолеОбъекта.Настройка">
+            <summary>
+            мастеровая ссылка на шапку IIS.Аудит.Аудит_НастройкаОбъекта.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.Аудит_ПолеОбъекта.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_ПолеОбъекта.Views.Аудит_ПолеОбъектаD">
+            <summary>
+            "Аудит_ПолеОбъектаD" view.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.DetailArrayOfАудит_ПолеОбъекта">
+            <summary>
+            Detail array of Аудит_ПолеОбъекта.
+            </summary>
+        </member>
+        <member name="M:IIS.Аудит.DetailArrayOfАудит_ПолеОбъекта.#ctor(IIS.Аудит.Аудит_НастройкаОбъекта)">
+            <summary>
+            Construct detail array.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.DetailArrayOfАудит_ПолеОбъекта.Item(System.Int32)">
+            <summary>
+            Returns object with type Аудит_ПолеОбъекта by index.
+            </summary>
+        </member>
+        <member name="M:IIS.Аудит.DetailArrayOfАудит_ПолеОбъекта.Add(IIS.Аудит.Аудит_ПолеОбъекта)">
+            <summary>
+            Adds object with type Аудит_ПолеОбъекта.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.Аудит_ОперацияОбъекта">
+            <summary>
+            Аудит_ОперацияОбъекта.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_ОперацияОбъекта.Тип">
+            <summary>
+            Тип.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_ОперацияОбъекта.ВключенАудит">
+            <summary>
+            ВключенАудит.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_ОперацияОбъекта.Порядок">
+            <summary>
+            Порядок.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_ОперацияОбъекта.Настройка">
+            <summary>
+            мастеровая ссылка на шапку IIS.Аудит.Аудит_НастройкаОбъекта.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.Аудит_ОперацияОбъекта.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Аудит_ОперацияОбъекта.Views.Аудит_ОперацияОбъектаD">
+            <summary>
+            "Аудит_ОперацияОбъектаD" view.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.DetailArrayOfАудит_ОперацияОбъекта">
+            <summary>
+            Detail array of Аудит_ОперацияОбъекта.
+            </summary>
+        </member>
+        <member name="M:IIS.Аудит.DetailArrayOfАудит_ОперацияОбъекта.#ctor(IIS.Аудит.Аудит_НастройкаОбъекта)">
+            <summary>
+            Construct detail array.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.DetailArrayOfАудит_ОперацияОбъекта.Item(System.Int32)">
+            <summary>
+            Returns object with type Аудит_ОперацияОбъекта by index.
+            </summary>
+        </member>
+        <member name="M:IIS.Аудит.DetailArrayOfАудит_ОперацияОбъекта.Add(IIS.Аудит.Аудит_ОперацияОбъекта)">
+            <summary>
+            Adds object with type Аудит_ОперацияОбъекта.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.АвторизацияПользователя">
+            <summary>
+            АвторизацияПользователя.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АвторизацияПользователя.Login">
+            <summary>
+            Login.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АвторизацияПользователя.Session">
+            <summary>
+            Session.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АвторизацияПользователя.Пользователь">
+            <summary>
+            АвторизацияПользователя.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.АвторизацияПользователя.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.АвторизацияПользователя.Views.АвторизацияПользователяE">
+            <summary>
+            "АвторизацияПользователяE" view.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.ДобавлениеПользователя">
+            <summary>
+            ДобавлениеПользователя.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.ДобавлениеПользователя.Login">
+            <summary>
+            Login.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.ДобавлениеПользователя.Password">
+            <summary>
+            Password.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.ДобавлениеПользователя.Пользователь">
+            <summary>
+            ДобавлениеПользователя.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.ДобавлениеПользователя.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.ДобавлениеПользователя.Views.ДобавлениеПользователяE">
+            <summary>
+            "ДобавлениеПользователяE" view.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.Пользователь">
+            <summary>
+            Пользователь.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Пользователь.ПоследнийЛогин">
+            <summary>
+            Поле необходимо для того чтобы проверять наличие оставшихся блокировок 
+            при смене логина пользователя. Логин из текущего пользователя нельзя проверять, 
+            т.к. в случае неудачной авторизации Пользователь.Текущий = null и тогда нельзя будет
+            сравнить новый логин со старым
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Пользователь.Agent">
+            <summary>
+            Agent.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Пользователь.Login">
+            <summary>
+            Login.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Пользователь.Name">
+            <summary>
+            Name.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Пользователь.Enabled">
+            <summary>
+            Enabled.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Пользователь.Session">
+            <summary>
+            Session.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.Пользователь.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Пользователь.Views.ПользовательE">
+            <summary>
+            "ПользовательE" view.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.Пользователь.Views.ПользовательL">
+            <summary>
+            "ПользовательL" view.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.ГенераторНастроекОбъектовАудита">
+            <summary>
+            ГенераторНастроекОбъектовАудита.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.ГенераторНастроекОбъектовАудита.СборкаОбъектов">
+            <summary>
+            ГенераторНастроекОбъектовАудита.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.ГенераторНастроекОбъектовАудита.СборкиФорм">
+            <summary>
+            ГенераторНастроекОбъектовАудита.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.ГенераторНастроекОбъектовАудита.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.ГенераторНастроекОбъектовАудита.Views.ГенераторНастроекОбъектовАудитаE">
+            <summary>
+            "ГенераторНастроекОбъектовАудитаE" view.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.СборкаФормыГенератора">
+            <summary>
+            СборкаФормыГенератора.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.СборкаФормыГенератора.СборкаФорм">
+            <summary>
+            СборкаФормыГенератора.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.СборкаФормыГенератора.Генератор">
+            <summary>
+            мастеровая ссылка на шапку IIS.Аудит.ГенераторНастроекОбъектовАудита.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.СборкаФормыГенератора.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.СборкаФормыГенератора.Views.СбораФормыГенеретораE">
+            <summary>
+            "СбораФормыГенеретораE" view.
+            </summary>
+        </member>
+        <member name="T:IIS.Аудит.DetailArrayOfСборкаФормыГенератора">
+            <summary>
+            Detail array of СборкаФормыГенератора.
+            </summary>
+        </member>
+        <member name="M:IIS.Аудит.DetailArrayOfСборкаФормыГенератора.#ctor(IIS.Аудит.ГенераторНастроекОбъектовАудита)">
+            <summary>
+            Construct detail array.
+            </summary>
+        </member>
+        <member name="P:IIS.Аудит.DetailArrayOfСборкаФормыГенератора.Item(System.Int32)">
+            <summary>
+            Returns object with type СборкаФормыГенератора by index.
+            </summary>
+        </member>
+        <member name="M:IIS.Аудит.DetailArrayOfСборкаФормыГенератора.Add(IIS.Аудит.СборкаФормыГенератора)">
+            <summary>
+            Adds object with type СборкаФормыГенератора.
+            </summary>
+        </member>
+    </members>
+</doc>

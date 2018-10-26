@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://eais.com/kmsz.xsd"
+    elementFormDefault="qualified"
+    xmlns="http://eais.com/kmsz.xsd"
+    xmlns:tns="http://eais.com/kmsz.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ToMSRfromReestrMSPCatalogDataChanges" type="tns:ToMSRfromReestrMSPCatalogDataChangesType"/>
+  <xs:complexType name="ToMSRfromReestrMSPCatalogDataChangesType">
+    <xs:sequence>
+      <xs:element name="RequestInfo" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Заполняется, если сообщение является ответом на запрос, и в запросе был заполнен данный параметр</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Items" type="tns:ItemsType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name ="ItemsType">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="Item" type="tns:ItemType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='ItemType'>
+    <xs:sequence>
+      <xs:element name='state' type='tns:StateType'>
+        <xs:annotation>
+          <xs:documentation>Тип изменения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='Timestamp' type='xs:dateTime'>
+        <xs:annotation>
+          <xs:documentation>Дата и время изменения</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:choice minOccurs="1">
+        <xs:element name='Classifier' type='tns:ClassifierType'/>
+        <xs:element name='Social' type='tns:SocialType'/>
+        <xs:element name='Category' type='tns:CategoryType'/>
+        <xs:element name='LegalLevel' type='tns:LegalLevelType'/>
+        <xs:element name='FinSource' type='tns:FinSourceType'/>
+        <xs:element name='Provision' type='tns:ProvisionType'/>
+        <xs:element name='Section' type='tns:SectionType'/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='ClassifierType'>
+    <xs:annotation>
+      <xs:documentation>Классификатор мер социальной защиты</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name='guid' type='tns:guid'>
+        <xs:annotation>
+          <xs:documentation>Код меры социальной защиты</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='code' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Наименование классификатора</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='Social' type='tns:SocialType' minOccurs='0'/>
+      <xs:element name='Category' type='tns:CategoryType' minOccurs='0'/>
+      <xs:element name='LegalLevel' type='tns:LegalLevelType' minOccurs='0'/>
+      <xs:element name='FinSource' type='tns:FinSourceType' minOccurs='0'/>
+      <xs:element name='Provision' type='tns:ProvisionType' minOccurs='0'/>
+      <xs:element name='Section' type='tns:SectionType' minOccurs='0'/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='SocialType'>
+    <xs:sequence>
+      <xs:element name='guid' type='tns:guid'>
+        <xs:annotation>
+          <xs:documentation>Идентификатор</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='code' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Код меры социальной защиты</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='name' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Наименование меры социальной защиты</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='CategoryType'>
+    <xs:sequence>
+      <xs:element name='guid' type='tns:guid'>
+        <xs:annotation>
+          <xs:documentation>Идентифкатор</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='code' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Код категории</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='name' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Наименование категории</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='note' type='xs:string' minOccurs='0'>
+        <xs:annotation>
+          <xs:documentation>Примечание</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='LegalLevelType'>
+    <xs:sequence>
+      <xs:element name='guid' type='tns:guid'>
+        <xs:annotation>
+          <xs:documentation>Идентификатор</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='code' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Код уровня нормативно – правового регулировния</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='name' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Наименование уровня нормативно – правового регулировния</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='FinSourceType'>
+    <xs:sequence>
+      <xs:element name='guid' type='tns:guid'>
+        <xs:annotation>
+          <xs:documentation>Идентификатор</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='code' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Код источника финансирования МСЗ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='name' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Наименование источника финансирования МСЗ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='ProvisionType'>
+    <xs:sequence>
+      <xs:element name='guid' type='tns:guid'>
+        <xs:annotation>
+          <xs:documentation>Идентификатор</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='code' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Код формы предоставления МСЗ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='name' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Наименование формы предоставления МСЗ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name='SectionType'>
+    <xs:sequence>
+      <xs:element name='guid' type='tns:guid'>
+        <xs:annotation>
+          <xs:documentation>Идентификатор</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='code' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Код рубрикатора разделов МСЗ/КМСЗ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name='name' type='xs:string'>
+        <xs:annotation>
+          <xs:documentation>Наименование рубрикатора разделов МСЗ/КМСЗ</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="StateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="updated" />
+      <xs:enumeration value="created" />
+      <xs:enumeration value="deleted" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
