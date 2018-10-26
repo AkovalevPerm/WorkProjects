@@ -1,0 +1,669 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IIS.University.FunctionBuilder</name>
+    </assembly>
+    <members>
+        <member name="T:IIS.University.Tools.FunctionBuilder">
+            <summary>
+                Вспомогательный класс для работы с функциями ограничений.
+            </summary>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildTrue">
+            <summary>
+                Построить функцию ограничения "True".
+            </summary>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildFalse">
+            <summary>
+                Построить функцию ограничения "False".
+            </summary>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildSQL(System.String)">
+            <summary>
+                Построить функцию ограничения по SQL-запросу.
+            </summary>
+            <param name="sql">SQL-запрос.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildNot(ICSSoft.STORMNET.FunctionalLanguage.Function)">
+            <summary>
+                Построить отрицание функции.
+            </summary>
+            <param name="function">Функция для отрицания.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildIsNull(ICSSoft.STORMNET.FunctionalLanguage.VariableDef)">
+            <summary>
+                Построить функцию "IS NULL".
+            </summary>
+            <param name="vd">Переменная ограничения.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildIsNull(System.String)">
+            <summary>
+                Построить функцию "IS NULL".
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildIsNull``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+                Построить функцию "IS NULL".
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <param name="propExpression">Лямбда-имя свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildIsNotNull(ICSSoft.STORMNET.FunctionalLanguage.VariableDef)">
+            <summary>
+                Построить функцию "IS NOT NULL".
+            </summary>
+            <param name="vd">Переменная ограничения.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildIsNotNull(System.String)">
+            <summary>
+                Построить функцию "IS NOT NULL".
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildIsNotNull``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+                Построить функцию "IS NOT NULL".
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <param name="propExpression">Лямбда-имя свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.Build(System.String,ICSSoft.STORMNET.FunctionalLanguage.Function[])">
+            <summary>
+                Построить функцию OR или AND.
+            </summary>
+            <param name="functionString">Имя функции.</param>
+            <param name="values">Функции для объединения.</param>
+            <returns></returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildAnd(ICSSoft.STORMNET.FunctionalLanguage.Function[])">
+            <summary>
+                Построить функцию ограничения "AND".
+            </summary>
+            <param name="functions">Функции для объединения.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildAnd(System.Collections.Generic.IEnumerable{ICSSoft.STORMNET.FunctionalLanguage.Function})">
+            <summary>
+                Построить функцию ограничения "AND".
+            </summary>
+            <param name="functions">Функции для объединения.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildOr(ICSSoft.STORMNET.FunctionalLanguage.Function[])">
+            <summary>
+                Построить функцию ограничения "OR".
+            </summary>
+            <param name="functions">Функции для объединения.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildOr(System.Collections.Generic.IEnumerable{ICSSoft.STORMNET.FunctionalLanguage.Function})">
+            <summary>
+                Построить функцию ограничения "OR".
+            </summary>
+            <param name="functions">Функции для объединения.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildEquals(ICSSoft.STORMNET.FunctionalLanguage.VariableDef,System.Object)">
+            <summary>
+                Построить функцию ограничения объекта на равенство некоторого свойства.
+            </summary>
+            <param name="vd">Переменная ограничения.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildEquals(System.String,ICSSoft.STORMNET.FunctionalLanguage.ObjectType,System.Object)">
+            <summary>
+                Построить функцию ограничения объекта на равенство некоторого свойства.
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="objType">Тип свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildEquals(System.String,System.Object)">
+            <summary>
+                Построить функцию ограничения объекта на равенство некоторого свойства.
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildEquals(System.Object)">
+            <summary>
+                Построить функцию ограничения объекта на равенство первичного ключа.
+            </summary>
+            <param name="value">Ключевая структура.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildEquals``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Object)">
+            <summary>
+                Построить функцию ограничения объекта на равенство некоторого свойства.
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <param name="propExpression">Лямбда-имя свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildNotEquals(ICSSoft.STORMNET.FunctionalLanguage.VariableDef,System.Object)">
+            <summary>
+                Построить функцию ограничения объекта на неравенство некоторого свойства.
+            </summary>
+            <param name="vd">Переменная ограничения.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildNotEquals(System.String,ICSSoft.STORMNET.FunctionalLanguage.ObjectType,System.Object)">
+            <summary>
+                Построить функцию ограничения объекта на неравенство некоторого свойства.
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="objType">Тип свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildNotEquals(System.String,System.Object)">
+            <summary>
+                Построить функцию ограничения объекта на неравенство некоторого свойства.
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildNotEquals(System.Object)">
+            <summary>
+                Построить функцию ограничения объекта на неравенство первичного ключа.
+            </summary>
+            <param name="value">Ключевая структура.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildNotEquals``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Object)">
+            <summary>
+                Построить функцию ограничения объекта на неравенство некоторого свойства.
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <param name="propExpression">Лямбда-имя свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildLike(System.String,System.String)">
+            <summary>
+                Проверяет строку по шаблону.
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="pattern">Шаблон строки.</param>
+            <exception cref="T:System.ArgumentNullException">Шаблон пуст.</exception>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildLike``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.String)">
+            <summary>
+                Проверяет строку по шаблону.
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <param name="propExpression">Лямбда-имя свойства.</param>
+            <param name="pattern">Шаблон строки.</param>
+            <exception cref="T:System.InvalidCastException">Тип свойства не является строкой.</exception>
+            <exception cref="T:System.ArgumentNullException">Шаблон пуст.</exception>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildStartsWith(System.String,System.String)">
+            <summary>
+                Проверяет начало строки по шаблону.
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="pattern">Шаблон строки.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildStartsWith``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.String)">
+            <summary>
+                Проверяет начало строки по шаблону.
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <param name="propExpression">Лямбда-имя свойства.</param>
+            <param name="pattern">Шаблон строки.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildEndsWith(System.String,System.String)">
+            <summary>
+                Проверяет конец строки по шаблону.
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="pattern">Шаблон строки.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildEndsWith``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.String)">
+            <summary>
+                Проверяет конец строки по шаблону.
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <param name="propExpression">Лямбда-имя свойства.</param>
+            <param name="pattern">Шаблон строки.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildContains(System.String,System.String)">
+            <summary>
+                Проверяет наличие подстроки по шаблону.
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="pattern">Шаблон строки.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildContains``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.String)">
+            <summary>
+                Проверяет наличие подстроки по шаблону.
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <param name="propExpression">Лямбда-имя свойства.</param>
+            <param name="pattern">Шаблон строки.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildCompare(System.String,ICSSoft.STORMNET.FunctionalLanguage.VariableDef,System.Object)">
+            <summary>
+                Построить функцию сравнения.
+            </summary>
+            <param name="functionString">Имя функции.</param>
+            <param name="vd">Переменная ограничения.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildCompare(System.String,System.String,ICSSoft.STORMNET.FunctionalLanguage.ObjectType,System.Object)">
+            <summary>
+                Построить функцию сравнения.
+            </summary>
+            <param name="functionString">Имя функции.</param>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="objType">Тип свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildCompare(System.String,System.String,System.Object)">
+            <summary>
+                Построить функцию сравнения.
+            </summary>
+            <param name="functionString">Имя функции.</param>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildCompare``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.String,System.Object)">
+            <summary>
+                Построить функцию сравнения.
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <param name="propExpression">Лямбда-имя свойства.</param>
+            <param name="functionString">Имя функции.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildLess(ICSSoft.STORMNET.FunctionalLanguage.VariableDef,System.Object)">
+            <summary>
+                Построить функцию "LESS"
+            </summary>
+            <param name="vd">Переменная ограничения.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildLess(System.String,ICSSoft.STORMNET.FunctionalLanguage.ObjectType,System.Object)">
+            <summary>
+                Построить функцию "LESS".
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="objType">Тип свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildLess(System.String,System.Object)">
+            <summary>
+                Построить функцию "LESS".
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildLess``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Object)">
+            <summary>
+                Построить функцию "LESS".
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <param name="propExpression">Лямбда-имя свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildLessOrEqual(ICSSoft.STORMNET.FunctionalLanguage.VariableDef,System.Object)">
+            <summary>
+                Построить функцию "LessOrEqual"
+            </summary>
+            <param name="vd">Переменная ограничения.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildLessOrEqual(System.String,ICSSoft.STORMNET.FunctionalLanguage.ObjectType,System.Object)">
+            <summary>
+                Построить функцию "LessOrEqual".
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="objType">Тип свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildLessOrEqual(System.String,System.Object)">
+            <summary>
+                Построить функцию "LessOrEqual".
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildLessOrEqual``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Object)">
+            <summary>
+                Построить функцию "LessOrEqual".
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <param name="propExpression">Лямбда-имя свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildGreater(ICSSoft.STORMNET.FunctionalLanguage.VariableDef,System.Object)">
+            <summary>
+                Построить функцию "Greater"
+            </summary>
+            <param name="vd">Переменная ограничения.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildGreater(System.String,ICSSoft.STORMNET.FunctionalLanguage.ObjectType,System.Object)">
+            <summary>
+                Построить функцию "Greater".
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="objType">Тип свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildGreater(System.String,System.Object)">
+            <summary>
+                Построить функцию "Greater".
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildGreater``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Object)">
+            <summary>
+                Построить функцию "Greater".
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <param name="propExpression">Лямбда-имя свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildGreaterOrEqual(ICSSoft.STORMNET.FunctionalLanguage.VariableDef,System.Object)">
+            <summary>
+                Построить функцию "GreaterOrEqual"
+            </summary>
+            <param name="vd">Переменная ограничения.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildGreaterOrEqual(System.String,ICSSoft.STORMNET.FunctionalLanguage.ObjectType,System.Object)">
+            <summary>
+                Построить функцию "GreaterOrEqual".
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="objType">Тип свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildGreaterOrEqual(System.String,System.Object)">
+            <summary>
+                Построить функцию "GreaterOrEqual".
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildGreaterOrEqual``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Object)">
+            <summary>
+                Построить функцию "GreaterOrEqual".
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <param name="propExpression">Лямбда-имя свойства.</param>
+            <param name="value">Значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildBetween(ICSSoft.STORMNET.FunctionalLanguage.VariableDef,System.Object,System.Object)">
+            <summary>
+                Построить функцию "Between".
+            </summary>
+            <param name="vd">Переменная ограничения.</param>
+            <param name="value1">Первое значение свойства.</param>
+            <param name="value2">Второе значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildBetween(System.String,ICSSoft.STORMNET.FunctionalLanguage.ObjectType,System.Object,System.Object)">
+            <summary>
+                Построить функцию "Between".
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="objType">Тип свойства.</param>
+            <param name="value1">Первое значение свойства.</param>
+            <param name="value2">Второе значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildBetween(System.String,System.Object,System.Object)">
+            <summary>
+                Построить функцию "Between".
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="value1">Первое значение свойства.</param>
+            <param name="value2">Второе значение свойства.</param>
+            <exception cref="T:System.ArgumentException">ObjectType-типы переданных значений различны.</exception>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildBetween``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Object,System.Object)">
+            <summary>
+                Построить функцию "Between".
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <param name="propExpression">Лямбда-имя свойства.</param>
+            <param name="value1">Первое значение свойства.</param>
+            <param name="value2">Второе значение свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildIn(ICSSoft.STORMNET.FunctionalLanguage.VariableDef,System.Object[])">
+            <summary>
+                Построить функцию ограничения "среди значений".
+            </summary>
+            <param name="vd">Переменная ограничения.</param>
+            <param name="values">Значения свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildIn(System.String,ICSSoft.STORMNET.FunctionalLanguage.ObjectType,System.Object[])">
+            <summary>
+                Построить функцию ограничения "среди значений".
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <param name="objType">Тип свойства.</param>
+            <param name="values">Значения свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildIn``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Object[])">
+            <summary>
+                Построить функцию ограничения "среди значений".
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <param name="propExpression">Лямбда-имя свойства.</param>
+            <param name="values">Значения свойства.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildIn(System.Object[])">
+            <summary>
+                Построить функцию ограничения "среди значений".
+            </summary>
+            <param name="values">Значения свойства.</param>
+            <exception cref="T:System.ArgumentException">Значения не содержат ключевые структуры.</exception>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildExists(ICSSoft.STORMNET.Windows.Forms.DetailVariableDef,ICSSoft.STORMNET.FunctionalLanguage.Function)">
+            <summary>
+                Построить функцию органичения "Существуют такие".
+            </summary>
+            <param name="dvd">Переменная ограничения по детейлам.</param>
+            <param name="function">Функция ограничения по детейлам.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionBuilder.BuildExists(System.String,ICSSoft.STORMNET.View,ICSSoft.STORMNET.FunctionalLanguage.Function)">
+            <summary>
+                Построить функцию органичения "Существуют такие".
+            </summary>
+            <param name="connectMasterPorp">Имя свойства от детейла к агрегатору.</param>
+            <param name="view">Представление детейла.</param>
+            <param name="function">Функция органичения по детейлу.</param>
+            <returns>Функция.</returns>
+        </member>
+        <member name="T:IIS.University.Tools.FunctionHelper">
+            <summary>
+                Впомогательный класс для FunctionBuilder'a.
+            </summary>
+        </member>
+        <member name="F:IIS.University.Tools.FunctionHelper.TypeDict">
+            <summary>
+            Статическая коллекция работает значительно быстрее, чем <see cref="M:ICSSoft.STORMNET.Windows.Forms.ExternalLangDef.GetObjectTypeForNetType(System.Type)"/>.
+            </summary>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionHelper.ParseIEnumerable``1(System.Object)">
+            <summary>
+                Разобрать объект как IEnumerable of T.
+                Вызывается через Reflection.
+            </summary>
+            <typeparam name="T">Generic-тип перечисления.</typeparam>
+            <param name="value">Объект.</param>
+            <returns>Массив разобранных объектов.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionHelper.IsKeyType(System.Type)">
+            <summary>
+                Является ли GuidType или DataObjectType.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionHelper.ValidateVariableDef(ICSSoft.STORMNET.FunctionalLanguage.VariableDef)">
+            <summary>
+                Проверить VariableDef на валидность.
+            </summary>
+            <param name="vd">Переменная ограничения.</param>
+            <exception cref="T:System.ArgumentNullException">Переменная ограничения пуста.</exception>
+            <exception cref="T:System.ArgumentException">vd.Type - пусто.</exception>
+            <exception cref="T:System.ArgumentException">vd.StringedView - пусто.</exception>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionHelper.ValidateDetailVariableDef(ICSSoft.STORMNET.Windows.Forms.DetailVariableDef)">
+            <summary>
+                Проверить DetailVariableDef на валидность.
+            </summary>
+            <param name="dvd">Переменная ограничения.</param>
+            <exception cref="T:System.ArgumentNullException">Переменная ограничения пуста.</exception>
+            <exception cref="T:System.ArgumentException">dvd.Type - пусто.</exception>
+            <exception cref="T:System.ArgumentException">dvd.View - пусто.</exception>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionHelper.ValidateExpression``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+                Проверить лямбда-выражение на валидность.
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <exception cref="T:System.ArgumentNullException">Лямбда пуста.</exception>
+            <param name="propExpression">Лямбда-имя свойства.</param>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionHelper.ValidatePropertyName(System.String)">
+            <summary>
+                Проверить propertyName на валидность.
+            </summary>
+            <param name="propertyName">Имя свойства.</param>
+            <exception cref="T:System.ArgumentNullException">Имя свойства пусто.</exception>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionHelper.ValidateFunctionString(System.String,System.String[])">
+            <summary>
+                Проверить functionString на валидность.
+            </summary>
+            <param name="functionString">Имя функции.</param>
+            <param name="availableFunctions">Допустимые функции.</param>
+            <exception cref="T:System.ArgumentNullException">Функция пуста.</exception>
+            <exception cref="T:System.ArgumentException">Передана некорректная функция.</exception>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionHelper.ValidateValue(System.Object)">
+            <summary>
+                Проверить value на валидность.
+            </summary>
+            <param name="value">Значение свойства.</param>
+            <exception cref="T:System.ArgumentNullException">Передан пустой параметр.</exception>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionHelper.ValidateObjType(ICSSoft.STORMNET.FunctionalLanguage.ObjectType)">
+            <summary>
+                Проверить objType на валидность.
+            </summary>
+            <param name="objType">Тип свойства.</param>
+            <exception cref="T:System.ArgumentNullException">Тип свойства пуст.</exception>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionHelper.ValidateFunction(ICSSoft.STORMNET.FunctionalLanguage.Function)">
+            <summary>
+                Проверить function на валидность.
+            </summary>
+            <param name="function">Функция.</param>
+            <exception cref="T:System.ArgumentNullException">Функция ограничения пуста.</exception>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionHelper.GetObjectType(System.Type)">
+            <summary>
+                Получатить ObjectType по .NET-типу (для DataObject возвращается тип первичного ключа).
+            </summary>
+            <param name="type">.NET-тип.</param>
+            <exception cref="T:System.ArgumentException">Невозможно привести к ObjectType-типу.</exception>
+            <returns>ObjectType-тип.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionHelper.GetDetailVarDef(ICSSoft.STORMNET.View,System.String,System.String[])">
+            <summary>
+                Получить простой DetailVariableDef.
+            </summary>
+            <param name="connectMasterProp">Путь от детейла.</param>
+            <param name="view">Представление детейла.</param>
+            <param name="ownerConnectProp">Путь от агрегатора.</param>
+            <returns>DetailVariableDef.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionHelper.ParseObject(System.Type,System.Object)">
+            <summary>
+                Разобрать объект как IEnumerable.
+            </summary>
+            <param name="type">Тип объекта.</param>
+            <param name="value">Объект.</param>
+            <returns>Массив разобранных объектов.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionHelper.ConvertValue(System.Type,System.Object)">
+            <summary>
+                Проверить и преобразовать аргумент в соответствии с типом.
+            </summary>
+            <param name="type">Тип.</param>
+            <param name="value">Значение.</param>
+            <exception cref="T:System.ArgumentException">Аргумент не содержит ключевой структуры.</exception>
+            <exception cref="T:System.InvalidCastException">Не совпадают тип свойства и тип переданного параметра.</exception>
+            <exception cref="T:System.FormatException"><seealso cref="M:Convert.ChangeType(object, Type)"/></exception>
+            <returns>Преобразованный аргумент.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.FunctionHelper.GetUniqueObjects(System.Type,System.Object[])">
+            <summary>
+                Получить уникальные объекты типа type из перечисления values.
+            </summary>
+            <param name="type">Тип объектов.</param>
+            <param name="values">Перечисление объектов.</param>
+            <returns>Массив объектов.</returns>
+        </member>
+    </members>
+</doc>

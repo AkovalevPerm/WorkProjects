@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncAdapterService", "SyncAdapterService\SyncAdapterService.csproj", "{F8417789-AE7E-403D-9EF0-F3A0019CC7E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncAdapterService.Utils", "SyncAdapterService.Utils\SyncAdapterService.Utils.csproj", "{7C4F4FEE-6023-4662-A0F8-16EA420CE1C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncAdapterService.Objects", "SyncAdapterService.Objects\SyncAdapterService.Objects.csproj", "{193A2735-062A-463C-8926-16DE833DE985}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncAdapterService.MessageCreator", "SyncAdapterService.MessageCreator\SyncAdapterService.MessageCreator.csproj", "{352155DF-74E3-4578-B7BD-364873C0F3B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncAdapterService.Mappers", "SyncAdapterService.Mappers\SyncAdapterService.Mappers.csproj", "{D3BF6B9C-2370-44A6-9FE7-BDECE7730E53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncAdapterService.XMLDataModel", "SyncAdapterService.XMLDataModel\SyncAdapterService.XMLDataModel.csproj", "{5FE433F3-2B2A-4CC8-BA22-C19F3510445E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncAdapterService.XMLMessageModel", "SyncAdapterService.XMLMessageModel\SyncAdapterService.XMLMessageModel.csproj", "{683A5E6F-0B06-4E8C-A5F5-552AE5A10F32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncAdapterService.ChangePackageCollector", "SyncAdapterService.ChangePackageCollector\SyncAdapterService.ChangePackageCollector.csproj", "{81A6C4A5-C873-46BF-A5D5-7E02EC9C7F48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncAdapterService.BusListener", "SyncAdapterService.BusListener\SyncAdapterService.BusListener.csproj", "{A56DB312-C8BE-4018-985B-C807148073D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8417789-AE7E-403D-9EF0-F3A0019CC7E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8417789-AE7E-403D-9EF0-F3A0019CC7E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8417789-AE7E-403D-9EF0-F3A0019CC7E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8417789-AE7E-403D-9EF0-F3A0019CC7E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C4F4FEE-6023-4662-A0F8-16EA420CE1C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C4F4FEE-6023-4662-A0F8-16EA420CE1C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C4F4FEE-6023-4662-A0F8-16EA420CE1C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C4F4FEE-6023-4662-A0F8-16EA420CE1C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{193A2735-062A-463C-8926-16DE833DE985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{193A2735-062A-463C-8926-16DE833DE985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{193A2735-062A-463C-8926-16DE833DE985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{193A2735-062A-463C-8926-16DE833DE985}.Release|Any CPU.Build.0 = Release|Any CPU
+		{352155DF-74E3-4578-B7BD-364873C0F3B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{352155DF-74E3-4578-B7BD-364873C0F3B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{352155DF-74E3-4578-B7BD-364873C0F3B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{352155DF-74E3-4578-B7BD-364873C0F3B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3BF6B9C-2370-44A6-9FE7-BDECE7730E53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3BF6B9C-2370-44A6-9FE7-BDECE7730E53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3BF6B9C-2370-44A6-9FE7-BDECE7730E53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3BF6B9C-2370-44A6-9FE7-BDECE7730E53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FE433F3-2B2A-4CC8-BA22-C19F3510445E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FE433F3-2B2A-4CC8-BA22-C19F3510445E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FE433F3-2B2A-4CC8-BA22-C19F3510445E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FE433F3-2B2A-4CC8-BA22-C19F3510445E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{683A5E6F-0B06-4E8C-A5F5-552AE5A10F32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{683A5E6F-0B06-4E8C-A5F5-552AE5A10F32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{683A5E6F-0B06-4E8C-A5F5-552AE5A10F32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{683A5E6F-0B06-4E8C-A5F5-552AE5A10F32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81A6C4A5-C873-46BF-A5D5-7E02EC9C7F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81A6C4A5-C873-46BF-A5D5-7E02EC9C7F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81A6C4A5-C873-46BF-A5D5-7E02EC9C7F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81A6C4A5-C873-46BF-A5D5-7E02EC9C7F48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A56DB312-C8BE-4018-985B-C807148073D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A56DB312-C8BE-4018-985B-C807148073D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A56DB312-C8BE-4018-985B-C807148073D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A56DB312-C8BE-4018-985B-C807148073D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Logging.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Logging.Database.5.0.505.0\lib\NET35
+		SolutionGuid = {F81072F1-8416-4043-9D0D-BA215BD2D99C}
+	EndGlobalSection
+EndGlobal

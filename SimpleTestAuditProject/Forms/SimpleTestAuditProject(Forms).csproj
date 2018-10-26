@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2D6554C1-E6BA-411E-A582-15797ABE75CA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SimpleTestAuditProject</RootNamespace>
+    <AssemblyName>SimpleTestAuditProject(Forms)</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\SimpleTestAuditProject(Forms).xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>6</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\SimpleTestAuditProject(Forms).xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\SimpleTestAuditProject%28Forms%29.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>6</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>bin\Release\SimpleTestAuditProject%28Forms%29.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IIS.University.PKHelper, Version=1.4.0.0, Culture=neutral, PublicKeyToken=d8a331e0b60b65c9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AuditUtils\bin\Debug\IIS.University.PKHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=6.15.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Spatial.6.15.0\lib\portable-net45+win+wpa81\Microsoft.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.XML">
+      <HintPath>System.XML.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>System.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <HintPath>System.Drawing.dll</HintPath>
+    </Reference>
+    <ProjectReference Include="..\AuditUtils\AuditUtils.csproj">
+      <Project>{531c9d26-ce60-46aa-bf7c-9d65f00e790e}</Project>
+      <Name>AuditUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Objects\SimpleTestAuditProject(Objects).csproj">
+      <Project>{d490c1a3-56a2-426d-bca1-3fe203e71e8e}</Project>
+      <Name>SimpleTestAuditProject(Objects)</Name>
+    </ProjectReference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-client\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="LogService">
+      <HintPath>..\packages\NewPlatform.Flexberry.LogService.1.1.0\lib\net45\LogService.dll</HintPath>
+    </Reference>
+    <Reference Include="ChangesToSqlBTMonitor, Version=1.0.0.1, Culture=neutral, PublicKeyToken=e5ad39f116a43e0b, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.0-beta01\lib\net45\ChangesToSqlBTMonitor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExternalLangDef, Version=1.0.0.0, Culture=neutral, PublicKeyToken=50dc27591ed591e6, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.0-beta01\lib\net45\ExternalLangDef.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.Services.CurrentUserService, Version=1.0.0.1, Culture=neutral, PublicKeyToken=087bc7ccdc1b0bb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.0-beta01\lib\net45\ICSSoft.Services.CurrentUserService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.Services.UnityFactory, Version=1.0.0.1, Culture=neutral, PublicKeyToken=6389c2e26f4059bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.0-beta01\lib\net45\ICSSoft.Services.UnityFactory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business, Version=1.0.0.1, Culture=neutral, PublicKeyToken=c17bb360f7843f45, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.0-beta01\lib\net45\ICSSoft.STORMNET.Business.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.DRDataService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cef244157a7f77f7, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.0-beta01\lib\net45\ICSSoft.STORMNET.Business.DRDataService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.LINQProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=68e48bb6f6293778, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.0-beta01\lib\net45\ICSSoft.STORMNET.Business.LINQProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.LockService, Version=1.0.0.1, Culture=neutral, PublicKeyToken=68ac0e47b5ef94d8, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.0-beta01\lib\net45\ICSSoft.STORMNET.Business.LockService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.MSSQLDataService, Version=1.0.0.1, Culture=neutral, PublicKeyToken=49b42003269a4a66, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.0-beta01\lib\net45\ICSSoft.STORMNET.Business.MSSQLDataService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.ODBCDataService, Version=1.0.0.1, Culture=neutral, PublicKeyToken=4c6916a347bdf8b1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.0-beta01\lib\net45\ICSSoft.STORMNET.Business.ODBCDataService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.OracleDataService, Version=1.0.0.1, Culture=neutral, PublicKeyToken=b24b342e1d86de22, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.0-beta01\lib\net45\ICSSoft.STORMNET.Business.OracleDataService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Business.PostgresDataService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c1da4b21bda90afe, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.0-beta01\lib\net45\ICSSoft.STORMNET.Business.PostgresDataService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Collections, Version=1.0.0.1, Culture=neutral, PublicKeyToken=898f36b7a907d804, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.0-beta01\lib\net45\ICSSoft.STORMNET.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.DataObject, Version=1.0.0.1, Culture=neutral, PublicKeyToken=023a90c13b0ca8dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.0-beta01\lib\net45\ICSSoft.STORMNET.DataObject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.FunctionalLanguage, Version=1.0.0.1, Culture=neutral, PublicKeyToken=88efc6f76e5cd161, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.0-beta01\lib\net45\ICSSoft.STORMNET.FunctionalLanguage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Tools, Version=1.0.0.1, Culture=neutral, PublicKeyToken=c824f5305b237be9, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.0-beta01\lib\net45\ICSSoft.STORMNET.Tools.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.UserDataTypes, Version=1.0.0.1, Culture=neutral, PublicKeyToken=bc478021255def29, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.ORM.4.1.0-beta01\lib\net45\ICSSoft.STORMNET.UserDataTypes.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>..\packages\Npgsql.2.2.7\lib\net45\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\packages\Npgsql.2.2.7\lib\net45\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql.resources">
+      <HintPath>..\packages\Npgsql.2.2.7\lib\net45\zh-CN\Npgsql.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=1.15.2.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.1.15.2.0\lib\net45\Remotion.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.2400\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports, Version=3.3.0.1999, Culture=neutral, PublicKeyToken=cc4967777c49a3ff">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\ActiveReports.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ActiveReports.Viewer, Version=3.3.0.1999, Culture=neutral, PublicKeyToken=cc4967777c49a3ff">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\ActiveReports.Viewer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AdmConsole(Objects), Version=1.0.0.1, Culture=neutral, PublicKeyToken=bcc231dedbc359ed, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\AdmConsole(Objects).dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Common, Version=1.0.20031.116, Culture=neutral, PublicKeyToken=e272bb32d11b1948">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\C1.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Win.C1FlexGrid, Version=2.5.20053.220, Culture=neutral, PublicKeyToken=c9c7ad9c0a5706c9">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\C1.Win.C1FlexGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.BusinessTaskMonitor, Version=1.0.0.1, Culture=neutral, PublicKeyToken=d828ff671605fa4b, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\ICSSoft.STORMNET.BusinessTaskMonitor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3ca22139c3589202, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\ICSSoft.STORMNET.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Drawing, Version=1.0.0.1, Culture=neutral, PublicKeyToken=c2ac2a795a66d3d9, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\ICSSoft.STORMNET.Drawing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.EBSI, Version=1.0.0.1, Culture=neutral, PublicKeyToken=4c9e491de0b2ba13, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\ICSSoft.STORMNET.EBSI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.FileType, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3865dfcfdb206ca8, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\ICSSoft.STORMNET.FileType.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.UI, Version=1.0.0.1, Culture=neutral, PublicKeyToken=21ce651d390c1fa0, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\ICSSoft.STORMNET.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Windows.Forms.AdditionalControls, Version=1.0.0.1, Culture=neutral, PublicKeyToken=11915d04b14f387d, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\ICSSoft.STORMNET.Windows.Forms.AdditionalControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Windows.Forms, Version=1.0.0.1, Culture=neutral, PublicKeyToken=ce4988eff6f608d0, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\ICSSoft.STORMNET.Windows.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Windows.Forms.MaskEditControl, Version=1.0.0.1, Culture=neutral, PublicKeyToken=023a90c13b0ca8dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\ICSSoft.STORMNET.Windows.Forms.MaskEditControl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Windows.Forms.XmlViewer, Version=1.0.0.1, Culture=neutral, PublicKeyToken=92a3a6dafbd262ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\ICSSoft.STORMNET.Windows.Forms.XmlViewer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MagicLocalLibrary, Version=1.7.0.0, Culture=neutral, PublicKeyToken=cd83a4ab7c958644, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\MagicLocalLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Repository, Version=1.0.0.1, Culture=neutral, PublicKeyToken=93dad7197e99c26e, processorArchitecture=MSIL">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\Repository.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.UI.resources">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\ru\ICSSoft.STORMNET.UI.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSSoft.STORMNET.Windows.Forms.resources">
+      <HintPath>..\packages\NewPlatform.Flexberry.Winforms.3.0.1\lib\net35\ru\ICSSoft.STORMNET.Windows.Forms.resources.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <Compile Include="MainObjE.cs" />
+    <Compile Include="MainObjL.cs" />
+    <Compile Include="MasterObjE.cs" />
+    <Compile Include="MasterObjL.cs" />
+    <Compile Include="winformMainObjE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <None Include="winformMainObjE.caseinf">
+      <DependentUpon>winformMainObjE.cs</DependentUpon>
+    </None>
+    <Compile Include="winformMainObjL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <None Include="winformMainObjL.caseinf">
+      <DependentUpon>winformMainObjL.cs</DependentUpon>
+    </None>
+    <Compile Include="winformMasterObjE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <None Include="winformMasterObjE.caseinf">
+      <DependentUpon>winformMasterObjE.cs</DependentUpon>
+    </None>
+    <Compile Include="winformMasterObjL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <None Include="winformMasterObjL.caseinf">
+      <DependentUpon>winformMasterObjL.cs</DependentUpon>
+    </None>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="packages.config" />
+    <Compile Include="DetailMasterE.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="winformDetailMasterE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <None Include="winformDetailMasterE.caseinf">
+      <DependentUpon>winformDetailMasterE.cs</DependentUpon>
+    </None>
+    <Compile Include="ShowAuditFormU.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="winformShowAuditFormU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailMasterL.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="winformDetailMasterL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <None Include="winformDetailMasterL.caseinf">
+      <DependentUpon>winformDetailMasterL.cs</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="winformMainObjE.resx">
+      <DependentUpon>winformMainObjE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="winformShowAuditFormU.resx">
+      <DependentUpon>winformShowAuditFormU.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

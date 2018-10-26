@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IIS.University.PKHelper</name>
+    </assembly>
+    <members>
+        <member name="T:IIS.University.Tools.FastAllocator`1">
+            <summary>
+            Static generic fast allocator.
+            </summary>
+            <typeparam name="T">The type of the return value of the allocation method.</typeparam>
+        </member>
+        <member name="M:IIS.University.Tools.FastAllocator`1.New">
+            <summary>
+            Creates an instance of the type designated by the specified generic type parameter, using the parameterless constructor.
+            </summary>
+            <returns>A reference to the newly created object.</returns>
+        </member>
+        <member name="T:IIS.University.Tools.PKComparer`1">
+            <summary>
+                Вспомогательный класс для сравнения объектов.
+                При использовании в Distinct оставит уникальные (по ключу) notnull-объекты
+                и один экземпляр null-объекта (если такой существует).
+            </summary>
+        </member>
+        <member name="T:IIS.University.Tools.PKHelper">
+            <summary>
+                Общий вспомогательный класс.
+            </summary>
+        </member>
+        <member name="M:IIS.University.Tools.PKHelper.EQPK(System.Object,System.Object)">
+            <summary>
+                Проверить равенство объектов по их KeyGuid.
+            </summary>
+            <param name="obj1">Объект 1.</param>
+            <param name="obj2">Объект 2.</param>
+            <returns>True - KeyGuid объектов равны, false - в любом ином случае.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.PKHelper.PKIn(System.Object,System.Object[])">
+            <summary>
+                Проверить по KeyGuid, что указанный объект содержится в массиве объектов.
+            </summary>
+            <param name="obj">Объект, который ищем.</param>
+            <param name="objs">Массив объектов, в котором ищем.</param>
+            <returns>True - содержится, false - отсутствует.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.PKHelper.EQParentPK(ICSSoft.STORMNET.DataObject,System.Object,System.String)">
+            <summary>
+                Сравнить родителя и переданный объект по KeyGuid.
+            </summary>
+            <param name="dataObject">Объект, чей родитель проверяется.</param>
+            <param name="parent">Объект, с которым будет сравниваться родитель.</param>
+            <param name="propertyName">Имя родительского свойства в объекте.</param>
+            <returns>True - равны, false - неравны или dataObject null.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.PKHelper.EQDataObject(ICSSoft.STORMNET.DataObject,ICSSoft.STORMNET.DataObject,System.Boolean)">
+            <summary>
+                Сравнить объекты по KeyGuid.
+            </summary>
+            <param name="dataObject1">Объект 1.</param>
+            <param name="dataObject2">Объект 2.</param>
+            <param name="checkType">Проверять тип объектов.</param>
+            <returns>True - равны или оба null, else - неравны или только один null.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.PKHelper.EQDataObject``1(``0,``0)">
+            <summary>
+                Сравнить объекты по KeyGuid.
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <param name="dataObject1">Объект 1.</param>
+            <param name="dataObject2">Объект 2.</param>
+            <returns>True - равны или оба null, false - неравны или только один null.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.PKHelper.GetGuidByObject(System.Object)">
+            <summary>
+                Из Guid, KeyGuid, DataObject или string извлекает Guid.
+            </summary>
+            <param name="obj">Объект для преобразования.</param>
+            <returns>Guid объекта.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.PKHelper.GetKeyByObject(System.Object)">
+            <summary>
+                Из Guid, KeyGuid, DataObject или string извлекает KeyGuid.
+            </summary>
+            <param name="obj">Объект для преобразования.</param>
+            <returns>KeyGuid объекта, null - невозможно преобразовать к KeyGuid.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.PKHelper.GetKeys(System.Object[])">
+            <summary>
+                Получить юникальные ключи.
+            </summary>
+            <param name="values">
+                Перечисление объектов, содержащих ключи.
+                В т.ч. допускаются списки, списки списков и тд и тп.
+            </param>
+            <returns>Массив ключей.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.PKHelper.GetKeysString(System.Object[])">
+            <summary>
+                Преобразовать перечисление объектов в строку ключей.
+                Основное использование - передача в SQL-запросы.
+            </summary>
+            <param name="objs">Перечисление объектов.</param>
+            <returns>Строка ключей в формате D через запятую, обернутых в ''.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.PKHelper.CreateDataObject``1(System.Object)">
+            <summary>
+                Получение DataObject с проинициализированным первичным ключом.
+            </summary>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <param name="pk">Первичный ключ.</param>
+            <exception cref="T:System.ArgumentException">Аргумент не является первичным ключом.</exception>
+            <returns>DataObject с проинициализированным первичным ключом.</returns>
+        </member>
+        <member name="M:IIS.University.Tools.PKHelper.CreateObjectsByKey``1(System.Object[])">
+            <summary>
+                Получение DataObject[] с проинициализированными первичными ключами.
+            </summary>
+            <param name="values">
+                Перечисление объектов, содержащих ключи.
+                В т.ч. допускаются списки, списки списков и тд и тп.
+            </param>
+            <typeparam name="T">Тип объекта.</typeparam>
+            <returns>DataObject[] с проинициализированным первичным ключом.</returns>
+        </member>
+    </members>
+</doc>
