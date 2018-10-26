@@ -1,0 +1,249 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ICSSoft.STORMNET.FileType</name>
+    </assembly>
+    <members>
+        <member name="T:ICSSoft.STORMNET.FileType.File">
+            <summary>
+            Тип данных File
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.File.#ctor">
+            <summary>
+            Конструктор класса. Ничего не делает.
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.File.op_Explicit(ICSSoft.STORMNET.FileType.File)~System.String">
+            <summary>
+            Из типа File в тип byte[]
+            </summary>
+            <param name="value"> Что нужно преобразовать </param>
+            <returns> Преобразованное значение </returns>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.File.op_Explicit(System.String)~ICSSoft.STORMNET.FileType.File">
+            <summary>
+            Из типа byte[] в тип File
+            </summary>
+            <param name="value"> Что нужно преобразовать </param>
+            <returns> Преобразованное значение </returns>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.File.InitializeByState(System.String)">
+            <summary>
+            Инициализация по сериализованному значению
+            </summary>
+            <param name="value"> Сериализованное состояние </param>
+        </member>
+        <member name="P:ICSSoft.STORMNET.FileType.File.Name">
+            <summary>
+            Gets or sets: Имя выбранного файла
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.FileType.File.ZippedValue">
+            <summary>
+            Gets or sets: Сархивированное значение
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.FileType.File.Size">
+            <summary>
+             Gets or sets: Размер выбранного файла
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.FileType.File.CompressionLevel">
+            <summary>
+             Gets or sets: Степень сжатия изменяется от 0 до 9 (9 - максимальная)
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.File.FromNormalToZip(System.String)">
+            <summary>
+            Перевод с файла на диске во внутреннее представление в виде zip-архива
+            </summary>
+            <param name="loadFilePath"> Путь к файлу</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.File.FromNormalToZip(System.String,System.String)">
+            <summary>
+            Перевод с файла на диске во внутреннее представление в виде zip-архива
+            </summary>
+            <param name="loadFilePath"> Путь к файлу</param>
+            <param name="fileName"> Имя файла</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.File.SetZippedValue(System.IO.MemoryStream)">
+            <summary>
+            Перевод с файла на диске во внутреннее представление в виде zip-архива
+            </summary>
+            <param name="memoryStream"> Stream с файлом </param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.File.FromZipToNormal(System.String)">
+            <summary>
+            Перевод из внутреннего представления в виде zip-архива в файл на диске
+            </summary>
+            <param name="saveFilePath"> Путь к файлу</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.File.GetUnzippedFile">
+            <summary>
+            Перевод из внутреннего представления в виде zip-архива в файл на диске
+            </summary>
+            <returns> Stream с содержимым файла (без zip-архивации) </returns>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.File.GetFile(System.String)">
+            <summary>
+            Записать файл в массив байт
+            </summary>
+            <param name="path">Путь к файлу</param>
+        </member>
+        <member name="T:ICSSoft.STORMNET.FileType.FileControlProvider">
+            <summary>
+            Провайдер контролов для File
+            </summary>
+        </member>
+        <member name="T:ICSSoft.STORMNET.FileType.FileControl">
+            <summary>
+            Файловый котрол
+            </summary>
+            <summary>
+            TODO: Update summary.
+            </summary>
+        </member>
+        <member name="F:ICSSoft.STORMNET.FileType.FileControl._createdTempFileList">
+            <summary>
+            Список созданных временных файлов
+            </summary>
+        </member>
+        <member name="F:ICSSoft.STORMNET.FileType.FileControl._createdTempDirList">
+            <summary>
+            Список созданных временных директорий
+            </summary>
+        </member>
+        <member name="E:ICSSoft.STORMNET.FileType.FileControl.ValueChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.FileControl.#ctor">
+            <summary>
+            Конструктор класс, создающий "пустой" контрол
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.FileControl.OnLoad(System.EventArgs)">
+            <summary>
+            Обработчик события загрузки формы
+            </summary>
+            <param name="e">
+            Параметры события
+            </param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.FileControl.FormFormClosed(System.Object,System.Windows.Forms.FormClosedEventArgs)">
+            <summary>
+            Обработчик события закрытия содержащей формы
+            </summary>
+            <param name="sender">
+            Сендер
+            </param>
+            <param name="e">
+            Параметры события
+            </param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.FileControl.#ctor(System.String)">
+            <summary>
+            Конструктор класс, создающий контрол с загруженным файлом
+            </summary>
+            <param name="pathToFile"> Путь к файлу, который будет загружен </param>
+        </member>
+        <member name="P:ICSSoft.STORMNET.FileType.FileControl.Value">
+            <summary>
+            Gets or sets: Поле, где хранится файл в zip-архиве
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.FileType.FileControl.InnerFile">
+            <summary>
+            Gets or sets: Поле, где хранится файл без zip-архивации
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.FileControl.ShowButtons_Get(System.Windows.Forms.Button)">
+            <summary>
+            Обработка запроса на видимость кнопки 
+            </summary>
+            <param name="curButton"> Кнопка, для которой необходимо получить видимость </param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.FileControl.ShowButtons_Set(System.Windows.Forms.Button,System.Int32,System.Boolean)">
+            <summary>
+            Обработка запроса изменение видимости кнопки 
+            </summary>
+            <param name="curButton"> Кнопка, для которой необходимо изменить видимость </param>
+            <param name="itsNumber"> Номер кнопки в массиве </param>
+            <param name="value"> Значение видимости, которое нужно поставить кнопке </param>
+        </member>
+        <member name="P:ICSSoft.STORMNET.FileType.FileControl.HideOpenButtons">
+            <summary>
+            Gets or sets: определение видимости кнопки открытия файла
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.FileType.FileControl.HideSaveButtons">
+            <summary>
+            Gets or sets: определение видимости кнопки сохранения файла
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.FileType.FileControl.HideDeleteButtons">
+            <summary>
+            Gets or sets: определение видимости кнопки удаления файла
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.FileType.FileControl.HideStartButtons">
+            <summary>
+            Gets or sets: определение видимости кнопки запуска файла
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.FileControl.RememberWidths">
+            <summary>
+            Процедура инициализации переменной, которая нужна для корректного скрытия кнопок
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.FileType.FileControl.CreateFileFromDisk(System.String)">
+            <summary>
+            Создание переменной типа File из файла на диске
+            </summary>
+            <param name="pathToFile"> Путь к файлу на диске </param>
+        </member>
+        <member name="P:ICSSoft.STORMNET.FileType.FileControl.ButtonChooseFileFromFolder">
+            <summary>
+            Кнопка "Выбрать файл из каталога"
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.FileType.FileControl.ButtonSaveFileToFolder">
+            <summary>
+            Кнопка "Поместить файл в каталог"
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.FileType.FileControl.ButtonDelete">
+            <summary>
+            Кнопка "Удалить"
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.FileType.FileControl.ButtonOpenFile">
+            <summary>
+            Кнопка "Открыть файл"
+            </summary>
+        </member>
+        <!-- Проигнорирован некорректный комментарий XML для члена "P:ICSSoft.STORMNET.FileType.FileControl.ToolTipControl" -->
+        <member name="F:ICSSoft.STORMNET.FileType.FileControl.buttonOpen">
+            <summary>
+            Кнопка для выбора файла с диска и последующей загрузки
+            </summary>
+        </member>
+        <member name="F:ICSSoft.STORMNET.FileType.FileControl.buttonSave">
+            <summary>
+            Кнопка для сохранения загруженного файла на диск
+            </summary>
+        </member>
+        <member name="F:ICSSoft.STORMNET.FileType.FileControl.buttonDelete">
+            <summary>
+            Кнопка для удаления загруженного файла
+            </summary>
+        </member>
+        <member name="F:ICSSoft.STORMNET.FileType.FileControl.buttonStart">
+            <summary>
+            Кнопка для запуска загруженного файла
+            </summary>
+        </member>
+    </members>
+</doc>

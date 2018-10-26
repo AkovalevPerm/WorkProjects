@@ -1,0 +1,1870 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HighwaySB.Objects</name>
+    </assembly>
+    <members>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.CompressionSetting">
+            <summary>
+            CompressionSetting.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.CompressionSetting.LifetimeUnits">
+            <summary>
+            LifetimeUnits.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.CompressionSetting.LifetimeLimit">
+            <summary>
+            LifetimeLimit.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.CompressionSetting.LifetimeLimitText">
+            <summary>
+            LifetimeLimitText.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.CompressionSetting.TargetCompression">
+            <summary>
+            TargetCompression.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.CompressionSetting.PeriodUnits">
+            <summary>
+            PeriodUnits.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.CompressionSetting.Period">
+            <summary>
+            Period.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.CompressionSetting.PeriodText">
+            <summary>
+            PeriodText.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.CompressionSetting.NextCompressionTime">
+            <summary>
+            NextCompressionTime.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.CompressionSetting.LastCompressionTime">
+            <summary>
+            LastCompressionTime.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.CompressionSetting.StatSetting">
+            <summary>
+            мастеровая ссылка на шапку NewPlatform.Flexberry.HighwaySB.StatSetting.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.CompressionSetting.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.CompressionSetting.Views.CompressionSettingCompressorView">
+            <summary>
+            "CompressionSettingCompressorView" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.CompressionSetting.Views.CompressionSettingE">
+            <summary>
+            "CompressionSettingE" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.CompressionSetting.Views.CompressionSettingL">
+            <summary>
+            "CompressionSettingL" view.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.DetailArrayOfCompressionSetting">
+            <summary>
+            Detail array of CompressionSetting.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.DetailArrayOfCompressionSetting.#ctor(NewPlatform.Flexberry.HighwaySB.StatSetting)">
+            <summary>
+            Construct detail array.
+            </summary>
+            <summary>
+            Returns object with type CompressionSetting by index.
+            </summary>
+            <summary>
+            Adds object with type CompressionSetting.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.HttpMessageForEsb">
+            <summary>
+            HttpMessageForEsb.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpMessageForEsb.Body">
+            <summary>
+            Body.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpMessageForEsb.MessageTypeID">
+            <summary>
+            MessageTypeID.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpMessageForEsb.ClientID">
+            <summary>
+            ClientID.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpMessageForEsb.Tags">
+            <summary>
+            Tags.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpMessageForEsb.Attachment">
+            <summary>
+            Attachment.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpMessageForEsb.Priority">
+            <summary>
+            Priority.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.HttpMessageFromEsb">
+            <summary>
+            HttpMessageFromEsb.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpMessageFromEsb.Id">
+            <summary>
+            Id.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpMessageFromEsb.Body">
+            <summary>
+            Body.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpMessageFromEsb.MessageFormingTime">
+            <summary>
+            MessageFormingTime.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpMessageFromEsb.MessageTypeID">
+            <summary>
+            MessageTypeID.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpMessageFromEsb.SenderName">
+            <summary>
+            SenderName.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpMessageFromEsb.GroupID">
+            <summary>
+            GroupID.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpMessageFromEsb.Tags">
+            <summary>
+            Tags.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpMessageFromEsb.Attachment">
+            <summary>
+            Attachment.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.HttpSubscription">
+            <summary>
+            HttpSubscription.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpSubscription.ClientId">
+            <summary>
+            ClientId.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpSubscription.MessageTypeId">
+            <summary>
+            MessageTypeId.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpSubscription.ExpiryDate">
+            <summary>
+            ExpiryDate.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpSubscription.Callback">
+            <summary>
+            Callback.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpSubscription.SendBy">
+            <summary>
+            SendBy.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.HttpSubscription.Description">
+            <summary>
+            Description.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.LogMsg">
+            <summary>
+            LogMsg.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.LogMsg.MsgId">
+            <summary>
+            мастеровая ссылка на шапку NewPlatform.Flexberry.HighwaySB.Сообщение.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.DetailArrayOfLogMsg">
+            <summary>
+            Detail array of LogMsg.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.DetailArrayOfLogMsg.#ctor(NewPlatform.Flexberry.HighwaySB.Сообщение)">
+            <summary>
+            Construct detail array.
+            </summary>
+            <summary>
+            Returns object with type LogMsg by index.
+            </summary>
+            <summary>
+            Adds object with type LogMsg.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.MessageInfoFromESB">
+            <summary>
+            Основная информация о сообщении для отправки из шины.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageInfoFromESB.Id">
+            <summary>
+            Уникальный идентификатор сообщения.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageInfoFromESB.MessageTypeID">
+            <summary>
+            Идентификатор типа сообщения.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageInfoFromESB.Priority">
+            <summary>
+            Приоритет сообщения.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageInfoFromESB.MessageFormingTime">
+            <summary>
+            Время формирования сообщения.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.NameCommentStruct">
+            <summary>
+            Структура, использующая для передачи трех строк - идентификатора, имени и комментария - типичного набора для некоторых методов шины.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.NameCommentStruct.Id">
+            <summary>
+            Идентификатор объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.NameCommentStruct.Name">
+            <summary>
+            Имя объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.NameCommentStruct.Comment">
+            <summary>
+            Комментарий к объекту.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.OutboundMessageTypeRestriction">
+            <summary>
+            OutboundMessageTypeRestriction.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.OutboundMessageTypeRestriction.ТипСообщения">
+            <summary>
+            OutboundMessageTypeRestriction.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.OutboundMessageTypeRestriction.Клиент">
+            <summary>
+            мастеровая ссылка на шапку NewPlatform.Flexberry.HighwaySB.Клиент.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.OutboundMessageTypeRestriction.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.OutboundMessageTypeRestriction.Views.OutboundMessageTypeRestrictionE">
+            <summary>
+            "OutboundMessageTypeRestrictionE" view.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.DetailArrayOfOutboundMessageTypeRestriction">
+            <summary>
+            Detail array of OutboundMessageTypeRestriction.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.DetailArrayOfOutboundMessageTypeRestriction.#ctor(NewPlatform.Flexberry.HighwaySB.Клиент)">
+            <summary>
+            Construct detail array.
+            </summary>
+            <summary>
+            Returns object with type OutboundMessageTypeRestriction by index.
+            </summary>
+            <summary>
+            Adds object with type OutboundMessageTypeRestriction.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.StatIntervalType">
+            <summary>
+            StatIntervalType.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.StatIntervalType.OneSecond">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.StatIntervalType.TenSeconds">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.StatIntervalType.OneMinute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.StatIntervalType.FiveMinutes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.StatIntervalType.TenMinutes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.StatIntervalType.HalfAnHour">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.StatIntervalType.Hour">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.StatIntervalType.Day">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.StatIntervalType.Month">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.StatIntervalType.Quarter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.StatIntervalType.Year">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.StatRecord">
+            <summary>
+            StatRecord.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.Since">
+            <summary>
+            Since.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.To">
+            <summary>
+            To.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.StatInterval">
+            <summary>
+            StatInterval.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.SentCount">
+            <summary>
+            SentCount.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.ReceivedCount">
+            <summary>
+            ReceivedCount.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.ErrorsCount">
+            <summary>
+            ErrorsCount.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.UniqueErrorsCount">
+            <summary>
+            UniqueErrorsCount.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.QueueLength">
+            <summary>
+            QueueLength.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.AvgTimeSent">
+            <summary>
+            AvgTimeSent.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.AvgTimeSql">
+            <summary>
+            AvgTimeSql.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.ConnectionCount">
+            <summary>
+            ConnectionCount.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.SumTimeSent">
+            <summary>
+            SumTimeSent.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.CountTimeSent">
+            <summary>
+            CountTimeSent.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.SumTimeSql">
+            <summary>
+            SumTimeSql.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.CountTimeSql">
+            <summary>
+            CountTimeSql.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.StatSetting">
+            <summary>
+            мастеровая ссылка на шапку NewPlatform.Flexberry.HighwaySB.StatSetting.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.StatRecord.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.Views.StatRecordCompressorView">
+            <summary>
+            "StatRecordCompressorView" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.Views.StatRecordE">
+            <summary>
+            "StatRecordE" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatRecord.Views.StatRecordL">
+            <summary>
+            "StatRecordL" view.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.DetailArrayOfStatRecord">
+            <summary>
+            Detail array of StatRecord.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.DetailArrayOfStatRecord.#ctor(NewPlatform.Flexberry.HighwaySB.StatSetting)">
+            <summary>
+            Construct detail array.
+            </summary>
+            <summary>
+            Returns object with type StatRecord by index.
+            </summary>
+            <summary>
+            Adds object with type StatRecord.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.StatSetting">
+            <summary>
+            StatSetting.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatSetting.Подписка">
+            <summary>
+            StatSetting.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatSetting.StatRecord">
+            <summary>
+            StatSetting.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatSetting.CompressionSetting">
+            <summary>
+            StatSetting.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.StatSetting.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatSetting.Views.StatSettingCompressorView">
+            <summary>
+            "StatSettingCompressorView" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatSetting.Views.StatSettingE">
+            <summary>
+            "StatSettingE" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.StatSetting.Views.StatSettingL">
+            <summary>
+            "StatSettingL" view.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.TimeUnit">
+            <summary>
+            TimeUnit.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.TimeUnit.Minute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.TimeUnit.Hour">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.TimeUnit.Day">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.TimeUnit.Month">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.TimeUnit.Year">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Подписка">
+            <summary>
+            Подписка.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.ДатаПрекращения">
+            <summary>
+            ДатаПрекращения.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.IsCallBack">
+            <summary>
+            IsCallBack.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.НепреобразДатаПрекр">
+            <summary>
+            НепреобразДатаПрекр.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.НеудПопытки">
+            <summary>
+            НеудПопытки.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.ТипПодписки">
+            <summary>
+            ТипПодписки.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.ПередаватьПо">
+            <summary>
+            ПередаватьПо.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.Описание">
+            <summary>
+            Описание.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.Ид">
+            <summary>
+            Ид.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.CreateTime">
+            <summary>
+            Время создания объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.Creator">
+            <summary>
+            Создатель объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.EditTime">
+            <summary>
+            Время последнего редактирования объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.Editor">
+            <summary>
+            Последний редактор объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.ТипСообщения">
+            <summary>
+            Подписка.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.Клиент">
+            <summary>
+            мастеровая ссылка на шапку NewPlatform.Flexberry.HighwaySB.Клиент.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Подписка.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.Views.AuditView">
+            <summary>
+            "AuditView" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.Views.SB_ПодпискаE">
+            <summary>
+            "SB_ПодпискаE" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.Views.SB_ПодпискаL">
+            <summary>
+            "SB_ПодпискаL" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.Views.SB_ПодпискаMin">
+            <summary>
+            "SB_ПодпискаMin" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.Views.ПодпискаE">
+            <summary>
+            "ПодпискаE" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Подписка.Views.ПодпискаL">
+            <summary>
+            "ПодпискаL" view.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings">
+            <summary>
+            Audit class settings.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings.AuditEnabled">
+            <summary>
+            Включён ли аудит для класса.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings.UseDefaultView">
+            <summary>
+            Использовать имя представления для аудита по умолчанию.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings.SelectAudit">
+            <summary>
+            Включён ли аудит операции чтения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings.SelectAuditViewName">
+            <summary>
+            Имя представления для аудирования операции чтения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings.InsertAudit">
+            <summary>
+            Включён ли аудит операции создания.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings.InsertAuditViewName">
+            <summary>
+            Имя представления для аудирования операции создания.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings.UpdateAudit">
+            <summary>
+            Включён ли аудит операции изменения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings.UpdateAuditViewName">
+            <summary>
+            Имя представления для аудирования операции изменения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings.DeleteAudit">
+            <summary>
+            Включён ли аудит операции удаления.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings.DeleteAuditViewName">
+            <summary>
+            Имя представления для аудирования операции удаления.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings.FormUrl">
+            <summary>
+            Путь к форме просмотра результатов аудита.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings.WriteMode">
+            <summary>
+            Режим записи данных аудита (синхронный или асинхронный).
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings.PrunningLength">
+            <summary>
+            Максимальная длина сохраняемого значения поля (если 0, то строка обрезаться не будет).
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings.ShowPrimaryKey">
+            <summary>
+            Показывать ли пользователям в изменениях первичные ключи.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings.KeepOldValue">
+            <summary>
+            Сохранять ли старое значение.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings.Compress">
+            <summary>
+            Сжимать ли сохраняемые значения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Подписка.AuditSettings.KeepAllValues">
+            <summary>
+            Сохранять ли все значения атрибутов, а не только изменяемые.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.DetailArrayOfПодписка">
+            <summary>
+            Detail array of Подписка.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.DetailArrayOfПодписка.#ctor(NewPlatform.Flexberry.HighwaySB.Клиент)">
+            <summary>
+            Construct detail array.
+            </summary>
+            <summary>
+            Returns object with type Подписка by index.
+            </summary>
+            <summary>
+            Adds object with type Подписка.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.MessageForESB">
+            <summary>
+            Структура для отправки сообщения в шину.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageForESB.Body">
+            <summary>
+            Тело сообщения.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageForESB.MessageTypeID">
+            <summary>
+            Идентификатор типа сообщения.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageForESB.ClientID">
+            <summary>
+            Идентификатор клиента,  от имени которого отправляется сообщение.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageForESB.Tags">
+            <summary>
+            Тэги отправляемого сообщения. Ключ - имя тега.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageForESB.Attachment">
+            <summary>
+            Вложение сообщения.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageForESB.Priority">
+            <summary>
+            Приоритет сообщения (чем больше число, тем выше приоритет).
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Шина">
+            <summary>
+            Шина.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Шина.InteropАдрес">
+            <summary>
+            InteropАдрес.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Шина.CreateTime">
+            <summary>
+            Время создания объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Шина.Creator">
+            <summary>
+            Создатель объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Шина.EditTime">
+            <summary>
+            Время последнего редактирования объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Шина.Editor">
+            <summary>
+            Последний редактор объекта.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Шина.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Шина.Views.AuditView">
+            <summary>
+            "AuditView" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Шина.Views.SB_ШинаE">
+            <summary>
+            "SB_ШинаE" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Шина.Views.SB_ШинаL">
+            <summary>
+            "SB_ШинаL" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Шина.Views.ШинаE">
+            <summary>
+            "ШинаE" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Шина.Views.ШинаL">
+            <summary>
+            "ШинаL" view.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings">
+            <summary>
+            Audit class settings.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings.AuditEnabled">
+            <summary>
+            Включён ли аудит для класса.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings.UseDefaultView">
+            <summary>
+            Использовать имя представления для аудита по умолчанию.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings.SelectAudit">
+            <summary>
+            Включён ли аудит операции чтения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings.SelectAuditViewName">
+            <summary>
+            Имя представления для аудирования операции чтения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings.InsertAudit">
+            <summary>
+            Включён ли аудит операции создания.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings.InsertAuditViewName">
+            <summary>
+            Имя представления для аудирования операции создания.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings.UpdateAudit">
+            <summary>
+            Включён ли аудит операции изменения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings.UpdateAuditViewName">
+            <summary>
+            Имя представления для аудирования операции изменения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings.DeleteAudit">
+            <summary>
+            Включён ли аудит операции удаления.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings.DeleteAuditViewName">
+            <summary>
+            Имя представления для аудирования операции удаления.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings.FormUrl">
+            <summary>
+            Путь к форме просмотра результатов аудита.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings.WriteMode">
+            <summary>
+            Режим записи данных аудита (синхронный или асинхронный).
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings.PrunningLength">
+            <summary>
+            Максимальная длина сохраняемого значения поля (если 0, то строка обрезаться не будет).
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings.ShowPrimaryKey">
+            <summary>
+            Показывать ли пользователям в изменениях первичные ключи.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings.KeepOldValue">
+            <summary>
+            Сохранять ли старое значение.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings.Compress">
+            <summary>
+            Сжимать ли сохраняемые значения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Шина.AuditSettings.KeepAllValues">
+            <summary>
+            Сохранять ли все значения атрибутов, а не только изменяемые.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.MessageOrderingInformation">
+            <summary>
+            Стуктура, хранящая информацию, необходимую для упорядочивания сообщений при отправке клиенту - приоритет и время формирования.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageOrderingInformation.Priority">
+            <summary>
+            Приоритет сообщения (чем больше число, тем выше приоритет).
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageOrderingInformation.FormingTime">
+            <summary>
+            Время формирования сообщения.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.ТипСообщения">
+            <summary>
+            Тип сообщения.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.ТипСообщения.MatchesToId(System.String)">
+            <summary>
+            Проверяет соответствие текущего объекта переданному идентификатору. Проверяется соответствие либо дружественного идентификатора (<see cref="P:NewPlatform.Flexberry.HighwaySB.ТипСообщения.Ид"/>), 
+            либо первичного ключа переданной строке.
+            </summary>
+            <param name="id">Строковой идентификатор, соответствие которому проверяется.</param>
+            <returns>Если объект соответствует идентификатору <c>true</c>. Если нет, или передана пустая строка, то <c>false</c>.</returns>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.ТипСообщения.Наименование">
+            <summary>
+            Наименование.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.ТипСообщения.Ид">
+            <summary>
+            Ид.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.ТипСообщения.Комментарий">
+            <summary>
+            Комментарий.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.ТипСообщения.CreateTime">
+            <summary>
+            Время создания объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.ТипСообщения.Creator">
+            <summary>
+            Создатель объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.ТипСообщения.EditTime">
+            <summary>
+            Время последнего редактирования объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.ТипСообщения.Editor">
+            <summary>
+            Последний редактор объекта.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.ТипСообщения.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.ТипСообщения.Views.AuditView">
+            <summary>
+            "AuditView" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.ТипСообщения.Views.SB_ТипСообщенияE">
+            <summary>
+            "SB_ТипСообщенияE" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.ТипСообщения.Views.SB_ТипСообщенияL">
+            <summary>
+            "SB_ТипСообщенияL" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.ТипСообщения.Views.ТипСообщенияE">
+            <summary>
+            "ТипСообщенияE" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.ТипСообщения.Views.ТипСообщенияL">
+            <summary>
+            "ТипСообщенияL" view.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings">
+            <summary>
+            Audit class settings.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings.AuditEnabled">
+            <summary>
+            Включён ли аудит для класса.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings.UseDefaultView">
+            <summary>
+            Использовать имя представления для аудита по умолчанию.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings.SelectAudit">
+            <summary>
+            Включён ли аудит операции чтения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings.SelectAuditViewName">
+            <summary>
+            Имя представления для аудирования операции чтения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings.InsertAudit">
+            <summary>
+            Включён ли аудит операции создания.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings.InsertAuditViewName">
+            <summary>
+            Имя представления для аудирования операции создания.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings.UpdateAudit">
+            <summary>
+            Включён ли аудит операции изменения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings.UpdateAuditViewName">
+            <summary>
+            Имя представления для аудирования операции изменения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings.DeleteAudit">
+            <summary>
+            Включён ли аудит операции удаления.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings.DeleteAuditViewName">
+            <summary>
+            Имя представления для аудирования операции удаления.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings.FormUrl">
+            <summary>
+            Путь к форме просмотра результатов аудита.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings.WriteMode">
+            <summary>
+            Режим записи данных аудита (синхронный или асинхронный).
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings.PrunningLength">
+            <summary>
+            Максимальная длина сохраняемого значения поля (если 0, то строка обрезаться не будет).
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings.ShowPrimaryKey">
+            <summary>
+            Показывать ли пользователям в изменениях первичные ключи.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings.KeepOldValue">
+            <summary>
+            Сохранять ли старое значение.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings.Compress">
+            <summary>
+            Сжимать ли сохраняемые значения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ТипСообщения.AuditSettings.KeepAllValues">
+            <summary>
+            Сохранять ли все значения атрибутов, а не только изменяемые.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.MessageFromESB">
+            <summary>
+            Структура, описывающая сообщение, которая отправляется из шины к клиенту.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageFromESB.Body">
+            <summary>
+            Тело сообщения.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageFromESB.MessageFormingTime">
+            <summary>
+            Время формирования сообщения.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageFromESB.MessageTypeID">
+            <summary>
+            Идентификатор типа сообщения.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageFromESB.SenderName">
+            <summary>
+            Имя отправителя сообщения.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageFromESB.GroupID">
+            <summary>
+            Идентификатор группы сообщения.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageFromESB.Tags">
+            <summary>
+            Теги сообщения. Ключ - имя тега.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageFromESB.Attachment">
+            <summary>
+            Вложение сообщения.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Клиент">
+            <summary>
+            Клиент.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Клиент.MatchesToId(System.String)">
+            <summary>
+            Проверяет соответствие текущего объекта переданному идентификатору. Проверяется соответствие либо дружественного идентификатора (<see cref="P:NewPlatform.Flexberry.HighwaySB.Клиент.Ид"/>), 
+            либо первичного ключа переданной строке.
+            </summary>
+            <param name="id">Строковой идентификатор, соответствие которому проверяется.</param>
+            <returns>Если объект соответствует идентификатору <c>true</c>. Если нет, или передана пустая строка, то <c>false</c>.</returns>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Клиент.Наименование">
+            <summary>
+            Наименование.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Клиент.Ид">
+            <summary>
+            Ид.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Клиент.Адрес">
+            <summary>
+            Адрес.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Клиент.DnsIdentity">
+            <summary>
+            DnsIdentity.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Клиент.ОтчётОбОшибкахColumn">
+            <summary>
+            ОтчётОбОшибкахColumn.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Клиент.CreateTime">
+            <summary>
+            Время создания объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Клиент.Creator">
+            <summary>
+            Создатель объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Клиент.EditTime">
+            <summary>
+            Время последнего редактирования объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Клиент.Editor">
+            <summary>
+            Последний редактор объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Клиент.Подписки">
+            <summary>
+            Клиент.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Клиент.Restrictions">
+            <summary>
+            Клиент.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Клиент.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Клиент.Views.AuditView">
+            <summary>
+            "AuditView" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Клиент.Views.SB_КлиентE">
+            <summary>
+            "SB_КлиентE" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Клиент.Views.SB_КлиентL">
+            <summary>
+            "SB_КлиентL" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Клиент.Views.КлиентE">
+            <summary>
+            "КлиентE" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Клиент.Views.КлиентL">
+            <summary>
+            "КлиентL" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Клиент.Views.КлиентLU">
+            <summary>
+            "КлиентLU" view.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings">
+            <summary>
+            Audit class settings.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings.AuditEnabled">
+            <summary>
+            Включён ли аудит для класса.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings.UseDefaultView">
+            <summary>
+            Использовать имя представления для аудита по умолчанию.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings.SelectAudit">
+            <summary>
+            Включён ли аудит операции чтения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings.SelectAuditViewName">
+            <summary>
+            Имя представления для аудирования операции чтения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings.InsertAudit">
+            <summary>
+            Включён ли аудит операции создания.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings.InsertAuditViewName">
+            <summary>
+            Имя представления для аудирования операции создания.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings.UpdateAudit">
+            <summary>
+            Включён ли аудит операции изменения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings.UpdateAuditViewName">
+            <summary>
+            Имя представления для аудирования операции изменения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings.DeleteAudit">
+            <summary>
+            Включён ли аудит операции удаления.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings.DeleteAuditViewName">
+            <summary>
+            Имя представления для аудирования операции удаления.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings.FormUrl">
+            <summary>
+            Путь к форме просмотра результатов аудита.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings.WriteMode">
+            <summary>
+            Режим записи данных аудита (синхронный или асинхронный).
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings.PrunningLength">
+            <summary>
+            Максимальная длина сохраняемого значения поля (если 0, то строка обрезаться не будет).
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings.ShowPrimaryKey">
+            <summary>
+            Показывать ли пользователям в изменениях первичные ключи.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings.KeepOldValue">
+            <summary>
+            Сохранять ли старое значение.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings.Compress">
+            <summary>
+            Сжимать ли сохраняемые значения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Клиент.AuditSettings.KeepAllValues">
+            <summary>
+            Сохранять ли все значения атрибутов, а не только изменяемые.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.ПриоритетСообщения">
+            <summary>
+            Приоритет отправляемого сообщения, от которого зависит порядок доставки сообщений клиенту.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ПриоритетСообщения.Высокий">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ПриоритетСообщения.Обычный">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ПриоритетСообщения.Низкий">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Тэг">
+            <summary>
+            Тэг.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Тэг.Имя">
+            <summary>
+            Имя.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Тэг.Значение">
+            <summary>
+            Значение.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Тэг.CreateTime">
+            <summary>
+            Время создания объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Тэг.Creator">
+            <summary>
+            Создатель объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Тэг.EditTime">
+            <summary>
+            Время последнего редактирования объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Тэг.Editor">
+            <summary>
+            Последний редактор объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Тэг.Сообщение">
+            <summary>
+            мастеровая ссылка на шапку NewPlatform.Flexberry.HighwaySB.Сообщение.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Тэг.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Тэг.Views.AuditView">
+            <summary>
+            "AuditView" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Тэг.Views.ТэгViewE">
+            <summary>
+            "ТэгViewE" view.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings">
+            <summary>
+            Audit class settings.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings.AuditEnabled">
+            <summary>
+            Включён ли аудит для класса.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings.UseDefaultView">
+            <summary>
+            Использовать имя представления для аудита по умолчанию.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings.SelectAudit">
+            <summary>
+            Включён ли аудит операции чтения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings.SelectAuditViewName">
+            <summary>
+            Имя представления для аудирования операции чтения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings.InsertAudit">
+            <summary>
+            Включён ли аудит операции создания.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings.InsertAuditViewName">
+            <summary>
+            Имя представления для аудирования операции создания.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings.UpdateAudit">
+            <summary>
+            Включён ли аудит операции изменения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings.UpdateAuditViewName">
+            <summary>
+            Имя представления для аудирования операции изменения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings.DeleteAudit">
+            <summary>
+            Включён ли аудит операции удаления.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings.DeleteAuditViewName">
+            <summary>
+            Имя представления для аудирования операции удаления.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings.FormUrl">
+            <summary>
+            Путь к форме просмотра результатов аудита.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings.WriteMode">
+            <summary>
+            Режим записи данных аудита (синхронный или асинхронный).
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings.PrunningLength">
+            <summary>
+            Максимальная длина сохраняемого значения поля (если 0, то строка обрезаться не будет).
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings.ShowPrimaryKey">
+            <summary>
+            Показывать ли пользователям в изменениях первичные ключи.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings.KeepOldValue">
+            <summary>
+            Сохранять ли старое значение.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings.Compress">
+            <summary>
+            Сжимать ли сохраняемые значения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Тэг.AuditSettings.KeepAllValues">
+            <summary>
+            Сохранять ли все значения атрибутов, а не только изменяемые.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.DetailArrayOfТэг">
+            <summary>
+            Detail array of Тэг.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.DetailArrayOfТэг.#ctor(NewPlatform.Flexberry.HighwaySB.Сообщение)">
+            <summary>
+            Construct detail array.
+            </summary>
+            <summary>
+            Returns object with type Тэг by index.
+            </summary>
+            <summary>
+            Adds object with type Тэг.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.СпособПередачи">
+            <summary>
+            Способ отправки сообщений клиенту, если тип подписки - callback.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.СпособПередачи.WCF">
+            <summary>
+            Отправка в WCF-сервис.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.СпособПередачи.WEB">
+            <summary>
+            Отправка в web-сервис.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.СпособПередачи.MAIL">
+            <summary>
+            Отправка по email.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.СпособПередачи.HTTP">
+            <summary>
+            Отправка посредством HTTP-запроса.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Сообщение">
+            <summary>
+            Сообщение.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.UniqueHighlightField">
+            <summary>
+            Используется для подсветки уникальной строки
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.ВремяСледующейОтправки">
+            <summary>
+            ВремяСледующейОтправки.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.РасшифрованныеДанные">
+            <summary>
+            РасшифрованныеДанные.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Тело">
+            <summary>
+            Тело.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.ВремяФормирования">
+            <summary>
+            ВремяФормирования.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Отправитель">
+            <summary>
+            Отправитель.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Вложение">
+            <summary>
+            Вложение.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.ВложениеДляБазы">
+            <summary>
+            ВложениеДляБазы.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Приоритет">
+            <summary>
+            Приоритет.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.ИмяГруппы">
+            <summary>
+            ИмяГруппы.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Отправляется">
+            <summary>
+            Отправляется.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.FailsCount">
+            <summary>
+            FailsCount.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.ОтчётОбОшибкахColumn">
+            <summary>
+            ОтчётОбОшибкахColumn.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.ВложениеColumn">
+            <summary>
+            ВложениеColumn.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Ид">
+            <summary>
+            Ид.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.CreateTime">
+            <summary>
+            Время создания объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Creator">
+            <summary>
+            Создатель объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.EditTime">
+            <summary>
+            Время последнего редактирования объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Editor">
+            <summary>
+            Последний редактор объекта.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Тэги">
+            <summary>
+            Тэги.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.LogMessages">
+            <summary>
+            LogMessages.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.ТипСообщения">
+            <summary>
+            Сообщение.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Получатель">
+            <summary>
+            Сообщение.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.LogMsgs">
+            <summary>
+            Сообщение.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Тэг">
+            <summary>
+            Сообщение.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Сообщение.Views">
+            <summary>
+            Class views container.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Views.AuditView">
+            <summary>
+            "AuditView" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Views.SB_СообщениеE">
+            <summary>
+            "SB_СообщениеE" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Views.SB_СообщениеL">
+            <summary>
+            "SB_СообщениеL" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Views.SB_СообщениеSecond">
+            <summary>
+            "SB_СообщениеSecond" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Views.СообщениеE">
+            <summary>
+            "СообщениеE" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Views.СообщениеFilterView">
+            <summary>
+            "СообщениеFilterView" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Views.СообщениеL">
+            <summary>
+            "СообщениеL" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Views.СообщениеLight">
+            <summary>
+            "СообщениеLight" view.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Views.СообщениеLU">
+            <summary>
+            "СообщениеLU" view.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings">
+            <summary>
+            Audit class settings.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings.AuditEnabled">
+            <summary>
+            Включён ли аудит для класса.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings.UseDefaultView">
+            <summary>
+            Использовать имя представления для аудита по умолчанию.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings.SelectAudit">
+            <summary>
+            Включён ли аудит операции чтения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings.SelectAuditViewName">
+            <summary>
+            Имя представления для аудирования операции чтения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings.InsertAudit">
+            <summary>
+            Включён ли аудит операции создания.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings.InsertAuditViewName">
+            <summary>
+            Имя представления для аудирования операции создания.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings.UpdateAudit">
+            <summary>
+            Включён ли аудит операции изменения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings.UpdateAuditViewName">
+            <summary>
+            Имя представления для аудирования операции изменения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings.DeleteAudit">
+            <summary>
+            Включён ли аудит операции удаления.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings.DeleteAuditViewName">
+            <summary>
+            Имя представления для аудирования операции удаления.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings.FormUrl">
+            <summary>
+            Путь к форме просмотра результатов аудита.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings.WriteMode">
+            <summary>
+            Режим записи данных аудита (синхронный или асинхронный).
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings.PrunningLength">
+            <summary>
+            Максимальная длина сохраняемого значения поля (если 0, то строка обрезаться не будет).
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings.ShowPrimaryKey">
+            <summary>
+            Показывать ли пользователям в изменениях первичные ключи.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings.KeepOldValue">
+            <summary>
+            Сохранять ли старое значение.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings.Compress">
+            <summary>
+            Сжимать ли сохраняемые значения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Сообщение.AuditSettings.KeepAllValues">
+            <summary>
+            Сохранять ли все значения атрибутов, а не только изменяемые.
+            </summary>
+        </member>
+    </members>
+</doc>

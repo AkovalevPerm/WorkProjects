@@ -1,0 +1,2940 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NewPlatform.Flexberry.HighwaySB</name>
+    </assembly>
+    <members>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.Log4NetLogger">
+            <summary>
+            Логгер на основе Log4Net
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.LoggerHelper">
+            <summary>
+            Класс с общими функциями для логгеров
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.LoggerHelper.LangDef">
+            <summary>
+            Язык для создания ограничений.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.LoggerHelper._dataService">
+            <summary>
+            Сервис данных для вычитки объектов
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.LoggerHelper.GetClientName(System.String)">
+            <summary>
+            Функция для получения наименования клиента по его идентификатору.
+            </summary>
+            <param name="clientId">Идентификатор клиента.</param>
+            <returns>Наименование клиента, если он был найден в БД, иначе идентификатор, который был передан.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.LoggerHelper.GetMessageTypeName(System.String)">
+            <summary>
+            Функция для получения наименования типа сообщения для лога по его идентификатору.
+            </summary>
+            <param name="messageTypeId">Идентификатор типа сообщения.</param>
+            <returns>Наименование типа сообщения, если он был найден в БД, иначе идентификатор, который был передан.</returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository">
+            <summary>
+            Implementation of <see cref="T:NewPlatform.Flexberry.HighwaySB.Components.IObjectRepository"/> using <see cref="T:ICSSoft.STORMNET.Business.IDataService"/> with cache.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.MessageTypes">
+            <summary>
+            Cache for types of messages.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.ServiceBuses">
+            <summary>
+            Cache for service buses.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.Restrictions">
+            <summary>
+            Cache for restrictions.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.MessageTypesLockObject">
+            <summary>
+            Lock object for types of messages.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.ServiceBusesLockObject">
+            <summary>
+            Lock object for service buses.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.RestrictionsLockObject">
+            <summary>
+            Lock object for restrictions.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository._logger">
+            <summary>
+            Logger.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository._dataService">
+            <summary>
+            The data service for loading objects.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.UpdatePeriodMilliseconds">
+            <summary>
+            Period of updating data from database.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository._periodicalTimer">
+            <summary>
+            Timer for periodical update of data.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository._statisticsService">
+            <summary>
+            Statistics service
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.#ctor(NewPlatform.Flexberry.HighwaySB.Components.ILogger,ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NewPlatform.Flexberry.HighwaySB.Components.DataServiceObjectRepository"/> class with specified logger and data service.
+            </summary>
+            <param name="logger">Logger.</param>
+            <param name="dataService">Data service.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.GetAllMessageTypes">
+            <summary>
+            Gets all message types.
+            </summary>
+            <returns>The list of all stored message types.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.GetAllRestrictions">
+            <summary>
+            Returns all sending restrictions.
+            </summary>
+            <returns>The list of all stored restrictions.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.GetAllServiceBuses">
+            <summary>
+            Gets all service buses.
+            </summary>
+            <returns>The list of all stored remote services buses.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.GetRestrictionsForClient(System.String)">
+            <summary>
+            Returns sending restrictions for client.
+            </summary>
+            <param name="senderId">Client's ID.</param>
+            <returns>Restrictions for client.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.GetRestrictionsForMsgType(System.String)">
+            <summary>
+            Returns sending restrictions for message type.
+            </summary>
+            <param name="messageTypeId">Message type's ID.</param>
+            <returns>Restrictions for messge type.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.Prepare">
+            <summary>
+            Initialize component.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.Start">
+            <summary>
+            Start working.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.Stop">
+            <summary>
+            Stop working.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.ClearCache">
+            <summary>
+            Clear cached data.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedDataServiceObjectRepository.UpdateFromDb">
+            <summary>
+            Update data from database (once).
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.DataServiceObjectRepository">
+            <summary>
+            Default implementation of <see cref="T:NewPlatform.Flexberry.HighwaySB.Components.IObjectRepository"/> using <see cref="T:ICSSoft.STORMNET.Business.IDataService"/>.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DataServiceObjectRepository._dataService">
+            <summary>
+            The data service for loading objects.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DataServiceObjectRepository._statisticsService">
+            <summary>
+            Statistics service
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DataServiceObjectRepository.#ctor(ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NewPlatform.Flexberry.HighwaySB.Components.DataServiceObjectRepository"/> class with
+            specified data service.
+            </summary>
+            <param name="dataService">The data service for loading objects.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DataServiceObjectRepository.GetAllServiceBuses">
+            <summary>
+            Gets all service buses.
+            </summary>
+            <returns>The list of all stored remote services buses.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DataServiceObjectRepository.GetAllMessageTypes">
+            <summary>
+            Gets all message types.
+            </summary>
+            <returns>The list of all stored message types.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DataServiceObjectRepository.GetAllRestrictions">
+            <summary>
+            Returns all sending restrictions.
+            </summary>
+            <returns>The list of all stored restrictions.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DataServiceObjectRepository.GetRestrictionsForClient(System.String)">
+            <summary>
+            Returns sending restrictions for client.
+            </summary>
+            <param name="senderId">Client's ID.</param>
+            <returns>Restrictions for client.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DataServiceObjectRepository.GetRestrictionsForMsgType(System.String)">
+            <summary>
+            Returns sending restrictions for message type.
+            </summary>
+            <param name="messageTypeId">Message type's ID.</param>
+            <returns>Restrictions for messge type.</returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.RerouterConfiguration.MessageRerouterConfiguration">
+            <summary>
+            Раздел конфигурации приложения.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.RerouterConfiguration.MessageRerouterConfiguration.Current">
+            <summary>
+            Получает из секцию конфигурации из файла конфигурации.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.Rerouter.HttpServer">
+            <summary>
+            Многопоточный http-сервер, принимающий сообщения и передающий его на обработку.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.Rerouter.HttpServer.#ctor(System.Int32)">
+            <summary>
+            Создаёт многопоточный http-сервер, принимающий сообщения и передающий его на обработку.
+            </summary>
+            <param name="maxThreads">Размер пула потоков.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.Rerouter.HttpServer.Start(System.Int32)">
+            <summary>
+            Запускает сервер.
+            </summary>
+            <param name="port">Порт, на котором будет запущен сервер.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.Rerouter.HttpServer.Dispose">
+            <summary>
+            Освобождение ресурсов.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.Rerouter.HttpServer.Stop">
+            <summary>
+            Остановка сервера.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.Rerouter.HttpServer.HandleRequests">
+            <summary>
+            Перехватывает запросы.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.Rerouter.HttpServer.ContextReady(System.IAsyncResult)">
+            <summary>
+            Callback-функция для метода HttpListener.BeginGetContext. Добавляет контекст соединения в очередь для обработки.
+            </summary>
+            <param name="ar">Результат выполнения HttpListener.BeginGetContext.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.Rerouter.HttpServer.Worker">
+            <summary>
+            Внутренний обработчик запросов. Получает контекст из очереди и передаёт внешним обработчикам.
+            </summary>
+        </member>
+        <member name="E:NewPlatform.Flexberry.HighwaySB.Components.Rerouter.HttpServer.ProcessRequest">
+            <summary>
+            Событие обработки запроса. На него должны подписываться внешние обработчики.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.Rerouter.MessageInfo">
+            <summary>
+            Дополнительные данные о сообщении, которые передаются через шину.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.Rerouter.MessageInfo.ContextId">
+            <summary>
+            ID контекста соединения.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.Rerouter.MessageInfo.RerouteUrl">
+            <summary>
+            URL, на который требуется передать запрос.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.Rerouter.MessageInfo.SbResponseType">
+            <summary>
+            ID типа сообщения шины, с которым требуется вернуть ответ.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.Rerouter.MessageInfo.ContentType">
+            <summary>
+            Тип содержимого.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.Rerouter.MessageInfo.AcceptTypes">
+            <summary>
+            Допустимые типы ответов.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.Rerouter.MessageInfo.HttpMethod">
+            <summary>
+            Тип HTTP-запроса.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.RerouterService">
+            <summary>
+            Implementation of rerouter service.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.RerouterService.contexts">
+            <summary>
+            Потокобезопасная коллекция для хранения контекста http-соединений в ожидании ответа из шины.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.RerouterService.RequestsWithMessageBody">
+            <summary>
+            Методы запросов, которые могут иметь тело запроса.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.RerouterService.Enabled">
+            <summary>
+            Rerouter service is enabled.
+            Enabled by default.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.RerouterService.Stop">
+            <summary>
+            Остановка компонента. Сервисы и потоки останавливаются.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.RerouterService.RerouteRequest(System.Net.HttpListenerContext)">
+            <summary>
+            Обработчик входящего http-соединения.
+            </summary>
+            <param name="context">Контекст http-соединения.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.RerouterService.ProcessRequest(NewPlatform.Flexberry.HighwaySB.Components.Rerouter.MessageInfo,System.String)">
+            <summary>
+            Осуществляет передачу запроса конечному получателю и возвращает ответ в шину.
+            </summary>
+            <param name="messageInfo">Внутреннее сообщение шины.</param>
+            <param name="message">Запрос от изначального отправителя.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.RerouterService.ReturnAnswer(System.String,System.String,System.Guid)">
+            <summary>
+            Возвращает ответ отправителю изначального сообщения, если связь ещё не прервалась.
+            </summary>
+            <param name="response">Ответ на изначальное сообщение.</param>
+            <param name="contentType">Тип содержимого.</param>
+            <param name="contextId">ID сохранённого контекста.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.RerouterService.ReturnCode(System.Net.HttpListenerContext,System.Int32)">
+            <summary>
+            Возвращает клиенту указанный http-код.
+            </summary>
+            <param name="context">Контекст http-соединения.</param>
+            <param name="code">Код http.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.RerouterService.ReturnText(System.Net.HttpListenerContext,System.String)">
+            <summary>
+            Возвращает клиенту указанный текст.
+            </summary>
+            <param name="context">Контекст http-соединения.</param>
+            <param name="text">Текст для клиента.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.RerouterService.ReturnWsdl(System.Net.HttpListenerContext,System.String)">
+            <summary>
+            Возвращает клиенту содержимое wsdl-файла.
+            </summary>
+            <param name="context">Контекст http-соединения.</param>
+            <param name="wsdlFilePath">Путь к файлу wsdl.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.RerouterService.FixWsaTo(System.Xml.XmlDocument@,System.String)">
+            <summary>
+            Добавление тэга To в Header, если там его нету.
+            Замена значения этого тэга на указанную ссылку.
+            </summary>
+            <param name="xmlDoc">Документ.</param>
+            <param name="url">Ссылка.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.RerouterService.ImitateServiceBusMessage(System.String,System.String,System.String)">
+            <summary>
+            Imitates sending message throw SB.
+            </summary>
+            <param name="senderId">Sender of message.</param>
+            <param name="receiverId">Receiver of message.</param>
+            <param name="messageType">Type of message.</param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService">
+            <summary>
+            Класс, реализующий функциональность сжатия данных статистики.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.CompressionPeriod">
+            <summary>
+            The frequency at which the statistics compression task runs in milliseconds.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.MaxRecordsForOneCompression">
+            <summary>
+            Maximum records count for compression, read from DB for one query.
+            If 0 without limit.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService._timeService">
+            <summary>
+            Current time component.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService._periodicalTimer">
+            <summary>
+            Timer for periodical update of data.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.PreparedInterval">
+            <summary>
+            Класс, содержащий дополнительную информацию по интервалу сжатия статистики.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.PreparedInterval.Setting">
+            <summary>
+            Настройка интервала.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.PreparedInterval.TimeLimit">
+            <summary>
+            Сжиматься должны интервалы старше этого времени.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.PreparedInterval.IntervalStart">
+            <summary>
+            Начало интервала сжатия статистики, выровненное по размеру интервала (StatIntervalType).
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.PreparedInterval.IntervalEnd">
+            <summary>
+            Конец интервала сжатия статистики, выровненный по размеру интервала (StatIntervalType).
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.#ctor(ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsTimeService,NewPlatform.Flexberry.HighwaySB.Components.ILogger,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsService)">
+            <summary>
+            Constructor for <see cref="T:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService"/>.
+            </summary>
+            <param name="dataService">Data service.</param>
+            <param name="timeService">Component for getting current time.</param>
+            <param name="logger">Component for logging.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.Start">
+            <summary>
+            Start work.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.Stop">
+            <summary>
+            Stop work of component.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.CompressStatistics">
+            <summary>
+            Сжать статистику.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.LoadRecordsForCompression(NewPlatform.Flexberry.HighwaySB.CompressionSetting)">
+            <summary>
+            Загружает подлежащие сжатию записи.
+            </summary>
+            <param name="compressSetting">Настройка сжатия статистики.</param>
+            <returns>Список записей статистики, загруженный из БД.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.PrepareIntervals(System.DateTime,System.Collections.Generic.List{NewPlatform.Flexberry.HighwaySB.CompressionSetting})">
+            <summary>
+            Подготавливает интервалы, вычисляя дополнительные поля и удаляя пустые интервалы.
+            </summary>
+            <param name="now">Время начала процесса сжатия статистики.</param>
+            <param name="compressionSettings">Список конфигураций сжатия статистики (CompressionSetting).</param>
+            <returns>Список подготовленных интервалов.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.CompressRecords(System.DateTime,NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.PreparedInterval)">
+            <summary>
+            Выполняет сжатие записей из заданного подготовленного интервала.
+            </summary>
+            <param name="now">Время начала процесса сжатия статистики.</param>
+            <param name="interval">Подготовленный интервал.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.LoadRecordsForCompression(NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.PreparedInterval)">
+            <summary>
+            Загружает подлежащие сжатию записи.
+            </summary>
+            <param name="interval">Подготовленный интервал, записи из которого нужно загрузить.</param>
+            <returns>Список записей статистики, загруженный из БД.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.AddTimeUnitsToDate(System.DateTime,NewPlatform.Flexberry.HighwaySB.TimeUnit,System.Int32)">
+            <summary>
+            Увеличивает время на указанное число единиц измерения.
+            </summary>
+            <param name="date">Исходное время.</param>
+            <param name="unit">Единица измерения.</param>
+            <param name="unitsNum">Число единиц измерения, на которое требуется изменить исходное время.</param>
+            <returns>Полученное время.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsCompressorService.AddStatIntervalToDate(System.DateTime,NewPlatform.Flexberry.HighwaySB.StatIntervalType,System.Int32)">
+            <summary>
+            Увеличивает время на указанное число интервалов статистики.
+            </summary>
+            <param name="date">Исходное время.</param>
+            <param name="intervalType">Тип интервала статистики.</param>
+            <param name="intervalsNum">Число интервалов статистики, на которое требуется изменить исходное время.</param>
+            <returns>Полученное время.</returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings">
+            <summary>
+            Service Bus component for keeping and periodicaly actualizing statistics settings.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings._view">
+            <summary>
+            View to load statistics settings.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings._statSettings">
+            <summary>
+            Cached copy of statistics settings.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings._statSettingsLock">
+            <summary>
+            Lock-object for a field <see cref="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings._statSettings"/>.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings._dataService">
+            <summary>
+            Data service.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings._logger">
+            <summary>
+            Current logger.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings._periodicalTimer">
+            <summary>
+            Timer for periodical update of data.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings.UpdatePeriodMilliseconds">
+            <summary>
+            Update period for statistics settings.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings._statisticsService">
+            <summary>
+            Statistics service
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings._subscriptionSB">
+            <summary>
+            Key for statistics SB
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings.#ctor(ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Constructor for <see cref="T:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings"/>.
+            </summary>
+            <param name="dataService">Data service.</param>
+            <param name="logger">Logger.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings.GetSettings">
+            <summary>
+            Returns all statistics settings without details.
+            </summary>
+            <returns>Statistics settings.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings.GetSetting(NewPlatform.Flexberry.HighwaySB.Подписка)">
+            <summary>
+            Returns statistics setting for subscription.
+            </summary>
+            <param name="subscription">Subscription for statistics setting.</param>
+            <returns>Statistics setting for suscription.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings.CreateSetting(NewPlatform.Flexberry.HighwaySB.Подписка)">
+            <summary>
+            Creates new statistics setting and returns it.
+            </summary>
+            <param name="subscription">Subscription for statistics setting.</param>
+            <returns>New statistics setting.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings.Prepare">
+            <summary>
+            Prepare component.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings.Start">
+            <summary>
+            Start work.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings.Stop">
+            <summary>
+            Finish work.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSettings.Process">
+            <summary>
+            Update statistics settings from database. This function will be called periodicaly when component is started.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.FakeStatisticsService">
+            <summary>
+            This is statistics service that no collect statistics.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.FakeStatisticsService.NotifyAvgTimeSent(NewPlatform.Flexberry.HighwaySB.Подписка,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.FakeStatisticsService.NotifyAvgTimeSent(NewPlatform.Flexberry.HighwaySB.Клиент,NewPlatform.Flexberry.HighwaySB.ТипСообщения,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.FakeStatisticsService.NotifyAvgTimeSql(NewPlatform.Flexberry.HighwaySB.Подписка,System.Int32,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.FakeStatisticsService.NotifyAvgTimeSql(NewPlatform.Flexberry.HighwaySB.Клиент,NewPlatform.Flexberry.HighwaySB.ТипСообщения,System.Int32,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.FakeStatisticsService.NotifyDecConnectionCount(NewPlatform.Flexberry.HighwaySB.Подписка)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.FakeStatisticsService.NotifyDecConnectionCount(NewPlatform.Flexberry.HighwaySB.Клиент,NewPlatform.Flexberry.HighwaySB.ТипСообщения)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.FakeStatisticsService.NotifyErrorOccurred(NewPlatform.Flexberry.HighwaySB.Подписка)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.FakeStatisticsService.NotifyIncConnectionCount(NewPlatform.Flexberry.HighwaySB.Подписка)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.FakeStatisticsService.NotifyIncConnectionCount(NewPlatform.Flexberry.HighwaySB.Клиент,NewPlatform.Flexberry.HighwaySB.ТипСообщения)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.FakeStatisticsService.NotifyMessageReceived(NewPlatform.Flexberry.HighwaySB.Подписка)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.FakeStatisticsService.NotifyMessageReceived(NewPlatform.Flexberry.HighwaySB.Клиент,NewPlatform.Flexberry.HighwaySB.ТипСообщения)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.FakeStatisticsService.NotifyMessageSent(NewPlatform.Flexberry.HighwaySB.Подписка)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.FakeStatisticsService.NotifyMessageSent(NewPlatform.Flexberry.HighwaySB.Клиент,NewPlatform.Flexberry.HighwaySB.ТипСообщения)">
+            <inheritdoc/>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.BaseReceivingManager">
+            <summary>
+            Base abstract implementation of <see cref="T:NewPlatform.Flexberry.HighwaySB.Components.IReceivingManager"/>.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager">
+            <summary>
+            Base abstract implementation of <see cref="T:NewPlatform.Flexberry.HighwaySB.Components.ISendingManager"/>.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager._langDef">
+            <summary>
+            Язык для создания ограничений.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager.ClearMessageStatusOnStart">
+            <summary>
+            Fix incorrect message statuses on start.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager.ScanningPeriodMilliseconds">
+            <summary>
+            Time between attempts to send delayed messages.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager.GetCurrentMessageCount(System.String)">
+            <summary>
+            Получить текущее количество неотправленных сообщений для указанного клиента.
+            </summary>
+            <param name="clientId">Идентификатор клиента.</param>
+            <returns>Количество неотправленных сообщений.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager.GetCurrentMessageCount(System.String,System.String)">
+            <summary>
+            Получить текущее количество неотправленных сообщений указанного типа для указанного клиента.
+            </summary>
+            <param name="clientId">Идентификатор клиента.</param>
+            <param name="messageTypeId">Тип сообщений.</param>
+            <returns>Количество неотправленных сообщений.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager.GetMessagesInfo(System.String,System.Int32)">
+            <summary>
+            Получить информацию о сообщениях, которые есть, но еще не отправлены указанному клиенту.
+            </summary>
+            <param name="clientId">Идентификатор клиента.</param>
+            <param name="maxCount">Максимальное количество возвращаемых записей. Если равно 0, возвращается информация о всех имеющихся сообщениях.</param>
+            <returns>Информация о сообщениях. Записи отсортированы в планируемом порядке отправки.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager.GetMessagesInfo(System.String,System.String,System.Int32)">
+            <summary>
+            Получить информацию о сообщениях указанного типа для указанного клиента.
+            </summary>
+            <param name="clientId">Идентификатор клиента.</param>
+            <param name="messageTypeId">Идентификатор типа сообщений.</param>
+            <param name="maxCount">Максимальное количество возвращаемых записей. Если равно 0, возвращается информация о всех имеющихся сообщениях.</param>
+            <returns>Информация о сообщениях. Записи отсортированы в планируемом порядке отправки.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager.GetMessagesInfo(System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Получить информацию о сообщениях.
+            </summary>
+            <param name="clientId">Идентификатор клиента.</param>
+            <param name="messageTypeId">Идентификатор типа сообщения.</param>
+            <param name="groupName">Имя группы сообщения.</param>
+            <param name="maxCount">Максимальное количество возвращаемых записей. Если равно 0, возвращается информация о всех имеющихся сообщениях.</param>
+            <returns>Информация о сообщениях. Записи отсортированы в планируемом порядке отправки.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager.GetMessagesInfo(System.String,System.String,System.String[],System.Int32)">
+            <summary>
+            Получить информацию о сообщении.
+            </summary>
+            <param name="clientId">Идентификатор клиента.</param>
+            <param name="messageTypeId">Идентификатор типа сообщения.</param>
+            <param name="tags">Теги, которые должно содержать сообщение.</param>
+            <param name="maxCount">Максимальное количество возвращаемых записей. Если равно 0, возвращается информация о всех имеющихся сообщениях.</param>
+            <returns>Информация о сообщениях. Записи отсортированы в планируемом порядке отправки.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager.ReadMessage(System.String)">
+            <summary>
+            Получить сообщение по его идентификатору.
+            </summary>
+            <param name="id">Идентификатор сообщения.</param>
+            <returns>Сообщение, или <c>null</c>, если не найдено сообщение, соответствующее идентификатору.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager.ReadMessage(System.String,System.String)">
+            <summary>
+            Получить сообщение по идентификатору получателя и типу сообщения, первое в очереди отправки.
+            </summary>
+            <param name="clientId">Идентификатор получателя.</param>
+            <param name="messageTypeId">Идентификатор типа сообщения.</param>
+            <returns>Сообщение, или <c>null</c>, если указанным параметрам не соответствует ни одно сообщение.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager.ReadMessage(System.String,System.String,System.Int32)">
+            <summary>
+            Получить сообщение указанного типа для указанного получателя, соответствующее указанному индексу.
+            </summary>
+            <param name="clientId">Идентификатор получателя сообщения.</param>
+            <param name="messageTypeId">Идентификатор типа сообщения.</param>
+            <param name="index">Индекс сообщения в отсортированном списке сообщений по приоритету и времени формирования.</param>
+            <returns>Сообщение, либо <c>null</c>, если сообщение не найдено для заданных аргументов.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager.ReadMessage(System.String,System.String,System.String)">
+            <summary>
+            Получить сообщение указанного типа для указанного получателя, соответствующее заданному имени группы.
+            </summary>
+            <param name="clientId">Идентификатор получателя сообщения.</param>
+            <param name="messageTypeId">Идентификатор типа сообщения.</param>
+            <param name="groupName">Имя группы сообщения.</param>
+            <returns>Сообщение, либо <c>null</c>, если сообщение не найдено для заданных аргументов.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager.ReadMessage(System.String,System.String,System.String[])">
+            <summary>
+            Получить следующее сообщение с указанными тегами указанного типа для указанного получателя.
+            </summary>
+            <param name="clientId">Идентификатор получателя сообщения.</param>
+            <param name="messageTypeId">Идентификатор типа сообщения.</param>
+            <param name="tags">Теги, присутствующие в сообщении.</param>
+            <returns>Сообщение, если оно есть, или <c>null</c>.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager.CheckEventIsRaised(System.String,System.String)">
+            <summary>
+            Проверить существование уведомления о событии.
+            </summary>
+            <param name="clientId">Идентификатор клиента, для которого проверяется существование уведомления.</param>
+            <param name="eventTypeId">Идентификатор типа события.</param>
+            <returns><c>true</c>, если уведомление существует в БД, иначе <c>false</c>.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager.DeleteMessage(System.String)">
+            <summary>
+            Удалить заданное сообщение из очереди.
+            </summary>
+            <param name="messageId">Идентификатор сообщения, которое нужно удалить.</param>
+            <returns><c>true</c>, если сообщение было удалено, иначе <c>false</c>.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseSendingManager.CorrectMessagesStatus(ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Массовая правка статусов сообщений (например, какие-то сообщения ошибочно остались отправляемыми).
+            </summary>
+            <param name="ds">Сервис данных, через которых можно обновлять данные.</param>
+            <param name="logger">Логгер для выполнения операции.</param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.BaseServiceBusComponent">
+            <summary>
+            Base abstract implementation of <see cref="T:NewPlatform.Flexberry.HighwaySB.Components.IServiceBusComponent"/>.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseServiceBusComponent.Prepare">
+            <summary>
+            Prepare to start component.
+            Component should be able to execute its methods and methods of other components after prepare.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseServiceBusComponent.Start">
+            <summary>
+            Start component.
+            Dependent components (services) should be initialized here.
+            Threads for processing should be started here.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseServiceBusComponent.Stop">
+            <summary>
+            Stop component.
+            Components (services) and threads should be stopped here.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseServiceBusComponent.AfterStop">
+            <summary>
+            Actoins that should be performed after stopping the component.
+            Сomplete shutdown of the component.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseServiceBusComponent.Dispose">
+            <summary>
+            Implement IDisposable.
+            Do not make this method virtual.
+            A derived class should not be able to override this method.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.BaseServiceBusComponent.Dispose(System.Boolean)">
+             <summary>
+             Implements disposing of resources in two distinct scenarios.
+             </summary>
+             <param name="disposing">
+             If disposing equals true, the method has been called directly or indirectly by a user's code.
+             Managed and unmanaged resources can be disposed.
+            
+             If disposing equals false, the method has been called by the runtime from inside the finalizer and you should not reference other objects.
+             Only unmanaged resources can be disposed.
+             </param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager">
+            <summary>
+            Статический класс для хранения и поддержания актуальности коллекции активных (срок действия которых не истек) на данный момент подписок.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.LangDef">
+            <summary>
+            Язык для создания ограничений.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.SubscriptionsLockObject">
+            <summary>
+            Объект для разделения доступа к полю <see cref="F:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.Subscriptions"/>.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.Subscriptions">
+            <summary>
+            Список для хранения подписок.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.updateFromDbTimer">
+            <summary>
+            Таймер для синхронизации коллекции подписок с базой данных.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.UpdatePeriodMilliseconds">
+            <summary>
+            Период обновления информации о подписках из БД.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager._statisticsService">
+            <summary>
+            Statistics service
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.#ctor(NewPlatform.Flexberry.HighwaySB.Components.ILogger,ICSSoft.STORMNET.Business.IDataService)">
+            <summary>
+            Создаёт новый экземпляр класса <see cref="T:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager"/>.
+            </summary>
+            <param name="logger">Используемый компонент логирования.</param>
+            <param name="dataService">Сервис данных.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.UpdateFromDb">
+            <summary>
+            Обновить данные о подписках и ограничениях с помощью запроса к БД.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.CreateClient(System.String,System.String,System.String)">
+            <summary>
+            Создать клиента.
+            </summary>
+            <param name="clientId">Идентификатор клиента.</param>
+            <param name="name">Имя клиента.</param>
+            <param name="address">Адрес, если ожидается, что клиент будет получать сообщения по callback.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.DeleteClient(System.String)">
+            <summary>
+            Удалить клиента.
+            </summary>
+            <param name="clientId">Идентификатор клиента, которого нужно удалить.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.CreateMessageType(NewPlatform.Flexberry.HighwaySB.NameCommentStruct)">
+            <summary>
+            Создать тип сообщений.
+            </summary>
+            <param name="msgTypeInfo">Информация о создаваемом типе сообщений: идентификатор, наименование, комментарий.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.CreateEventType(NewPlatform.Flexberry.HighwaySB.NameCommentStruct)">
+            <summary>
+            Создать тип событий.
+            </summary>
+            <param name="eventTypeInfo">Информация о создаваемом типе событий: идентификатор, наименование, комментарий.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.GetSubscriptions(System.Boolean)">
+            <summary>
+            Получить все существующие подписки.
+            </summary>
+            <param name="onlyActive">Вернуть только активные (дата прекращения больше текущей) подписки. По умолчанию <c>true</c>.</param>
+            <returns>
+            Найденные подписки.
+            </returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.GetSubscriptions(System.String,System.Boolean)">
+            <summary>
+            Получить все существующие подписки указанного клиента.
+            </summary>
+            <param name="clientId">Идентификатор клиента, для которого нужно получить подписки.</param>
+            <param name="onlyActive">Вернуть только активные (дата прекращения больше текущей) подписки. По умолчанию <c>true</c>.</param>
+            <returns>
+            Найденные подписки указанного клиента.
+            </returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.GetCallbackSubscriptions(System.Boolean)">
+            <summary>
+            Получить активные callback-подписки (отправка по которым производится по инициативе шины).
+            </summary>
+            <param name="onlyActive">Возвращать только активные подписки.</param>
+            <returns>
+            Найденные callback-подписки.
+            </returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.GetSubscriptionsForMsgType(System.String,System.String)">
+            <summary>
+            Получить подписки для конкретного типа сообщений.
+            </summary>
+            <param name="messageTypeId">Идентификатор типа сообщений, для которого нужно получить подписи.</param>
+            <param name="senderId">Идентификатор отправителя сообщений (его подписки не будут включены в результат). Если нужно получить все подписки, параметр указывать не нужно.</param>
+            <returns>
+            Найденные подписки для указанного типа сообщений.
+            </returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.SubscribeOrUpdate(System.String,System.String,System.Boolean,System.Nullable{NewPlatform.Flexberry.HighwaySB.СпособПередачи},System.Nullable{System.DateTime})">
+            <summary>
+            Подписать клиента на определенный тип сообщений или обновить подписку.
+            </summary>
+            <param name="clientId">Идентификатор клиента, подписку которого нужно обновить или создать.</param>
+            <param name="messageTypeId">Тип сообщений подписки.</param><param name="isCallback">Является ли подписка callback.</param>
+            <param name="transportType">Способ передачи сообщений, если подписка callback, иначе можно передать null.</param>
+            <param name="expiryDate">Дата прекращения подписки. Если не указана, вычисляется как сумма текущей даты и параметра конфигурации UpdateForATime.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.UpdateAllSubscriptions(System.String)">
+            <summary>
+            Обновить все подписки указанного клиента.
+            </summary>
+            <param name="clientId">Идентификатор клиента, подписки которого нужно обновить.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.Prepare">
+            <summary>
+            Подготовка к запуску компонента. После выполнения этого метода компонент должен быть
+            способен к выполнению его методов из других компонентов.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.Start">
+            <summary>
+            Запуск компонента. В этом методе должны инициализироваться различные внешние сервисы, если
+            они есть, создаваться потоки обработки.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.Stop">
+            <summary>
+            Остановка компонента. Сервисы и потоки останавливаются.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CachedSubscriptionsManager.ClearCache">
+            <summary>
+            Clear cached data.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService">
+            <summary>
+            Component for recording statistics of sended and received messages.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.CollectBusStatistics">
+            <summary>
+            Indicates whether to collect statistics on the bus.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.CollectAdvancedStatistics">
+            <summary>
+            Indicates whether to collect advanced statistics (AvgTimeSent, AvgTimeSql, ConnectionCount).
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.StatisticsSavingPeriod">
+            <summary>
+            Periodicity of statistics saving to DB in milliseconds.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService._statSettings">
+            <summary>
+            Current statistics settings component.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService._saveService">
+            <summary>
+            Current component for saving statistics data.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService._timeService">
+            <summary>
+            Current time component.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService._subscriptions">
+            <summary>
+            Current subscriptions manager.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService._logger">
+            <summary>
+            Current logger.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService._lock">
+            <summary>
+            Lock object for multithread access to statistics data.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService._statData">
+            <summary>
+            Statistics data.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.unsavedStatistics">
+            <summary>
+            Stores until the next attempt to save, statistics records, during saving at of which errors occurred.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService._periodicalTimer">
+            <summary>
+            Timer for periodical update of data.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.#ctor(NewPlatform.Flexberry.HighwaySB.Components.IStatisticsSettings,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsSaveService,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsTimeService,NewPlatform.Flexberry.HighwaySB.Components.ISubscriptionsManager,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Constructor for <see cref="T:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService"/>.
+            </summary>
+            <param name="statSettings">Component for getting statistics settings.</param>
+            <param name="saveService">Component for saving statistics.</param>
+            <param name="timeService">Component for getting current time.</param>
+            <param name="subscriptions">Subscriptions manager.</param>
+            <param name="logger">Component for logging.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.NotifyMessageReceived(NewPlatform.Flexberry.HighwaySB.Подписка)">
+            <summary>
+            Notify statistics component that message has been received.
+            </summary>
+            <param name="subscription">Subscription for message.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.NotifyMessageSent(NewPlatform.Flexberry.HighwaySB.Подписка)">
+            <summary>
+            Notify statistics component that message has been sent.
+            </summary>
+            <param name="subscription">Subscription for message.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.NotifyErrorOccurred(NewPlatform.Flexberry.HighwaySB.Подписка)">
+            <summary>
+            Notify statistics component that the error occurred while sending message.
+            </summary>
+            <param name="subscription">Subscription for message.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.NotifyAvgTimeSent(NewPlatform.Flexberry.HighwaySB.Подписка,System.Int32)">
+            <summary>
+            Notifies that the message has been sent for calc avg time.
+            </summary>
+            <param name="subscription">Subscription for message.</param>
+            <param name="time">Time sent message</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.NotifyAvgTimeSql(NewPlatform.Flexberry.HighwaySB.Подписка,System.Int32,System.String)">
+            <summary>
+            Notifies calc avg time execute sql.
+            </summary>
+            <param name="subscription">Subscription for message.</param>
+            <param name="time">Time execute sql</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.NotifyIncConnectionCount(NewPlatform.Flexberry.HighwaySB.Подписка)">
+            <summary>
+            Notify statistics component that open connection.
+            </summary>
+            <param name="subscription">Subscription for message.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.NotifyDecConnectionCount(NewPlatform.Flexberry.HighwaySB.Подписка)">
+            <summary>
+            Notify statistics component that close connection.
+            </summary>
+            <param name="subscription">Subscription for message.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.NotifyMessageReceived(NewPlatform.Flexberry.HighwaySB.Клиент,NewPlatform.Flexberry.HighwaySB.ТипСообщения)">
+            <summary>
+            Notify statistics component that message has been received.
+            </summary>
+            <param name="client">Client, recipient of message.</param>
+            <param name="messageType">Type of message.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.NotifyMessageSent(NewPlatform.Flexberry.HighwaySB.Клиент,NewPlatform.Flexberry.HighwaySB.ТипСообщения)">
+            <summary>
+            Notify statistics component that message has been sent.
+            </summary>
+            <param name="client">Client, sender of message.</param>
+            <param name="messageType">Type of message.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.NotifyAvgTimeSent(NewPlatform.Flexberry.HighwaySB.Клиент,NewPlatform.Flexberry.HighwaySB.ТипСообщения,System.Int32)">
+            <summary>
+            Notifies that the message has been sent for calc avg time.
+            </summary>
+            <param name="client">Client, sender of message.</param>
+            <param name="messageType">Type of message.</param>
+            <param name="time">Time sent message</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.NotifyAvgTimeSql(NewPlatform.Flexberry.HighwaySB.Клиент,NewPlatform.Flexberry.HighwaySB.ТипСообщения,System.Int32,System.String)">
+            <summary>
+            Notifies calc avg time execute sql.
+            </summary>
+            <param name="client">Client, sender of message.</param>
+            <param name="messageType">Type of message.</param>
+            <param name="time">Time execute sql</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.NotifyIncConnectionCount(NewPlatform.Flexberry.HighwaySB.Клиент,NewPlatform.Flexberry.HighwaySB.ТипСообщения)">
+            <summary>
+            Notify statistics component that open connection.
+            </summary>
+            <param name="client">Client, sender of message.</param>
+            <param name="messageType">Type of message.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.NotifyDecConnectionCount(NewPlatform.Flexberry.HighwaySB.Клиент,NewPlatform.Flexberry.HighwaySB.ТипСообщения)">
+            <summary>
+            Notify statistics component that close connection.
+            </summary>
+            <param name="client">Client, sender of message.</param>
+            <param name="messageType">Type of message.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.Start">
+            <summary>
+            Start work.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.Stop">
+            <summary>
+            Stop work of component.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.Process">
+            <summary>
+            Save statistics to database. This function will be called periodicaly when component is started.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.SaveStatistics(System.Boolean)">
+            <summary>
+            Save statistics data to database.
+            </summary>
+            <param name="saveAll">Current time interval would not be saved if false.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.GetCurrentTimestampBucket">
+            <summary>
+            Returns start of current time interval.
+            </summary>
+            <returns>Returns current timestamp bucket.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService.GetCurrentStatRecord(NewPlatform.Flexberry.HighwaySB.Подписка)">
+            <summary>
+            Returns current stat record from <see cref="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsService._statData"/>. It creates new record if necessary.
+            </summary>
+            <returns>Return current statistics record for provided <paramref name="subscription"/>.</returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsTimeService">
+            <summary>
+            Class, that returns the current time for statistics service.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsTimeService.Now">
+            <summary>
+            Current date and time.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.MailScanningServiceSettings.CheckMail">
+            <summary>
+            If true then mail scanning service is enabled.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.MailScanningServiceSettings.MailScanPeriod">
+            <summary>
+            Time interval (in milliseconds) to check mail.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSaveService">
+            <summary>
+            Component for saving statistics to database.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSaveService._statRecordView">
+            <summary>
+            View to load statistics records.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSaveService._statisticsService">
+            <summary>
+            Statistics service
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSaveService.#ctor(ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Constructor for <see cref="T:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSaveService"/>.
+            </summary>
+            <param name="dataService">Data service.</param>
+            <param name="logger">Component for logging.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSaveService.Save(System.Collections.Generic.IEnumerable{NewPlatform.Flexberry.HighwaySB.StatRecord})">
+            <summary>
+            Save statistics records to database.
+            </summary>
+            <param name="stats">Statistics records.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultStatisticsSaveService.PrepareStatsForSaving(System.Collections.Generic.IEnumerable{NewPlatform.Flexberry.HighwaySB.StatRecord})">
+            <summary>
+            Normalize statistics records for saving.
+            </summary>
+            <param name="stats">Raw statistics records.</param>
+            <returns>Normalized statistics records.</returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService">
+            <summary>
+            Base implementation of HWSB component for communication with other HWSBs.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService._subscriptionsManager">
+            <summary>
+            The subscriptions manager.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService._repository">
+            <summary>
+            The HWSB objects repository.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService._logger">
+            <summary>
+            The logger.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService._scanThread">
+            <summary>
+            The thread for asynchronous communication with other HWSBs.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService._scanWaitEvent">
+            <summary>
+            The event for waiting next synchronization.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService._scanStopEvent">
+            <summary>
+            The event for waiting <see cref="F:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService._scanThread"/> to stop.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService.Enabled">
+            <summary>
+            Cross-bus communication service is enabled.
+            Enabled by default.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService.ServiceID4SB">
+            <summary>
+            Client identifier for remote HWSBs.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService.ScanningTimeout">
+            <summary>
+            Timeout in milliseconds for communication with remote HWSBs.
+            1100 by default.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService.CloneMessageTypesScanningCycles">
+            <summary>
+            Count of cycles for cloning message types.
+            </summary>
+            <remarks>
+            This setting is used for reducing merging message types with remote HWSBs.
+            Possible values:
+            <list type="bullet">
+                <item><description>-1 : cloning is disabled;</description></item>
+                <item><description> 0 : clone only once;</description></item>
+                <item><description> N : clone each N-th cycle.</description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService.#ctor(NewPlatform.Flexberry.HighwaySB.Components.ISubscriptionsManager,NewPlatform.Flexberry.HighwaySB.Components.IObjectRepository,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService"/> class with specified settings.
+            </summary>
+            <param name="subscriptionsManager">The subscriptions manager.</param>
+            <param name="repository">The HWSB objects repository.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService.Start">
+            <summary>
+            Starts this HWSB component.
+            Starts scanning thread.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService.Stop">
+            <summary>
+            Stops this HWSB component.
+            Stops scanning thread.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService.Dispose(System.Boolean)">
+            <summary>
+            Disposes kernel objects.
+            </summary>
+            <param name="disposing">
+            <c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.
+            </param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService.Scan">
+            <summary>
+            Scanning thread method.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.CrossBusCommunicationService.Subscribe(System.Boolean)">
+            <summary>
+            Subscribes for messages from other HWSBs.
+            Clones message types and updates subscriptions in all remote HWSBs.
+            </summary>
+            <param name="cloneMessageTypes">Clone all message types from remote HWSBs.</param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.DefaultReceivingManager">
+            <summary>
+            Класс для приема сообщений в шину от клиентов, использующий <see cref="T:ICSSoft.STORMNET.Business.IDataService"/> для работы с сообщениями.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultReceivingManager._langDef">
+            <summary>
+            Язык для ограничений.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultReceivingManager.AcceptMessage(NewPlatform.Flexberry.HighwaySB.MessageForESB)">
+            <summary>
+            Принять сообщение.
+            </summary>
+            <param name="message">Принимаемое сообщение.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultReceivingManager.AcceptMessage(NewPlatform.Flexberry.HighwaySB.MessageForESB,System.String)">
+            <summary>
+            Принять сообщение с именем группы.
+            </summary>
+            <param name="message">Принимаемое сообщение.</param>
+            <param name="groupName">Имя группы.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultReceivingManager.RaiseEvent(System.String,System.String)">
+            <summary>
+            Уведомить о событии.
+            </summary>
+            <param name="clientId">Идентификатор клиента.</param>
+            <param name="eventTypeId">Идентификатор типа события.</param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.DefaultSendingManager">
+            <summary>
+            Класс, использующийся для отправки сообщений по умолчанию.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultSendingManager.SendMsgsByCallBack">
+            <summary>
+            Метод, выполняющий запуск потоков отправки для каждой подписки.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultSendingManager.ScanMessages">
+            <summary>
+            Поток сканирующий БД на наличие подписок.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultSendingManager.QueueForSending(NewPlatform.Flexberry.HighwaySB.Сообщение)">
+            <summary>
+            Добавить сообщение в очередь для отправки.
+            </summary>
+            <param name="msg">Сообщение, которое нужно отправить.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultSendingManager.Start">
+            <summary>
+            Начать работу.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultSendingManager.Stop">
+            <summary>
+            Остановить работу.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.DefaultSubscriptionsManager">
+            <summary>
+            Класс по умолчанию для управления подписками.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultSubscriptionsManager.LangDef">
+            <summary>
+            Язык для создания ограничений.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.DefaultSubscriptionsManager._statisticsService">
+            <summary>
+            Statistics service
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultSubscriptionsManager.GetInitialLcs">
+            <summary>
+            Возвращает базовую LCS для загрузки подписок.
+            </summary>
+            <returns><see cref="T:ICSSoft.STORMNET.Business.LoadingCustomizationStruct"/> с проставленным представлением и типом объектов..</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultSubscriptionsManager.CreateClient(System.String,System.String,System.String)">
+            <summary>
+            Создать клиента.
+            </summary>
+            <param name="clientId">Идентификатор клиента.</param>
+            <param name="name">Имя клиента.</param>
+            <param name="address">Адрес, если ожидается, что клиент будет получать сообщения по callback.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultSubscriptionsManager.DeleteClient(System.String)">
+            <summary>
+            Удалить клиента, его подписки и сообщения.
+            </summary>
+            <param name="clientId">Идентификатор клиента, которого нужно удалить.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultSubscriptionsManager.CreateMessageType(NewPlatform.Flexberry.HighwaySB.NameCommentStruct)">
+            <summary>
+            Создать тип сообщений.
+            </summary>
+            <param name="msgTypeInfo">Информация о создаваемом типе сообщений: идентификатор, наименование, комментарий.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultSubscriptionsManager.CreateEventType(NewPlatform.Flexberry.HighwaySB.NameCommentStruct)">
+            <summary>
+            Создать тип событий.
+            </summary>
+            <param name="eventTypeInfo">Информация о создаваемом типе событий: идентификатор, наименование, комментарий.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultSubscriptionsManager.GetSubscriptions(System.Boolean)">
+            <summary>
+            Получить все имеющиеся подписки.
+            </summary>
+            <param name="onlyActive">Возвращать ли только активные подписки (дата прекращения больше текущей).</param>
+            <returns>Коллекция найденных подписок.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultSubscriptionsManager.GetSubscriptions(System.String,System.Boolean)">
+            <summary>
+            Получить все существующие подписки указанного клиента.
+            </summary>
+            <param name="clientId">Идентификатор клиента, для которого нужно получить подписки.</param>
+            <param name="onlyActive">Вернуть только активные (дата прекращения больше текущей) подписки. По умолчанию <c>true</c>.</param>
+            <returns>Найденный подписки указанного клиента.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultSubscriptionsManager.GetCallbackSubscriptions(System.Boolean)">
+            <summary>
+            Получить все callback-подписки.
+            </summary>
+            <param name="onlyActive">Возвращать только активные подписки.</param>
+            <returns>Коллекция найденных подписок.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultSubscriptionsManager.GetSubscriptionsForMsgType(System.String,System.String)">
+            <summary>
+            Получить подписки с конкретным типом сообщений.
+            </summary>
+            <param name="messageTypeId">Идентификатор типа сообщений.</param>
+            <param name="senderId">Идентификатор отправителя (его подписки не будут включены в результат).</param>
+            <returns>Коллекция найденных подписок.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultSubscriptionsManager.SubscribeOrUpdate(System.String,System.String,System.Boolean,System.Nullable{NewPlatform.Flexberry.HighwaySB.СпособПередачи},System.Nullable{System.DateTime})">
+            <summary>
+            Подписать клиента на определенный тип сообщений или обновить подписку.
+            </summary>
+            <param name="clientId">Идентификатор клиента, подписку которого нужно обновить или создать.</param>
+            <param name="messageTypeId">Тип сообщений подписки.</param>
+            <param name="isCallback">Является ли подписка callback.</param>
+            <param name="transportType">Способ передачи сообщений, если подписка callback, иначе можно передать null.</param>
+            <param name="expiryDate">Дата прекращения подписки. Если не указана, вычисляется как сумма текущей даты и параметра конфигурации UpdateForATime.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.DefaultSubscriptionsManager.UpdateAllSubscriptions(System.String)">
+            <summary>
+            Обновить все подписки указанного клиента.
+            </summary>
+            <param name="clientId">Идентификатор клиента, подписки которого нужно обновить.</param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.MailScanningService">
+            <summary>
+            Implementation of service for scanning e-mails to get new messages.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.MailScanningService.ScanMessages">
+            <summary>
+            Метод для потока, выполняющего сканирование электронной почты на наличие новых сообщений.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger">
+            <summary>
+            Realization of logger using MS Enterprise Library Loggin through <see cref="T:IIS.Caseberry.Logging.MsEntLib.CaseberryDatabaseTraceListener"/>.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.LogEventType">
+            <summary>
+            Possible log events.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.LogEventType.Exception">
+            <summary>
+            Exception occures.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.LogEventType.MessageReceived">
+            <summary>
+            Message was received by service bus.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.LogEventType.MessageSended">
+            <summary>
+            Message was sended by service bus.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.LogEventType.InformationMessage">
+            <summary>
+            Information message.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.LogSourceName">
+            <summary>
+            Name of the source in Windows events log.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.EnableInformationLogging">
+            <summary>
+            Флаг, определяющий, нужно ли добавлять в лог информационные сообщения.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.GetDeepExceptionMessage(System.Exception)">
+            <summary>
+            Преобразовать исключение в строковый вид. Если <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.ExceptionFormatter"/> успешно обрабатывает переданное исключение, используется он.
+            Иначе генерируется строка, состоящая из последовательности записей о вложенных исключениях, каждая запись содержит сообщение и стек исключения.
+            </summary>
+            <param name="ex">Исключение, которое нужно преобразовать в строку.</param>
+            <returns>
+            Строка с сообщением об исключении.
+            </returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.WriteToEventLog(System.String,System.Diagnostics.EventLogEntryType)">
+            <summary>
+            Запись сообщения в события Windows.
+            </summary>
+            <param name="message">Сообщение для записи в лог.</param>
+            <param name="eventLogEntryType">Статус сообщения: ошибка, информация или др.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.WriteToLog(System.Object,System.String,System.Int32,NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.LogEventType,System.Diagnostics.TraceEventType,System.String,NewPlatform.Flexberry.HighwaySB.Сообщение)">
+            <summary>
+            Добавить запись в лог Enterprise Library.
+            </summary>
+            <param name="message">Сообщение, которое нужно добавить.</param>
+            <param name="category">Категория сообщения (произвольная строка).</param>
+            <param name="priority">Приоритет добавляемого сообщения (0 - самый высокий).</param>
+            <param name="eventId">Идентификатор события. Одно из значений <see cref="T:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.LogEventType"/>.</param>
+            <param name="severity">Критичность сообщения.</param>
+            <param name="title">Заголовок сообщения.</param>
+            <param name="lastMsg">Последнее сообщение, с которым выполнялись какие-то действия.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.NewLogEntryAdded(System.Object,IIS.Caseberry.Logging.MsEntLib.DataObjectIdEventArgs)">
+            <summary>
+            Обработчик добавления записи лога для <see cref="T:IIS.Caseberry.Logging.MsEntLib.CaseberryDatabaseTraceListener"/>.
+            Добавляет связь между сообщением шины и записью лога при условии, что запись относится к этому сообщению.
+            </summary>
+            <param name="sender">Источник события добавления записи лога.</param>
+            <param name="eventArgs">Аргументы события.</param>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.LinkedMsg">
+            <summary>
+            Поле для хранения ссылки на сообщение, связанное с записываемой в лог ошибкой.
+            Используется, так как нет другой возможности передать сообщение в обработчик события добавления записи лога (<see cref="M:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.NewLogEntryAdded(System.Object,IIS.Caseberry.Logging.MsEntLib.DataObjectIdEventArgs)"/>).
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.AfterStop">
+            <summary>
+            Действия, которые необходимо выполнить после остановки компонента. Полное завершение работы сервиса.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.LogUnhandledException(System.Exception,NewPlatform.Flexberry.HighwaySB.Сообщение,System.String,System.String)">
+            <summary>
+            Добавить в лог запись об необработанном исключении.
+            </summary>
+            <param name="exception">Объект исключения, которое было брошено.</param>
+            <param name="linkedMessage">Сообщение (если оно есть), при работе с которым возникло исключение. Если сообщения нет, передается <c>null</c>.</param>
+            <param name="title">Заголовок записи лога. Если не задан, берется из исключения.</param>
+            <param name="message">Сообщение лога. Задается в случае, если нужно переопределить сообщение из исключения.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.LogError(System.String,System.String,NewPlatform.Flexberry.HighwaySB.Сообщение)">
+            <summary>
+            Добавить в лог запись о произошедшей ошибке.
+            </summary>
+            <param name="title">Заголовок сообщения об ошибке.</param>
+            <param name="message">Сообщение об ошибке.</param>
+            <param name="linkedMessage">Сообщение (если оно есть), при работе с которым произошла ошибка. Если сообщения нет, передается <c>null</c>.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.LogIncomingMessage(NewPlatform.Flexberry.HighwaySB.MessageForESB)">
+            <summary>
+            Добавить в лог запись о входящем сообщении в шину.
+            </summary>
+            <param name="message">Структура данных, описывающая пришедшее сообщение.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.LogOutgoingMessage(NewPlatform.Flexberry.HighwaySB.Сообщение)">
+            <summary>
+            Добавить в лог запись об исходящем сообщении из шины.
+            </summary>
+            <param name="message">Объект сообщения, которое было отправлено.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.LogInformation(System.String,System.String)">
+            <summary>
+            Добавить в лог информационное сообщение.
+            </summary>
+            <param name="title">Заголовок сообщения.</param>
+            <param name="message">Текст сообщения.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.EnterpriseLibraryLogger.LogDebugMessage(System.String,System.String)">
+            <summary>
+            Добавить в лог отладочное сообщение.
+            </summary>
+            <param name="title">Заголовок сообщения.</param>
+            <param name="message">Текст сообщения.</param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.OptimizedSendingManager">
+            <summary>
+            Класс для отправки сообщений посредством сервиса данных с уменьшенным количеством запросов к БД.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.OptimizedSendingManager._langDef">
+            <summary>
+            Язык для создания ограничений.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.OptimizedSendingManager._scanningTimer">
+            <summary>
+            Таймер, выполняющий операцию сканирования БД на наличие сообщений, которые нужно отправить.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.OptimizedSendingManager._sendingTasksCount">
+            <summary>
+            Количество выполняющихся в данный момент задач отправки.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.OptimizedSendingManager.MaxTasks">
+            <summary>
+            The maximum number of tasks for sending messages.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.OptimizedSendingManager.AdditionalMinutesBetweenRetries">
+            <summary>
+            Number of minutes to be added to delay before the next attempt to send message.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.OptimizedSendingManager.SendingTaskParam">
+            <summary>
+            Структура, передающаяся методу отправки сообщения при его вызове.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.OptimizedSendingManager.SendingTaskParam.Subscription">
+            <summary>
+            Подписка, по которой отправляется сообщение.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.OptimizedSendingManager.SendingTaskParam.Message">
+            <summary>
+            Сообщение, которое нужно отправить.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.OptimizedSendingManager.Stop">
+            <summary>
+            Остановка компонента. Сервисы и потоки останавливаются.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.OptimizedSendingManager.QueueForSending(NewPlatform.Flexberry.HighwaySB.Сообщение)">
+            <summary>
+            Добавить сообщение в отправку.
+            </summary>
+            <param name="msg">Сообщение, которое нужно отправить.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.OptimizedSendingManager.TryEnqueue(NewPlatform.Flexberry.HighwaySB.Сообщение)">
+            <summary>
+            Попытаться добавить в очередь для отправки сообщение.
+            </summary>
+            <param name="message">Сообщение, которое нужно отправить.</param>
+            <returns>Было ли сообщение добавлено в очередь.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.OptimizedSendingManager.SendMessage(System.Object)">
+            <summary>
+            Метод отправки сообщения.
+            </summary>
+            <param name="paramObject">Объект, содержащий параметры отправки сообщений.</param>
+            <returns>Успешно ли было отправлено сообщение.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.OptimizedSendingManager.GetMessageSender(NewPlatform.Flexberry.HighwaySB.Подписка)">
+            <summary>
+            Получить объект для отправки сообщений, тип которого зависит от метода отправки.
+            </summary>
+            <param name="subscription">Подписка, для которой нужно получить объект для отправки.</param>
+            <returns>Объект для отправки сообщений.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.OptimizedSendingManager.ScanMessages(System.Object)">
+            <summary>
+            Метод отправки сообщений из БД, выполняющийся по таймеру.
+            </summary>
+            <param name="state">Состояние, передаваемое при вызове метода таймером.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.OptimizedSendingManager.SendingTaskContinuation(System.Threading.Tasks.Task{System.Boolean},System.Object)">
+            <summary>
+            Метод, выполняющийся после завершения задачи отправки сообщения.
+            </summary>
+            <param name="task">Задача, по завершению которой запущен метод.</param>
+            <param name="messageObject">Сообщение, которое отправлялось в указанной задаче.</param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.WcfService">
+            <summary>
+            Base implementation of HWSB component for providing access by WCF.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.WcfService._subscriptionsManager">
+            <summary>
+            The subscriptions manager.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.WcfService._sendingManager">
+            <summary>
+            The sending manager.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.WcfService._receivingManager">
+            <summary>
+            The receiving manager.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.WcfService._wcfServiceHost">
+            <summary>
+            The WCF service host.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.WcfService.UseWcfSettingsFromConfig">
+            <summary>
+            Load WCF settings from .NET configuration file ("app.config" / "web.config").
+            Enabled by default.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.WcfService.Address">
+            <summary>
+            Address of WCF service.
+            </summary>
+            <remarks>
+            Used only when <see cref="P:NewPlatform.Flexberry.HighwaySB.Components.WcfService.UseWcfSettingsFromConfig"/> is <c>false</c>. Cannot be <c>null</c> in that case.
+            </remarks>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Components.WcfService.Binding">
+            <summary>
+            Binding of WCF service.
+            </summary>
+            <remarks>
+            Used only when <see cref="P:NewPlatform.Flexberry.HighwaySB.Components.WcfService.UseWcfSettingsFromConfig"/> is <c>false</c>. Cannot be <c>null</c> in that case.
+            </remarks>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.WcfService.#ctor(NewPlatform.Flexberry.HighwaySB.Components.ISubscriptionsManager,NewPlatform.Flexberry.HighwaySB.Components.ISendingManager,NewPlatform.Flexberry.HighwaySB.Components.IReceivingManager,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NewPlatform.Flexberry.HighwaySB.Components.WcfService"/> class.
+            </summary>
+            <param name="subscriptionsManager">The subscriptions manager.</param>
+            <param name="sendingManager">The sending manager.</param>
+            <param name="receivingManager">The receiving manager.</param>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.WcfService.Start">
+            <summary>
+            Starts this HWSB component.
+            Starts WCF service if it is enabled.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.WcfService.Stop">
+            <summary>
+            Stops this HWSB component.
+            Stops WCF service if it is enabled.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.WcfService.ServiceHostWithoutConfiguration">
+            <summary>
+            Special implementation of <see cref="T:System.ServiceModel.ServiceHost"/> without data from configuration file.
+            Used for configuring host from code for testing purposes of for flexible configuring HWSB.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.WcfService.ServiceHostWithoutConfiguration.#ctor(NewPlatform.Flexberry.HighwaySB.SBService)">
+            <summary>
+            Initializes new instance of <see cref="T:NewPlatform.Flexberry.HighwaySB.Components.WcfService.ServiceHostWithoutConfiguration"/> class
+            with specified service instance.
+            </summary>
+            <param name="service">The WCF service instance for hosting.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.WcfService.ServiceHostWithoutConfiguration.ApplyConfiguration">
+            <summary>
+            Overload implementation of loading configuration.
+            Does nothing.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Components.WebApiService">
+            <summary>
+            The class of HWSB component that allows to communicate with the SB by HTTP REST interface.
+            </summary>
+            <seealso cref="T:NewPlatform.Flexberry.HighwaySB.Components.BaseServiceBusComponent" />
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.WebApiService._baseAddress">
+            <summary>
+            The base address of WebAPI REST interface.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.WebApiService._sendingManager">
+            <summary>
+            The HWSB sending manager.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.WebApiService._receivingManager">
+            <summary>
+            The HWSB receiving manager.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Components.WebApiService._host">
+            <summary>
+            The WebAPI host.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.WebApiService.#ctor(System.String,NewPlatform.Flexberry.HighwaySB.Components.ISendingManager,NewPlatform.Flexberry.HighwaySB.Components.IReceivingManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NewPlatform.Flexberry.HighwaySB.Components.WebApiService"/> class.
+            </summary>
+            <param name="baseAddress">The base address of WebAPI REST interface.</param>
+            <param name="sendingManager">The HWSB sending manager.</param>
+            <param name="receivingManager">The HWSB receiving manager.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.WebApiService.Start">
+            <summary>
+            Starts WebAPI host.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Components.WebApiService.Stop">
+            <summary>
+            Stops WebAPI host.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Controllers.RestServiceController">
+            <summary>
+            WebAPI контроллер для WebAPI сервиса шины.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Controllers.RestServiceController.GetMessages(System.String)">
+            <summary>
+            Получение списка сообщений для заданного клиента.
+            </summary>
+            <param name="clientId">Идентификатор получателя сообщения.</param>
+            <returns>Список сообщений, отсортированный по приоритету и времени формирования.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Controllers.RestServiceController.GetMessage(System.String,System.String,System.Int32)">
+            <summary>
+            Получить сообщение указанного типа для указанного получателя, соответствующее указанному индексу.
+            </summary>
+            <param name="clientId">Идентификатор получателя сообщения.</param>
+            <param name="messageTypeId">Идентификатор типа сообщения.</param>
+            <param name="index">Индекс сообщения в отсортированном списке сообщений по приоритету и времени формирования.</param>
+            <returns>Вычитанное сообщение, либо <c>null</c>, если сообщение не найдено для заданных аргументов.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Controllers.RestServiceController.GetMessage(System.String)">
+            <summary>
+            Получить сообщение по его идентификатору.
+            </summary>
+            <param name="id">Первичный ключ сообщения.</param>
+            <returns>Вычитанное сообщение, либо <c>null</c>, если сообщения с таким ключом не существует.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Controllers.RestServiceController.PostMessage(NewPlatform.Flexberry.HighwaySB.MessageForESB)">
+            <summary>
+            Отправить сообщение в шину.
+            </summary>
+            <param name="value">Структура данных, описывающая отправляемое сообщение.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Controllers.RestServiceController.DeleteMessage(System.String)">
+            <summary>
+            Удалить сообщение из БД шины.
+            </summary>
+            <param name="id">Первичный ключ удаляемого сообщения.</param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Mail.Attach">
+            <summary>
+            The attach.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Mail.Attach.num">
+            <summary>
+            The num.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Mail.Attach.str">
+            <summary>
+            The str.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Mail.BodyMaker">
+            <summary>
+            The body maker.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Mail.BodyMaker.Body(System.String,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            The body.
+            </summary>
+            <param name="msgType">The msg type.</param>
+            <param name="clientId">The client id.</param>
+            <param name="password">The password.</param>
+            <param name="msgBody">The msg body.</param>
+            <param name="msgTags">The msg tags.</param>
+            <returns>The <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Mail.BodyMaker.BodyWithGroup(System.String,System.String,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            The body with group.
+            </summary>
+            <param name="msgType">The msg type.</param>
+            <param name="clientId">The client id.</param>
+            <param name="password">The password.</param>
+            <param name="msgBody">The msg body.</param>
+            <param name="groupName">The group name.</param>
+            <param name="msgTags">The msg tags.</param>
+            <returns>The <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Mail.BodyMaker.CreateTags(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            The create tags.
+            </summary>
+            <param name="msgTags">The msg tags.</param>
+            <returns>The <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Mail.BodyMaker.GetTagsStr(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}})">
+            <summary>
+            The get tags str.
+            </summary>
+            <param name="tags">The tags.</param>
+            <returns>The <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Mail.ForMailMessage">
+            <summary>
+            класс-обертка для сообщения, отправляемого электронной почтой в корпоративную сервисную шину
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Mail.ForMailMessage.Group">
+            <summary>
+            если задать имя группы, то будет отправлено СообщениеСГруппой
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Mail.ForMailMessage.Body">
+            <summary>
+            тело сообщения может содержать произвольный текст. не рекомендуется передавать большие объемы данных - лучше для этого использовать вложение
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Mail.ForMailMessage.Tags">
+            <summary>
+            словарь для произвольных пар "ключ-значение". в тэге также можно найти некоторую служебную информацию, например, путь или имя отправителя
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Mail.ForMailMessage.Attachment">
+            <summary>
+            произвольное вложение. рекомендуется использовать для передачи файлов и больших объемов данных
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Mail.ForMailMessage.MsgTypeID">
+            <summary>
+            идентификатор типа сообщения (тип Guid)
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Mail.ForMailMessage.ClientID">
+            <summary>
+            идентификатор отправителя (тип Guid)
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Mail.ForMailMessage.Quote">
+            <summary>
+            квота позволяет ограничить размер пересылаемых почтой пакетов с данными. задается в байтах. по умолчанию 1024
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Mail.ForMailMessage.Password">
+            <summary>
+            пароль используется при архивировании вложения с целью повышения уровня защищенности пакетов при пересылке. задан программно по умолчанию
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.Mail.ForMailMessage.TryCount">
+            <summary>
+            в случае возникновения исключения будет произведено указанное количество повторов
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Mail.ForMailMessage.Send(System.String,System.String,System.String)">
+            <summary>
+            отправляет сообщение на электронный почтовый ящик
+            </summary>
+            <param name="mailTo">адрес почтового ящика получателя (на который отправляется сообщение)</param>
+            <param name="mailFrom">адрес почтового ящика отправителя (проверяется регулярным выражением)</param>
+            <param name="mailServerName">имя почтового сервера отправителя</param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Mail.Header">
+            <summary>
+            The header.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Mail.Header.msg">
+            <summary>
+            The msg.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Mail.Header.num">
+            <summary>
+            The num.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.Mail.Header.stored">
+            <summary>
+            The stored.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.Mail.MailUtils">
+            <summary>
+            The sb service.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Mail.MailUtils.DelDirectory(System.String)">
+            <summary>
+            The del directory.
+            </summary>
+            <param name="tempDirectory">
+            The temp directory.
+            </param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Mail.MailUtils.DeleteStoredMessages(OpenPop.Pop3.Pop3Client,System.Collections.Generic.IEnumerable{NewPlatform.Flexberry.HighwaySB.Mail.Header})">
+            <summary>
+            The delete stored messages.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="msgs">The msgs.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Mail.MailUtils.GetAttachment(System.String,System.String)">
+            <summary>
+            The get attachment.
+            </summary>
+            <param name="attachment">The attachment.</param>
+            <param name="password">The password.</param>
+            <returns>The <see cref="!:byte[]"/>.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Mail.MailUtils.GetAttachmentFromMany(System.Collections.Generic.IEnumerable{NewPlatform.Flexberry.HighwaySB.Mail.Attach},System.String)">
+            <summary>
+            The get attachment from many.
+            </summary>
+            <param name="list">The list.</param>
+            <param name="password">The password.</param>
+            <returns>The <see cref="!:byte[]"/>.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Mail.MailUtils.GetDataFromBody(OpenPop.Mime.Message,System.String@,System.String@)">
+            <summary>
+            The get data from body.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="password">The password.</param>
+            <param name="group">The group.</param>
+            <returns>The <see cref="T:NewPlatform.Flexberry.HighwaySB.MessageForESB"/>.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Mail.MailUtils.GetMsgsForSB(OpenPop.Pop3.Pop3Client)">
+            <summary>
+            The get msgs for sb.
+            </summary>
+            <param name="client">
+            The client.
+            </param>
+            <returns>
+            The <see cref="!:List"/>.
+            </returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Mail.MailUtils.GetNum(System.String)">
+            <summary>
+            The get num.
+            </summary>
+            <param name="num">The num.</param>
+            <returns>The <see cref="T:System.String"/>.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Mail.MailUtils.ReceiveMess(NewPlatform.Flexberry.HighwaySB.Components.IReceivingManager,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            The receive mess.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Mail.MailUtils.SaveMsgToDB(OpenPop.Mime.Message,System.String,NewPlatform.Flexberry.HighwaySB.Components.IReceivingManager)">
+            <summary>
+            The save msg to db.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="fileName">The file name.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.Mail.MailUtils.SaveMsgToDBFromManyAttachs(System.Collections.Generic.IList{NewPlatform.Flexberry.HighwaySB.Mail.Header},NewPlatform.Flexberry.HighwaySB.Components.IReceivingManager)">
+            <summary>
+            The save msg to db from many attachs.
+            </summary>
+            <param name="msgs">The msgs.</param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.MultiTasking.PeriodicalTimer">
+            <summary>
+            Thread-safe and nonblocking timer for repeatative event.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.MultiTasking.PeriodicalTimer.TimerState">
+            <summary>
+            States of current timer.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.PeriodicalTimer.TimerState.Stopped">
+            <summary>
+            Periodical processing stopped.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.PeriodicalTimer.TimerState.Stoping">
+            <summary>
+            Stoping periodical processing.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.PeriodicalTimer.TimerState.Working">
+            <summary>
+            Periodical processing in progress.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.PeriodicalTimer.closeEvent">
+            <summary>
+            Shutdown event.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.PeriodicalTimer.callback">
+            <summary>
+            Callback function. This function will be called periodicaly when component is started.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MultiTasking.PeriodicalTimer.State">
+            <summary>
+            Current timer state.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.PeriodicalTimer.Start(System.Action,System.Int32)">
+            <summary>
+            Start periodical processing.
+            </summary>
+            <param name="callback">Callback function. This function will be called periodicaly when component is started.</param>
+            <param name="milliseconds">Period of timer's callback calls in milliseconds.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.PeriodicalTimer.Stop">
+            <summary>
+            Stop periodical processing.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.PeriodicalTimer.DoCicling(System.Object)">
+            <summary>
+            Calls callback method periodicaly.
+            </summary>
+            <param name="param">Interval in milliseconds.</param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.MultiTasking.SendingTaskParams">
+            <summary>
+            Структура для передачи необходимых параметров потоку отправки сообщения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.SendingTaskParams.MessagePk">
+            <summary>
+            Первичный ключ отправляемого в запускаемом потоке сообщения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.SendingTaskParams.Subscription">
+            <summary>
+            Подписка, по которой отправляется сообщение.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.SendingTaskParams.AdditionalTimeout">
+            <summary>
+            Промежуток времени для вычисления момента следующей отправки сообщения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.SendingTaskParams.DeferredMessages">
+            <summary>
+            Словарь отложенных сообщений, куда добавляется сообщение в случае неудачной отправки.
+            </summary>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriberThreadPool">
+            <summary>
+            Класс для работы с потоками подписчиков
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriberThreadPool.ThreadPool">
+            <summary>
+            The thread pool.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriberThreadPool.ReleaseSubscriber(System.Object)">
+            <summary>
+            Прерывает поток подписчика, а также удаляет его из пула.
+            </summary>
+            <param name="subscriptionGuidObj">
+            Guid подписки.
+            </param>
+            <returns>
+            Возвращает <see cref="T:System.Boolean"/>: true, если успешно завершена работа с данным подписчиком
+            </returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriberThreadPool.ReleaseAllSubscriptionThreads">
+            <summary>
+            Завершить работу всех потоков подписчиков
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriberThreadPool.QueueUserWorkItem(NewPlatform.Flexberry.HighwaySB.Подписка,System.Threading.ManualResetEvent,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsService,ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Выделяет и исполняет новый поток для подписчика в случае, если данный поток ещё не создан или не выполняется.
+            </summary>
+            <param name="subscription">Подписка, для которой создается поток.</param>
+            <param name="waitScanDB4CallBackHandle">Элемент, который разбудит создаваемый поток, если нужно будет закончить работу.</param>
+            <returns>Успешно ли запущен поток.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriberThreadPool.SubscriberThreadExists(NewPlatform.Flexberry.HighwaySB.Подписка)">
+            <summary>
+            The subscriber thread exists.
+            </summary>
+            <param name="subscribe">
+            The subscription.
+            </param>
+            <returns>
+            The <see cref="T:System.Boolean"/>.
+            </returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriberThreadPool.CheckForUnActiveSubscribers">
+            <summary>
+            Удаляет неактивные потоки подписок.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriberThreadPool.RemoveSubscriberFromPool(NewPlatform.Flexberry.HighwaySB.Подписка)">
+            <summary>
+            Удаление из пула потоков-подписчиков потока определённого подписчика
+            </summary>
+            <param name="subscriptions">
+            Подписка, которую необходимо удалить
+            </param>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread">
+            <summary>
+            Поток, запускающийся для конкретной подписки. Отслеживает новые сообщения и выполняет отправку клиентам.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.MessagesPerQuery">
+            <summary>
+            Количество сообщений, которые вычитываются из БД за один раз для последующей отправки или при обновлении.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.waitScanDb4CallBackHandle">
+            <summary>
+            Объект для реализации пауз с возможностью пробуждения извне.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.ldef">
+            <summary>
+            LangDef, использующийся при создании ограничений.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.sendingTasks">
+            <summary>
+            Словарь для хранения информации о сообщениях, которые находятся в отправке.
+            Ключ - первичный ключ сообщения, значение - флаг, говорящий, выполняется ли в данный момент отправка сообщения.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.isActiveLockObject">
+            <summary>
+            Объект для разделения доступа к свойству <see cref="P:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.IsActive"/> между потоками.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.sendingCallbackTimeout">
+            <summary>
+            Закэшированное время, на которое будет засыпать поток.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.scanningTimeout">
+            <summary>
+            Поле для кэширования значения свойства <see cref="P:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.ScanningTimeout"/>.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.isActive">
+            <summary>
+            Поле для хранения значения свойств <see cref="P:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.IsActive"/>.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.Subscription">
+            <summary>
+            Подписка, используемая в данном потоке.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.IsExecuting">
+            <summary>
+            Выполняется ли в данный момент поток отправки.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.SendingCallbackTimeOut">
+            <summary>
+            Закэшированное время, на которое будет засыпать поток.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.ScanningTimeout">
+            <summary>
+            Период между сканированиями БД потоком в случае отсутствия сообщений.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.ExecThread">
+            <summary>
+            Поток, в котором будет производиться отправка сообщений клиентам.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.IsActive">
+            <summary>
+            Свойство, сообщающее потоку отправки, что пора завершать работу (если <c>false</c>).
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.GetSubscriptionLcs(ICSSoft.STORMNET.Windows.Forms.ExternalLangDef,System.Guid,System.Guid,ICSSoft.STORMNET.View)">
+            <summary>
+            Получить экземпляр <see cref="T:ICSSoft.STORMNET.Business.LoadingCustomizationStruct" /> для загрузки подписок по идентификаторам клиента и типа сообщения.
+            <para>В полученной структуре будет задана сортировка по приоритету (по убыванию) и по дате формирования (по возрастанию).</para>
+            </summary>
+            <param name="ldef">LanguageDef для формирования ограничения.</param>
+            <param name="clientGuid">Идентификатор клиента.</param>
+            <param name="messageTypeGuid">Идентификатор типа сообщений подписки.</param>
+            <param name="messagesView">
+            Представление, которое будет использовано в создаваемой LCS.
+            По умолчанию используется представление <see cref="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Views.SB_СообщениеE"/>.
+            </param>
+            <returns>
+            Структура для загрузки подписок с помощью сервиса данных.
+            </returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.#ctor(System.Threading.ManualResetEvent,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsService,ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Конструктор, создающий поток для отправки сообщений клиенту.
+            </summary>
+            <param name="waitScanDb4CallBackHandleFromParentThread"> Элемент, который разбудит создаваемый поток, если нужно будет закончить работу. </param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.JobSendByCallback(System.Object)">
+            <summary>
+            Метод для отправки сообщений по подписке в отдельном потоке.
+            </summary>
+            <param name="subscriptionObject">
+            Подписка, по которой будет производиться отправка сообщений.
+            </param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.WaitForHandlingAndStop">
+            <summary>
+            Метод для внешнего использования. Ожидает, пока текущие сообщения не будут отправлены, и завершает работу потока отправки.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.StartExecution">
+            <summary>
+            Запустить выполнение потока отправки сообщений по callback.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.GetMessageSender(NewPlatform.Flexberry.HighwaySB.Подписка,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Метод для получения экземпляра одного из классов для отправки сообщений в зависимости от подписки.
+            </summary>
+            <param name="subscription">Подписка, тип которой определяет класс для отправки. Кроме этого, из подписки берется клиент.</param>
+            <returns>Экземпляр класса для отправки сообщений.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.SendMessageWithFailHandling(System.Object,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsService,ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Метод для выполнения отправки сообщения в отдельном потоке. Свойство <see cref="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Отправляется"/> должно быть
+            установлено в <c>true</c> заранее.
+            </summary>
+            <param name="state">Параметры для задачи отправки сообщения.</param>
+            <returns>Была ли выполнена отправка сообщения.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.ResetMessagesStatusBeforeStart(ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Сбросить статусы "Отправляется" сообщений текущей подписки перед началом цикла отправки сообщений.
+            Статусы могут остаться с предыдущего раза, если поток подписки упал и не обновил их.
+            </summary>
+            <param name="ds">Сервис данных, использующийся для работы с сообщениями.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.UpdateMessagesStatus(ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Обновить статусы сообщений, отправка которых завершена.
+            </summary>
+            <param name="ds">Сервис данных, через который будет производиться работа с сообщениям.</param>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.additionalTimeout">
+            <summary>
+            Период времени, через который последует очередная попытка отправить сообщение (в минутах).
+            Закэшированное значение из конфига.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.AdditionalTimeout">
+            <summary>
+            Период времени, через который последует очередная попытка отправить сообщение (в минутах).
+            После единичного вычитывания из конфига кэшируется.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.GetMessagesToSend(ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsService,System.Int32)">
+            <summary>
+            Получить первичные ключи сообщений, соответствующих текущей подписке, которые нужно отправить, и пометить их
+            как отправляемые. Ограничение на количество загружаемых сообщений составляет 100.
+            </summary>
+            <param name="dataService">Сервис данных, посредством которого загружаются сообщения.</param>
+            <param name="count">Количество первичных ключей, которое нужно вернуть. Если не задано или равно 0, не учитывается.</param>
+            <returns>Первичные ключи сообщений, которые нужно отправить.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MultiTasking.SubscriptionThread.GetSubscriptionLcs(ICSSoft.STORMNET.View)">
+            <summary>
+            Получить экземпляр <see cref="T:ICSSoft.STORMNET.Business.LoadingCustomizationStruct"/> для загрузки сообщений по идентификаторам клиента и типа сообщения.
+            </summary>
+            <param name="view">
+            Представление, которое будет использовано в создаваемой LCS.
+            Если не задано, используется <see cref="P:NewPlatform.Flexberry.HighwaySB.Сообщение.Views.SB_СообщениеE"/>.
+            </param>
+            <returns>
+            Структура для загрузки подписок с помощью сервиса данных.
+            </returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.SBService">
+            <summary>
+            В данном классе шина выступает в роли клиента, принимая сообщения
+            </summary>
+            <summary>
+            Содержит методы для работы с событиями, подписками, типами сообщений
+            </summary>
+            <summary>
+            Класс, обеспечивающий работу с шиной: прием сообщений, а также вычитка сообщений.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.AcceptMessage(NewPlatform.Flexberry.HighwaySB.MessageFromESB)">
+            <summary>
+            Принять сообщение от шины.
+            </summary>
+            <param name="msg">Принимаемое сообщение.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.GetSourceId">
+            <summary>
+            Получить идентификатор шины, выступающей в качестве клиента.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.RiseEvent(System.String)">
+            <summary>
+            Уведомить о событии.
+            </summary>
+            <param name="ИдТипаСобытия">Идентификатор типа события.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.GetLastSenderID(NewPlatform.Flexberry.HighwaySB.MessageFromESB)">
+            <summary>
+            Извлечь из тегов идентификатор последнего отправителя.
+            </summary>
+            <param name="msg">Сообщение, из которого извлекается последний отправитель.</param>
+            <returns>Идентификатор последнего отправителя.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.AddNewEvntType(NewPlatform.Flexberry.HighwaySB.NameCommentStruct)">
+            <summary>
+            Создать новый тип событий.
+            </summary>
+            <param name="evntType">Информация о создаваемом типе событий.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.AddNewMsgType(NewPlatform.Flexberry.HighwaySB.NameCommentStruct)">
+            <summary>
+            Создать новый тип сообщений.
+            </summary>
+            <param name="msgType">Информация о создаваемом типе сообщений.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.GetEvntTypesFromBus(System.String)">
+            <summary>
+            Получить типы событий, на которые подписан клиент.
+            </summary>
+            <param name="clientId">Идентификатор клиента, для которого нужно получить типы событий.</param>
+            <returns>Информация о найденных типах событий.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.GetMsgTypesFromBus(System.String)">
+            <summary>
+            Получить типы сообщений, на которые подписан клиент.
+            </summary>
+            <param name="clientId">Идентификатор клиента, для которого нужно найти типы сообщений.</param>
+            <returns>Информация о найденных типах сообщений.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.UpdateClientSubscribesForEvnts(System.String)">
+            <summary>
+            Продлить все подписки на события указанного клиента.
+            </summary>
+            <param name="clientId">Идентификатор клиента, подписки которого нужно обновить.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.UpdateClientSubscribesForMsgs(System.String)">
+            <summary>
+            Продлить все подписки на сообщения указанного клиента.
+            </summary>
+            <param name="clientId">Идентификатор клиента, подписки которого нужно обновить.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.CreateClient(System.String,System.String,System.String)">
+            <summary>
+            Создать клиента в шине.
+            </summary>
+            <param name="clientId">Идентификатор создаваемого клиента.</param>
+            <param name="name">Имя клиента.</param>
+            <param name="address">Адрес для отправки сообщений клиенту.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.DeleteClient(System.String)">
+            <summary>
+            Удалить клиента.
+            </summary>
+            <param name="clientId">
+            Идентификатор клиента, которого нужно удалить.
+            </param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.DoesEventRisen(System.String,System.String)">
+            <summary>
+            Проверить существование уведомления о событии.
+            </summary>
+            <param name="clientId">Идентификатр клиента, для которого проверяется существование уведомления.</param>
+            <param name="eventTypeId">Идентификатор клиента.</param>
+            <returns><c>true</c>, если уведомление существует в БД, иначе <c>false</c>.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.GetCurrentMessageCount(System.String)">
+            <summary>
+            Получить текущее количество неотправленных сообщений для указанного клиента.
+            </summary>
+            <param name="clientId">
+            Идентификатор клиента.
+            </param>
+            <returns>
+            Количество сообщений.
+            </returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.GetCurrentThisTypeMessageCount(System.String,System.String)">
+            <summary>
+            Получить текущее количество неотправленных сообщений указанного типа для указанного клиента.
+            </summary>
+            <param name="clientId">
+            Идентификатор клиента.
+            </param>
+            <param name="messageTypeId">
+            Идентификатор типа сообщения.
+            </param>
+            <returns>
+            Количество сообщений.
+            </returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.GetMessageFromESB(System.String,System.String)">
+            <summary>
+            Метод получения сообщения из шины клиентом.
+            </summary>
+            <param name="clientId">Идентификатор клиента, запрашивающего сообщение.</param>
+            <param name="messageTypeId">Идентификатор типа сообщения, которое нужно получить.</param>
+            <returns>Найденное сообщение, либо <c>null</c>.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.GetMessageInfo(System.String,System.String)">
+            <summary>
+            Получить информацию о сообщении.
+            </summary>
+            <param name="clientId">Строковый идентификатор клиента.</param>
+            <param name="messageTypeId">Строковый идентификатор типа сообщения.</param>
+            <returns>Информация о приоритете и времени формирования сообщения. Если ни одного сообщения не найдено, то <c>null</c>.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.GetMessageWithGroupFromESB(System.String,System.String,System.String)">
+            <summary>
+            Метод получения сообщения с указанным именем группы из шины клиентом.
+            </summary>
+            <param name="clientId">Идентификатор клиента, запрашивающего сообщение.</param>
+            <param name="messageTypeId">Идентификатор типа сообщения, которое нужно получить.</param>
+            <param name="groupName">Имя группы запрашиваемого сообщения.</param>
+            <returns>Найденное сообщение, либо <c>null</c>.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.GetMessageInfoWithGroup(System.String,System.String,System.String)">
+            <summary>
+            Получить информацию о сообщении с заданной группой.
+            </summary>
+            <param name="clientId">Строковой идентификатор клиента.</param>
+            <param name="messageTypeId">Строковой идентификатор типа сообщения.</param>
+            <param name="groupName">Имя группы.</param>
+            <returns>Информация о приоритете и времени формирования сообщения. Если ни одного сообщения не найдено, то <c>null</c>.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.GetMessageWithTagsFromESB(System.String,System.String,System.String[])">
+            <summary>
+            Получить сообщение из шины с соответствующими тэгами.
+            </summary>
+            <param name="clientId">Идентификатор клиента, запрашивающего сообщение.</param>
+            <param name="messageTypeId">Тип запрашиваемого сообщения.</param>
+            <param name="tags">Тэги, которые должно содержать сообщение.</param>
+            <returns>Найденное сообщение или <c>null</c>.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.GetMessageInfoWithTags(System.String,System.String,System.String[])">
+            <summary>
+            Получить информацию о сообщении с заданными тегами.
+            </summary>
+            <param name="clientId">Строковой идентификатор клиента.</param>
+            <param name="messageTypeId">Строковой идентификатор типа сообщения.</param>
+            <param name="tags">Теги.</param>
+            <returns>Информация о приоритете и времени формирования сообщения. Если ни одного сообщения не найдено, то <c>null</c>.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.RiseEventOnESB(System.String,System.String)">
+            <summary>
+            Уведомить о событии.
+            </summary>
+            <param name="clientId">
+            Идентификатор клиента, посылающего уведомление.
+            </param>
+            <param name="eventTypeId">
+            Идентификатор типа события.
+            </param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.SendMessageToESB(NewPlatform.Flexberry.HighwaySB.MessageForESB)">
+            <summary>
+            Отправить сообщение в шину.
+            </summary>
+            <param name="message">Структура данных, описывающая отправляемое сообщение.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.SendMessageToESBWithUseGroup(NewPlatform.Flexberry.HighwaySB.MessageForESB,System.String)">
+            <summary>
+            Отправить сообщение в шину с заданным именем группы.
+            </summary>
+            <param name="message">Структура данных, описывающая отправляемое сообщение.</param>
+            <param name="groupName">Имя группы.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.SubscribeClientForEventCallback(System.String,System.String)">
+            <summary>
+            Подписать клиента на получение уведомлений о событии заданного типа по callback.
+            </summary>
+            <param name="clientId">Идентификатор клиента, которого нужно подписать на уведомления.</param>
+            <param name="eventTypeId">Идентификатор типа события, о котором нужно уведомлять клиента.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.SubscribeClientForMessageCallback(System.String,System.String)">
+            <summary>
+            Подписать клиента на получение сообщений заданного типа по callback.
+            </summary>
+            <param name="clientId">Идентификатор клиента, которого нужно подписать на сообщения.</param>
+            <param name="messageTypeId">Идентификатор типа сообщений, на которые подписывается клиент.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.SBService.IsUp">
+            <summary>
+            Метод для проверки, что сервис доступен.
+            </summary>
+            <returns><c>true</c>, если сервис корректно работает.</returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.MessageSenders.HttpMessageSender">
+            <summary>
+            Класс, реализующий отправку сообщений посредством HTTP-запросов.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageSenders.HttpMessageSender.Client">
+            <summary>
+            Клиент, которому будут отправляться сообщения с помощью текущего экземпляра.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MessageSenders.HttpMessageSender.#ctor(NewPlatform.Flexberry.HighwaySB.Клиент,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Конструктор, инициализирующий свойства объекта для отправки сообщений.
+            </summary>
+            <param name="client">Получатель сообщений.</param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MessageSenders.HttpMessageSender.SendMessage(NewPlatform.Flexberry.HighwaySB.Сообщение)">
+            <summary>
+            Отправить сообщение.
+            </summary>
+            <param name="message">Сообщение, которое нужно отправить.</param>
+            <returns>Успешно ли было отправлено сообщение.</returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.MessageSenders.IMessageSender">
+            <summary>
+            Интерфейс, описывающий объект для отправки сообщений конкретному клиенту.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageSenders.IMessageSender.Client">
+            <summary>
+            Клиент, которому будут отправляться сообщения с помощью текущего экземпляра.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MessageSenders.IMessageSender.SendMessage(NewPlatform.Flexberry.HighwaySB.Сообщение)">
+            <summary>
+            Отправить сообщение.
+            </summary>
+            <param name="message">Сообщение, которое нужно отправить.</param>
+            <returns>Успешно ли было отправлено сообщение.</returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.MessageSenders.MailMessageSender">
+            <summary>
+            Класс, реализующий отправку сообщений клиентам по электронной почте.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageSenders.MailMessageSender.Client">
+            <summary>
+            Клиент, которому будут отправляться сообщения с помощью текущего экземпляра.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MessageSenders.MailMessageSender.#ctor(NewPlatform.Flexberry.HighwaySB.Клиент,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Конструктор, инициализирующий свойства объекта для отправки сообщений.
+            </summary>
+            <param name="client">Получатель сообщений.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MessageSenders.MailMessageSender.SendMessage(NewPlatform.Flexberry.HighwaySB.Сообщение)">
+            <summary>
+            Отправить сообщение.
+            </summary>
+            <param name="message">Сообщение, которое нужно отправить.</param>
+            <returns>Успешно ли было отправлено сообщение.</returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.MessageSenders.WcfMessageSender">
+            <summary>
+            Sender of callback messages through WCF.
+            <para>
+            Configuration file must contain endpoint “HighwaySbWcf.ICallbackSubscriber” at client section.
+            </para>
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.MessageSenders.WcfMessageSender._logger">
+            <summary>
+            Current logger.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MessageSenders.WcfMessageSender.#ctor(NewPlatform.Flexberry.HighwaySB.Клиент,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Конструктор, инициализирующий свойства объекта для отправки сообщений.
+            </summary>
+            <param name="client">Получатель сообщений.</param>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageSenders.WcfMessageSender.Client">
+            <summary>
+            Клиент, которому будут отправляться сообщения с помощью текущего экземпляра.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MessageSenders.WcfMessageSender.SendMessage(NewPlatform.Flexberry.HighwaySB.Сообщение)">
+            <summary>
+            Отправить сообщение.
+            </summary>
+            <param name="message">Сообщение, которое нужно отправить.</param>
+            <returns>Успешно ли было отправлено сообщение.</returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.MessageSenders.WebMessageSender">
+            <summary>
+            Класс, реализующий отправку сообщений клиентам путем обращения к asmx-сервису.
+            </summary>
+        </member>
+        <member name="P:NewPlatform.Flexberry.HighwaySB.MessageSenders.WebMessageSender.Client">
+            <summary>
+            Клиент, которому будут отправляться сообщения с помощью текущего экземпляра.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MessageSenders.WebMessageSender.#ctor(NewPlatform.Flexberry.HighwaySB.Клиент,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Конструктор, инициализирующий свойства объекта для отправки сообщений.
+            </summary>
+            <param name="client">Получатель сообщений.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.MessageSenders.WebMessageSender.SendMessage(NewPlatform.Flexberry.HighwaySB.Сообщение)">
+            <summary>
+            Отправить сообщение.
+            </summary>
+            <param name="message">Сообщение, которое нужно отправить.</param>
+            <returns>Успешно ли было отправлено сообщение.</returns>
+        </member>
+        <member name="T:NewPlatform.Flexberry.HighwaySB.ServiceHelper">
+            <summary>
+            Класс, содержащий вспомогательные методы для работы с шиной.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ServiceHelper.SenderNameTag">
+            <summary>
+            Имя тега для передачи имени отправителя в сообщениях.
+            </summary>
+        </member>
+        <member name="F:NewPlatform.Flexberry.HighwaySB.ServiceHelper.LangDef">
+            <summary>
+            Language Def для формирования ограничений.
+            </summary>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.ServiceHelper.GetIntConfigParam(System.String,System.Int32,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Получить целочисленное значение настройки из AppSettings в конфигурационном файле.
+            </summary>
+            <param name="paramName">Имя настройки, которую надо прочитать.</param>
+            <param name="defaultValue">Значение по умолчанию. Будет использовано, если не удалось получить целочисленное значение из конфигурационного файла.</param>
+            <returns>Итоговое значение параметра конфигурации.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.ServiceHelper.CreateWcfMessageFromEsb(System.DateTime,System.String,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Byte[])">
+            <summary>
+            Создать сообщение для отправки клиенту посредством WCF-сервиса по сообщению, хранящемуся в шину.
+            </summary>
+            <param name="formTime">Время формирования сообщения в шине.</param>
+            <param name="messageTypeID">Идентификатор типа собщения.</param>
+            <param name="msgBody">Тело сообещния.</param>
+            <param name="senderName">Имя отправителя сообщения.</param>
+            <param name="groupID">Имя группы сообщения.</param>
+            <param name="tags">Теги собщения.</param>
+            <param name="attachment">Вложение сообщения.</param>
+            <returns>Сформированный объект для отправки сообщения.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.ServiceHelper.CreateHttpMessageFromEsb(System.String,System.DateTime,System.String,System.String,System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Byte[])">
+            <summary>
+            Создать сообщение для отправки клиенту посредством HTTP по сообщению, хранящемуся в шину.
+            </summary>
+            <param name="id">Идентификатор сообщения, хранящегося в шине.</param>
+            <param name="formTime">Время формирования сообщения в шине.</param>
+            <param name="messageTypeID">Идентификатор типа собщения.</param>
+            <param name="msgBody">Тело сообещния.</param>
+            <param name="senderName">Имя отправителя сообщения.</param>
+            <param name="groupID">Имя группы сообщения.</param>
+            <param name="tag">Теги собщения.</param>
+            <param name="attachment">Вложение сообщения.</param>
+            <returns>Сформированный объект для отправки сообщения.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.ServiceHelper.GetTagDictionary(NewPlatform.Flexberry.HighwaySB.Сообщение)">
+            <summary>
+            Получение словаря тегов из строки. Теги разделяются знаком «;».
+            Название тега и значение разделяются знаком «:».
+            </summary>
+            <param name="msg">
+            Сообщение.
+            </param>
+            <returns>
+            Словарь тэгов.
+            </returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.ServiceHelper.ConvertClientIdToPrimaryKey(System.String,ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsService)">
+            <summary>
+            Функция для преобразования переданного идентификатора клиента в первичный ключ.
+            </summary>
+            <param name="id">Идентификатор клиента (дружественный идентификатор либо первичный ключ).</param>
+            <returns>Первичный ключ клиента, соответствующего идентификатору.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.ServiceHelper.ConvertMessageTypeIdToPrimaryKey(System.String,ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsService)">
+            <summary>
+            Функция для преобразования переданного идентификатора типа сообщения в первичный ключ.
+            </summary>
+            <param name="id">Идентификатор типа сообщения (дружественный идентификатор либо первичный ключ).</param>
+            <returns>Первичный ключ типа сообщения, соответствующего идентификатору.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.ServiceHelper.TryWithExceptionLogging(System.Action,System.Action,System.String,NewPlatform.Flexberry.HighwaySB.Клиент,NewPlatform.Flexberry.HighwaySB.Сообщение,NewPlatform.Flexberry.HighwaySB.Components.ILogger)">
+            <summary>
+            Выполнить действие, отловив возможное исключение и записав его в лог приложения.
+            </summary>
+            <param name="action">Действие, которое нужно выполнить.</param>
+            <param name="finallyAction">Действие, выполняемое после основного независимо от его успешности.</param>
+            <param name="logMessageTitle">Заголовок сообщения лога, которое будет создано в случае исключения.</param>
+            <param name="lastClient">Последний клиент, с котороым велась работа (будет указан в сообщении лога).</param>
+            <param name="lastMsg">Последнее сообщение, с которым велась работа (будет указано в сообщении лога).</param>
+            <returns>Успешно ли было выполнено действие (если произошло исключение, вернется <c>false</c>, иначе <c>true</c>).</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.ServiceHelper.GetMessagesLcs(ICSSoft.STORMNET.FunctionalLanguage.Function)">
+            <summary>
+            Функция для получения структуры для загрузки сообщений по указанному ограничению.
+            </summary>
+            <param name="limFunc">
+            Ограничение на загружаемые сообщения.
+            </param>
+            <returns>
+            Сформированная структура для загрузки сообщений.
+            </returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.ServiceHelper.AddSenderToMessage(NewPlatform.Flexberry.HighwaySB.MessageForESB,NewPlatform.Flexberry.HighwaySB.Сообщение,NewPlatform.Flexberry.HighwaySB.Клиент,ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.ILogger,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsService)">
+            <summary>
+            Установка поля "Отправитель" в создавамом сообщении. Берется из тега "senderName" или, если он не указан,
+            то вычитывается клиент по идентификатору, указанному в отправляемом сообщении.
+            </summary>
+            <param name="messageFor">Сообщение, пришедшее в шину.</param>
+            <param name="esb">Создаваемое в БД сообщение.</param>
+            <param name="sender">Отправитель, если он уже известен.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.ServiceHelper.GetClient(System.Guid,ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsService)">
+            <summary>
+            Загрузить клиента по первичному ключу.
+            </summary>
+            <param name="clientPrimaryKey">Первичный ключ загружаемого клиента.</param>
+            <returns>Найденный в БД клиент.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.ServiceHelper.GetMessageType(System.Guid,ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsService)">
+            <summary>
+            Загрузить тип сообщения по первичному ключу.
+            </summary>
+            <param name="messageTypePrimaryKey">Первичный ключ загружаемого типа сообщения.</param>
+            <returns>Тип сообщения с заданным первичным ключом.</returns>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.ServiceHelper.SaveTag(NewPlatform.Flexberry.HighwaySB.MessageForESB,NewPlatform.Flexberry.HighwaySB.Сообщение)">
+            <summary>
+            Перенести теги из принятого сообщения в сохраняемое в БД сообщение.
+            </summary>
+            <param name="messageFor">Сообщение, пришедшее в шину.</param>
+            <param name="msg">Сообщение, сохраняемое в БД.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.ServiceHelper.SetMessageWithGroupValues(NewPlatform.Flexberry.HighwaySB.MessageForESB,NewPlatform.Flexberry.HighwaySB.Подписка,NewPlatform.Flexberry.HighwaySB.Сообщение,System.String,ICSSoft.STORMNET.Business.IDataService,NewPlatform.Flexberry.HighwaySB.Components.ILogger,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsService)">
+            <summary>
+            Проинициализировать сообщение с группой для сохранения в БД.
+            </summary>
+            <param name="messageFor">Сообщение, пришедшее в шину.</param>
+            <param name="subscription">Подписка, по которой осуществляется создание сообщения в БД.</param>
+            <param name="messageWithGroup">Сообщение, сохраняемое в БД.</param>
+            <param name="groupName">Имя группы сообщения.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.ServiceHelper.UpdateStoppingDate(NewPlatform.Flexberry.HighwaySB.Подписка)">
+            <summary>
+            Продлить подписку на заданный в конфигурации период времени.
+            </summary>
+            <param name="subscription">Подписка, дату прекращения которой нужно продлить.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.ServiceHelper.UpdateObject(ICSSoft.STORMNET.Business.IDataService,ICSSoft.STORMNET.DataObject,NewPlatform.Flexberry.HighwaySB.Components.ILogger,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsService)">
+            <summary>
+            Обновление объекта.
+            При этом, если произошла ошибка взаимоблокировки транзакций, то попытка обновить повторится.
+            </summary>
+            <param name="dataService">Сервис данных, через который происходит обновление БД.</param>
+            <param name="dataObject">Объект данных, который требуется обновить.</param>
+        </member>
+        <member name="M:NewPlatform.Flexberry.HighwaySB.ServiceHelper.UpdateObjects(ICSSoft.STORMNET.Business.IDataService,ICSSoft.STORMNET.DataObject[]@,NewPlatform.Flexberry.HighwaySB.Components.ILogger,NewPlatform.Flexberry.HighwaySB.Components.IStatisticsService)">
+            <summary>
+            Обновление множества объектов с обработкой ситуации взаимоблокировки транзакций и логированием
+            прочих ошибок в системный лог.
+            </summary>
+            <param name="dataService">Сервис данных, через который происходит обновление БД.</param>
+            <param name="dataObjects">Объекты данных, которые требуется обновить.</param>
+        </member>
+    </members>
+</doc>

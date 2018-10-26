@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ICSSoft.STORMNET.Business.Audit(WinForms)</name>
+    </assembly>
+    <members>
+        <member name="T:ICSSoft.STORMNET.Business.Audit.WinForms.AuditEntityE">
+            <summary>
+            AuditEntityE.
+            </summary>
+        </member>
+        <member name="T:ICSSoft.STORMNET.Business.Audit.WinForms.DPDIAuditEntityE">
+            <summary>
+            AuditEntityE.
+            </summary>
+        </member>
+        <member name="T:ICSSoft.STORMNET.Business.Audit.WinForms.AuditFormsHelper">
+            <summary>
+            Вспомогательный класс для донастройки форм аудита.
+            </summary>
+        </member>
+        <member name="F:ICSSoft.STORMNET.Business.Audit.WinForms.AuditFormsHelper.LanguageDef">
+            <summary>
+            Описание языка задания ограничений.
+            </summary>
+        </member>
+        <member name="F:ICSSoft.STORMNET.Business.Audit.WinForms.AuditFormsHelper._auditDataService">
+            <summary>
+            Закэшированное значение сервиса данных, через который нужно читать данные аудита.
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Business.Audit.WinForms.AuditFormsHelper.ShowEditForm(System.Guid)">
+            <summary>
+            Показать запись аудита с указанным первичным ключом на форме <see cref="T:ICSSoft.STORMNET.Business.Audit.WinForms.WinformAuditEntityE"/>.
+            </summary>
+            <param name="objectPrimaryKey">Первичный ключ записи аудита, которую нужно показать.</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Business.Audit.WinForms.AuditFormsHelper.GetLimitFunctionToGetAuditByObjectsList(ICSSoft.STORMNET.FunctionalLanguage.Function)">
+            <summary>
+            Формируем функцию ограничения, чтобы получить список объектов, по которым вёлся аудит. 
+            </summary>
+            <param name="currentLimitFunction">Текущая функция ограничения.</param>
+            <returns>Сформированная функция ограничения.</returns>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Business.Audit.WinForms.AuditFormsHelper.GetLimitFunctionToGetAuditChangesForObjects(ICSSoft.STORMNET.Business.Audit.Objects.AuditEntity,ICSSoft.STORMNET.FunctionalLanguage.Function)">
+            <summary>
+            Формируем функцию ограничения, чтобы получить список изменений по объекту. 
+            </summary>
+            <param name="auditEntity">Объект данных, для которого необходимо найти список изменений.</param>
+            <param name="currentLimitFunction">Текущая функция ограничения.</param>
+            <returns>Сформированная функция ограничения.</returns>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Business.Audit.WinForms.AuditFormsHelper.FullfillChanges(ICSSoft.STORMNET.DataObject,C1.Win.C1FlexGrid.C1FlexGrid)">
+            <summary>
+            Заполняем таблицу с информацией об изменении аудируемых полей в иерархичном виде.
+            </summary>
+            <param name="dataobject">Записи аудита, где находится информация об изменении аудируемых полей.</param>
+            <param name="flexGridChanges">Таблица, куда будет заноситься информация об изменении аудируемых полей.</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Business.Audit.WinForms.AuditFormsHelper.WriteDataToRow(C1.Win.C1FlexGrid.Row,ICSSoft.STORMNET.Business.Audit.Objects.AuditField)">
+            <summary>
+            Внесение в строку информации об изменении аудируемого поля.
+            </summary>
+            <param name="row">Текущая строка.</param>
+            <param name="currentField">Информация об изменении аудируемого поля.</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Business.Audit.WinForms.AuditFormsHelper.FullfillChangesForChildNodes(ICSSoft.STORMNET.Business.Audit.Objects.AuditField,System.Collections.Generic.List{ICSSoft.STORMNET.Business.Audit.Objects.AuditField},C1.Win.C1FlexGrid.Row)">
+            <summary>
+            Внесение в строку информации об изменении аудируемого поля в виде иерархии.
+            </summary>
+            <param name="headNode">Вершина, чьих потомков мы ищем.</param>
+            <param name="auditFields">Текущий список нераспределённых вершин.</param>
+            <param name="baseRow">Родительская вершина.</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Business.Audit.WinForms.AuditFormsHelper.FullfillChangesForHeadNodes(System.Collections.Generic.List{ICSSoft.STORMNET.Business.Audit.Objects.AuditField},C1.Win.C1FlexGrid.C1FlexGrid)">
+            <summary>
+            Внесение в строку информации об изменении аудируемого поля в виде иерархии.
+            </summary>
+            <param name="auditFields">Текущий список нераспределённых вершин.</param>
+            <param name="flexGridChanges">Таблица, куда будет заноситься информация об изменении аудируемых полей.</param>
+        </member>
+        <member name="P:ICSSoft.STORMNET.Business.Audit.WinForms.AuditFormsHelper.AuditDataService">
+            <summary>
+            Cервис данных, через который нужно читать данные аудита.
+            После первого обращения значение кэшируется.
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Business.Audit.WinForms.WinformAuditEntityE.WinformAuditEntityE_DataObjectOnFormLoaded(System.Object,System.EventArgs)">
+            <summary>
+            Заносим в список информацию об изменении аудируемых полей объекта после загрузки объекта.
+            </summary>
+            <param name="sender">Инициатор события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Business.Audit.WinForms.WinformAuditEntityE.FullfillChanges">
+            <summary>
+            Заносим в список информацию об изменении аудируемых полей объекта.
+            </summary>
+        </member>
+        <member name="T:ICSSoft.STORMNET.Business.Audit.WinForms.AuditEntityL">
+            <summary>
+            AuditEntityL.
+            </summary>
+        </member>
+        <member name="T:ICSSoft.STORMNET.Business.Audit.WinForms.DPDIAuditEntityL">
+            <summary>
+            AuditEntityL.
+            </summary>
+        </member>
+        <member name="T:ICSSoft.STORMNET.Business.Audit.WinForms.AuditEntityByObjectsE">
+            <summary>
+            AuditEntityByObjectsE.
+            </summary>
+        </member>
+        <member name="T:ICSSoft.STORMNET.Business.Audit.WinForms.DPDIAuditEntityByObjectsE">
+            <summary>
+            AuditEntityByObjectsE.
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Business.Audit.WinForms.WinformAuditEntityByObjectsE.operationsList_OnFillData(System.Object,ICSSoft.STORMNET.Windows.Forms.OnFillDataEventArgs)">
+            <summary>
+            Обработка события загрузки записей об изменении объекта текущего.
+            Здесь мы задаём функцию ограничения для получения этих записей.
+            </summary>
+            <param name="sender">Инициатор события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Business.Audit.WinForms.WinformAuditEntityByObjectsE.operationsList_ObjectDblClick(System.Object,ICSSoft.STORMNET.Windows.Forms.GroupEventArgs)">
+            <summary>
+            Поднимаем форму редактирования по двойному клику.
+            </summary>
+            <param name="sender">Инициатор события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Business.Audit.WinForms.WinformAuditEntityByObjectsE.operationsList_EditObject(System.Object,ICSSoft.STORMNET.Windows.Forms.GroupEventArgs)">
+            <summary>
+            Поднимаем форму редактирования по нажатию на кнопку "Редактировать".
+            </summary>
+            <param name="sender">Инициатор события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="T:ICSSoft.STORMNET.Business.Audit.WinForms.AuditEntityByObjectsL">
+            <summary>
+            AuditEntityByObjectsL.
+            </summary>
+        </member>
+        <member name="T:ICSSoft.STORMNET.Business.Audit.WinForms.DPDIAuditEntityByObjectsL">
+            <summary>
+            AuditEntityByObjectsL.
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Business.Audit.WinForms.WinformAuditEntityByObjectsL.objectListView1_OnFillData(System.Object,ICSSoft.STORMNET.Windows.Forms.OnFillDataEventArgs)">
+            <summary>
+            Обработка загрузки списка.
+            Нас интересуют только уникальные записи.
+            </summary>
+            <param name="sender">Инициатор события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+    </members>
+</doc>

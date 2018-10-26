@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ICSSoft.STORMNET.BusinessTaskMonitor</name>
+    </assembly>
+    <members>
+        <member name="T:ICSSoft.STORMNET.BusinessTaskMonitor.Winform">
+            <summary>
+            Summary description for Form1.
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.BusinessTaskMonitor.Winform.Stopped">
+            <summary>
+            Для остановки контроля
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.BusinessTaskMonitor.Winform.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.BusinessTaskMonitor.Winform.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:ICSSoft.STORMNET.BusinessTaskMonitor.WinformBusinessTaskMonitor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ICSSoft.STORMNET.BusinessTaskMonitor.Form2">
+            <summary>
+            Summary description for Form2.
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.BusinessTaskMonitor.Form2.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.BusinessTaskMonitor.Form2.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

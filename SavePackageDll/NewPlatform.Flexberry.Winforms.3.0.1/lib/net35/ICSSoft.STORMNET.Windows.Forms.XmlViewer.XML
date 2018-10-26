@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ICSSoft.STORMNET.Windows.Forms.XmlViewer</name>
+    </assembly>
+    <members>
+        <member name="T:ICSSoft.STORMNET.Windows.Forms.XmlViewer">
+            <summary>
+            Summary description for UserControl1.
+            </summary>
+        </member>
+        <member name="F:ICSSoft.STORMNET.Windows.Forms.XmlViewer.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.Windows.Forms.XmlViewer.XmlValue">
+            <summary>
+            xml данные
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.Windows.Forms.XmlViewer.StyleName">
+            <summary>
+            имя файла в директории со стилями (директория определяется в конфигурационном файле под именем XmlViewerStylesDirectory)
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Windows.Forms.XmlViewer.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Windows.Forms.XmlViewer.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

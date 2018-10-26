@@ -1,0 +1,308 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ICSSoft.STORMNET.Deployment</name>
+    </assembly>
+    <members>
+        <member name="T:ICSSoft.STORMNET.Deployment.ClickOnceHelper">
+            <summary>
+            Класс, который помогает разобраться со строками соединения при работе через ClickOnce
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.ClickOnceHelper.GetDSTypesAndConnStrFromStorage(System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Получить Типы и Строки подключения
+            </summary>
+            <param name="dataServiceTypes">Типы подключения</param>
+            <param name="customizationStrings">Строки подключения</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.ClickOnceHelper.SaveDSTypesAndConnStrToStorage(System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Сохранить Типы и Строки подключения
+            </summary>
+            <param name="dataServiceTypes">Типы подключения</param>
+            <param name="customizationStrings">Строки подключения</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.ClickOnceHelper.ReadFromFile(System.IO.IsolatedStorage.IsolatedStorageFile,System.String,System.Collections.Generic.List{System.String}@)">
+            <summary>
+             Прочитать из файла
+            </summary>
+            <param name="isoStore">хранилище</param>
+            <param name="filename">имя файла</param>
+            <param name="data">данные</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.ClickOnceHelper.ClearSavedDSTypesAndConnStr">
+            <summary>
+            Удалить из хранилища все данные о настройках
+            </summary>
+        </member>
+        <member name="T:ICSSoft.STORMNET.Deployment.DataServiceInitializator">
+            <summary>
+             Класс - инициализатор DataService
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.DataServiceInitializator.Init(ICSSoft.STORMNET.Business.LoadingCustomizationStruct)">
+            <summary>
+             Инициализация DataService, поднимается окошко
+            </summary>
+            <param name="lcsCheck">Простая структурка, чтобы проверить вычитку из базы</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.DataServiceInitializator.Init(ICSSoft.STORMNET.Business.LoadingCustomizationStruct,System.Boolean)">
+            <summary>
+             Инициализация DataService, не для ClickOnce
+            </summary>
+            <param name="lcsCheck">Простая структурка, чтобы проверить вычитку из базы</param>
+            <param name="showFormWhenNotClickOnce">Показывать или нет окно, если приложение не ClickOnce</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.DataServiceInitializator.SelectAndCreateDB">
+            <summary>
+             Окно выбора строки подключения, создание базы и инициализация DataService
+            </summary>
+             <returns>Строка соединения</returns>
+        </member>
+        <member name="T:ICSSoft.STORMNET.Deployment.DeploymentUtils">
+            <summary>
+             Дополнительные функции Deployment
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.DeploymentUtils.ExecuteScript(System.String)">
+            <summary>
+             Исполнение скрипта, который находится в файле
+            </summary>
+            <param name="fileName">Путь к файлу</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.DeploymentUtils.IsDataServiceCsSet">
+            <summary>
+             Установлена ли строка соединения у DataService
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.DeploymentUtils.CreateDatabase(ICSSoft.STORMNET.Business.MSSQLDataService)">
+            <summary>
+             Создание базы DataService
+            </summary>
+            <param name="ds"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.DeploymentUtils.GetDatabaseName(ICSSoft.STORMNET.Business.MSSQLDataService)">
+            <summary>
+             Получение название базы у DataService
+            </summary>
+            <param name="ds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.DeploymentUtils.DatabaseExists(ICSSoft.STORMNET.Business.MSSQLDataService)">
+            <summary>
+            Проверка существования базы DataService
+            </summary>
+            <param name="ds"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ICSSoft.STORMNET.Deployment.DesktopHelper">
+            <summary>
+            Утилита для работы с настройками строк соединения и типов провайдеров в конфигурационном файле.
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.DesktopHelper.SelectAndCreateDB">
+            <summary>
+            Показывает окно с выбором сервера и базы, на нажание OK проверяет сервер и, если возможно, создает базу.
+            </summary>
+            <returns>Строка соединения.</returns>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.DesktopHelper.SetAppSetting(System.String,System.String)">
+            <summary>
+            Записать настройку приложения (пока не поддерживается user.config - будет писать в основной конфиг, наверное).
+            </summary>
+            <param name="settName">Имя настройки.</param>
+            <param name="value">Значение настройки. Не могу установить null - вернётся всегда false. Для удаления настройки пользуйтесь соответствующим методом. Можно установить <c>string.Empty</c>.</param>
+            <returns>Успешность установки.</returns>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.DesktopHelper.GetDSTypesAndConnStrFromStorage(System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Получить Типы и Строки подключения.
+            </summary>
+            <param name="dataServiceTypes">Типы подключения.</param>
+            <param name="customizationStrings">Строки подключения.</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.DesktopHelper.SaveDSTypesAndConnStrToStorage(System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Сохранить Типы и Строки подключения.
+            </summary>
+            <param name="dataServiceTypes">Типы подключения.</param>
+            <param name="customizationStrings">Строки подключения.</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.DesktopHelper.ClearSavedDSTypesAndConnStr">
+            <summary>
+            Очистить Типы и Строки подключения в хранилище.
+            </summary>
+        </member>
+        <member name="T:ICSSoft.STORMNET.Deployment.GetConnectionStringForm">
+            <summary>
+            Форма для получения типа сервиса данных и строки соединения.
+            </summary>
+        </member>
+        <member name="F:ICSSoft.STORMNET.Deployment.GetConnectionStringForm.Createdb">
+            <summary>
+             Создавать БД или нет
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.Deployment.GetConnectionStringForm.HideProviderType">
+            <summary>
+             Скрыть строку с свыбором типа провайдера
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.Deployment.GetConnectionStringForm.HideClearSavedData">
+            <summary>
+            Скрыть кнопку с очищением настроек в хранилище
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.Deployment.GetConnectionStringForm.DataServiceType">
+            <summary>
+             полное имя типа (с именем сборки) сервиса данных
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.Deployment.GetConnectionStringForm.CustomizationStrings">
+            <summary>
+            Строка соединения
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.GetConnectionStringForm.#ctor(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},ICSSoft.STORMNET.Business.LoadingCustomizationStruct)">
+            <summary>
+             Конструктор без параметров
+            </summary>
+            <param name="dataServiceTypes">Типы сервисов данных для инициализации (по-умолчанию будет выбран первый)</param>
+            <param name="customizationStrings">Строки соединения для инициализации (по-умолчанию будет выбран первая)</param>
+            <param name="lcs4Check">lcs для проверки сервиса данных - можно указать любую небольшую таблицу чтобы просто проверить есть ли возможность вычитать из неё (принудительно установлю return top 1)</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.GetConnectionStringForm.OkButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Производим попытку смены текущей БД.
+            Тут надо проверить правильность ввода, присвоить строки выходным параметрам и проинициализировать датасервис.
+            </summary>
+            <param name="sender">Инициатор события (не используется).</param>
+            <param name="e">Параметры события (не используется).</param>
+        </member>
+        <member name="T:ICSSoft.STORMNET.Deployment.GetConnectionStringForm.ClearSavedDelegate">
+            <summary>
+             Делегат для метода очистки сохранённых настроек
+            </summary>
+        </member>
+        <member name="E:ICSSoft.STORMNET.Deployment.GetConnectionStringForm.ClearSaved">
+            <summary>
+            Событие очистки сохранённых настроек
+            </summary>
+        </member>
+        <member name="F:ICSSoft.STORMNET.Deployment.GetConnectionStringForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.GetConnectionStringForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.GetConnectionStringForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:ICSSoft.STORMNET.Deployment.GetConnStrHelper">
+            <summary>
+            Базовый метод для работы с настройками сервиса данных.
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.GetConnStrHelper.GetDSTypesAndConnStrFromStorage(System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Получить Типы и Строки подключения.
+            </summary>
+            <param name="dataServiceTypes">Типы подключения.</param>
+            <param name="customizationStrings">Строки подключения.</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.GetConnStrHelper.SaveDSTypesAndConnStrToStorage(System.Collections.Generic.List{System.String}@,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Сохранить Типы и Строки подключения.
+            </summary>
+            <param name="dataServiceTypes">Типы подключения.</param>
+            <param name="customizationStrings">Строки подключения.</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.GetConnStrHelper.ClearSavedDSTypesAndConnStr">
+            <summary>
+            Очистить Типы и Строки подключения в хранилище.
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.Deployment.GetConnStrHelper.SelectedConnString">
+            <summary>
+            Выбранная строка соединения на форме.
+            </summary>
+        </member>
+        <member name="P:ICSSoft.STORMNET.Deployment.GetConnStrHelper.SelectedDataServiceType">
+            <summary>
+            Выбранная строка соединения на форме.
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.GetConnStrHelper.InitDataService(ICSSoft.STORMNET.Business.LoadingCustomizationStruct)">
+            <summary>
+            Проинициализировать сервис данных на основе выбранных пользователем настроек.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.GetConnStrHelper.ClearSavedData">
+            <summary>
+            Удаление сохраненных данных в хранилище и из памяти.
+            </summary>
+        </member>
+        <member name="T:ICSSoft.STORMNET.Deployment.LicenseTools">
+            <summary>
+             Класс работы с лицензиями
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.LicenseTools.SelectLicence(System.String,System.String)">
+            <summary>
+             Выбор лицензии и копирование ее в папку с приложением
+            </summary>
+            <param name="initialDirectory">Папка, которая покажется при открытии диалога</param>
+            <param name="destinationDirectory">Папка, куда будет скопирован файл</param>
+            <returns>Если файл был выбран - true, иначе - false</returns>
+        </member>
+        <member name="T:ICSSoft.STORMNET.Deployment.LittleProgressForm">
+            <summary>
+            Формочка с бегающим кругом для того, чтобы пользователи не пугались отсутствия реакции от приложения
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.LittleProgressForm.#ctor">
+            <summary>
+            Конструктор по-умолчанию
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.LittleProgressForm.Start">
+            <summary>
+            Показать форму выполняющегося процесса (если неясно когда он закончится)
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.LittleProgressForm.Stop">
+            <summary>
+            Остановить форму выполняющегося процесса
+            </summary>
+        </member>
+        <member name="F:ICSSoft.STORMNET.Deployment.LittleProgressForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.LittleProgressForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Deployment.LittleProgressForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

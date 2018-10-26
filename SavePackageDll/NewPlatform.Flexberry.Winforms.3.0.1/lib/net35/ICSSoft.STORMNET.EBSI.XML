@@ -1,0 +1,676 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ICSSoft.STORMNET.EBSI</name>
+    </assembly>
+    <members>
+        <member name="T:Scriptizer.RunTime.ActionContext">
+            <summary>
+            контекст действия. Создается для всех активных действий и удаляется, когда срабатывает финальное событие действия.
+            Скрипт выполняется до тех пор, пока есть хотя-бы один контекст действия
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.ActionContext.action">
+            <summary>
+            действие для выполенения
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.ActionContext.parameters">
+            <summary>
+            параметры для действия
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.ActionContext.interpreter">
+            <summary>
+            ссылка на интерпретатор, который выполняет действие
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.ActionContext.handlers">
+            <summary>
+            коллекция обработчиков событий объекта
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.ActionContext.obj">
+            <summary>
+            объект, который выполняется в данном действии
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.ActionContext.#ctor(Scriptizer.DataObjects.CommonAction,ICSSoft.STORMNET.Collections.NameObjectCollection,System.Object,Scriptizer.RunTime.ScriptInterpreter)">
+            <summary>
+            контекст действия
+            </summary>
+            <param name="action"></param>
+            <param name="parameters"></param>
+            <param name="obj"></param>
+            <param name="interpreter"></param>
+        </member>
+        <member name="M:Scriptizer.RunTime.ActionContext.AddCatcher(Scriptizer.RunTime.Catcher)">
+            <summary>
+            добавить обработчик в коллекцию
+            </summary>
+            <param name="eh"></param>
+        </member>
+        <member name="T:Scriptizer.RunTime.ActionContextCollectionChangedEventArgs">
+            <summary>
+            аргументы для события изменения коллекции активных контекстов
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.ActionContextCollectionChangedEventArgs.ActionContext">
+            <summary>
+             контекст, над которым производится операция
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.ActionContextCollectionChangedEventArgs.ActionContextAdded">
+            <summary>
+             действие, которое произведено
+             Если true - то контекст был добавлен в коллекцию активных контекстов.
+             Если false - то контекст был удален из коллекции активных контекстов.
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.ActionContextCollectionChangedEventArgs.#ctor(Scriptizer.RunTime.ActionContext,System.Boolean)">
+            <summary>
+            конструктор 
+            </summary>
+            <param name="acc">контекст, над которым производится операция</param>
+            <param name="added">действие, которое произведено. 
+            Если true - то контекст был добавлен в коллекцию активных контекстов.
+            Если false - то контекст был удален из коллекции активных контекстов.</param>
+        </member>
+        <member name="T:Scriptizer.RunTime.ActionContextCollectionChangedEventHandler">
+            <summary>
+            Делегат для эвента, сообщающего об изменении коллекции активных действий.
+            </summary>
+        </member>
+        <member name="P:Scriptizer.RunTime.Catcher.EventName">
+            <summary>
+            имя события
+            </summary>
+        </member>
+        <member name="P:Scriptizer.RunTime.Catcher.Parent">
+            <summary>
+            родитель
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.Catcher.prv_HandleEvent(System.Object,System.EventArgs)">
+            <summary>
+            обработчик события
+            </summary>
+            <param name="sender"></param>       
+            <param name="e"></param>
+        </member>
+        <member name="T:Scriptizer.RunTime.EndMethodEventArgs">
+            <summary>
+            аргументы системного события - окончание метода
+            </summary>
+        </member>
+        <member name="T:Scriptizer.RunTime.ErrorEventArgs">
+            <summary>
+            аргументы системного события - аварийное завершение метода по ошибке
+            </summary>
+        </member>
+        <member name="T:Scriptizer.RunTime.FireEventArgs">
+            <summary>
+            аргументы для отправки сообщения о происхождении события
+            </summary>
+        </member>
+        <member name="T:Scriptizer.RunTime.FireEventEventHandler">
+            <summary>
+            Делегат для эвента, сообщающего о том, что произошло какое-то событие.
+            </summary>
+        </member>
+        <member name="T:Scriptizer.RunTime.ScriptFinalizerAttribute">
+            <summary>
+            Если некоторый объект, имеющий помеченный данным атрибутом метод, 
+            помещён в коллекцию переменных интерпретатора скриптов, то этот меченый метод вызывается
+            при достижении скриптом FinalAction или его принудительном окончании.
+            Метод должен быть обязательно объявлен как void и без параметров.
+            </summary>
+        </member>
+        <member name="T:Scriptizer.RunTime.EmptyArgumentInEventException">
+            <summary>
+            при генерации события был указан пустой (null) аргумент события
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.EmptyArgumentInEventException.Sender">
+            <summary>
+            объект, который сгенерил событие
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.EmptyArgumentInEventException.EventName">
+            <summary>
+            имя события, которое обрабатывается
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.EmptyArgumentInEventException.#ctor(System.String,System.String)">
+            <summary>
+            конструктор исключения
+            </summary>
+            <param name="sender"></param>
+            <param name="eventName"></param>
+        </member>
+        <member name="T:Scriptizer.RunTime.ScriptInterpreterBusyException">
+            <summary>
+            попытка запустить скрипт, когда данным интерпретером уже выполняется скрипт
+            </summary>
+        </member>
+        <member name="T:Scriptizer.RunTime.NoSuchScriptException">
+            <summary>
+            попытка выполнить скрипт/действие из скрипта, которого нет в коллекции интерпретера
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoSuchScriptException.ScriptName">
+            <summary>
+            имя скрипта
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.NoSuchScriptException.#ctor(System.String)">
+            <summary>
+            конструктор исключения
+            </summary>
+            <param name="scriptName"></param>
+        </member>
+        <member name="T:Scriptizer.RunTime.NoStartActionException">
+            <summary>
+            невозможно найти стартовое действие в скрипте
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoStartActionException.ScriptName">
+            <summary>
+            скрипт, в котором нет стартового действия
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.NoStartActionException.#ctor(System.String)">
+            <summary>
+            конструктор исключения
+            </summary>
+            <param name="scriptName"></param>
+        </member>
+        <member name="T:Scriptizer.RunTime.NoActionContextToRemoveException">
+            <summary>
+            невозможно удалить контекст действия, так как его нет
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoActionContextToRemoveException.Sender">
+            <summary>
+            объект, который сгенерил событие
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoActionContextToRemoveException.EventName">
+            <summary>
+            имя события, которое обрабатывается
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.NoActionContextToRemoveException.#ctor(System.String,System.String)">
+            <summary>
+            конструктор исключения
+            </summary>
+            <param name="sender"></param>
+            <param name="eventName"></param>
+        </member>
+        <member name="T:Scriptizer.RunTime.NoSuchVariableException">
+            <summary>
+            не существует переменной в коллекции 
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoSuchVariableException.VariableName">
+            <summary>
+            имя переменной
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.NoSuchVariableException.#ctor(System.String)">
+            <summary>
+            конструктор исключения
+            </summary>
+            <param name="variableName"></param>
+        </member>
+        <member name="T:Scriptizer.RunTime.NoDestActionException">
+            <summary>
+            не существует действия для перехода
+            </summary>
+        </member>
+        <member name="T:Scriptizer.RunTime.SomeErrorInConditionException">
+            <summary>
+            произошла ошибка при попытке вычислить значение условия
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.SomeErrorInConditionException.Condition">
+            <summary>
+            условие, в котором произошла ошибка
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.SomeErrorInConditionException.#ctor(System.String)">
+            <summary>
+            конструктор исключения
+            </summary>
+            <param name="condition"></param>
+        </member>
+        <member name="T:Scriptizer.RunTime.NoSuchFieldInEventArgsException">
+            <summary>
+            невозможно найти поле в аргументе события
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoSuchFieldInEventArgsException.EventArgsType">
+            <summary>
+            тип класса с аргументами
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoSuchFieldInEventArgsException.FieldName">
+            <summary>
+            имя поля
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.NoSuchFieldInEventArgsException.#ctor(System.String,System.String)">
+            <summary>
+            конструктор исключения
+            </summary>
+            <param name="eventArgsType"></param>
+            <param name="fieldName"></param>
+        </member>
+        <member name="T:Scriptizer.RunTime.NoSuchEventException">
+            <summary>
+            невозможно найти событие у объекта
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoSuchEventException.TypeOfObject">
+            <summary>
+            тип объекта
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoSuchEventException.EventName">
+            <summary>
+            имя события
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.NoSuchEventException.#ctor(System.String,System.String)">
+            <summary>
+            конструктор исключения
+            </summary>
+            <param name="typeOfObject"></param>
+            <param name="eventName"></param>
+        </member>
+        <member name="T:Scriptizer.RunTime.CantAddEventHandlerToNullObject">
+            <summary>
+            Невозможно добавить обработчик события к пустому объекту
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.CantAddEventHandlerToNullObject.#ctor(System.String,System.String,System.String)">
+            <summary>
+             Невозможно добавить обработчик события к пустому объекту
+            </summary>
+            <param name="actionName">Действие</param>
+            <param name="t">Тип</param>
+            <param name="evname">Событие</param>
+        </member>
+        <member name="T:Scriptizer.RunTime.NoStoredCatcherException">
+            <summary>
+            нет подходящего класса для обработки события
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoStoredCatcherException.TypeOfObject">
+            <summary>
+            тип объекта
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoStoredCatcherException.EventName">
+            <summary>
+            имя события
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.NoStoredCatcherException.#ctor(System.String,System.String)">
+            <summary>
+            конструктор исключения
+            </summary>
+            <param name="typeOfObject"></param>
+            <param name="eventName"></param>
+        </member>
+        <member name="T:Scriptizer.RunTime.NoAppropriateCatcherException">
+            <summary>
+            нет подходящего класса для обработки события
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoAppropriateCatcherException.TypeOfObject">
+            <summary>
+            тип объекта
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoAppropriateCatcherException.EventName">
+            <summary>
+            имя события
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.NoAppropriateCatcherException.#ctor(System.String,System.String)">
+            <summary>
+            конструктор исключения
+            </summary>
+            <param name="typeOfObject"></param>
+            <param name="eventName"></param>
+        </member>
+        <member name="T:Scriptizer.RunTime.InvalidConstValueException">
+            <summary>
+            ошибка при вычислении константы
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.InvalidConstValueException.m_sType">
+            <summary>
+             тип
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.InvalidConstValueException.m_sValue">
+            <summary>
+            Значение
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.InvalidConstValueException.#ctor(System.String,System.String)">
+            <summary>
+             Invalid const value
+            </summary>
+            <param name="sType">тип</param>
+            <param name="sValue">значение</param>
+        </member>
+        <member name="P:Scriptizer.RunTime.InvalidConstValueException.Type">
+            <summary>
+             Тип
+            </summary>
+        </member>
+        <member name="P:Scriptizer.RunTime.InvalidConstValueException.Value">
+            <summary>
+             Значение
+            </summary>
+        </member>
+        <member name="T:Scriptizer.RunTime.NoSuchTypeFound">
+            <summary>
+            нет типа объекта в подключенных сборках
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoSuchTypeFound.TypeOfObject">
+            <summary>
+            тип объекта
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.NoSuchTypeFound.#ctor(System.String)">
+            <summary>
+            конструктор исключения
+            </summary>
+            <param name="typeOfObject"></param>
+        </member>
+        <member name="T:Scriptizer.RunTime.NoSuchMethodForMethodActionException">
+            <summary>
+            невозможно найти метод 
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoSuchMethodForMethodActionException.TypeOfObject">
+            <summary>
+            тип объекта
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoSuchMethodForMethodActionException.MethodName">
+            <summary>
+            имя метода
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.NoSuchMethodForMethodActionException.#ctor(System.String,System.String)">
+            <summary>
+            конструктор исключения
+            </summary>
+            <param name="typeOfObject"></param>
+            <param name="methodName"></param>
+        </member>
+        <member name="T:Scriptizer.RunTime.NoSuchParameterException">
+            <summary>
+            невозможно найти описание параметра
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoSuchParameterException.TypeOfObject">
+            <summary>
+            тип объекта
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoSuchParameterException.MethodName">
+            <summary>
+            имя метода
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoSuchParameterException.ParamName">
+            <summary>
+            имя параметра
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.NoSuchParameterException.#ctor(System.String,System.String,System.String)">
+            <summary>
+            конструктор исключения
+            </summary>
+            <param name="typeOfObject"></param>
+            <param name="methodName"></param>
+            <param name="paramName"></param>
+        </member>
+        <member name="T:Scriptizer.RunTime.NoSuchActionForExternActionException">
+            <summary>
+            невозможно найти действие во внешнем скрипте
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoSuchActionForExternActionException.ScriptName">
+            <summary>
+            имя внешнего скрипта
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.NoSuchActionForExternActionException.ActionName">
+            <summary>
+            имя действия во внешнем скрипте
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.NoSuchActionForExternActionException.#ctor(System.String,System.String)">
+            <summary>
+            конструктор исключения
+            </summary>
+            <param name="scriptName"></param>
+            <param name="actionName"></param>
+        </member>
+        <member name="T:Scriptizer.RunTime.ScriptInterpreter">
+            <summary>
+            Интерпретатор скриптов.
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.ScriptInterpreter.variables">
+            <summary>
+            глобальная коллекция переменных
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.ScriptInterpreter.assemblies">
+            <summary>
+            коллекция со сборками, участвующими в скрипте (классы которых будут подниматься в качестве действий)
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.ScriptInterpreter.derivedinterpreters">
+            <summary>
+            Коллекция интерпретаторов, которые созданы посредством MethodActionScripted в рамках данного интерпретатора
+            </summary>
+        </member>
+        <member name="E:Scriptizer.RunTime.ScriptInterpreter.FinalEvent">
+            <summary>
+            Извещает об окончании работы скрипта.
+            </summary>
+        </member>
+        <member name="P:Scriptizer.RunTime.ScriptInterpreter.Assemblies">
+            <summary>
+            коллекция со сборками, участвующими в скрипте (классы которых будут подниматься в качестве действий)
+            </summary>
+        </member>
+        <member name="P:Scriptizer.RunTime.ScriptInterpreter.Variables">
+            <summary>
+            глобальная коллекция переменных
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.ScriptInterpreter.script">
+            <summary>
+            текущий скрипт
+            </summary>
+        </member>
+        <member name="P:Scriptizer.RunTime.ScriptInterpreter.Scripts">
+            <summary>
+            коллекция скриптов
+            </summary>
+        </member>
+        <member name="F:Scriptizer.RunTime.ScriptInterpreter.actioncontexts">
+            <summary>
+            список активных действий
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.DoScript(System.String,ICSSoft.STORMNET.Collections.NameObjectCollection)">
+            <summary>
+            выполнить скрипт
+            </summary>
+            <param name="ScriptName">Имя скрипта</param>
+            <param name="parameters">Параметры</param>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.prv_GetStartActionForScript(Scriptizer.DataObjects.Script)">
+            <summary>
+            получить начальное действие для скрипта
+            </summary>
+            <param name="script"></param>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.DoEvent(Scriptizer.DataObjects.Event,Scriptizer.RunTime.ActionContext,System.EventArgs,System.Object)">
+            <summary>
+            обработать событие
+            </summary>
+            <param name="e"></param>
+            <param name="aroundacc"></param>
+            <param name="ea"></param>
+            <param name="sender"></param>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.IsScriptActive(Scriptizer.DataObjects.Script)">
+            <summary>
+            проверить, является ли скрипт "активным". Т.е., находится ли како-либо действие скрипта в коллекции контекстов актиывных действий.
+            </summary>
+            <param name="scr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.prv_GetConstValue(System.String,System.String)">
+            <summary>
+            получить значение константы
+            </summary>
+            <param name="sConstValueType"></param>
+            <param name="sConstValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.prv_GetActionContextByTransition(Scriptizer.DataObjects.Transition,Scriptizer.RunTime.ActionContext,System.EventArgs,System.Object)">
+            <summary>
+            "выполнить переход". Фактически выполнить действия над коллекцией, 
+            подготовить параметры и вернуть контекст для нового действия
+            </summary>
+            <param name="tr">Переход</param>
+            <param name="acc">контекст действия</param>
+            <param name="ea"></param>
+            <param name="sender"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.prv_GetMethodInfo(System.Type,System.String,System.Type[])">
+            <summary>
+            получить информацию о методе
+            </summary>
+            <param name="typeofobject"></param>
+            <param name="methodname"></param>
+            <param name="types"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.prv_ExecuteCondition(System.String)">
+            <summary>
+            вычисляет значение выражения. Выражение должно быть написано в стандартном sql-виде
+            </summary>
+            <param name="conditionstring"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.prv_GetNameAndValueOfComplexVariable(System.String,System.Int32,System.Object,System.String@,System.Object@)">
+            <summary>
+            реализует преобразование имени и значения при использовании пропертей любого уровня в строке с условиями
+            </summary>
+            <param name="conditionstring"></param>
+            <param name="iEnd"></param>
+            <param name="v"></param>
+            <param name="sName"></param>
+            <param name="realobj"></param>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.prv_GetNextChar(System.String,System.Int32@)">
+            <summary>
+            возвращает текущий символ
+            </summary>
+            <param name="s"></param>
+            <param name="i"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.prv_GetFieldValue(System.Object,System.EventArgs,System.String)">
+            <summary>
+            получить значение поля в классе с аргументами
+            </summary>
+            <param name="sender"></param>
+            <param name="ea"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.DoActionContext(Scriptizer.RunTime.ActionContext)">
+            <summary>
+            запустить на выполнение вновь созданный контекст действия
+            </summary>
+            <param name="acc"></param>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.prv_SetEventsForActionContext(Scriptizer.RunTime.ActionContext)">
+            <summary>
+            установить обработчики событий для действия
+            </summary>
+            <param name="acc"></param>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.prv_GetTypeOfMethod(System.String)">
+            <summary>
+            возвратить тип по его полному имени. Просматриваются все подключенные сборки
+            </summary>
+            <param name="ma"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.prv_ReleaseEventsForActionContext(Scriptizer.RunTime.ActionContext)">
+            <summary>
+            снять обработчики событий для действия
+            </summary>
+            <param name="acc"></param>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.prv_DoAction(Scriptizer.RunTime.ActionContext)">
+            <summary>
+            выполнить действие
+            </summary>
+            <param name="acc"></param>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.FinalizeInterpretation">
+            <summary>
+            Завершить работу скрипта
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.OnFinal">
+            <summary>
+            Взводит событие <see cref="E:Scriptizer.RunTime.ScriptInterpreter.FinalEvent"/>
+            </summary>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.prv_GetEndMethodEventForAction(Scriptizer.DataObjects.CommonAction)">
+            <summary>
+            возвратить событие окончания метода для действия метода
+            </summary>
+            <param name="ma"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Scriptizer.RunTime.ScriptInterpreter.prv_GetErrorEventForAction(Scriptizer.DataObjects.CommonAction)">
+            <summary>
+            возвратить событие ошибки для действия метода
+            </summary>
+            <param name="ma"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Scriptizer.RunTime.ScriptInterpreter.ActionContexts">
+            <summary>
+            список активных контекстов действий
+            </summary>
+        </member>
+        <member name="P:Scriptizer.RunTime.ScriptInterpreter.Ready">
+            <summary>
+            свободен ли
+            </summary>
+        </member>
+    </members>
+</doc>

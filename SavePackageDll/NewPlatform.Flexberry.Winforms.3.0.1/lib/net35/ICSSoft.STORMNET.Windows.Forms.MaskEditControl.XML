@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ICSSoft.STORMNET.Windows.Forms.MaskEditControl</name>
+    </assembly>
+    <members>
+        <member name="T:ICSSoft.STORMNET.Windows.Forms.MaskEditControl">
+            <summary>
+            Summary description for UserControl1.
+            </summary>
+        </member>
+        <member name="F:ICSSoft.STORMNET.Windows.Forms.MaskEditControl.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Windows.Forms.MaskEditControl.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:ICSSoft.STORMNET.Windows.Forms.MaskEditControl.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>
