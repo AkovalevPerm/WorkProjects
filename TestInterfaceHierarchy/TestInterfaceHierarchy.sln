@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestInterfaceHierarchy", "TestInterfaceHierarchy\TestInterfaceHierarchy.csproj", "{CFC1869D-25FA-435F-A0CD-F95F637473EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFC1869D-25FA-435F-A0CD-F95F637473EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFC1869D-25FA-435F-A0CD-F95F637473EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFC1869D-25FA-435F-A0CD-F95F637473EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFC1869D-25FA-435F-A0CD-F95F637473EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {64EAFBED-5143-423E-B357-A91E6DB7499B}
+	EndGlobalSection
+EndGlobal
