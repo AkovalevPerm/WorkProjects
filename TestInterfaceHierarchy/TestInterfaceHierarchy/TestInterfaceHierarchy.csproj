@@ -47,18 +47,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContentClass\RDSElement.cs" />
-    <Compile Include="ContentClass\SelectedList.cs" />
-    <Compile Include="Factory\AgencyRDSElementFactory.cs" />
-    <Compile Include="Factory\AgencySelectedListFactory.cs" />
-    <Compile Include="Factory\AgencyTreeListFactory.cs" />
-    <Compile Include="Interface\IDepartamentContentFactory.cs" />
-    <Compile Include="Interface\IAgencyContentFactory.cs" />
-    <Compile Include="Interface\IRegionContentFactory.cs" />
-    <Compile Include="Interface\ISPContentFactory.cs" />
+    <Compile Include="Service1\ContentClass\RDSElement.cs" />
+    <Compile Include="Service1\ContentClass\SelectedList.cs" />
+    <Compile Include="Service1\Factory\AgencyRDSElementFactory.cs" />
+    <Compile Include="Service1\Factory\AgencySelectedListFactory.cs" />
+    <Compile Include="Service1\Factory\AgencyTreeListFactory.cs" />
+    <Compile Include="Service1\Interface\IDepartamentContentFactory.cs" />
+    <Compile Include="Service1\Interface\IAgencyContentFactory.cs" />
+    <Compile Include="Service1\Interface\IRegionContentFactory.cs" />
+    <Compile Include="Service1\Interface\ISPContentFactory.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ContentClass\TreeList.cs" />
+    <Compile Include="Service1\ContentClass\TreeList.cs" />
+    <Compile Include="Service2\AgencyContentBuilder.cs" />
+    <Compile Include="Service2\CommonContentBuilder.cs" />
+    <Compile Include="Service2\DepartamentContentBuilder.cs" />
+    <Compile Include="Service2\IContentBuilderService.cs" />
+    <Compile Include="Service2\RegionContentBuilder.cs" />
+    <Compile Include="Service3\RDSElemDepartamentBuilder.cs" />
+    <Compile Include="Service3\RDSElemRegionBuilder.cs" />
+    <Compile Include="Service3\IContentBuilder.cs" />
+    <Compile Include="Service3\PremissionAgency.cs" />
+    <Compile Include="Service3\PremissionDepartement.cs" />
+    <Compile Include="Service3\PremissionRegion.cs" />
+    <Compile Include="Service3\RDSElemAgencyBuilder.cs" />
+    <Compile Include="Service3\SelectListContentBuilder.cs" />
+    <Compile Include="Service3\TreeListContentBuilder.cs" />
+    <Compile Include="Test.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -70,6 +85,8 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

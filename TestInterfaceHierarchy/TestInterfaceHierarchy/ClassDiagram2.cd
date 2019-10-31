@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Абстрактный класс, который содержит общие методы, используемые во всех реализациях">
+    <Position X="5.104" Y="0.563" Height="0.49" Width="2.981" />
+  </Comment>
+  <Comment CommentText="Конкретные реализации по постройке контента">
+    <Position X="0.854" Y="4.583" Height="0.333" Width="3.023" />
+  </Comment>
+  <Comment CommentText="Общий интерфейс, который будет ресолвится через DI в контроллерах">
+    <Position X="9.688" Y="2.094" Height="0.49" Width="2.679" />
+  </Comment>
+  <Class Name="TestInterfaceHierarchy.Service.AgencyContentBuilder">
+    <Position X="5.25" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAABAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Service2\AgencyContentBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestInterfaceHierarchy.Service.CommonContentBuilder">
+    <Position X="3" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAABAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Service2\CommonContentBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TestInterfaceHierarchy.Service.DepartamentContentBuilder">
+    <Position X="3" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAABAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Service2\DepartamentContentBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestInterfaceHierarchy.Service.RegionContentBuilder">
+    <Position X="0.75" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAABAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Service2\RegionContentBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="TestInterfaceHierarchy.Service.IContentBuilderService">
+    <Position X="9.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAABAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Service2\IContentBuilderService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
