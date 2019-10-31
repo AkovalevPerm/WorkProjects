@@ -1,8 +1,7 @@
-﻿using System;
-using TestInterfaceHierarchy.ContentClass;
-
-namespace TestInterfaceHierarchy.Service
+﻿namespace TestInterfaceHierarchy.Service2
 {
+    using Service1.ContentClass;
+
     public abstract class CommonContentBuilder : IContentBuilderService
     {
         public abstract RDSElement GetRDSElementContent();

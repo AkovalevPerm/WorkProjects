@@ -1,8 +1,8 @@
-﻿using System;
-using TestInterfaceHierarchy.ContentClass;
-
-namespace TestInterfaceHierarchy.Service
+﻿namespace TestInterfaceHierarchy.Service2
 {
+    using System;
+    using Service1.ContentClass;
+
     public class RegionContentBuilder : CommonContentBuilder
     {
         public override RDSElement GetRDSElementContent()

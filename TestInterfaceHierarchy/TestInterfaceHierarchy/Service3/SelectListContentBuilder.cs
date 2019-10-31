@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using TestInterfaceHierarchy.ContentClass;
 
 namespace TestInterfaceHierarchy.Service3
 {
+    using Service1.ContentClass;
+
     public class SelectListContentBuilder<TPremission> : IContentBuilder<SelectedList, TPremission>
     {
         private readonly IContentBuilder<RDSElement, TPremission> _contentBuilder;

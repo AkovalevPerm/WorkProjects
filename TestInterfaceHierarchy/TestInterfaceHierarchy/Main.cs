@@ -1,8 +1,8 @@
 ﻿namespace TestInterfaceHierarchy
 {
-    using ContentClass;
     using System.Collections.Generic;
-    using TestInterfaceHierarchy.Service3;
+    using Service1.ContentClass;
+    using Service3;
 
     public class AppController
     {

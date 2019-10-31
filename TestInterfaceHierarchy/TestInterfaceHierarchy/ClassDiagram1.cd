@@ -3,7 +3,7 @@
   <Comment CommentText="Классы контента, которые создаются фабриками. Не имеют общего интерфейса">
     <Position X="0.5" Y="5.376" Height="0.296" Width="5.08" />
   </Comment>
-  <Class Name="TestInterfaceHierarchy.Factory.AgencyRDSElementFactory" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="TestInterfaceHierarchy.Service1.Factory.AgencyRDSElementFactory" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="4.5" Y="4.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -11,7 +11,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="TestInterfaceHierarchy.Factory.AgencySelectedListFactory" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="TestInterfaceHierarchy.Service1.Factory.AgencySelectedListFactory" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="4.5" Y="2.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -19,7 +19,7 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="TestInterfaceHierarchy.Factory.AgencyTreeListFactory" Collapsed="true" BaseTypeListCollapsed="true">
+  <Class Name="TestInterfaceHierarchy.Service1.Factory.AgencyTreeListFactory" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="4.5" Y="3.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -27,49 +27,49 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="TestInterfaceHierarchy.ContentClass.RDSElement" Collapsed="true">
+  <Class Name="TestInterfaceHierarchy.Service1.ContentClass.RDSElement" Collapsed="true">
     <Position X="0.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Service1\ContentClass\RDSElement.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestInterfaceHierarchy.ContentClass.SelectedList" Collapsed="true">
+  <Class Name="TestInterfaceHierarchy.Service1.ContentClass.SelectedList" Collapsed="true">
     <Position X="2.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Service1\ContentClass\SelectedList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TestInterfaceHierarchy.ContentClass.TreeList" Collapsed="true">
+  <Class Name="TestInterfaceHierarchy.Service1.ContentClass.TreeList" Collapsed="true">
     <Position X="4" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Service1\ContentClass\TreeList.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="TestInterfaceHierarchy.Interface.ISpContentFactory&lt;TContent&gt;" Collapsed="true">
+  <Interface Name="TestInterfaceHierarchy.Service1.Interface.ISpContentFactory&lt;TContent&gt;" Collapsed="true">
     <Position X="4.5" Y="0.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Service1\Interface\ISPContentFactory.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="TestInterfaceHierarchy.Interface.IRegionContentFactory&lt;TContent&gt;" Collapsed="true">
+  <Interface Name="TestInterfaceHierarchy.Service1.Interface.IRegionContentFactory&lt;TContent&gt;" Collapsed="true">
     <Position X="7.75" Y="1.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Service1\Interface\IRegionContentFactory.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="TestInterfaceHierarchy.Interface.IDepartamentContentFactory&lt;TContent&gt;" Collapsed="true">
+  <Interface Name="TestInterfaceHierarchy.Service1.Interface.IDepartamentContentFactory&lt;TContent&gt;" Collapsed="true">
     <Position X="0.5" Y="1.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Service1\Interface\IDepartamentContentFactory.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="TestInterfaceHierarchy.Interface.IAgencyContentFactory&lt;TContent&gt;" Collapsed="true">
+  <Interface Name="TestInterfaceHierarchy.Service1.Interface.IAgencyContentFactory&lt;TContent&gt;" Collapsed="true">
     <Position X="4.25" Y="1.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
